@@ -57,6 +57,9 @@ export type StudyCard = {
   imageCaption: string;
   imageCredit?: string;
   imageSourceUrl?: string;
+  schemeImage?: string;
+  schemeAlt?: string;
+  schemeText?: string;
   keyDiagnostic: string;
   diagnosticTraits: string[];
   lookFor: string;
@@ -633,6 +636,9 @@ export const cerealStudyCards: StudyCard[] = [
     image: "/study/cereal-triticum.jpg",
     imageAlt: "Espiga de Triticum durum o trigo fideo",
     imageCaption: "Espiga de trigo fideo: una espiguilla pluriflora por nudo.",
+    schemeImage: "/study/scheme-triticum-secale.jpg",
+    schemeAlt: "Esquema de una espiguilla pluriflora por nudo para trigo y centeno",
+    schemeText: "Una espiguilla pluriflora en cada nudo del raquis.",
     keyDiagnostic: "Una espiguilla pluriflora por nudo y glumas anchas y naviculares.",
     diagnosticTraits: [
       "Inflorescencia en espiga.",
@@ -655,6 +661,9 @@ export const cerealStudyCards: StudyCard[] = [
     image: "/study/cereal-secale.jpg",
     imageAlt: "Espigas delgadas de Secale cereale o centeno",
     imageCaption: "Centeno: espiga delgada con glumas angostas y lineares.",
+    schemeImage: "/study/scheme-triticum-secale.jpg",
+    schemeAlt: "Esquema de una espiguilla pluriflora por nudo para trigo y centeno",
+    schemeText: "Una espiguilla pluriflora en cada nudo del raquis.",
     keyDiagnostic: "Una espiguilla pluriflora por nudo y glumas angostas y lineares.",
     diagnosticTraits: [
       "Inflorescencia en espiga delgada y flexible.",
@@ -677,6 +686,9 @@ export const cerealStudyCards: StudyCard[] = [
     image: "/study/cereal-hordeum-six.jpg",
     imageAlt: "Espigas de cebada forrajera de seis hileras",
     imageCaption: "En la cebada forrajera son fertiles las tres espiguillas de cada nudo.",
+    schemeImage: "/study/scheme-hordeum-six.jpg",
+    schemeAlt: "Esquema de tres espiguillas unifloras fertiles en un nudo de cebada forrajera",
+    schemeText: "Tres espiguillas unifloras por nudo; las tres son fertiles.",
     keyDiagnostic: "Tres espiguillas unifloras fertiles por nudo, que forman seis hileras.",
     diagnosticTraits: [
       "Tres espiguillas unifloras en cada nudo.",
@@ -699,6 +711,9 @@ export const cerealStudyCards: StudyCard[] = [
     image: "/study/cereal-hordeum-two.jpg",
     imageAlt: "Espiga de cebada cervecera con las espiguillas laterales esteriles indicadas",
     imageCaption: "En la cebada cervecera solo la espiguilla central es fertil.",
+    schemeImage: "/study/scheme-hordeum-two.jpg",
+    schemeAlt: "Esquema de una espiguilla central fertil y dos laterales esteriles en cebada cervecera",
+    schemeText: "Tres espiguillas unifloras por nudo; solo la central es fertil.",
     keyDiagnostic: "Solo la espiguilla central es fertil; las laterales son esteriles y quedan dos hileras.",
     diagnosticTraits: [
       "Tres espiguillas unifloras en cada nudo.",

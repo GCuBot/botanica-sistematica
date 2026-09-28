@@ -112,9 +112,19 @@ function TextStudyCard({ card }: { card: StudyCard }) {
       <figure>
         <div className="relative aspect-[4/3] bg-gray-950">
           <Image src={card.image} alt={card.imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain" />
+          {card.schemeImage && card.schemeAlt && (
+            <div className="absolute right-2 top-2 h-24 w-24 overflow-hidden border-2 border-white bg-black shadow-md sm:h-28 sm:w-28">
+              <Image src={card.schemeImage} alt={card.schemeAlt} fill sizes="(max-width: 640px) 96px, 112px" className="object-contain" />
+            </div>
+          )}
         </div>
         <figcaption className="border-b border-gray-200 bg-gray-50 px-4 py-2 text-xs text-gray-600">
           {card.imageCaption}
+          {card.schemeText && (
+            <span className="mt-1 block font-medium text-gray-700">
+              <span className="font-bold">Esquema:</span> {card.schemeText}
+            </span>
+          )}
           {card.imageSourceUrl && card.imageCredit && (
             <>
               {" "}
