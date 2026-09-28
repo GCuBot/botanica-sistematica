@@ -3,9 +3,17 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import {
+  GlossaryMode,
+  GlossaryText,
+  KeyDiagnostic,
+  PlantExamples,
+  QuickLookupMode,
+} from "@/components/ExamStudyTools";
+import {
   cerealKeyNodes,
   cerealKeyStart,
   cerealResults,
+  cerealStudyCards,
   examTaxa,
   familyKeyNodes,
   familyKeyStart,
@@ -14,15 +22,19 @@ import {
   rosaceaeKeyNodes,
   rosaceaeKeyStart,
   rosaceaeResults,
+  rosaceaeStudyCards,
+  StudyCard,
 } from "@/data/firstExam";
 
-type PracticeMode = "review" | "key" | "exam" | "cereals";
+type PracticeMode = "lookup" | "exam" | "glossary" | "review" | "key" | "cereals";
 
 const modeLabels: Array<{ id: PracticeMode; label: string }> = [
-  { id: "review", label: "Repaso" },
-  { id: "key", label: "Clave de familias" },
-  { id: "exam", label: "Simulacro" },
+  { id: "lookup", label: "Consulta" },
+  { id: "exam", label: "Justificar" },
+  { id: "glossary", label: "Glosario" },
+  { id: "review", label: "Fichas" },
   { id: "cereals", label: "Cereales" },
+  { id: "key", label: "Clave" },
 ];
 
 function GuidedKey({
@@ -56,7 +68,7 @@ function GuidedKey({
         <p className="text-sm font-semibold uppercase text-emerald-700">Resultado</p>
         <h3 className="mt-1 text-2xl font-bold text-gray-900">{result.title}</h3>
         {result.scientificName && <p className="mt-1 italic text-gray-700">{result.scientificName}</p>}
-        <p className="mt-3 text-gray-700">{result.explanation}</p>
+        <p className="mt-3 text-gray-700"><GlossaryText text={result.explanation} /></p>
         <button onClick={reset} className="mt-5 rounded-md bg-emerald-700 px-4 py-2 font-medium text-white hover:bg-emerald-800">
           Empezar de nuevo
         </button>
@@ -77,8 +89,8 @@ function GuidedKey({
           </button>
         )}
       </div>
-      <h3 className="text-xl font-bold text-gray-900">{node.prompt}</h3>
-      {node.hint && <p className="mt-2 text-sm text-gray-600">{node.hint}</p>}
+      <h3 className="text-xl font-bold text-gray-900"><GlossaryText text={node.prompt} /></h3>
+      {node.hint && <p className="mt-2 text-sm text-gray-600"><GlossaryText text={node.hint} /></p>}
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
         {node.choices.map((choice) => (
           <button
@@ -94,32 +106,96 @@ function GuidedKey({
   );
 }
 
+function TextStudyCard({ card }: { card: StudyCard }) {
+  return (
+    <article className="overflow-hidden rounded-lg border border-gray-200 bg-white">
+      <figure>
+        <div className="relative aspect-[4/3] bg-gray-950">
+          <Image src={card.image} alt={card.imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain" />
+        </div>
+        <figcaption className="border-b border-gray-200 bg-gray-50 px-4 py-2 text-xs text-gray-600">
+          {card.imageCaption}
+          {card.imageSourceUrl && card.imageCredit && (
+            <>
+              {" "}
+              <a href={card.imageSourceUrl} target="_blank" rel="noreferrer" className="font-medium text-emerald-800 underline">
+                Fuente: {card.imageCredit}
+              </a>
+            </>
+          )}
+        </figcaption>
+      </figure>
+      <div className="p-5">
+        <p className="text-xs font-semibold uppercase text-emerald-700">{card.group}</p>
+        <h3 className="mt-1 text-xl font-bold text-gray-900">{card.name}</h3>
+        <p className="mt-1 text-sm italic text-gray-600">{card.scientificName}</p>
+        <KeyDiagnostic text={card.keyDiagnostic} />
+        <ul className="mt-4 space-y-2 text-sm text-gray-700">
+          {card.diagnosticTraits.map((trait) => (
+            <li key={trait} className="border-l-2 border-emerald-200 pl-3">
+              <GlossaryText text={trait} />
+            </li>
+          ))}
+        </ul>
+        <div className="mt-4 border-t border-gray-200 pt-4 text-sm text-gray-700">
+          <p><strong>Que mirar:</strong> <GlossaryText text={card.lookFor} /></p>
+          <p className="mt-2"><strong>Ojo con:</strong> <GlossaryText text={card.confusion} /></p>
+        </div>
+        <PlantExamples examples={card.examples} />
+      </div>
+    </article>
+  );
+}
+
 function ReviewMode() {
+  const [sheetType, setSheetType] = useState<"families" | "rosaceae" | "cereals">("families");
+
   return (
     <div>
       <div className="mb-6 border-l-4 border-amber-500 bg-amber-50 p-4 text-sm text-amber-950">
-        <strong>Nivel de esta guia:</strong> las clases permiten separar con seguridad familias y las subfamilias de Amaryllidaceae. En Rosaceae orientan a grupos de generos; la clave de cereales llega a taxones concretos.
+        <strong>Nivel de esta guia:</strong> las clases permiten separar con seguridad familias y las subfamilias de Amaryllidaceae. En Rosaceae orientan a grupos de generos; la clave de cereales llega a taxones concretos. El caracter resaltado es prioritario dentro de esta comparacion, no necesariamente exclusivo en toda la flora.
       </div>
-      <div className="grid gap-5 md:grid-cols-2">
-        {examTaxa.map((taxon) => (
-          <article key={taxon.id} className="overflow-hidden rounded-lg border border-gray-200 bg-white">
-            <div className="relative aspect-[3/2] bg-gray-100">
-              <Image src={taxon.image} alt={taxon.imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
-            </div>
-            <div className="p-5">
-              <p className="text-xs font-semibold uppercase text-emerald-700">{taxon.group}</p>
-              <h3 className="mt-1 text-xl font-bold text-gray-900">{taxon.name}</h3>
-              <ul className="mt-3 space-y-2 text-sm text-gray-700">
-                {taxon.diagnosticTraits.map((trait) => <li key={trait}>• {trait}</li>)}
-              </ul>
-              <div className="mt-4 border-t border-gray-200 pt-4 text-sm text-gray-700">
-                <p><strong>Que mirar:</strong> {taxon.lookFor}</p>
-                <p className="mt-2"><strong>Ojo con:</strong> {taxon.confusion}</p>
-                <p className="mt-2"><strong>Generos de referencia:</strong> {taxon.referenceGenera}</p>
-              </div>
-            </div>
-          </article>
+      <div className="mb-6 flex overflow-x-auto border-b border-gray-300" aria-label="Tipos de fichas">
+        {[
+          { id: "families", label: "Familias" },
+          { id: "rosaceae", label: "Grupos de Rosaceae" },
+          { id: "cereals", label: "Cereales" },
+        ].map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            onClick={() => setSheetType(item.id as typeof sheetType)}
+            className={`shrink-0 border-b-2 px-4 py-2.5 text-sm font-semibold ${sheetType === item.id ? "border-emerald-700 text-emerald-800" : "border-transparent text-gray-600 hover:text-gray-900"}`}
+          >
+            {item.label}
+          </button>
         ))}
+      </div>
+
+      <div className="grid gap-5 md:grid-cols-2">
+        {sheetType === "families" && examTaxa.map((taxon) => (
+            <article key={taxon.id} className="overflow-hidden rounded-lg border border-gray-200 bg-white">
+              <div className="relative aspect-[3/2] bg-gray-100">
+                <Image src={taxon.image} alt={taxon.imageAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+              </div>
+              <div className="p-5">
+                <p className="text-xs font-semibold uppercase text-emerald-700">{taxon.group}</p>
+                <h3 className="mt-1 text-xl font-bold text-gray-900">{taxon.name}</h3>
+                <KeyDiagnostic text={taxon.keyDiagnostic} />
+                <ul className="mt-3 space-y-2 text-sm text-gray-700">
+                  {taxon.diagnosticTraits.map((trait) => <li key={trait}>• <GlossaryText text={trait} /></li>)}
+                </ul>
+                <div className="mt-4 border-t border-gray-200 pt-4 text-sm text-gray-700">
+                  <p><strong>Que mirar:</strong> <GlossaryText text={taxon.lookFor} /></p>
+                  <p className="mt-2"><strong>Ojo con:</strong> <GlossaryText text={taxon.confusion} /></p>
+                  <p className="mt-2"><strong>Generos de referencia:</strong> {taxon.referenceGenera}</p>
+                </div>
+                <PlantExamples examples={taxon.examples} />
+              </div>
+            </article>
+          ))}
+        {sheetType === "rosaceae" && rosaceaeStudyCards.map((card) => <TextStudyCard key={card.id} card={card} />)}
+        {sheetType === "cereals" && cerealStudyCards.map((card) => <TextStudyCard key={card.id} card={card} />)}
       </div>
     </div>
   );
@@ -268,7 +344,7 @@ function ExamMode() {
           {checked && (
             <div className={`mt-5 rounded-md border p-4 ${identityCorrect && traitsCorrect ? "border-emerald-200 bg-emerald-50" : "border-amber-200 bg-amber-50"}`} aria-live="polite">
               <p className="font-bold text-gray-900">{identityCorrect && traitsCorrect ? "Identificacion y fundamento correctos" : `Respuesta: ${question.name}`}</p>
-              <p className="mt-1 text-sm text-gray-700">Diagnostico: {question.quizTraits[0]}; {question.quizTraits[1].toLowerCase()}.</p>
+              <p className="mt-1 text-sm text-gray-700">Diagnostico: <GlossaryText text={`${question.quizTraits[0]}; ${question.quizTraits[1].toLowerCase()}.`} /></p>
             </div>
           )}
           <div className="mt-5 flex justify-end">
@@ -296,7 +372,7 @@ function CerealsMode() {
 }
 
 export default function FirstExamPractice() {
-  const [mode, setMode] = useState<PracticeMode>("review");
+  const [mode, setMode] = useState<PracticeMode>("lookup");
 
   return (
     <section>
@@ -311,10 +387,12 @@ export default function FirstExamPractice() {
           ))}
         </div>
       </div>
-      {mode === "review" && <ReviewMode />}
-      {mode === "key" && <FamilyKeyMode />}
+      {mode === "lookup" && <QuickLookupMode />}
       {mode === "exam" && <ExamMode />}
+      {mode === "glossary" && <GlossaryMode />}
+      {mode === "review" && <ReviewMode />}
       {mode === "cereals" && <CerealsMode />}
+      {mode === "key" && <FamilyKeyMode />}
     </section>
   );
 }

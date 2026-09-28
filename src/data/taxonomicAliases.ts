@@ -8,6 +8,13 @@ export interface TaxonomicAlias {
 
 export const taxonomicAliases: TaxonomicAlias[] = [
   {
+    pdfName: "Abutilon molle",
+    acceptedName: "Abutilon grandifolium",
+    aliases: ["Abutilon molle var. grandifolium", "Sida grandifolia"],
+    sourceLabel: "Kew POWO",
+    sourceUrl: "https://powo.science.kew.org/taxon/1026852-2",
+  },
+  {
     pdfName: "Paspalidium paludivagum",
     acceptedName: "Setaria geminata",
     aliases: ["Paspalidium geminatum", "Panicum paludivagum"],

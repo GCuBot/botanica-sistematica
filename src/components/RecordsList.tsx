@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import {
+  CircleCheckBig,
   ExternalLink,
   Image as ImageIcon,
   Images,
@@ -24,6 +25,7 @@ interface RecordsListProps {
   isLoading: boolean;
   onEdit: (record: PhotoRecord) => void;
   onDelete: (record: PhotoRecord) => Promise<void>;
+  onConfirm: (record: PhotoRecord, isConfirmed: boolean) => Promise<void>;
 }
 
 type SearchMode = "all" | "number" | "name" | "family" | "place" | "date" | "notes";
@@ -40,6 +42,7 @@ export default function RecordsList({
   isLoading,
   onEdit,
   onDelete,
+  onConfirm,
 }: RecordsListProps) {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [rangeStart, setRangeStart] = useState("");
@@ -51,6 +54,7 @@ export default function RecordsList({
   const [searchTerm, setSearchTerm] = useState("");
   const [searchMode, setSearchMode] = useState<SearchMode>("all");
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [confirmingId, setConfirmingId] = useState<string | null>(null);
   const [actionError, setActionError] = useState("");
   const [isGeneratingCatalog, setIsGeneratingCatalog] = useState(false);
   const filteredRecords = useMemo(() => {
@@ -205,11 +209,27 @@ export default function RecordsList({
     }
   };
 
+  const handleConfirm = async (record: PhotoRecord) => {
+    setActionError("");
+    setConfirmingId(record.id);
+    try {
+      await onConfirm(record, !record.is_confirmed);
+    } catch (error) {
+      setActionError(
+        error instanceof Error ? error.message : "No se pudo cambiar la confirmacion"
+      );
+    } finally {
+      setConfirmingId(null);
+    }
+  };
+
   return (
     <section className="rounded-lg bg-white p-4 shadow-lg sm:p-5">
       <div className="mb-3 flex items-center justify-between gap-4">
         <h2 className="text-xl font-bold text-gray-800">Mis plantas</h2>
-        <span className="text-sm text-gray-700">{records.length} registros</span>
+        <span className="text-sm text-gray-700">
+          {records.length} registros · {records.filter((record) => record.is_confirmed).length} confirmados
+        </span>
       </div>
 
       {isLoading && <p className="text-gray-700">Cargando registros...</p>}
@@ -356,11 +376,12 @@ export default function RecordsList({
           {filteredRecords.map((record) => {
             const especie = especiesData[record.especie_id];
             const isDeleting = deletingId === record.id;
+            const isConfirming = confirmingId === record.id;
 
             return (
               <article
                 key={record.id}
-                className={`grid grid-cols-[auto_3.5rem_minmax(0,1fr)] items-center gap-x-3 gap-y-1 rounded-md border p-3 sm:grid-cols-[auto_3.5rem_minmax(0,1fr)_auto] ${selectedIds.includes(record.id) ? "border-green-300 bg-green-50" : "border-gray-200"}`}
+                className={`grid grid-cols-[auto_3.5rem_minmax(0,1fr)] items-center gap-x-3 gap-y-1 rounded-md border p-3 sm:grid-cols-[auto_3.5rem_minmax(0,1fr)_auto] ${selectedIds.includes(record.id) ? "border-green-300 bg-green-50" : record.is_confirmed ? "border-green-200" : "border-gray-200"}`}
               >
                 <input
                   type="checkbox"
@@ -398,6 +419,12 @@ export default function RecordsList({
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
                     <span className="font-bold text-green-800">N° {record.plant_number}</span>
+                    {record.is_confirmed && (
+                      <span className="inline-flex items-center gap-1 text-xs font-semibold text-green-700" title="Identificacion confirmada">
+                        <CircleCheckBig aria-hidden="true" size={14} />
+                        Confirmada
+                      </span>
+                    )}
                     <span className="truncate text-sm italic text-gray-900">
                       {especie?.nombreCientifico || record.especie_id}
                     </span>
@@ -411,6 +438,20 @@ export default function RecordsList({
                 </div>
 
                 <div className="col-start-3 flex items-center justify-self-end gap-1 sm:col-start-4 sm:row-start-1">
+                  <button
+                    type="button"
+                    onClick={() => void handleConfirm(record)}
+                    disabled={isDeleting || isConfirming}
+                    aria-label={`${record.is_confirmed ? "Quitar confirmacion de" : "Confirmar"} planta N° ${record.plant_number}`}
+                    title={record.is_confirmed ? "Quitar confirmacion" : "Marcar como confirmada"}
+                    className={`inline-flex h-8 w-8 items-center justify-center rounded-md disabled:text-gray-300 ${record.is_confirmed ? "bg-green-100 text-green-700 hover:bg-green-200" : "text-gray-500 hover:bg-gray-100 hover:text-green-700"}`}
+                  >
+                    {isConfirming ? (
+                      <LoaderCircle aria-hidden="true" className="animate-spin" size={16} strokeWidth={2} />
+                    ) : (
+                      <CircleCheckBig aria-hidden="true" size={17} strokeWidth={2} />
+                    )}
+                  </button>
                   {record.photo_url && (
                     <a
                       href={record.photo_url}

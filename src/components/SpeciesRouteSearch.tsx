@@ -53,18 +53,28 @@ export default function SpeciesRouteSearch({ onRouteOpenChange }: SpeciesRouteSe
     setGbifResult(null);
 
     try {
-      const taxonomicResult = await lookupGbifSynonyms(cleanQuery);
-      if (!taxonomicResult) {
+      const taxonomicResults = await lookupGbifSynonyms(cleanQuery);
+      if (taxonomicResults.length === 0) {
         setTaxonomyMessage("GBIF no pudo reconocer ese nombre científico.");
         return;
       }
 
-      const matchingRoutes = findSpeciesRoutesByScientificNames(taxonomicResult.names);
+      const matchedCandidate = taxonomicResults
+        .map((taxonomicResult) => ({
+          taxonomicResult,
+          routes: findSpeciesRoutesByScientificNames(taxonomicResult.names),
+        }))
+        .find((candidate) => candidate.routes.length > 0);
+      const taxonomicResult = matchedCandidate?.taxonomicResult ?? taxonomicResults[0];
+      const matchingRoutes = matchedCandidate?.routes ?? [];
+
       setGbifResult(taxonomicResult);
       setExternalRoutes(matchingRoutes);
       setTaxonomyMessage(
         matchingRoutes.length > 0
-          ? `Encontrado por sinonimia. Nombre aceptado en GBIF: ${taxonomicResult.acceptedName}.`
+          ? taxonomicResult.isSimilarMatch
+            ? `Posible coincidencia: ${taxonomicResult.matchedName} figura en la clave mediante un sinónimo. Revise el nombre antes de continuar.`
+            : `Encontrado por sinonimia. Nombre aceptado en GBIF: ${taxonomicResult.acceptedName}.`
           : `GBIF reconoce el nombre como ${taxonomicResult.acceptedName}, pero ninguno de sus sinónimos figura en la clave.`
       );
     } catch {
@@ -127,7 +137,8 @@ export default function SpeciesRouteSearch({ onRouteOpenChange }: SpeciesRouteSe
         <div className="mt-2 overflow-hidden rounded-md border border-gray-200 bg-white">
           {externalRoutes.length > 0 && gbifResult && (
             <p className="border-b border-green-100 bg-green-50 px-3 py-2 text-xs text-green-800">
-              Coincidencia por sinonimia · Nombre aceptado en GBIF: {gbifResult.acceptedName}
+              {gbifResult.isSimilarMatch ? "Posible coincidencia" : "Coincidencia por sinonimia"}
+              {" · "}Nombre aceptado en GBIF: {gbifResult.acceptedName}
             </p>
           )}
           {visibleResults.length > 0 ? (

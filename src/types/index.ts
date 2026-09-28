@@ -49,6 +49,7 @@ export interface PhotoRecord {
   fecha: string;
   lugar: string;
   observaciones?: string | null;
+  is_confirmed: boolean;
   created_at: string;
 }
 

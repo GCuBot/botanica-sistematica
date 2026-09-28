@@ -211,11 +211,29 @@ export async function deletePhotoRecord(record: PhotoRecord): Promise<void> {
   await removeStoredPhoto(record.photo_url);
 }
 
+export async function setPhotoRecordConfirmed(
+  recordId: string,
+  isConfirmed: boolean
+): Promise<void> {
+  const { data, error } = await supabase
+    .from("photo_records")
+    .update({ is_confirmed: isConfirmed })
+    .eq("id", recordId)
+    .select("id")
+    .single();
+
+  if (error || !data) {
+    throw new Error(
+      `No se pudo cambiar la confirmacion: ${error?.message || "Registro no encontrado"}`
+    );
+  }
+}
+
 export async function getPhotoRecords(): Promise<PhotoRecord[]> {
   const { data, error } = await supabase
     .from("photo_records")
     .select(
-      "id,user_id,plant_number,especie_id,nombre_vulgar,nombre_usuario,fecha,lugar,observaciones,photo_url,created_at"
+      "id,user_id,plant_number,especie_id,nombre_vulgar,nombre_usuario,fecha,lugar,observaciones,photo_url,is_confirmed,created_at"
     )
     .order("plant_number", { ascending: false });
 

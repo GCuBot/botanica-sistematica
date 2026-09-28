@@ -20,6 +20,7 @@ import {
   getPhotoRecords,
   savePhotoRecord,
   saveQuizSession,
+  setPhotoRecordConfirmed,
   updatePhotoRecord,
 } from "@/lib/supabaseOperations";
 import { supabase } from "@/lib/supabase";
@@ -157,6 +158,15 @@ export default function Home() {
     await loadRecords();
   };
 
+  const handleConfirmRecord = async (record: PhotoRecord, isConfirmed: boolean) => {
+    await setPhotoRecordConfirmed(record.id, isConfirmed);
+    setRecords((current) =>
+      current.map((item) =>
+        item.id === record.id ? { ...item, is_confirmed: isConfirmed } : item
+      )
+    );
+  };
+
   const handleWorkspaceTabChange = (tab: WorkspaceTab) => {
     if (tab !== "records" && pageState === "edit") {
       setEditingRecord(null);
@@ -284,6 +294,7 @@ export default function Home() {
                     isLoading={isRecordsLoading}
                     onEdit={handleEditRecord}
                     onDelete={handleDeleteRecord}
+                    onConfirm={handleConfirmRecord}
                   />
                 )}
               </div>
