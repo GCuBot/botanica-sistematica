@@ -25,8 +25,15 @@ import {
   rosaceaeStudyCards,
   StudyCard,
 } from "@/data/firstExam";
+import { usePersistentState } from "@/hooks/usePersistentState";
 
 type PracticeMode = "lookup" | "exam" | "glossary" | "review" | "key" | "cereals";
+type SheetType = "families" | "rosaceae" | "cereals";
+type KeyType = "families" | "rosaceae";
+
+const PRACTICE_MODES: readonly PracticeMode[] = ["lookup", "exam", "glossary", "review", "cereals", "key"];
+const SHEET_TYPES: readonly SheetType[] = ["families", "rosaceae", "cereals"];
+const KEY_TYPES: readonly KeyType[] = ["families", "rosaceae"];
 
 const modeLabels: Array<{ id: PracticeMode; label: string }> = [
   { id: "lookup", label: "Consulta" },
@@ -158,7 +165,11 @@ function TextStudyCard({ card }: { card: StudyCard }) {
 }
 
 function ReviewMode() {
-  const [sheetType, setSheetType] = useState<"families" | "rosaceae" | "cereals">("families");
+  const [sheetType, setSheetType] = usePersistentState<SheetType>(
+    "botanica:first-exam-sheet",
+    "families",
+    SHEET_TYPES
+  );
 
   return (
     <div>
@@ -212,7 +223,11 @@ function ReviewMode() {
 }
 
 function FamilyKeyMode() {
-  const [keyType, setKeyType] = useState<"families" | "rosaceae">("families");
+  const [keyType, setKeyType] = usePersistentState<KeyType>(
+    "botanica:first-exam-key",
+    "families",
+    KEY_TYPES
+  );
   const familyResults = useMemo(
     () => Object.fromEntries(examTaxa.map((taxon) => [taxon.id, {
       title: taxon.name,
@@ -382,7 +397,11 @@ function CerealsMode() {
 }
 
 export default function FirstExamPractice() {
-  const [mode, setMode] = useState<PracticeMode>("lookup");
+  const [mode, setMode] = usePersistentState<PracticeMode>(
+    "botanica:first-exam-mode",
+    "lookup",
+    PRACTICE_MODES
+  );
 
   return (
     <section>

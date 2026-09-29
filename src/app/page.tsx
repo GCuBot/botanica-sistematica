@@ -24,6 +24,7 @@ import {
   updatePhotoRecord,
 } from "@/lib/supabaseOperations";
 import { supabase } from "@/lib/supabase";
+import { usePersistentState } from "@/hooks/usePersistentState";
 import { Especie, PhotoRecord, PlantFormData } from "@/types";
 import { especiesData } from "@/data/clados";
 
@@ -31,10 +32,15 @@ type PageState = "quiz" | "form" | "edit" | "complete";
 type WorkspaceTab = "identifier" | "records" | "first-exam";
 
 const ALLOWED_DOMAIN = "@agro.uba.ar";
+const WORKSPACE_TABS: readonly WorkspaceTab[] = ["identifier", "records", "first-exam"];
 
 export default function Home() {
   const [pageState, setPageState] = useState<PageState>("quiz");
-  const [workspaceTab, setWorkspaceTab] = useState<WorkspaceTab>("identifier");
+  const [workspaceTab, setWorkspaceTab] = usePersistentState<WorkspaceTab>(
+    "botanica:last-workspace-tab",
+    "identifier",
+    WORKSPACE_TABS
+  );
   const [selectedEspecie, setSelectedEspecie] = useState<Especie | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [isAuthLoading, setIsAuthLoading] = useState(true);
@@ -74,14 +80,16 @@ export default function Home() {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, currentSession) => {
       setSession(currentSession);
-      setPageState("quiz");
-      setWorkspaceTab("identifier");
-      setSelectedEspecie(null);
-      setEditingRecord(null);
+      if (!currentSession) {
+        setPageState("quiz");
+        setWorkspaceTab("identifier");
+        setSelectedEspecie(null);
+        setEditingRecord(null);
+      }
     });
 
     return () => subscription.unsubscribe();
-  }, []);
+  }, [setWorkspaceTab]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
