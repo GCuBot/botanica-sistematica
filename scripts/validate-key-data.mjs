@@ -33,7 +33,10 @@ const files = [
     dataPattern: /^  ([a-zA-Z0-9_]+): family\(/gm,
     nodePattern: /^  ([a-zA-Z0-9_]+): (?:\{|familyTerminal\()/gm,
     familyRefPattern: /familyTerminal\("[a-zA-Z0-9_]+", "([a-zA-Z0-9_]+)", \d+\)/g,
-    externalNodes: ["ed2_family_selaginellaceae"],
+    externalNodes: [
+      "ed2_family_selaginellaceae", "ed2_family_isoetaceae", "ed2_family_equisetaceae",
+      "ed2_family_ophioglossaceae", "ed2_family_osmundaceae", "ed2_family_schizaeaceae",
+    ],
     order: "data-first",
   },
   {
@@ -150,6 +153,18 @@ const files = [
     dataPattern: /^  ([a-zA-Z0-9_]+): species\(/gm,
     externalNodes: [],
     speciesKey: true,
+    order: "data-first",
+  },
+  {
+    name: "secondEditionEarlyPteridophytes.ts",
+    path: path.join(ROOT, "src", "data", "secondEditionEarlyPteridophytes.ts"),
+    treeExport: "export const secondEditionEarlyPteridophyteKeyData",
+    dataExport: "export const secondEditionEarlyPteridophyteSpecies",
+    dataPattern: /^  ([a-zA-Z0-9_]+): species\(/gm,
+    nodePattern: /^  ([a-zA-Z0-9_]+): (?:\{|singleSpeciesNode\()/gm,
+    familyRefPattern: /singleSpeciesNode\("[a-zA-Z0-9_]+", "[^"]+", \d+, "([a-zA-Z0-9_]+)"\)/g,
+    speciesKey: true,
+    externalNodes: [],
     order: "data-first",
   },
 ];
