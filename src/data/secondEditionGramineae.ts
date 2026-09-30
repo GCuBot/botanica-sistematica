@@ -592,6 +592,71 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Glumas con protuberancias cortas y gruesas; lemma mútica o aristulada; panoja compacta, lobada y subespiciforme.",
     "Frecuente en la provincia de Buenos Aires.", "Chaetotropis imberbis"
   ),
+  ed2_alopecurus_agrestis: species(
+    "ed2_alopecurus_agrestis", "Alopecurus agrestis", "Gramínea perenne y cespitosa, de 50-100 cm.",
+    "Glumas soldadas hasta la mitad, con carenas ásperas o cortamente ciliadas; panoja delgada de 4-10 cm; espiguillas casi glabras de 5 mm.",
+    "Originaria de Europa; adventicia en América, en suelos modificados.", "Alopecurus agrestis"
+  ),
+  ed2_alopecurus_bonariensis: species(
+    "ed2_alopecurus_bonariensis", "Alopecurus bonariensis", "Gramínea anual de 5-30 cm, con vainas algo infladas y láminas lineares.",
+    "Glumas unidas sólo en la base, con quillas largamente ciliadas abajo; panoja cilíndrica muy densa de 2-3 cm; espiguillas oblongas de 2,6 mm.",
+    "Suelos salados de Entre Ríos, Santa Fe y nordeste de Buenos Aires.", "Alopecurus bonariensis"
+  ),
+  ed2_lagurus_ovatus: species(
+    "ed2_lagurus_ovatus", "Lagurus ovatus", "Gramínea anual de hojas planas y panoja espiciforme muy densa, ovoide o globosa.",
+    "Glumas velludas prolongadas en arista plumosa; lemma bífida, con dos aristas tenues y una arista dorsal larga y retorcida.",
+    "Originaria del Mediterráneo; cultivada como ornamental y adventicia en Villa Gesell, Mar del Plata y Tandil.", "Lagurus ovatus"
+  ),
+  ed2_deyeuxia_viridiflavescens: species(
+    "ed2_deyeuxia_viridiflavescens", "Deyeuxia viridiflavescens var. montevidensis", "Gramínea perenne de 80-130 cm.",
+    "Glumas de 5-6,5 mm; antecios de 3,5-4 mm; lemma con arista de 3-4 mm; panoja fusiforme de 25-35 cm.",
+    "Desde Perú y Bolivia hasta el centro y nordeste argentino; frecuente en campos húmedos.", "Deyeuxia viridiflavescens var. montevidensis"
+  ),
+  ed2_deyeuxia_armata: species(
+    "ed2_deyeuxia_armata", "Deyeuxia armata", "Gramínea perenne de 40-80 cm.",
+    "Glumas de 7-12 mm; antecios de 4-6 mm; lemma con arista de 4-7 mm; panoja densa de 5-20 cm.",
+    "Sur de Brasil, Uruguay y este y centro de Argentina; estepas de General Madariaga y sierras bonaerenses.", "Deyeuxia armata"
+  ),
+  ed2_phleum_pratense: species(
+    "ed2_phleum_pratense", "Phleum pratense", "Gramínea perenne de 50-150 cm, cultivada como forrajera.",
+    "Panoja cilíndrica de 5-10 cm; glumas truncadas de 3-5 mm, con arista gruesa de 1 mm y quilla largamente ciliada.",
+    "Originaria de Europa; cultivada y a veces espontánea en suelos modificados.", "Timoti, fleo"
+  ),
+  ed2_agrostis_alba: species(
+    "ed2_agrostis_alba", "Agrostis alba", "Gramínea rizomatosa con cañas de hasta 1,2 m.",
+    "Lemma mútica; panoja piramidal laxa de 10-30 cm, con ramas verticiladas y abiertas; espiguillas lanceoladas de 2,5 mm.",
+    "Originaria de Europa; adventicia en América.", "Agrostis alba"
+  ),
+  ed2_agrostis_palustris: species(
+    "ed2_agrostis_palustris", "Agrostis palustris", "Gramínea estolonífera con cañas erectas de 20-80 cm.",
+    "Lemma mútica; panoja fusiforme densa de 4-15 cm, con ramas aplicadas al raquis; espiguillas lanceoladas de 2-2,5 mm.",
+    "Originaria de Europa; adventicia frecuente en las orillas del Río de la Plata.", "Pasto quila"
+  ),
+  ed2_agrostis_platensis: species(
+    "ed2_agrostis_platensis", "Agrostis platensis", "Gramínea perenne y estolonífera de 70-150 cm.",
+    "Glumas cortamente aristadas; lemma con arista débil de 1-1,5 mm inserta cerca del ápice; panoja fusiforme contraída de 10-25 cm.",
+    "Endémica del Delta y de la ribera platense.", "Agrostis platensis"
+  ),
+  ed2_agrostis_montevidensis: species(
+    "ed2_agrostis_montevidensis", "Agrostis montevidensis", "Gramínea perenne, cespitosa y multicaule de 30-40 cm.",
+    "Panoja laxa y muy difusa; pedicelos filiformes mucho más largos que las espiguillas; lemma con arista dorsal de unos 2 mm cerca del ápice.",
+    "Uruguay y nordeste argentino; frecuente en la estepa clímax.", "Pasto ilusión"
+  ),
+  ed2_agrostis_avenacea: species(
+    "ed2_agrostis_avenacea", "Agrostis avenacea", "Gramínea perenne y cespitosa de 60-70 cm.",
+    "Panoja laxa; pedicelos de 1-4 mm, menores o apenas más largos que las espiguillas; arista dorsal de 3-3,5 mm inserta sobre la mitad de la lemma.",
+    "Originaria de Australia y Nueva Zelandia; adventicia en la depresión del Salado.", "Agrostis avenacea"
+  ),
+  ed2_agrostis_tandilensis: species(
+    "ed2_agrostis_tandilensis", "Agrostis tandilensis", "Gramínea anual y multicaule de 10-20 cm.",
+    "Panoja espiciforme muy densa de 3-7 cm; glumas casi iguales; lemma con dos aristas apicales y una dorsal retorcida.",
+    "Uruguay y nordeste de la Argentina.", "Agrostis tandilensis"
+  ),
+  ed2_agrostis_jirgensii: species(
+    "ed2_agrostis_jirgensii", "Agrostis jirgensii", "Gramínea anual de 20-50 cm.",
+    "Panoja espiciforme muy densa de 10-20 cm; gluma inferior más larga; lemma con dos aristas apicales cortas y una dorsal fuerte y larga.",
+    "Sur de Brasil, Uruguay y nordeste argentino; en campos húmedos.", "Agrostis jirgensii"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -709,9 +774,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_4_lagurus_pending: {
     id: "ed2_gramineae_group_4_lagurus_pending", milestone: "Gramineae: grupo 4, panoja corta", manualPage: 66,
-    descripcion: "Continuar con el género de panoja espiciforme corta.",
-    opcionA: { label: "Continuar desarrollando el grupo 4", keyStep: "B", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 4", keyStep: "B", especieId: "ed2_gramineae" },
+    descripcion: "Lagurus: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Lagurus ovatus", keyStep: "B", especieId: "ed2_lagurus_ovatus" },
+    opcionA_prima: { label: "Identificar como Lagurus ovatus", keyStep: "B", especieId: "ed2_lagurus_ovatus" },
   },
   ed2_gramineae_group_4_attachment: {
     id: "ed2_gramineae_group_4_attachment", milestone: "Gramineae: grupo 4, espiguillas alargadas", manualPage: 66,
@@ -780,9 +845,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_6_alopecurus_pending: {
     id: "ed2_gramineae_group_6_alopecurus_pending", milestone: "Gramineae: grupo 6, unifloras", manualPage: 67,
-    descripcion: "Continuar con el género unifloro de arista dorsal.",
-    opcionA: { label: "Continuar desarrollando el grupo 6", keyStep: "D", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 6", keyStep: "D", especieId: "ed2_gramineae" },
+    descripcion: "Continuar con la clave específica de Alopecurus.",
+    opcionA: { label: "Espiguillas unifloras; lemma con arista dorsal larga y geniculada", keyStep: "D", nextNodeId: "ed2_alopecurus" },
+    opcionA_prima: { label: "Espiguillas unifloras; lemma con arista dorsal larga y geniculada", keyStep: "D", nextNodeId: "ed2_alopecurus" },
   },
   ed2_gramineae_group_6_apical_pending: {
     id: "ed2_gramineae_group_6_apical_pending", milestone: "Gramineae: grupo 6, arista apical", manualPage: 67,
@@ -858,9 +923,63 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_uniflorous_awned_pending: {
     id: "ed2_gramineae_group_7_uniflorous_awned_pending", milestone: "Gramineae: grupo 7, unifloras aristadas", manualPage: 68,
-    descripcion: "Continuar con los géneros unifloros de lemmas aristadas.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "F", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "F", especieId: "ed2_gramineae" },
+    descripcion: "¿La lemma endurecida encierra el cariopse y termina en una arista larga?",
+    opcionA: { label: "Sí; lemma endurecida, envolviendo el cariopse", keyStep: "G", nextNodeId: "ed2_gramineae_group_7_hardened_awn" },
+    opcionA_prima: { label: "No; lemma no envuelve el cariopse y la arista suele ser dorsal", keyStep: "G'", nextNodeId: "ed2_gramineae_group_7_soft_glumes" },
+  },
+  ed2_gramineae_group_7_hardened_awn: {
+    id: "ed2_gramineae_group_7_hardened_awn", milestone: "Gramineae: grupo 7, antecio endurecido", manualPage: 68,
+    descripcion: "¿La arista de la lemma es recta, no retorcida y fácilmente caduca?",
+    opcionA: { label: "Recta, no retorcida y caduca; pálea plana", keyStep: "H", nextNodeId: "ed2_oryzopsis_pending" },
+    opcionA_prima: { label: "Retorcida y persistente", keyStep: "H'", nextNodeId: "ed2_gramineae_group_7_twisted_palea" },
+  },
+  ed2_oryzopsis_pending: {
+    id: "ed2_oryzopsis_pending", milestone: "Oryzopsis", manualPage: 100,
+    descripcion: "Continuar con la especie de Oryzopsis tratada por el manual.",
+    opcionA: { label: "Continuar desarrollando Oryzopsis", keyStep: "H", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando Oryzopsis", keyStep: "H", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_twisted_palea: {
+    id: "ed2_gramineae_group_7_twisted_palea", milestone: "Gramineae: grupo 7, pálea", manualPage: 68,
+    descripcion: "¿La pálea es bicarenada y posee un surco longitudinal entre las quillas?",
+    opcionA: { label: "Sí; pálea bicarenada y surcada", keyStep: "I", nextNodeId: "ed2_piptochaetium_pending" },
+    opcionA_prima: { label: "No; pálea plana, lanceolada y a veces reducida", keyStep: "I'", nextNodeId: "ed2_stipa_pending" },
+  },
+  ed2_piptochaetium_pending: {
+    id: "ed2_piptochaetium_pending", milestone: "Piptochaetium", manualPage: 100,
+    descripcion: "Continuar con la clave específica de Piptochaetium.",
+    opcionA: { label: "Continuar desarrollando Piptochaetium", keyStep: "I", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando Piptochaetium", keyStep: "I", especieId: "ed2_gramineae" },
+  },
+  ed2_stipa_pending: {
+    id: "ed2_stipa_pending", milestone: "Stipa", manualPage: 102,
+    descripcion: "Continuar con la clave específica de Stipa.",
+    opcionA: { label: "Continuar desarrollando Stipa", keyStep: "I'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando Stipa", keyStep: "I'", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_soft_glumes: {
+    id: "ed2_gramineae_group_7_soft_glumes", milestone: "Gramineae: grupo 7, glumas", manualPage: 68,
+    descripcion: "¿Las glumas terminan en una arista gruesa y corta y son largamente ciliadas en la quilla?",
+    opcionA: { label: "Sí; panoja espiciforme cilíndrica", keyStep: "J", nextNodeId: "ed2_phleum" },
+    opcionA_prima: { label: "No; glumas agudas o atenuadas, sin largas cilias en la quilla", keyStep: "J'", nextNodeId: "ed2_gramineae_group_7_rachilla_uniflorous" },
+  },
+  ed2_gramineae_group_7_rachilla_uniflorous: {
+    id: "ed2_gramineae_group_7_rachilla_uniflorous", milestone: "Gramineae: grupo 7, raquilla uniflora", manualPage: 68,
+    descripcion: "¿La raquilla se prolonga junto al antecio fértil y generalmente está cubierta de pelos?",
+    opcionA: { label: "Sí; raquilla prolongada y generalmente pilosa", keyStep: "K", nextNodeId: "ed2_deyeuxia" },
+    opcionA_prima: { label: "No; raquilla no prolongada", keyStep: "K'", nextNodeId: "ed2_gramineae_group_7_no_rachilla" },
+  },
+  ed2_gramineae_group_7_no_rachilla: {
+    id: "ed2_gramineae_group_7_no_rachilla", milestone: "Gramineae: grupo 7, raquilla no prolongada", manualPage: 68,
+    descripcion: "¿Las espiguillas son casi sésiles y están dispuestas en espigas largas?",
+    opcionA: { label: "Sí; espigas largas a lo largo del eje principal", keyStep: "L", nextNodeId: "ed2_gymnopogon_pending" },
+    opcionA_prima: { label: "No; espiguillas pediceladas en panojas densas o laxas", keyStep: "L'", nextNodeId: "ed2_agrostis" },
+  },
+  ed2_gymnopogon_pending: {
+    id: "ed2_gymnopogon_pending", milestone: "Gymnopogon", manualPage: 112,
+    descripcion: "Continuar con la clave específica de Gymnopogon.",
+    opcionA: { label: "Continuar desarrollando Gymnopogon", keyStep: "L", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando Gymnopogon", keyStep: "L", especieId: "ed2_gramineae" },
   },
   ed2_gramineae_group_7_uniflorous_mutic: {
     id: "ed2_gramineae_group_7_uniflorous_mutic", milestone: "Gramineae: grupo 7, unifloras múticas", manualPage: 68,
@@ -1533,6 +1652,60 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿Las glumas son lanceolado-subuladas y la panoja laxa?",
     opcionA: { label: "Sí; glumas ásperas, lemma aristada y panoja laxa", keyStep: "B", especieId: "ed2_chaetotropis_elongata" },
     opcionA_prima: { label: "Con protuberancias cortas; lemma mútica o aristulada; panoja compacta", keyStep: "B'", especieId: "ed2_chaetotropis_imberbis" },
+  },
+  ed2_alopecurus: {
+    id: "ed2_alopecurus", milestone: "Alopecurus", manualPage: 98,
+    descripcion: "¿Las glumas están soldadas entre sí hasta la mitad?",
+    opcionA: { label: "Soldadas hasta la mitad; carenas ásperas o cortamente ciliadas", keyStep: "A", especieId: "ed2_alopecurus_agrestis" },
+    opcionA_prima: { label: "Unidas sólo en la base; quillas largamente ciliadas abajo", keyStep: "A'", especieId: "ed2_alopecurus_bonariensis" },
+  },
+  ed2_deyeuxia: {
+    id: "ed2_deyeuxia", milestone: "Deyeuxia", manualPage: 98,
+    descripcion: "¿Las glumas miden 5-6,5 mm y los antecios 3,5-4 mm?",
+    opcionA: { label: "Sí; panoja fusiforme de 25-35 cm; planta de 80-130 cm", keyStep: "A", especieId: "ed2_deyeuxia_viridiflavescens" },
+    opcionA_prima: { label: "Glumas de 7-12 mm; panoja densa de 5-20 cm; planta de 40-80 cm", keyStep: "A'", especieId: "ed2_deyeuxia_armata" },
+  },
+  ed2_phleum: {
+    id: "ed2_phleum", milestone: "Phleum", manualPage: 99,
+    descripcion: "Phleum: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Phleum pratense", keyStep: "1", especieId: "ed2_phleum_pratense" },
+    opcionA_prima: { label: "Identificar como Phleum pratense", keyStep: "1", especieId: "ed2_phleum_pratense" },
+  },
+  ed2_agrostis: {
+    id: "ed2_agrostis", milestone: "Agrostis", manualPage: 99,
+    descripcion: "¿La lemma es mútica o aristada?",
+    opcionA: { label: "Mútica", keyStep: "A", nextNodeId: "ed2_agrostis_mutic_habit" },
+    opcionA_prima: { label: "Aristada", keyStep: "A'", nextNodeId: "ed2_agrostis_glumes" },
+  },
+  ed2_agrostis_mutic_habit: {
+    id: "ed2_agrostis_mutic_habit", milestone: "Agrostis: lemma mútica", manualPage: 100,
+    descripcion: "¿La planta es rizomatosa o estolonífera?",
+    opcionA: { label: "Rizomatosa; panoja piramidal laxa, con ramas abiertas", keyStep: "B", especieId: "ed2_agrostis_alba" },
+    opcionA_prima: { label: "Estolonífera; panoja fusiforme densa, con ramas aplicadas", keyStep: "B'", especieId: "ed2_agrostis_palustris" },
+  },
+  ed2_agrostis_glumes: {
+    id: "ed2_agrostis_glumes", milestone: "Agrostis: lemma aristada", manualPage: 100,
+    descripcion: "¿Las glumas son cortamente aristadas en el ápice?",
+    opcionA: { label: "Sí; arista débil de la lemma inserta cerca del ápice", keyStep: "C", especieId: "ed2_agrostis_platensis" },
+    opcionA_prima: { label: "No; glumas agudas o mucronadas", keyStep: "C'", nextNodeId: "ed2_agrostis_panicle_density" },
+  },
+  ed2_agrostis_panicle_density: {
+    id: "ed2_agrostis_panicle_density", milestone: "Agrostis: panoja", manualPage: 100,
+    descripcion: "¿Las panojas son laxas o muy densas y espiciformes?",
+    opcionA: { label: "Laxas", keyStep: "D", nextNodeId: "ed2_agrostis_pedicels" },
+    opcionA_prima: { label: "Muy densas y espiciformes", keyStep: "D'", nextNodeId: "ed2_agrostis_dense_glumes" },
+  },
+  ed2_agrostis_pedicels: {
+    id: "ed2_agrostis_pedicels", milestone: "Agrostis: pedicelos", manualPage: 100,
+    descripcion: "¿Los pedicelos son mucho más largos que las espiguillas?",
+    opcionA: { label: "Sí; arista dorsal de unos 2 mm inserta cerca del ápice", keyStep: "E", especieId: "ed2_agrostis_montevidensis" },
+    opcionA_prima: { label: "Menores o apenas más largos; arista de 3-3,5 mm sobre la mitad", keyStep: "E'", especieId: "ed2_agrostis_avenacea" },
+  },
+  ed2_agrostis_dense_glumes: {
+    id: "ed2_agrostis_dense_glumes", milestone: "Agrostis: panoja espiciforme", manualPage: 100,
+    descripcion: "¿Las glumas son casi iguales?",
+    opcionA: { label: "Casi iguales; panoja de 3-7 cm", keyStep: "F", especieId: "ed2_agrostis_tandilensis" },
+    opcionA_prima: { label: "Gluma inferior más larga; panoja de 10-20 cm", keyStep: "F'", especieId: "ed2_agrostis_jirgensii" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
