@@ -270,6 +270,76 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Originaria del Viejo Mundo; cultivada como forrajera y adventicia en Argentina.",
     "Pasto ovillo"
   ),
+  ed2_poa_annua: species(
+    "ed2_poa_annua", "Poa annua", "Gramínea anual pequeña, de 5-25 cm.",
+    "Flores hermafroditas; panoja abierta y laxa; espiguillas de tres a ocho flores con lemmas pubescentes sobre las nervaduras.",
+    "Originaria de Europa, adventicia en América; ubicua.", "Poa annua"
+  ),
+  ed2_poa_trivialis: species(
+    "ed2_poa_trivialis", "Poa trivialis", "Gramínea perenne sin rizomas, de 30-90 cm.",
+    "Flores hermafroditas; hojas escabrosas; panoja amplia; lemmas con algunos pelos lanosos en la base.",
+    "Originaria de Europa, adventicia en América; suelos arenosos de la ribera.", "Poa trivialis"
+  ),
+  ed2_poa_pratensis: species(
+    "ed2_poa_pratensis", "Poa pratensis", "Gramínea perenne con rizomas horizontales y tallos redondeados.",
+    "Flores hermafroditas; panoja piramidal abierta; lemmas con largos pelos lanosos en la base.",
+    "Originaria de Europa, adventicia en América; común en suelos modificados.", "Poa pratensis"
+  ),
+  ed2_poa_compressa: species(
+    "ed2_poa_compressa", "Poa compressa", "Gramínea perenne rizomatosa, con tallos muy comprimidos de 15-20 cm.",
+    "Flores hermafroditas; panoja angosta; espiguillas amontonadas y casi sésiles.",
+    "Originaria de Europa, adventicia en América; rara cerca de Buenos Aires.", "Poa compressa"
+  ),
+  ed2_poa_bonariensis: species(
+    "ed2_poa_bonariensis", "Poa bonariensis", "Gramínea dioica y rizomatosa, forrajera.",
+    "Lígulas de 1-2,5 mm; panoja contraída y densa; espiguillas femeninas lanosas.",
+    "Uruguay y nordeste argentino; campos naturales.", "Poa bonariensis"
+  ),
+  ed2_poa_barrosiana: species(
+    "ed2_poa_barrosiana", "Poa barrosiana", "Gramínea dioica y rizomatosa, con cañas ascendentes de 50-80 cm.",
+    "Lígulas mayores de 4 mm; lemmas y callo femeninos glabros; panojas densas y espiguillas grandes.",
+    "Dunas costeras de Buenos Aires.", "Poa barrosiana"
+  ),
+  ed2_poa_boecheri: species(
+    "ed2_poa_boecheri", "Poa boecheri", "Gramínea dioica y rizomatosa, con cañas erectas de 30-40 cm.",
+    "Lemmas femeninas ciliadas; callo con pelos menores que la mitad de la lemma; panoja contraída y densa.",
+    "Mendoza y norte de Neuquén; hallada en las dunas de Pinamar.", "Poa boecheri"
+  ),
+  ed2_poa_lanuginosa: species(
+    "ed2_poa_lanuginosa", "Poa lanuginosa", "Gramínea dioica y rizomatosa, con cañas de 30-60 cm.",
+    "Pelos del callo iguales o mayores que la lemma; lígulas de innovaciones de 5-25 mm; panoja densa y oblonga.",
+    "Sur del Brasil, Uruguay y nordeste argentino; frecuente en dunas costeras bonaerenses.", "Poa lanuginosa"
+  ),
+  ed2_poa_montevidensis: species(
+    "ed2_poa_montevidensis", "Poa montevidensis", "Gramínea dioica y rizomatosa, con cañas comprimidas de 50-80 cm.",
+    "Pelos del callo iguales o mayores que la lemma; lígulas superiores de 4-6 mm e innovaciones de 1 mm; panoja de 15-30 cm.",
+    "Suelos húmedos de Uruguay y Buenos Aires, especialmente sierras de Tandil y Balcarce.", "Poa montevidensis"
+  ),
+  ed2_poa_iridifolia: species(
+    "ed2_poa_iridifolia", "Poa iridifolia", "Gramínea dioica, cespitosa y robusta, de cerca de 1 m.",
+    "Sin rizomas; vainas muy comprimidas y retrorso-escabrosas; láminas de 3-5 mm; panoja densa.",
+    "Endémica de las sierras de la provincia de Buenos Aires.", "Poa iridifolia"
+  ),
+  ed2_poa_resinulosa: species(
+    "ed2_poa_resinulosa", "Poa resinulosa", "Gramínea dioica y cespitosa, de cañas bajas y uninodales.",
+    "Innovaciones filiformes y convolutas; lígula corta y truncada; panoja contraída.",
+    "Centro argentino hasta las sierras bonaerenses.", "Poa resinulosa"
+  ),
+  ed2_poa_ligularis: species(
+    "ed2_poa_ligularis", "Poa ligularis", "Gramínea dioica y cespitosa, de 15-45 cm.",
+    "Innovaciones convolutas; lígula larga y acuminada; cañas con tres o cuatro nudos; panoja contraída.",
+    "Centro y sur argentino; estepa clímax y sierras.", "Poa ligularis"
+  ),
+  ed2_poa_pilcomayensis: species(
+    "ed2_poa_pilcomayensis", "Poa pilcomayensis", "Gramínea dioica y cespitosa, de 30-60 cm.",
+    "Innovaciones planas o plegadas; cañas con un nudo; hojas escabrosas en la cara superior; panoja algo laxa.",
+    "Paraguay, Uruguay y nordeste argentino; islas del Delta y suelos húmedos bonaerenses.", "Poa pilcomayensis"
+  ),
+  ed2_poa_lanigera: species(
+    "ed2_poa_lanigera", "Poa lanigera", "Gramínea dioica y cespitosa, de 20-70 cm.",
+    "Innovaciones planas, plegadas o subconvolutas; cañas con dos a cuatro nudos; hojas lisas; panoja densa y contraída.",
+    "Sur del Brasil, Uruguay y centro argentino; estepa clímax.", "Poa lanigera"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -560,9 +630,27 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_five_nerves_pending: {
     id: "ed2_gramineae_group_7_five_nerves_pending", milestone: "Gramineae: grupo 7, panoja sin glomérulos", manualPage: 69,
-    descripcion: "Continuar con los géneros de panoja sin glomérulos compactos.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "e'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "e'", especieId: "ed2_gramineae" },
+    descripcion: "¿La lemma es carenada o redondeada en el dorso?",
+    opcionA: { label: "Conspicuamente carenada", keyStep: "f", nextNodeId: "ed2_gramineae_group_7_carinate" },
+    opcionA_prima: { label: "Redondeada, no carenada", keyStep: "f'", nextNodeId: "ed2_gramineae_group_7_rounded_pending" },
+  },
+  ed2_gramineae_group_7_carinate: {
+    id: "ed2_gramineae_group_7_carinate", milestone: "Gramineae: grupo 7, lemma carenada", manualPage: 69,
+    descripcion: "¿La lemma es aguda o bidentada?",
+    opcionA: { label: "Aguda", keyStep: "g", nextNodeId: "ed2_poa" },
+    opcionA_prima: { label: "Bidentada", keyStep: "g'", nextNodeId: "ed2_gramineae_group_7_koeleria_pending" },
+  },
+  ed2_gramineae_group_7_koeleria_pending: {
+    id: "ed2_gramineae_group_7_koeleria_pending", milestone: "Gramineae: grupo 7, lemma bidentada", manualPage: 69,
+    descripcion: "Continuar con el género de lemma carenada y bidentada.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "g'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "g'", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_rounded_pending: {
+    id: "ed2_gramineae_group_7_rounded_pending", milestone: "Gramineae: grupo 7, lemma redondeada", manualPage: 69,
+    descripcion: "Continuar con los géneros de lemma redondeada en el dorso.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "f'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "f'", especieId: "ed2_gramineae" },
   },
   ed2_gramineae_group_7_awn_position: {
     id: "ed2_gramineae_group_7_awn_position", milestone: "Gramineae: grupo 7, lemmas aristadas", manualPage: 69,
@@ -755,6 +843,84 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿La panoja es densa y casi espiciforme o laxa?",
     opcionA: { label: "Densa, casi espiciforme; lemmas de 8-9 mm", keyStep: "G", especieId: "ed2_bromus_racemosus" },
     opcionA_prima: { label: "Laxa; lemmas de unos 8 mm", keyStep: "G'", especieId: "ed2_bromus_commutatus" },
+  },
+  ed2_poa: {
+    id: "ed2_poa", milestone: "Poa", manualPage: 83,
+    descripcion: "¿Las flores son hermafroditas o unisexuales en plantas dioicas?",
+    opcionA: { label: "Hermafroditas", keyStep: "A", nextNodeId: "ed2_poa_hermaphrodite" },
+    opcionA_prima: { label: "Unisexuales; plantas dioicas", keyStep: "A'", nextNodeId: "ed2_poa_dioecious" },
+  },
+  ed2_poa_hermaphrodite: {
+    id: "ed2_poa_hermaphrodite", milestone: "Poa: flores hermafroditas", manualPage: 83,
+    descripcion: "¿La planta es anual y mide hasta 25 cm?",
+    opcionA: { label: "Anual, de 5-25 cm; panoja abierta y laxa", keyStep: "B", especieId: "ed2_poa_annua" },
+    opcionA_prima: { label: "Perenne, de 20-90 cm", keyStep: "B'", nextNodeId: "ed2_poa_perennial" },
+  },
+  ed2_poa_perennial: {
+    id: "ed2_poa_perennial", milestone: "Poa: perennes hermafroditas", manualPage: 83,
+    descripcion: "¿La planta posee rizomas horizontales?",
+    opcionA: { label: "Sin rizomas; hojas escabrosas y panoja amplia", keyStep: "C", especieId: "ed2_poa_trivialis" },
+    opcionA_prima: { label: "Con rizomas horizontales", keyStep: "C'", nextNodeId: "ed2_poa_stem_shape" },
+  },
+  ed2_poa_stem_shape: {
+    id: "ed2_poa_stem_shape", milestone: "Poa: tallos rizomatosos", manualPage: 83,
+    descripcion: "¿Los tallos son redondeados o muy comprimidos?",
+    opcionA: { label: "Redondeados; panoja piramidal abierta", keyStep: "D", especieId: "ed2_poa_pratensis" },
+    opcionA_prima: { label: "Muy comprimidos; panoja angosta con espiguillas amontonadas", keyStep: "D'", especieId: "ed2_poa_compressa" },
+  },
+  ed2_poa_dioecious: {
+    id: "ed2_poa_dioecious", milestone: "Poa: plantas dioicas", manualPage: 83,
+    descripcion: "¿La planta posee rizomas horizontales?",
+    opcionA: { label: "Con rizomas horizontales", keyStep: "E", nextNodeId: "ed2_poa_dioecious_rhizomes" },
+    opcionA_prima: { label: "Cespitosa, sin rizomas horizontales", keyStep: "E'", nextNodeId: "ed2_poa_tufted" },
+  },
+  ed2_poa_dioecious_rhizomes: {
+    id: "ed2_poa_dioecious_rhizomes", milestone: "Poa: dioicas rizomatosas", manualPage: 83,
+    descripcion: "¿Las lígulas miden hasta 2,5 mm o superan 4 mm?",
+    opcionA: { label: "De 1-2,5 mm; panoja contraída; espiguillas femeninas lanosas", keyStep: "F", especieId: "ed2_poa_bonariensis" },
+    opcionA_prima: { label: "Más de 4 mm", keyStep: "F'", nextNodeId: "ed2_poa_female_indument" },
+  },
+  ed2_poa_female_indument: {
+    id: "ed2_poa_female_indument", milestone: "Poa: indumento femenino", manualPage: 83,
+    descripcion: "¿Las lemmas y el callo de las espiguillas femeninas son glabros?",
+    opcionA: { label: "Glabros; espiguillas grandes de cinco a ocho flores", keyStep: "G", especieId: "ed2_poa_barrosiana" },
+    opcionA_prima: { label: "Lemmas ciliadas y callo cubierto de pelos lanosos", keyStep: "G'", nextNodeId: "ed2_poa_callus_hairs" },
+  },
+  ed2_poa_callus_hairs: {
+    id: "ed2_poa_callus_hairs", milestone: "Poa: pelos del callo", manualPage: 83,
+    descripcion: "¿Los pelos del callo son menores que la mitad de la lemma?",
+    opcionA: { label: "Sí, cortos; panoja linear-oblonga y densa", keyStep: "H", especieId: "ed2_poa_boecheri" },
+    opcionA_prima: { label: "Iguales o mayores que la lemma", keyStep: "H'", nextNodeId: "ed2_poa_ligules" },
+  },
+  ed2_poa_ligules: {
+    id: "ed2_poa_ligules", milestone: "Poa: longitud de las lígulas", manualPage: 83,
+    descripcion: "¿Cómo son las lígulas de las innovaciones?",
+    opcionA: { label: "De 5-25 mm; panoja densa oblonga de 10-12 cm", keyStep: "J", especieId: "ed2_poa_lanuginosa" },
+    opcionA_prima: { label: "De 1 mm; lígulas superiores de 4-6 mm; panoja de 15-30 cm", keyStep: "J'", especieId: "ed2_poa_montevidensis" },
+  },
+  ed2_poa_tufted: {
+    id: "ed2_poa_tufted", milestone: "Poa: dioicas cespitosas", manualPage: 84,
+    descripcion: "¿La planta es robusta, de hasta 1 m, con vainas muy comprimidas?",
+    opcionA: { label: "Sí; láminas de 3-5 mm", keyStep: "K", especieId: "ed2_poa_iridifolia" },
+    opcionA_prima: { label: "Generalmente menor; vainas dilatadas en la base", keyStep: "K'", nextNodeId: "ed2_poa_innovation_blades" },
+  },
+  ed2_poa_innovation_blades: {
+    id: "ed2_poa_innovation_blades", milestone: "Poa: láminas de las innovaciones", manualPage: 84,
+    descripcion: "¿Las láminas de las innovaciones son convolutas y miden hasta 1,5 mm?",
+    opcionA: { label: "Convolutas o subconvolutas, de 0,5-1,5 mm", keyStep: "L", nextNodeId: "ed2_poa_convolute" },
+    opcionA_prima: { label: "Planas, plegadas o subconvolutas, de más de 1,5 mm", keyStep: "L'", nextNodeId: "ed2_poa_flat" },
+  },
+  ed2_poa_convolute: {
+    id: "ed2_poa_convolute", milestone: "Poa: innovaciones convolutas", manualPage: 84,
+    descripcion: "¿La lígula es corta y truncada o larga y acuminada?",
+    opcionA: { label: "Corta, truncada, de 1-3 mm; cañas uninodales", keyStep: "M", especieId: "ed2_poa_resinulosa" },
+    opcionA_prima: { label: "Larga, acuminada, de 5-10 mm; cañas con tres o cuatro nudos", keyStep: "M'", especieId: "ed2_poa_ligularis" },
+  },
+  ed2_poa_flat: {
+    id: "ed2_poa_flat", milestone: "Poa: innovaciones planas", manualPage: 84,
+    descripcion: "¿Las cañas poseen uno o varios nudos?",
+    opcionA: { label: "Un nudo; hojas escabrosas arriba; panoja algo laxa", keyStep: "N", especieId: "ed2_poa_pilcomayensis" },
+    opcionA_prima: { label: "Dos a cuatro nudos; hojas lisas; panoja contraída y densa", keyStep: "N'", especieId: "ed2_poa_lanigera" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
