@@ -862,6 +862,86 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Espiguillas con ocho a diez flores; lemma con arista central de 1-1,5 mm y dos arístulas laterales de 0,7 mm.",
     "Sur de Brasil, Paraguay, Uruguay y norte y centro argentino; rara en la región.", "Tridens brasiliensis"
   ),
+  ed2_eragrostis_hypnoides: species(
+    "ed2_eragrostis_hypnoides", "Eragrostis hypnoides", "Gramínea anual enana, rastrera y frecuentemente radicante en los nudos.",
+    "Panoja contraída de 1-5 cm; espiguillas lanceoladas de 5-10 mm con diez a cincuenta flores; dos estambres.",
+    "América cálida, desde Estados Unidos hasta el nordeste argentino; suelos húmedos.", "Eragrostis hypnoides"
+  ),
+  ed2_eragrostis_neomexicana: species(
+    "ed2_eragrostis_neomexicana", "Eragrostis neomexicana", "Gramínea anual con cañas de hasta 1 m.",
+    "Vainas con glándulas crateriformes; panoja amplia y laxa de 20-35 cm; cariopse con surco ventral ancho.",
+    "Originaria de Estados Unidos; adventicia en suelos modificados.", "Eragrostis neomexicana"
+  ),
+  ed2_eragrostis_minor: species(
+    "ed2_eragrostis_minor", "Eragrostis minor", "Gramínea anual con cañas ascendentes de 10-20 cm.",
+    "Vainas con glándulas crateriformes; panoja de 2-10 cm; espiguillas de 1,3-2 mm de ancho, con ocho a quince antecios; lemmas obtusas.",
+    "Sur de Europa; adventicia en calles de la Capital Federal.", "Eragrostis minor"
+  ),
+  ed2_eragrostis_cilianensis: species(
+    "ed2_eragrostis_cilianensis", "Eragrostis cilianensis", "Gramínea anual de 10-40 cm.",
+    "Vainas con glándulas crateriformes; espiguillas de 2-4 mm de ancho con ocho a treinta y cuatro antecios; lemmas mucronuladas.",
+    "Originaria de Europa; adventicia en suelos modificados.", "Eragrostis cilianensis"
+  ),
+  ed2_eragrostis_virescens: species(
+    "ed2_eragrostis_virescens", "Eragrostis virescens", "Gramínea anual ascendente o erecta de 20-70 cm.",
+    "Vainas sin glándulas; cariopse con surco ventral ancho; panoja laxa de 10-30 cm; espiguillas con siete a diez antecios.",
+    "América austral; frecuente en ambientes antropógenos y suelos húmedos bonaerenses.", "Eragrostis virescens"
+  ),
+  ed2_eragrostis_neesii: species(
+    "ed2_eragrostis_neesii", "Eragrostis neesii var. lindmanii", "Gramínea pequeña e hirsuta de 20-45 cm.",
+    "Dos estambres; panoja breve y contraída de 3-9 cm; espiguillas de tres a quince flores, frecuentemente con glumas caducas.",
+    "Sur de Brasil, Paraguay, Uruguay y nordeste argentino; rara cerca de Buenos Aires.", "Eragrostis neesii var. lindmanii"
+  ),
+  ed2_eragrostis_barrelieri: species(
+    "ed2_eragrostis_barrelieri", "Eragrostis barrelieri", "Gramínea anual con cañas de 15-40 cm.",
+    "Nudos con anillo de glándulas; panoja aérea acompañada por otra de flores cleistógamas semiincluida en la vaina.",
+    "Sur de Europa; adventicia en La Plata.", "Eragrostis barrelieri"
+  ),
+  ed2_eragrostis_pectinacea: species(
+    "ed2_eragrostis_pectinacea", "Eragrostis pectinacea", "Gramínea anual con cañas ascendentes de 15-25 cm.",
+    "Cuello de la vaina con mechones laterales; glumas agudas y carenadas; lemmas de nervios prominentes; espiguillas verde grisáceas.",
+    "América del Norte; rara en Puerto Nuevo.", "Eragrostis pectinacea"
+  ),
+  ed2_eragrostis_pilosa: species(
+    "ed2_eragrostis_pilosa", "Eragrostis pilosa", "Gramínea anual ascendente o erecta de 10-40 cm.",
+    "Cuello de la vaina con mechones laterales; glumas muy desiguales y tenues; lemmas con nervaduras laterales poco visibles.",
+    "Originaria de Europa; adventicia en suelos modificados.", "Eragrostis pilosa"
+  ),
+  ed2_eragrostis_multicaulis: species(
+    "ed2_eragrostis_multicaulis", "Eragrostis multicaulis", "Gramínea anual glabra, ascendente o erecta, de 15-40 cm.",
+    "Cuello de la vaina sin mechones; lemmas muy agudas; pálea igual a dos tercios de la lemma o menor; panoja laxa.",
+    "Regiones templadas y cálidas del globo; hallada en el Delta bonaerense.", "Eragrostis multicaulis"
+  ),
+  ed2_eragrostis_airoides: species(
+    "ed2_eragrostis_airoides", "Eragrostis airoides", "Gramínea perenne de cañas delgadas, de 30-100 cm.",
+    "Espiguillas diminutas de 1-2 mm con uno a tres antecios; panoja muy difusa con pedicelos filiformes glandulosos.",
+    "América cálida hasta el norte y este argentino; frecuente en el Delta, norte provincial y sierras.", "Eragrostis airoides"
+  ),
+  ed2_eragrostis_retinens: species(
+    "ed2_eragrostis_retinens", "Eragrostis retinens", "Gramínea perenne de cañas delgadas y glabras, de 20-60 cm.",
+    "Lemmas obtusas; páleas con quillas prominentes y ciliadas; espiguillas elipsoidales con tres a seis antecios.",
+    "Uruguay y nordeste y centro argentino; campos del norte y nordeste bonaerense.", "Eragrostis retinens"
+  ),
+  ed2_eragrostis_polytricha: species(
+    "ed2_eragrostis_polytricha", "Eragrostis polytricha", "Gramínea perenne de 30-60 cm.",
+    "Panoja difusa y piramidal; vainas velludas; láminas planas de 3-6 mm; pedicelos mucho más largos que las espiguillas.",
+    "América cálida hasta el nordeste argentino; rara en Pergamino y Tandil.", "Eragrostis polytricha"
+  ),
+  ed2_eragrostis_lugens: species(
+    "ed2_eragrostis_lugens", "Eragrostis lugens", "Gramínea perenne de cañas delgadas, de 15-70 cm.",
+    "Panoja amplia y difusa; vainas glabras o pilosas cerca de la lígula; láminas de 1-3 mm; glumas tenues.",
+    "América cálida hasta el centro argentino; frecuente en la estepa clímax y forrajera.", "Eragrostis lugens"
+  ),
+  ed2_eragrostis_bahiensis: species(
+    "ed2_eragrostis_bahiensis", "Eragrostis bahiensis", "Gramínea perenne alta y glabra, con cañas de hasta 1 m y raíces profundas.",
+    "Panoja densa, algo nutante; raquilla tenaz; las páleas permanecen en ella al madurar los cariopses.",
+    "Este y sur de Brasil, Paraguay, Uruguay y nordeste y centro argentino; rara en Isla Maciel y San Clemente.", "Eragrostis bahiensis"
+  ),
+  ed2_eragrostis_cataclasta: species(
+    "ed2_eragrostis_cataclasta", "Eragrostis cataclasta", "Gramínea perenne de cañas estriadas y glabras, de 30-80 cm.",
+    "Raquilla frágil; panoja contraída de 3-15 cm; espiguillas casi sésiles de 5-10 mm con ocho a veinte antecios.",
+    "Sur de Brasil, Uruguay y nordeste argentino; presente en Isla Maciel.", "Eragrostis cataclasta"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -1518,9 +1598,99 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_eragrostis_pending: {
     id: "ed2_eragrostis_pending", milestone: "Eragrostis", manualPage: 111,
-    descripcion: "Continuar con la clave específica de Eragrostis.",
-    opcionA: { label: "Continuar desarrollando Eragrostis", keyStep: "b'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando Eragrostis", keyStep: "b'", especieId: "ed2_gramineae" },
+    descripcion: "¿La planta es enana, rastrera, ramificada y frecuentemente radicante en los nudos?",
+    opcionA: { label: "Sí; panoja contraída de 1-5 cm", keyStep: "A", especieId: "ed2_eragrostis_hypnoides" },
+    opcionA_prima: { label: "No; planta ascendente o erecta", keyStep: "A'", nextNodeId: "ed2_eragrostis_duration" },
+  },
+  ed2_eragrostis_duration: {
+    id: "ed2_eragrostis_duration", milestone: "Eragrostis: duración", manualPage: 111,
+    descripcion: "¿La planta es anual o perenne?",
+    opcionA: { label: "Anual; todos los tallos florecen en el mismo período", keyStep: "B", nextNodeId: "ed2_eragrostis_annual_glands" },
+    opcionA_prima: { label: "Perenne; con renuevos que florecerán al año siguiente", keyStep: "B'", nextNodeId: "ed2_eragrostis_perennial_size" },
+  },
+  ed2_eragrostis_annual_glands: {
+    id: "ed2_eragrostis_annual_glands", milestone: "Eragrostis anual: glándulas", manualPage: 111,
+    descripcion: "¿Las nervaduras de las vainas poseen glándulas crateriformes?",
+    opcionA: { label: "Sí; glándulas excavadas", keyStep: "C", nextNodeId: "ed2_eragrostis_glandular_panicle" },
+    opcionA_prima: { label: "No; nervaduras sin glándulas excavadas", keyStep: "C'", nextNodeId: "ed2_eragrostis_annual_caryopsis" },
+  },
+  ed2_eragrostis_glandular_panicle: {
+    id: "ed2_eragrostis_glandular_panicle", milestone: "Eragrostis anual: panoja glandulosa", manualPage: 111,
+    descripcion: "¿La panoja es amplia y laxa, de 20-35 cm, y el cariopse posee un surco ventral ancho?",
+    opcionA: { label: "Sí", keyStep: "D", especieId: "ed2_eragrostis_neomexicana" },
+    opcionA_prima: { label: "No; panoja de 2-10 cm y cariopse sin surco ventral", keyStep: "D'", nextNodeId: "ed2_eragrostis_glandular_spikelet" },
+  },
+  ed2_eragrostis_glandular_spikelet: {
+    id: "ed2_eragrostis_glandular_spikelet", milestone: "Eragrostis anual: espiguilla glandulosa", manualPage: 112,
+    descripcion: "¿Las espiguillas miden 1,3-2 mm de ancho y las lemmas son obtusas?",
+    opcionA: { label: "Sí; ocho a quince antecios", keyStep: "E", especieId: "ed2_eragrostis_minor" },
+    opcionA_prima: { label: "No; espiguillas de 2-4 mm y lemmas mucronuladas", keyStep: "E'", especieId: "ed2_eragrostis_cilianensis" },
+  },
+  ed2_eragrostis_annual_caryopsis: {
+    id: "ed2_eragrostis_annual_caryopsis", milestone: "Eragrostis anual: cariopse", manualPage: 112,
+    descripcion: "¿El cariopse posee un surco ventral ancho?",
+    opcionA: { label: "Sí; panoja laxa de 10-30 cm", keyStep: "F", especieId: "ed2_eragrostis_virescens" },
+    opcionA_prima: { label: "No; contorno redondeado", keyStep: "F'", nextNodeId: "ed2_eragrostis_stamens" },
+  },
+  ed2_eragrostis_stamens: {
+    id: "ed2_eragrostis_stamens", milestone: "Eragrostis anual: estambres", manualPage: 112,
+    descripcion: "¿Las flores poseen dos o tres estambres?",
+    opcionA: { label: "Dos; planta pequeña e hirsuta", keyStep: "G", especieId: "ed2_eragrostis_neesii" },
+    opcionA_prima: { label: "Tres", keyStep: "G'", nextNodeId: "ed2_eragrostis_node_glands" },
+  },
+  ed2_eragrostis_node_glands: {
+    id: "ed2_eragrostis_node_glands", milestone: "Eragrostis anual: nudos", manualPage: 112,
+    descripcion: "¿La base de los nudos posee un anillo de glándulas y hay una panoja cleistógama?",
+    opcionA: { label: "Sí", keyStep: "H", especieId: "ed2_eragrostis_barrelieri" },
+    opcionA_prima: { label: "No", keyStep: "H'", nextNodeId: "ed2_eragrostis_neck_hairs" },
+  },
+  ed2_eragrostis_neck_hairs: {
+    id: "ed2_eragrostis_neck_hairs", milestone: "Eragrostis anual: cuello de la vaina", manualPage: 112,
+    descripcion: "¿El cuello de la vaina posee un mechón de pelos a cada lado?",
+    opcionA: { label: "Sí; lemmas obtusas y pálea mayor que dos tercios", keyStep: "I", nextNodeId: "ed2_eragrostis_glumes" },
+    opcionA_prima: { label: "No; lemmas muy agudas y pálea de dos tercios o menor", keyStep: "I'", especieId: "ed2_eragrostis_multicaulis" },
+  },
+  ed2_eragrostis_glumes: {
+    id: "ed2_eragrostis_glumes", milestone: "Eragrostis anual: glumas", manualPage: 112,
+    descripcion: "¿Las glumas son agudas, con quilla conspicua y nervadura aserrada?",
+    opcionA: { label: "Sí; nervios laterales de la lemma prominentes", keyStep: "J", especieId: "ed2_eragrostis_pectinacea" },
+    opcionA_prima: { label: "No; glumas obtusas o tenues y muy desiguales", keyStep: "J'", especieId: "ed2_eragrostis_pilosa" },
+  },
+  ed2_eragrostis_perennial_size: {
+    id: "ed2_eragrostis_perennial_size", milestone: "Eragrostis perenne: espiguillas", manualPage: 112,
+    descripcion: "¿Las espiguillas son diminutas, de 1-2 mm, con uno a tres antecios?",
+    opcionA: { label: "Sí; panoja muy difusa y pedicelos filiformes", keyStep: "K", especieId: "ed2_eragrostis_airoides" },
+    opcionA_prima: { label: "No; de 1,5 a varios milímetros, con tres o más antecios", keyStep: "K'", nextNodeId: "ed2_eragrostis_perennial_lemma" },
+  },
+  ed2_eragrostis_perennial_lemma: {
+    id: "ed2_eragrostis_perennial_lemma", milestone: "Eragrostis perenne: lemma", manualPage: 112,
+    descripcion: "¿Las lemmas son obtusas y las páleas tienen quillas prominentemente ciliadas?",
+    opcionA: { label: "Sí; espiguillas elipsoidales con tres a seis antecios", keyStep: "L", especieId: "ed2_eragrostis_retinens" },
+    opcionA_prima: { label: "No; lemmas agudas y quillas escabrosas o apenas ciliadas", keyStep: "L'", nextNodeId: "ed2_eragrostis_perennial_panicle" },
+  },
+  ed2_eragrostis_perennial_panicle: {
+    id: "ed2_eragrostis_perennial_panicle", milestone: "Eragrostis perenne: panoja", manualPage: 113,
+    descripcion: "¿La panoja es difusa y los pedicelos mucho más largos que las espiguillas?",
+    opcionA: { label: "Sí", keyStep: "M", nextNodeId: "ed2_eragrostis_sheath" },
+    opcionA_prima: { label: "No; panoja densa y pedicelos más cortos", keyStep: "M'", nextNodeId: "ed2_eragrostis_rachilla" },
+  },
+  ed2_eragrostis_sheath: {
+    id: "ed2_eragrostis_sheath", milestone: "Eragrostis perenne: vainas", manualPage: 113,
+    descripcion: "¿Las vainas son velludas y las láminas anchas y planas?",
+    opcionA: { label: "Sí; láminas de 3-6 mm", keyStep: "N", especieId: "ed2_eragrostis_polytricha" },
+    opcionA_prima: { label: "No; vainas glabras o pilosas sólo cerca de la lígula", keyStep: "N'", especieId: "ed2_eragrostis_lugens" },
+  },
+  ed2_eragrostis_rachilla: {
+    id: "ed2_eragrostis_rachilla", milestone: "Eragrostis perenne: raquilla", manualPage: 113,
+    descripcion: "¿La raquilla es tenaz y persistente?",
+    opcionA: { label: "Sí; las espiguillas caen enteras o las páleas permanecen", keyStep: "O", nextNodeId: "ed2_eragrostis_tenacious_habit" },
+    opcionA_prima: { label: "No; raquilla frágil, quebrándose junto a la inserción", keyStep: "O'", especieId: "ed2_eragrostis_cataclasta" },
+  },
+  ed2_eragrostis_tenacious_habit: {
+    id: "ed2_eragrostis_tenacious_habit", milestone: "Eragrostis perenne: hábito", manualPage: 113,
+    descripcion: "¿La planta es pequeña e hirsuta, de 20-45 cm?",
+    opcionA: { label: "Sí; panoja corta y contraída", keyStep: "P", especieId: "ed2_eragrostis_neesii" },
+    opcionA_prima: { label: "No; planta alta y glabra, con cañas de hasta 1 m", keyStep: "P'", especieId: "ed2_eragrostis_bahiensis" },
   },
   ed2_gramineae_group_7_three_nerves_mucronate: {
     id: "ed2_gramineae_group_7_three_nerves_mucronate", milestone: "Gramineae: grupo 7, lemmas mucronadas", manualPage: 69,
