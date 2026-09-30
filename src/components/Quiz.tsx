@@ -227,7 +227,10 @@ export default function Quiz({ onComplete }: QuizProps) {
 
   return (
     <div className="bg-white rounded-lg shadow-lg p-6">
-      <SpeciesRouteSearch onRouteOpenChange={setIsRouteOpen} />
+      <SpeciesRouteSearch
+        onRouteOpenChange={setIsRouteOpen}
+        onRegister={onComplete}
+      />
 
       {!isRouteOpen && (
         <>

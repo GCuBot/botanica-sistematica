@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { LoaderCircle, Search, X } from "lucide-react";
+import { LoaderCircle, Plus, Search, X } from "lucide-react";
 import SpeciesReferenceLinks from "@/components/SpeciesReferenceLinks";
 import { getTaxonomicAliasForPdfName } from "@/data/taxonomicAliases";
 import { GbifTaxonomicResult, lookupGbifSynonyms } from "@/lib/gbifTaxonomy";
@@ -10,12 +10,17 @@ import {
   searchSpeciesRoutes,
   SpeciesKeyRoute,
 } from "@/lib/keyRoutes";
+import { Especie } from "@/types";
 
 interface SpeciesRouteSearchProps {
   onRouteOpenChange?: (isOpen: boolean) => void;
+  onRegister: (especie: Especie) => void;
 }
 
-export default function SpeciesRouteSearch({ onRouteOpenChange }: SpeciesRouteSearchProps) {
+export default function SpeciesRouteSearch({
+  onRouteOpenChange,
+  onRegister,
+}: SpeciesRouteSearchProps) {
   const [query, setQuery] = useState("");
   const [selectedRoute, setSelectedRoute] = useState<SpeciesKeyRoute | null>(null);
   const [selectedStepIndex, setSelectedStepIndex] = useState<number | null>(null);
@@ -278,6 +283,15 @@ export default function SpeciesRouteSearch({ onRouteOpenChange }: SpeciesRouteSe
               )}
             </div>
           )}
+
+          <button
+            type="button"
+            onClick={() => onRegister(selectedRoute.especie)}
+            className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-md bg-green-700 px-4 py-2.5 text-sm font-semibold text-white hover:bg-green-800 sm:w-auto"
+          >
+            <Plus aria-hidden="true" size={18} />
+            Agregar a mis plantas
+          </button>
 
           <div className="mt-5">
             <SpeciesReferenceLinks especie={selectedRoute.especie} />
