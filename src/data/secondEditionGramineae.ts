@@ -207,6 +207,69 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Uruguay y estepa pampeana argentina.",
     "Puccinellia glaucescens var. osteniana"
   ),
+  ed2_bromus_brevis: species(
+    "ed2_bromus_brevis", "Bromus brevis",
+    "Gramínea bienal o perenne, de 20-70 cm.",
+    "Espiguillas lanceoladas y comprimidas de 15-18 mm; lemmas con arista diminuta de cerca de 0,5 mm.",
+    "Centro argentino; especie forrajera.",
+    "Cebadilla pampeana"
+  ),
+  ed2_bromus_unioloides: species(
+    "ed2_bromus_unioloides", "Bromus unioloides",
+    "Gramínea perenne y cespitosa, de cerca de 1 m.",
+    "Espiguillas muy comprimidas; lemmas carenadas, con arista mayor de 1 mm; panoja laxa.",
+    "Sudamérica; forrajera muy frecuente en la provincia.",
+    "Cebadilla criolla, cebadilla australiana"
+  ),
+  ed2_bromus_brachyanthera: species(
+    "ed2_bromus_brachyanthera", "Bromus brachyanthera",
+    "Gramínea perenne y cespitosa, de 40-90 cm.",
+    "Espiguillas poco comprimidas; arista tan larga como la lemma; panoja laxa e inclinada.",
+    "América austral; la variedad uruguayensis es frecuente en bosques húmedos de la ribera.",
+    "Bromus brachyanthera"
+  ),
+  ed2_bromus_auleticus: species(
+    "ed2_bromus_auleticus", "Bromus auleticus",
+    "Gramínea perenne y cespitosa, de 40-120 cm.",
+    "Espiguillas poco comprimidas, de siete a diez flores; arista de la mitad de la longitud de la lemma; panoja laxa.",
+    "América austral; frecuente en campos naturales.",
+    "Cebadilla chaqueña"
+  ),
+  ed2_bromus_rigidus: species(
+    "ed2_bromus_rigidus", "Bromus rigidus",
+    "Gramínea anual de hasta 70 cm.",
+    "Glumas acuminadas o subuladas; lemmas linear-lanceoladas con aristas muy largas de 30-50 mm; panoja laxa.",
+    "Europa y norte de África; adventicia en Patagonia y accidental en Buenos Aires.",
+    "Bromus rigidus"
+  ),
+  ed2_bromus_mollis: species(
+    "ed2_bromus_mollis", "Bromus mollis",
+    "Gramínea anual de 10-80 cm, con vainas velludas.",
+    "Glumas y lemmas pubescentes; panoja contraída y densa; espiguillas lanceoladas y gruesas.",
+    "Originaria de Europa, naturalizada en Argentina; frecuente en campos graminosos.",
+    "Bromus mollis"
+  ),
+  ed2_bromus_racemosus: species(
+    "ed2_bromus_racemosus", "Bromus racemosus",
+    "Gramínea anual pubescente, de 30-70 cm.",
+    "Glumas y lemmas glabras; panoja densa casi espiciforme; lemmas de 8-9 mm.",
+    "Originaria de Europa; adventicia en Argentina.",
+    "Bromus racemosus"
+  ),
+  ed2_bromus_commutatus: species(
+    "ed2_bromus_commutatus", "Bromus commutatus",
+    "Gramínea anual de 30-100 cm.",
+    "Glumas y lemmas glabras; panoja laxa; espiguillas de 14-23 mm y aristas de 10-13 mm.",
+    "Originaria de Europa; naturalizada en la provincia de Buenos Aires.",
+    "Bromus commutatus"
+  ),
+  ed2_dactylis_glomerata: species(
+    "ed2_dactylis_glomerata", "Dactylis glomerata",
+    "Gramínea perenne y cespitosa, de 50-120 cm.",
+    "Espiguillas de tres a ocho flores, reunidas en glomérulos compactos; lemmas carenadas, ciliadas y cortamente aristadas.",
+    "Originaria del Viejo Mundo; cultivada como forrajera y adventicia en Argentina.",
+    "Pasto ovillo"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -449,9 +512,57 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_mutic_pending: {
     id: "ed2_gramineae_group_7_mutic_pending", milestone: "Gramineae: grupo 7, lemmas múticas", manualPage: 69,
-    descripcion: "Continuar con los géneros de lemmas múticas del grupo 7.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "V", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "V", especieId: "ed2_gramineae" },
+    descripcion: "¿Las espiguillas forman espigas fasciculadas en el ápice de la caña?",
+    opcionA: { label: "Sésiles o muy brevemente pediceladas, en espigas fasciculadas apicales", keyStep: "W", nextNodeId: "ed2_gramineae_group_7_fascicled_pending" },
+    opcionA_prima: { label: "No dispuestas de esa manera", keyStep: "W'", nextNodeId: "ed2_gramineae_group_7_mutic_size" },
+  },
+  ed2_gramineae_group_7_fascicled_pending: {
+    id: "ed2_gramineae_group_7_fascicled_pending", milestone: "Gramineae: grupo 7, espigas fasciculadas", manualPage: 69,
+    descripcion: "Continuar con los géneros de espigas fasciculadas y lemmas múticas.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "W", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "W", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_mutic_size: {
+    id: "ed2_gramineae_group_7_mutic_size", milestone: "Gramineae: grupo 7, tamaño de la espiguilla", manualPage: 69,
+    descripcion: "¿Las espiguillas superan los 15 mm y el ovario es pubescente en el ápice?",
+    opcionA: { label: "Sí; espiguillas grandes de más de 15 mm", keyStep: "Y", nextNodeId: "ed2_bromus" },
+    opcionA_prima: { label: "Menores de 15 mm; ovario generalmente glabro en el ápice", keyStep: "Y'", nextNodeId: "ed2_gramineae_group_7_mutic_nerves" },
+  },
+  ed2_gramineae_group_7_mutic_nerves: {
+    id: "ed2_gramineae_group_7_mutic_nerves", milestone: "Gramineae: grupo 7, nervaduras", manualPage: 69,
+    descripcion: "¿Las lemmas poseen tres nervaduras o cinco o más?",
+    opcionA: { label: "Tres nervaduras", keyStep: "Z", nextNodeId: "ed2_gramineae_group_7_three_nerves_pending" },
+    opcionA_prima: { label: "Cinco o más nervaduras", keyStep: "Z'", nextNodeId: "ed2_gramineae_group_7_many_nerves" },
+  },
+  ed2_gramineae_group_7_three_nerves_pending: {
+    id: "ed2_gramineae_group_7_three_nerves_pending", milestone: "Gramineae: grupo 7, tres nervaduras", manualPage: 69,
+    descripcion: "Continuar con los géneros de lemmas trinervadas.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "Z", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "Z", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_many_nerves: {
+    id: "ed2_gramineae_group_7_many_nerves", milestone: "Gramineae: grupo 7, cinco o más nervaduras", manualPage: 69,
+    descripcion: "¿Las lemmas poseen cinco nervaduras o más de cinco?",
+    opcionA: { label: "Cinco nervaduras", keyStep: "d", nextNodeId: "ed2_gramineae_group_7_five_nerves" },
+    opcionA_prima: { label: "Más de cinco nervaduras", keyStep: "d'", nextNodeId: "ed2_gramineae_group_7_over_five_pending" },
+  },
+  ed2_gramineae_group_7_over_five_pending: {
+    id: "ed2_gramineae_group_7_over_five_pending", milestone: "Gramineae: grupo 7, más de cinco nervaduras", manualPage: 69,
+    descripcion: "Continuar con los géneros de lemmas con más de cinco nervaduras.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "d'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "d'", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_five_nerves: {
+    id: "ed2_gramineae_group_7_five_nerves", milestone: "Gramineae: grupo 7, cinco nervaduras", manualPage: 69,
+    descripcion: "¿Las espiguillas forman glomérulos compactos en los extremos de las ramas?",
+    opcionA: { label: "Sí; lemmas cortamente aristadas", keyStep: "e", especieId: "ed2_dactylis_glomerata" },
+    opcionA_prima: { label: "Panoja laxa o contraída, pero sin glomérulos compactos", keyStep: "e'", nextNodeId: "ed2_gramineae_group_7_five_nerves_pending" },
+  },
+  ed2_gramineae_group_7_five_nerves_pending: {
+    id: "ed2_gramineae_group_7_five_nerves_pending", milestone: "Gramineae: grupo 7, panoja sin glomérulos", manualPage: 69,
+    descripcion: "Continuar con los géneros de panoja sin glomérulos compactos.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "e'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "e'", especieId: "ed2_gramineae" },
   },
   ed2_gramineae_group_7_awn_position: {
     id: "ed2_gramineae_group_7_awn_position", milestone: "Gramineae: grupo 7, lemmas aristadas", manualPage: 69,
@@ -473,9 +584,15 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_gracile_pending: {
     id: "ed2_gramineae_group_7_gracile_pending", milestone: "Gramineae: grupo 7, plantas gráciles", manualPage: 69,
-    descripcion: "Continuar con los géneros gráciles de arista terminal del grupo 7.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "j'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "j'", especieId: "ed2_gramineae" },
+    descripcion: "¿Las espiguillas miden entre 15 y 35 mm?",
+    opcionA: { label: "Grandes, de 15-35 mm", keyStep: "m", nextNodeId: "ed2_bromus" },
+    opcionA_prima: { label: "Menores de 15 mm, sin contar las aristas", keyStep: "m'", nextNodeId: "ed2_gramineae_group_7_small_awned_pending" },
+  },
+  ed2_gramineae_group_7_small_awned_pending: {
+    id: "ed2_gramineae_group_7_small_awned_pending", milestone: "Gramineae: grupo 7, espiguillas pequeñas", manualPage: 69,
+    descripcion: "Continuar con los géneros aristados de espiguillas menores de 15 mm.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "m'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "m'", especieId: "ed2_gramineae" },
   },
   ed2_arundineae: {
     id: "ed2_arundineae", milestone: "Arundineae", manualPage: 69,
@@ -596,6 +713,48 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿Las espiguillas son pequeñas y globosas o grandes y ovoides?",
     opcionA: { label: "De 2-4 mm, globosas, con cuatro a seis flores", keyStep: "E", especieId: "ed2_briza_minor" },
     opcionA_prima: { label: "De 15-20 mm, ovoides, con doce a veinte flores", keyStep: "E'", especieId: "ed2_briza_maxima" },
+  },
+  ed2_bromus: {
+    id: "ed2_bromus", milestone: "Bromus", manualPage: 81,
+    descripcion: "¿La arista de la lemma mide cerca de 0,5 mm o supera 1 mm?",
+    opcionA: { label: "Cerca de 0,5 mm; espiguillas lanceoladas comprimidas de 15-18 mm", keyStep: "A", especieId: "ed2_bromus_brevis" },
+    opcionA_prima: { label: "Más de 1 mm", keyStep: "A'", nextNodeId: "ed2_bromus_compression" },
+  },
+  ed2_bromus_compression: {
+    id: "ed2_bromus_compression", milestone: "Bromus: compresión", manualPage: 81,
+    descripcion: "¿Las espiguillas están muy comprimidas y las lemmas son carenadas?",
+    opcionA: { label: "Sí, muy comprimidas y carenadas", keyStep: "B", especieId: "ed2_bromus_unioloides" },
+    opcionA_prima: { label: "Poco comprimidas; lemmas redondeadas en el dorso", keyStep: "B'", nextNodeId: "ed2_bromus_habit" },
+  },
+  ed2_bromus_habit: {
+    id: "ed2_bromus_habit", milestone: "Bromus: hábito", manualPage: 81,
+    descripcion: "¿La planta es perenne o anual?",
+    opcionA: { label: "Perenne", keyStep: "C", nextNodeId: "ed2_bromus_perennial" },
+    opcionA_prima: { label: "Anual", keyStep: "C'", nextNodeId: "ed2_bromus_annual" },
+  },
+  ed2_bromus_perennial: {
+    id: "ed2_bromus_perennial", milestone: "Bromus: perennes", manualPage: 81,
+    descripcion: "¿La arista iguala a la lemma o mide aproximadamente la mitad?",
+    opcionA: { label: "De la misma longitud que la lemma; espiguillas de 15-20 mm", keyStep: "D", especieId: "ed2_bromus_brachyanthera" },
+    opcionA_prima: { label: "De la mitad de la lemma; espiguillas de 25-30 mm, con siete a diez flores", keyStep: "D'", especieId: "ed2_bromus_auleticus" },
+  },
+  ed2_bromus_annual: {
+    id: "ed2_bromus_annual", milestone: "Bromus: anuales", manualPage: 82,
+    descripcion: "¿Las glumas son acuminadas o subuladas y la arista mide 30-50 mm?",
+    opcionA: { label: "Sí; lemmas linear-lanceoladas y aristas de 30-50 mm", keyStep: "E", especieId: "ed2_bromus_rigidus" },
+    opcionA_prima: { label: "Glumas agudas; aristas de 5-15 mm", keyStep: "E'", nextNodeId: "ed2_bromus_indument" },
+  },
+  ed2_bromus_indument: {
+    id: "ed2_bromus_indument", milestone: "Bromus: indumento", manualPage: 82,
+    descripcion: "¿Las glumas y lemmas son pubescentes?",
+    opcionA: { label: "Pubescentes; panoja contraída y densa", keyStep: "F", especieId: "ed2_bromus_mollis" },
+    opcionA_prima: { label: "Glabras", keyStep: "F'", nextNodeId: "ed2_bromus_panicle" },
+  },
+  ed2_bromus_panicle: {
+    id: "ed2_bromus_panicle", milestone: "Bromus: panoja", manualPage: 82,
+    descripcion: "¿La panoja es densa y casi espiciforme o laxa?",
+    opcionA: { label: "Densa, casi espiciforme; lemmas de 8-9 mm", keyStep: "G", especieId: "ed2_bromus_racemosus" },
+    opcionA_prima: { label: "Laxa; lemmas de unos 8 mm", keyStep: "G'", especieId: "ed2_bromus_commutatus" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
