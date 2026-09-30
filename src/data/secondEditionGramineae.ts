@@ -1,6 +1,42 @@
 import { CladoNode, Especie } from "@/types";
 
-export const secondEditionGramineaeSpecies: Record<string, Especie> = {};
+function species(
+  id: string,
+  scientificName: string,
+  description: string,
+  characteristics: string,
+  distribution: string,
+  commonName: string
+): Especie {
+  return {
+    id,
+    nombreCientifico: scientificName,
+    nombreVulgar: commonName,
+    familia: "XXVIII. Gramineae",
+    descripcion: description,
+    caracteristicas: characteristics,
+    distribucion: distribution,
+  };
+}
+
+export const secondEditionGramineaeSpecies: Record<string, Especie> = {
+  ed2_phyllostachys_aurea: species(
+    "ed2_phyllostachys_aurea",
+    "Phyllostachys aurea",
+    "Bambú de cañas erectas de 2-4 m y rizomas alargados.",
+    "Tres estambres; entrenudos acanalados del lado donde nacen las ramas; hojas cortamente pecioladas de 5-15 cm.",
+    "Originario de China; cultivado como ornamental y a veces espontáneo.",
+    "Bambú amarillo"
+  ),
+  ed2_guadua_trinii: species(
+    "ed2_guadua_trinii",
+    "Guadua trinii",
+    "Bambú robusto de rizomas gruesos y cortos, con cañas huecas de 6-10 m.",
+    "Seis estambres; entrenudos cilíndricos; nudos con espinas rígidas y curvas; espiguillas de cinco a ocho flores.",
+    "Sur del Brasil y nordeste argentino hasta el Río de la Plata; Punta Lara.",
+    "Tacuaruzú, tacuara brava"
+  ),
+};
 
 function continuationNode(group: number, manualPage: number): CladoNode {
   return {
@@ -68,7 +104,22 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     opcionA: { label: "Por pares: una sésil o subsésil y otra pedicelada; glumas más consistentes que las lemmas", keyStep: "I", nextNodeId: "ed2_gramineae_group_9" },
     opcionA_prima: { label: "No dispuestas por pares; glumas ausentes o herbáceas y lemmas más rígidas", keyStep: "I'", nextNodeId: "ed2_gramineae_group_10" },
   },
-  ed2_gramineae_group_1: continuationNode(1, 66),
+  ed2_gramineae_group_1: {
+    id: "ed2_gramineae_group_1",
+    milestone: "Gramineae: grupo 1, Bambuseae",
+    manualPage: 66,
+    descripcion: "¿Las flores poseen tres o seis estambres?",
+    opcionA: {
+      label: "Tres estambres; rizomas viajeros; entrenudos acanalados o aplanados junto a las ramas",
+      keyStep: "A",
+      especieId: "ed2_phyllostachys_aurea",
+    },
+    opcionA_prima: {
+      label: "Seis estambres; rizomas cortos; entrenudos cilíndricos",
+      keyStep: "A'",
+      especieId: "ed2_guadua_trinii",
+    },
+  },
   ed2_gramineae_group_2: continuationNode(2, 66),
   ed2_gramineae_group_3: continuationNode(3, 66),
   ed2_gramineae_group_4: continuationNode(4, 66),
