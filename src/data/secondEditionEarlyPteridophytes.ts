@@ -79,6 +79,15 @@ export const secondEditionEarlyPteridophyteSpecies: Record<string, Especie> = {
     "Brasil austral, Paraguay y nordeste de la Argentina; entre rocas en las sierras de Tandil.",
     "Doradilla"
   ),
+  ed2_pteridium_aquilinum_arachnoideum: species(
+    "ed2_pteridium_aquilinum_arachnoideum",
+    "Pteridium aquilinum var. arachnoideum",
+    "VII. Dennstaedtiaceae",
+    "Helecho perenne con rizoma cilíndrico, rastrero y leñoso.",
+    "Frondes de hasta 1,5 m, ovado-deltoideas y tres a cuatro veces pinnadas; segmentos oblongos, sésiles y pubescentes en el envés.",
+    "América cálida; islas arenosas del Delta y sierras de Balcarce.",
+    "Helecho común"
+  ),
 };
 
 function singleSpeciesNode(
@@ -135,4 +144,10 @@ export const secondEditionEarlyPteridophyteKeyData: Record<string, CladoNode> = 
       especieId: "ed2_anemia_tomentosa",
     },
   },
+  ed2_family_dennstaedtiaceae: singleSpeciesNode(
+    "ed2_family_dennstaedtiaceae",
+    "Dennstaedtiaceae",
+    27,
+    "ed2_pteridium_aquilinum_arachnoideum"
+  ),
 };

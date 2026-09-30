@@ -36,6 +36,7 @@ const files = [
     externalNodes: [
       "ed2_family_selaginellaceae", "ed2_family_isoetaceae", "ed2_family_equisetaceae",
       "ed2_family_ophioglossaceae", "ed2_family_osmundaceae", "ed2_family_schizaeaceae",
+      "ed2_family_dennstaedtiaceae",
     ],
     order: "data-first",
   },
