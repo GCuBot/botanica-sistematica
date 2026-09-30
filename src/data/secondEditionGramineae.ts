@@ -562,6 +562,36 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Panoja cilíndrica; antecio fértil acuminado y glabro arriba; hoja estriada en la cara superior.",
     "Uruguay y nordeste argentino; campos húmedos.", "Alpistillo"
   ),
+  ed2_polypogon_semiverticillatus: species(
+    "ed2_polypogon_semiverticillatus", "Polypogon semiverticillatus", "Gramínea perenne estolonífera, de 10-60 cm.",
+    "Tallos rastreros; panoja densa pero no espiciforme; glumas múticas o apenas mucronadas.",
+    "Sur de Europa y norte de África; adventicia en suelos modificados bonaerenses.", "Polypogon semiverticillatus"
+  ),
+  ed2_polypogon_monspeliensis: species(
+    "ed2_polypogon_monspeliensis", "Polypogon monspeliensis", "Gramínea anual erecta, de hasta 80 cm.",
+    "Panoja espiciforme; glumas enteras o apenas bilobadas y aristadas; lemma con tres arístulas.",
+    "Viejo Mundo; naturalizada en América, común en campos bajos y salados.", "Cola de zorro"
+  ),
+  ed2_polypogon_maritimus: species(
+    "ed2_polypogon_maritimus", "Polypogon maritimus", "Gramínea anual erecta, de 7-30 cm.",
+    "Panoja espiciforme; glumas notablemente bilobadas y aristadas; lemma mútica o con arístula diminuta.",
+    "Región mediterránea; adventicia en la depresión del Salado.", "Polypogon maritimus"
+  ),
+  ed2_chaetotropis_chilensis: species(
+    "ed2_chaetotropis_chilensis", "Chaetotropis chilensis", "Gramínea anual con cañas de hasta 1,2 m.",
+    "Glumas mucronadas, escabrosas y pectinado-espinulosas sobre la carena; panoja de 15-30 cm.",
+    "América austral; suelos húmedos.", "Chaetotropis chilensis"
+  ),
+  ed2_chaetotropis_elongata: species(
+    "ed2_chaetotropis_elongata", "Chaetotropis elongata", "Gramínea perenne con macollos estériles basales.",
+    "Glumas lanceolado-subuladas y ásperas; lemma aristada; panoja laxa.",
+    "La variedad longearistata es frecuente en las orillas del Río de la Plata.", "Chaetotropis elongata"
+  ),
+  ed2_chaetotropis_imberbis: species(
+    "ed2_chaetotropis_imberbis", "Chaetotropis imberbis", "Gramínea perenne de 15-80 cm.",
+    "Glumas con protuberancias cortas y gruesas; lemma mútica o aristulada; panoja compacta, lobada y subespiciforme.",
+    "Frecuente en la provincia de Buenos Aires.", "Chaetotropis imberbis"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -774,9 +804,21 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_6_panicles_pending: {
     id: "ed2_gramineae_group_6_panicles_pending", milestone: "Gramineae: grupo 6, panojas", manualPage: 67,
-    descripcion: "Continuar con los géneros de espiguillas pediceladas del grupo 6.",
-    opcionA: { label: "Continuar desarrollando el grupo 6", keyStep: "E'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 6", keyStep: "E'", especieId: "ed2_gramineae" },
+    descripcion: "¿Las glumas son ásperas o equinuladas y la espiguilla cae con parte del pedicelo?",
+    opcionA: { label: "Sí; glumas ásperas o equinuladas", keyStep: "G", nextNodeId: "ed2_gramineae_group_6_palea" },
+    opcionA_prima: { label: "Glumas con largos pelos sedosos; pedicelo permanece en la panoja", keyStep: "G'", nextNodeId: "ed2_gramineae_group_6_rhynchelytrum_pending" },
+  },
+  ed2_gramineae_group_6_palea: {
+    id: "ed2_gramineae_group_6_palea", milestone: "Gramineae: grupo 6, longitud de la pálea", manualPage: 67,
+    descripcion: "¿La pálea tiene la misma longitud que la lemma?",
+    opcionA: { label: "De la misma longitud", keyStep: "H", nextNodeId: "ed2_polypogon" },
+    opcionA_prima: { label: "De la mitad o menos", keyStep: "H'", nextNodeId: "ed2_chaetotropis" },
+  },
+  ed2_gramineae_group_6_rhynchelytrum_pending: {
+    id: "ed2_gramineae_group_6_rhynchelytrum_pending", milestone: "Gramineae: grupo 6, glumas sedosas", manualPage: 67,
+    descripcion: "Continuar con el género de glumas cubiertas por pelos sedosos.",
+    opcionA: { label: "Continuar desarrollando el grupo 6", keyStep: "G'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 6", keyStep: "G'", especieId: "ed2_gramineae" },
   },
   ed2_gramineae_group_7: {
     id: "ed2_gramineae_group_7", milestone: "Gramineae: grupo 7", manualPage: 67,
@@ -1467,6 +1509,30 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿El antecio fértil es completamente pubescente?",
     opcionA: { label: "Agudo y totalmente pubescente; hoja lisa arriba", keyStep: "E", especieId: "ed2_phalaris_angusta" },
     opcionA_prima: { label: "Acuminado y glabro arriba; hoja estriada", keyStep: "E'", especieId: "ed2_phalaris_platensis" },
+  },
+  ed2_polypogon: {
+    id: "ed2_polypogon", milestone: "Polypogon", manualPage: 96,
+    descripcion: "¿La planta es perenne, estolonífera y de tallos rastreros?",
+    opcionA: { label: "Sí; panoja no espiciforme; glumas múticas o mucronadas", keyStep: "A", especieId: "ed2_polypogon_semiverticillatus" },
+    opcionA_prima: { label: "Anual y erecta; panoja espiciforme; glumas aristadas", keyStep: "A'", nextNodeId: "ed2_polypogon_glumes" },
+  },
+  ed2_polypogon_glumes: {
+    id: "ed2_polypogon_glumes", milestone: "Polypogon: lóbulos de las glumas", manualPage: 97,
+    descripcion: "¿Las glumas son enteras o notablemente bilobadas?",
+    opcionA: { label: "Enteras o brevemente bilobadas; lemma con tres arístulas", keyStep: "B", especieId: "ed2_polypogon_monspeliensis" },
+    opcionA_prima: { label: "Notablemente bilobadas; lemma mútica o con arístula central", keyStep: "B'", especieId: "ed2_polypogon_maritimus" },
+  },
+  ed2_chaetotropis: {
+    id: "ed2_chaetotropis", milestone: "Chaetotropis", manualPage: 97,
+    descripcion: "¿La planta es anual y las glumas tienen carena pectinado-espinulosa?",
+    opcionA: { label: "Sí; planta anual", keyStep: "A", especieId: "ed2_chaetotropis_chilensis" },
+    opcionA_prima: { label: "Perenne; glumas no pectinado-espinulosas", keyStep: "A'", nextNodeId: "ed2_chaetotropis_glumes" },
+  },
+  ed2_chaetotropis_glumes: {
+    id: "ed2_chaetotropis_glumes", milestone: "Chaetotropis: superficie de las glumas", manualPage: 97,
+    descripcion: "¿Las glumas son lanceolado-subuladas y la panoja laxa?",
+    opcionA: { label: "Sí; glumas ásperas, lemma aristada y panoja laxa", keyStep: "B", especieId: "ed2_chaetotropis_elongata" },
+    opcionA_prima: { label: "Con protuberancias cortas; lemma mútica o aristulada; panoja compacta", keyStep: "B'", especieId: "ed2_chaetotropis_imberbis" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
