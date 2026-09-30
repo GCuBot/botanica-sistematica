@@ -412,6 +412,41 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Raquilla continua; espiguillas generalmente bifloras; lemmas velludas al menos en la base y junto a la arista.",
     "Originaria de Asia Central; adventicia en América.", "Avena cimarrona"
   ),
+  ed2_holcus_lanatus: species(
+    "ed2_holcus_lanatus", "Holcus lanatus", "Gramínea perenne de 20-100 cm, con vainas pubescentes.",
+    "Espiguillas bifloras: flor inferior hermafrodita y mútica, superior masculina con arista dorsal retorcida; glumas velludas.",
+    "Originaria de Europa, adventicia en América; muy rara en la región y utilizada como forrajera.", "Pasto dulce, heno blanco"
+  ),
+  ed2_arrhenatherum_elatius: species(
+    "ed2_arrhenatherum_elatius", "Arrhenatherum elatius", "Gramínea perenne de 1-1,55 m.",
+    "Espiguillas bifloras: flor inferior masculina y superior hermafrodita; lemma inferior con arista dorsal retorcida.",
+    "Originaria de Europa; cultivada como forrajera y ocasionalmente espontánea.", "Fromental"
+  ),
+  ed2_aira_caryophyllea: species(
+    "ed2_aira_caryophyllea", "Aira caryophyllea", "Gramínea anual tenue, de hasta 35 cm.",
+    "Espiguillas bifloras; raquilla muy corta; lemmas biaristuladas con arista dorsal retorcida.",
+    "Originaria de Europa; adventicia en las sierras bonaerenses.", "Aira caryophyllea"
+  ),
+  ed2_helictotrichon_bulbosum: species(
+    "ed2_helictotrichon_bulbosum", "Helictotrichon bulbosum", "Gramínea perenne y subbulbosa, de 30-50 cm.",
+    "Raquilla prolongada; glumas sobrepasan dos tercios de la espiguilla; lemmas bidentadas con arista dorsal.",
+    "Sur de Chile y sierras de Balcarce y Los Padres.", "Helictotrichon bulbosum"
+  ),
+  ed2_amphibromus_scabrivalvis: species(
+    "ed2_amphibromus_scabrivalvis", "Amphibromus scabrivalvis", "Gramínea perenne de 40-100 cm, con base bulbiforme.",
+    "Espiguillas de tres a siete flores; glumas apenas alcanzan la mitad de los antecios basales; flores cleistógamas y chasmógamas.",
+    "Argentina, Uruguay y Chile; suelos húmedos o pantanosos bonaerenses.", "Amphibromus scabrivalvis"
+  ),
+  ed2_koeleria_permollis: species(
+    "ed2_koeleria_permollis", "Koeleria permollis", "Gramínea perenne y cespitosa, de 30-50 cm.",
+    "Espiguillas de dos flores fértiles; lemmas carenadas, bidentadas y múticas; panoja fusiforme.",
+    "Sierras de Tandil y Balcarce, hasta el sur bonaerense.", "Koeleria permollis"
+  ),
+  ed2_lophochloa_phleoides: species(
+    "ed2_lophochloa_phleoides", "Lophochloa phleoides", "Gramínea anual de 5-50 cm, con hojas velludas.",
+    "Lemma con arista recta subapical o apical; espiguillas de cuatro a seis flores en panoja espiciforme.",
+    "Originaria de Europa, adventicia en América; común en campos y suelos modificados.", "Lophochloa phleoides"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -588,9 +623,27 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_6_pending: {
     id: "ed2_gramineae_group_6_pending", milestone: "Gramineae: grupo 6, tres estambres", manualPage: 67,
-    descripcion: "Continuar con los géneros de tres estambres del grupo 6.",
-    opcionA: { label: "Continuar desarrollando el grupo 6", keyStep: "A'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 6", keyStep: "A'", especieId: "ed2_gramineae" },
+    descripcion: "¿La lemma posee una arista dorsal?",
+    opcionA: { label: "Con arista dorsal", keyStep: "C", nextNodeId: "ed2_gramineae_group_6_dorsal" },
+    opcionA_prima: { label: "Mútica o con arista apical o subapical", keyStep: "C'", nextNodeId: "ed2_gramineae_group_6_apical_pending" },
+  },
+  ed2_gramineae_group_6_dorsal: {
+    id: "ed2_gramineae_group_6_dorsal", milestone: "Gramineae: grupo 6, arista dorsal", manualPage: 67,
+    descripcion: "¿Las espiguillas son unifloras o bifloras?",
+    opcionA: { label: "Unifloras; arista larga y geniculada", keyStep: "D", nextNodeId: "ed2_gramineae_group_6_alopecurus_pending" },
+    opcionA_prima: { label: "Bifloras; antecio superior cortamente aristado", keyStep: "D'", especieId: "ed2_holcus_lanatus" },
+  },
+  ed2_gramineae_group_6_alopecurus_pending: {
+    id: "ed2_gramineae_group_6_alopecurus_pending", milestone: "Gramineae: grupo 6, unifloras", manualPage: 67,
+    descripcion: "Continuar con el género unifloro de arista dorsal.",
+    opcionA: { label: "Continuar desarrollando el grupo 6", keyStep: "D", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 6", keyStep: "D", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_6_apical_pending: {
+    id: "ed2_gramineae_group_6_apical_pending", milestone: "Gramineae: grupo 6, arista apical", manualPage: 67,
+    descripcion: "Continuar con los géneros de lemma mútica o con arista apical.",
+    opcionA: { label: "Continuar desarrollando el grupo 6", keyStep: "C'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 6", keyStep: "C'", especieId: "ed2_gramineae" },
   },
   ed2_gramineae_group_7: {
     id: "ed2_gramineae_group_7", milestone: "Gramineae: grupo 7", manualPage: 67,
@@ -714,9 +767,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_koeleria_pending: {
     id: "ed2_gramineae_group_7_koeleria_pending", milestone: "Gramineae: grupo 7, lemma bidentada", manualPage: 69,
-    descripcion: "Continuar con el género de lemma carenada y bidentada.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "g'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "g'", especieId: "ed2_gramineae" },
+    descripcion: "Koeleria: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Koeleria permollis", keyStep: "g'", especieId: "ed2_koeleria_permollis" },
+    opcionA_prima: { label: "Identificar como Koeleria permollis", keyStep: "g'", especieId: "ed2_koeleria_permollis" },
   },
   ed2_gramineae_group_7_rounded_pending: {
     id: "ed2_gramineae_group_7_rounded_pending", milestone: "Gramineae: grupo 7, lemma redondeada", manualPage: 69,
@@ -732,9 +785,39 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_dorsal_pending: {
     id: "ed2_gramineae_group_7_dorsal_pending", milestone: "Gramineae: grupo 7, arista dorsal", manualPage: 70,
-    descripcion: "Continuar con los géneros de arista dorsal del grupo 7.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "i'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "i'", especieId: "ed2_gramineae" },
+    descripcion: "¿La arista es recta y subapical o dorsal y geniculada?",
+    opcionA: { label: "Recta; lemma mútica o con arista subapical o apical", keyStep: "r", nextNodeId: "ed2_gramineae_group_7_dorsal_straight" },
+    opcionA_prima: { label: "Dorsal y geniculada", keyStep: "r'", nextNodeId: "ed2_gramineae_group_7_dorsal_geniculate" },
+  },
+  ed2_gramineae_group_7_dorsal_straight: {
+    id: "ed2_gramineae_group_7_dorsal_straight", milestone: "Gramineae: grupo 7, arista recta", manualPage: 70,
+    descripcion: "¿La inflorescencia es una panoja espiciforme?",
+    opcionA: { label: "Panoja espiciforme", keyStep: "s", especieId: "ed2_lophochloa_phleoides" },
+    opcionA_prima: { label: "Espigas fasciculadas o dispuestas a lo largo de la caña", keyStep: "s'", nextNodeId: "ed2_gramineae_group_7_dorsal_spikes_pending" },
+  },
+  ed2_gramineae_group_7_dorsal_spikes_pending: {
+    id: "ed2_gramineae_group_7_dorsal_spikes_pending", milestone: "Gramineae: grupo 7, espigas", manualPage: 70,
+    descripcion: "Continuar con los géneros de espigas y arista recta.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "s'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "s'", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_dorsal_geniculate: {
+    id: "ed2_gramineae_group_7_dorsal_geniculate", milestone: "Gramineae: grupo 7, arista geniculada", manualPage: 70,
+    descripcion: "¿La espiguilla es biflora con la flor inferior masculina?",
+    opcionA: { label: "Sí; flor inferior masculina y superior hermafrodita", keyStep: "u", especieId: "ed2_arrhenatherum_elatius" },
+    opcionA_prima: { label: "Dos o más flores; la inferior siempre hermafrodita", keyStep: "u'", nextNodeId: "ed2_gramineae_group_7_rachilla" },
+  },
+  ed2_gramineae_group_7_rachilla: {
+    id: "ed2_gramineae_group_7_rachilla", milestone: "Gramineae: grupo 7, raquilla", manualPage: 70,
+    descripcion: "¿La raquilla es muy corta y no se prolonga junto a la segunda flor?",
+    opcionA: { label: "Sí; espiguillas bifloras; planta anual", keyStep: "v", especieId: "ed2_aira_caryophyllea" },
+    opcionA_prima: { label: "Se prolonga junto al antecio superior; planta perenne", keyStep: "v'", nextNodeId: "ed2_gramineae_group_7_glume_length" },
+  },
+  ed2_gramineae_group_7_glume_length: {
+    id: "ed2_gramineae_group_7_glume_length", milestone: "Gramineae: grupo 7, longitud de las glumas", manualPage: 70,
+    descripcion: "¿Las glumas sobrepasan dos tercios de la espiguilla?",
+    opcionA: { label: "Sí; lemmas bidentadas", keyStep: "w", especieId: "ed2_helictotrichon_bulbosum" },
+    opcionA_prima: { label: "Apenas alcanzan la mitad de los antecios basales", keyStep: "w'", especieId: "ed2_amphibromus_scabrivalvis" },
   },
   ed2_gramineae_group_7_terminal_awn: {
     id: "ed2_gramineae_group_7_terminal_awn", milestone: "Gramineae: grupo 7, arista terminal", manualPage: 69,
@@ -756,9 +839,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_small_carinate_pending: {
     id: "ed2_gramineae_group_7_small_carinate_pending", milestone: "Gramineae: grupo 7, lemma carenada aristada", manualPage: 69,
-    descripcion: "Continuar con los géneros de lemma carenada.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "n", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "n", especieId: "ed2_gramineae" },
+    descripcion: "¿Las espiguillas tienen dos flores fértiles o entre tres y ocho?",
+    opcionA: { label: "Dos flores fértiles", keyStep: "ñ", especieId: "ed2_koeleria_permollis" },
+    opcionA_prima: { label: "Tres a ocho flores fértiles", keyStep: "ñ'", especieId: "ed2_dactylis_glomerata" },
   },
   ed2_gramineae_group_7_small_rounded: {
     id: "ed2_gramineae_group_7_small_rounded", milestone: "Gramineae: grupo 7, lemma redondeada aristada", manualPage: 70,
