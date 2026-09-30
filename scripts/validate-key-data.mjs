@@ -118,6 +118,18 @@ const files = [
     externalNodes: [],
     order: "data-first",
   },
+  {
+    name: "secondEditionDicotGroupE1.ts",
+    path: path.join(ROOT, "src", "data", "secondEditionDicotGroupE1.ts"),
+    treeExport: "const secondEditionDicotGroupE1BranchSpecs",
+    dataExport: "export const secondEditionDicotGroupE1Families",
+    dataPattern: /^  ([a-zA-Z0-9_]+): family\(/gm,
+    nodePattern: /^  ([a-zA-Z0-9_]+): \{/gm,
+    nextRefPattern: /\["[^\"]+", "[^\"]+", "([a-zA-Z0-9_]+)"\]/g,
+    externalNodes: ["ed2_dicot_group_e_d_lower", "ed2_family_leguminosae"],
+    generatedFamilyNodes: true,
+    order: "data-first",
+  },
 ];
 
 function collectMatches(text, pattern, group = 1) {
@@ -142,6 +154,9 @@ function validateFile(config) {
     ...(config.externalNodes || []),
   ]);
   const species = new Set(collectMatches(dataText, config.dataPattern));
+  if (config.generatedFamilyNodes) {
+    species.forEach((id) => nodes.add(`ed2_family_${id.replace(/^ed2_/, "")}`));
+  }
   const nextRefs = collectMatches(
     treeText,
     config.nextRefPattern || /nextNodeId: "([a-zA-Z0-9_]+)"/g
