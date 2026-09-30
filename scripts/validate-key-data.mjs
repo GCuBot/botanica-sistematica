@@ -195,5 +195,71 @@ function validateFile(config) {
   return true;
 }
 
-const ok = files.every(validateFile);
+function collectConfigData(config) {
+  const text = fs.readFileSync(config.path, "utf8");
+  const treeStart = text.indexOf(config.treeExport);
+  const dataStart = text.indexOf(config.dataExport);
+  const dataText =
+    config.order === "data-first" ? text.slice(dataStart, treeStart) : text.slice(dataStart);
+  const treeText =
+    config.order === "data-first" ? text.slice(treeStart) : text.slice(treeStart, dataStart);
+  const species = collectMatches(dataText, config.dataPattern);
+  const nodes = collectMatches(
+    treeText,
+    config.nodePattern || /^  ([a-zA-Z0-9_]+): \{/gm
+  );
+  if (config.generatedFamilyNodes) {
+    species.forEach((id) => nodes.push(`ed2_family_${id.replace(/^ed2_/, "")}`));
+  }
+  return {
+    nodes,
+    species,
+    nextRefs: collectMatches(
+      treeText,
+      config.nextRefPattern || /nextNodeId: "([a-zA-Z0-9_]+)"/g
+    ),
+    familyRefs: config.familyRefPattern
+      ? collectMatches(treeText, config.familyRefPattern)
+      : [],
+  };
+}
+
+function duplicates(values) {
+  const seen = new Set();
+  return [...new Set(values.filter((value) => (seen.has(value) ? true : !seen.add(value))))];
+}
+
+function validateSecondEdition() {
+  const configs = files.filter((config) => config.name.startsWith("secondEdition"));
+  const data = configs.map(collectConfigData);
+  const nodes = data.flatMap((item) => item.nodes);
+  const species = data.flatMap((item) => item.species);
+  const nodeSet = new Set(nodes);
+  const speciesSet = new Set(species);
+  const missingNodes = [...new Set(data.flatMap((item) => item.nextRefs))]
+    .filter((id) => !nodeSet.has(id))
+    .sort();
+  const missingSpecies = [...new Set(data.flatMap((item) => item.familyRefs))]
+    .filter((id) => !speciesSet.has(id))
+    .sort();
+  const duplicateNodes = duplicates(nodes).sort();
+  const duplicateSpecies = duplicates(species).sort();
+  const errors = [];
+
+  if (speciesSet.size !== 145) errors.push(`familias esperadas: 145; encontradas: ${speciesSet.size}`);
+  if (!nodeSet.has("ed2_root")) errors.push("falta el nodo raíz ed2_root");
+  if (missingNodes.length) errors.push(`nodos globales faltantes: ${missingNodes.join(", ")}`);
+  if (missingSpecies.length) errors.push(`familias globales faltantes: ${missingSpecies.join(", ")}`);
+  if (duplicateNodes.length) errors.push(`nodos duplicados: ${duplicateNodes.join(", ")}`);
+  if (duplicateSpecies.length) errors.push(`familias duplicadas: ${duplicateSpecies.join(", ")}`);
+
+  if (errors.length) {
+    console.error(`\nSegunda edición: ${errors.join("; ")}`);
+    return false;
+  }
+  console.log(`Segunda edición: ${nodes.length} nodos y ${speciesSet.size} familias, referencias globales OK`);
+  return true;
+}
+
+const ok = files.every(validateFile) && validateSecondEdition();
 process.exit(ok ? 0 : 1);
