@@ -72,6 +72,23 @@ const files = [
     externalNodes: ["ed2_family_rosaceae", "ed2_dicot_group_c_m"],
     order: "data-first",
   },
+  {
+    name: "secondEditionDicotGroupC2.ts",
+    path: path.join(ROOT, "src", "data", "secondEditionDicotGroupC2.ts"),
+    treeExport: "const secondEditionDicotGroupC2BranchSpecs",
+    dataExport: "export const secondEditionDicotGroupC2Families",
+    dataPattern: /^  ([a-zA-Z0-9_]+): family\(/gm,
+    nodePattern: /^  ([a-zA-Z0-9_]+): (?:\{|terminal\()/gm,
+    nextRefPattern: /\["[^\"]+", "[^\"]+", "([a-zA-Z0-9_]+)"\]/g,
+    familyRefPattern: /terminal\("[a-zA-Z0-9_]+", "([a-zA-Z0-9_]+)", \d+\)/g,
+    externalNodes: [
+      "ed2_dicot_group_c_c_lower",
+      "ed2_family_rutaceae",
+      "ed2_family_leguminosae",
+      "ed2_family_euphorbiaceae",
+    ],
+    order: "data-first",
+  },
 ];
 
 function collectMatches(text, pattern, group = 1) {
