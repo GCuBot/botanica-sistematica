@@ -36,6 +36,18 @@ const files = [
     externalNodes: [],
     order: "data-first",
   },
+  {
+    name: "secondEditionSpermatophyta.ts",
+    path: path.join(ROOT, "src", "data", "secondEditionSpermatophyta.ts"),
+    treeExport: "const secondEditionSpermatophytaBranchSpecs",
+    dataExport: "export const secondEditionSpermatophytaFamilies",
+    dataPattern: /^  ([a-zA-Z0-9_]+): family\(/gm,
+    nodePattern: /^  ([a-zA-Z0-9_]+): (?:\{|familyTerminal\()/gm,
+    nextRefPattern: /next: "([a-zA-Z0-9_]+)"/g,
+    familyRefPattern: /familyTerminal\("[a-zA-Z0-9_]+", "([a-zA-Z0-9_]+)", \d+\)/g,
+    externalNodes: ["ed2_pteridophyta_a", "ed2_dicotyledoneae_a"],
+    order: "data-first",
+  },
 ];
 
 function collectMatches(text, pattern, group = 1) {
@@ -60,7 +72,10 @@ function validateFile(config) {
     ...(config.externalNodes || []),
   ]);
   const species = new Set(collectMatches(dataText, config.dataPattern));
-  const nextRefs = collectMatches(treeText, /nextNodeId: "([a-zA-Z0-9_]+)"/g);
+  const nextRefs = collectMatches(
+    treeText,
+    config.nextRefPattern || /nextNodeId: "([a-zA-Z0-9_]+)"/g
+  );
   const speciesRefs = collectMatches(treeText, /especieId: "([a-zA-Z0-9_]+)"/g);
   const manualRefs = collectMatches(treeText, /manualFamilyData\.([a-zA-Z0-9_]+)/g);
   const familyRefs = config.familyRefPattern
