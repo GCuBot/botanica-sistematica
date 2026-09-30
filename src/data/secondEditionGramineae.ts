@@ -92,6 +92,30 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Regiones cálidas; rara en terrenos inundables del Delta y de la ribera del Plata.",
     "Carrizo"
   ),
+  ed2_ehrharta_villosa: species(
+    "ed2_ehrharta_villosa",
+    "Ehrharta villosa",
+    "Gramínea perenne y rizomatosa, de alrededor de 1 m.",
+    "Hojas muy estrechas y subconvolutas; panoja casi unilateral; espiguillas trifloras con dos lemmas estériles mayores que el antecio fértil.",
+    "Originaria de África del Sur; naturalizada en las dunas de Villa Gesell.",
+    "Ehrharta villosa"
+  ),
+  ed2_danthonia_montevidensis: species(
+    "ed2_danthonia_montevidensis",
+    "Danthonia montevidensis",
+    "Gramínea perenne y cespitosa, de 30-60 cm.",
+    "Lóbulos apicales de la lemma iguales o más cortos que su parte indivisa; innovaciones extravaginales; espiguillas con seis a diez antecios.",
+    "Frecuente en las estepas clímax del Uruguay y norte bonaerense.",
+    "Danthonia montevidensis"
+  ),
+  ed2_danthonia_cirrata: species(
+    "ed2_danthonia_cirrata",
+    "Danthonia cirrata",
+    "Gramínea perenne semejante a Danthonia montevidensis, de 20-70 cm.",
+    "Lóbulos apicales de la lemma más largos que su parte indivisa; innovaciones intravaginales.",
+    "Sur del Brasil, Uruguay y centro argentino; frecuente en las sierras bonaerenses.",
+    "Danthonia cirrata"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -178,7 +202,66 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_2: continuationNode(2, 66),
   ed2_gramineae_group_3: continuationNode(3, 66),
-  ed2_gramineae_group_4: continuationNode(4, 66),
+  ed2_gramineae_group_4: {
+    id: "ed2_gramineae_group_4", milestone: "Gramineae: grupo 4", manualPage: 66,
+    descripcion: "¿La lemma termina en numerosas aristas o en tres aristas?",
+    opcionA: { label: "Dividida en la parte superior en numerosas aristas desiguales", keyStep: "A", nextNodeId: "ed2_gramineae_group_4_many_awns_pending" },
+    opcionA_prima: { label: "Terminada en tres aristas largas o en una arista trífida", keyStep: "A'", nextNodeId: "ed2_gramineae_group_4_inflorescence" },
+  },
+  ed2_gramineae_group_4_many_awns_pending: {
+    id: "ed2_gramineae_group_4_many_awns_pending", milestone: "Gramineae: grupo 4, aristas numerosas", manualPage: 66,
+    descripcion: "Continuar con los géneros de lemmas terminadas en numerosas aristas.",
+    opcionA: { label: "Continuar desarrollando el grupo 4", keyStep: "A", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 4", keyStep: "A", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_4_inflorescence: {
+    id: "ed2_gramineae_group_4_inflorescence", milestone: "Gramineae: grupo 4, arista trífida", manualPage: 66,
+    descripcion: "¿Las espiguillas forman una panoja espiciforme corta o una inflorescencia laxa o alargada?",
+    opcionA: { label: "Panoja espiciforme corta, ovoide o globosa", keyStep: "B", nextNodeId: "ed2_gramineae_group_4_lagurus_pending" },
+    opcionA_prima: { label: "Panojas laxas o espigas alargadas", keyStep: "B'", nextNodeId: "ed2_gramineae_group_4_attachment" },
+  },
+  ed2_gramineae_group_4_lagurus_pending: {
+    id: "ed2_gramineae_group_4_lagurus_pending", milestone: "Gramineae: grupo 4, panoja corta", manualPage: 66,
+    descripcion: "Continuar con el género de panoja espiciforme corta.",
+    opcionA: { label: "Continuar desarrollando el grupo 4", keyStep: "B", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 4", keyStep: "B", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_4_attachment: {
+    id: "ed2_gramineae_group_4_attachment", milestone: "Gramineae: grupo 4, espiguillas alargadas", manualPage: 66,
+    descripcion: "¿Las espiguillas son sésiles o pediceladas?",
+    opcionA: { label: "Sésiles o casi sésiles, dispuestas en espigas alargadas", keyStep: "C", nextNodeId: "ed2_gramineae_group_4_sessile_pending" },
+    opcionA_prima: { label: "Pediceladas, dispuestas en panojas", keyStep: "C'", nextNodeId: "ed2_gramineae_group_4_florets" },
+  },
+  ed2_gramineae_group_4_sessile_pending: {
+    id: "ed2_gramineae_group_4_sessile_pending", milestone: "Gramineae: grupo 4, espiguillas sésiles", manualPage: 66,
+    descripcion: "Continuar con los géneros de espiguillas sésiles del grupo 4.",
+    opcionA: { label: "Continuar desarrollando el grupo 4", keyStep: "C", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 4", keyStep: "C", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_4_florets: {
+    id: "ed2_gramineae_group_4_florets", milestone: "Gramineae: grupo 4, espiguillas pediceladas", manualPage: 66,
+    descripcion: "¿Las espiguillas son unifloras o poseen tres o más flores?",
+    opcionA: { label: "Unifloras; lemma terminada en una arista trífida", keyStep: "E", nextNodeId: "ed2_gramineae_group_4_aristida_pending" },
+    opcionA_prima: { label: "Con tres o más flores; lemma bífida con aristas laterales y una central retorcida", keyStep: "E'", nextNodeId: "ed2_danthonia" },
+  },
+  ed2_gramineae_group_4_aristida_pending: {
+    id: "ed2_gramineae_group_4_aristida_pending", milestone: "Gramineae: grupo 4, unifloras", manualPage: 66,
+    descripcion: "Continuar con el género de espiguillas unifloras del grupo 4.",
+    opcionA: { label: "Continuar desarrollando el grupo 4", keyStep: "E", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 4", keyStep: "E", especieId: "ed2_gramineae" },
+  },
+  ed2_danthonia: {
+    id: "ed2_danthonia", milestone: "Danthonia", manualPage: 78,
+    descripcion: "¿Los lóbulos de la lemma son iguales o más cortos que su parte indivisa?",
+    opcionA: { label: "Iguales o más cortos; innovaciones extravaginales", keyStep: "A", especieId: "ed2_danthonia_montevidensis" },
+    opcionA_prima: { label: "Más largos; innovaciones intravaginales", keyStep: "A'", especieId: "ed2_danthonia_cirrata" },
+  },
+  ed2_ehrharta: {
+    id: "ed2_ehrharta", milestone: "Ehrharta", manualPage: 77,
+    descripcion: "Ehrharteae: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Ehrharta villosa", keyStep: "1", especieId: "ed2_ehrharta_villosa" },
+    opcionA_prima: { label: "Identificar como Ehrharta villosa", keyStep: "1", especieId: "ed2_ehrharta_villosa" },
+  },
   ed2_gramineae_group_5: continuationNode(5, 67),
   ed2_gramineae_group_6: {
     id: "ed2_gramineae_group_6",
