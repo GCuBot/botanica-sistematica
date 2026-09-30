@@ -447,6 +447,31 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Lemma con arista recta subapical o apical; espiguillas de cuatro a seis flores en panoja espiciforme.",
     "Originaria de Europa, adventicia en América; común en campos y suelos modificados.", "Lophochloa phleoides"
   ),
+  ed2_secale_cereale: species(
+    "ed2_secale_cereale", "Secale cereale", "Gramínea anual cultivada como cereal y forraje.",
+    "Espiguillas bifloras en espiga dística; glumas lineares y uninervadas; lemmas con larga arista apical.",
+    "Europa y sudoeste de Asia; cultivada y a veces subespontánea.", "Centeno"
+  ),
+  ed2_agropyron_scabriglume: species(
+    "ed2_agropyron_scabriglume", "Agropyron scabriglume", "Gramínea perenne y cespitosa, de hasta 1,2 m.",
+    "Raquilla hirsuta; espiguillas geminadas en la parte inferior de la espiga; lemmas brevemente aristadas.",
+    "Norte y centro argentino; sierras de Balcarce y Mar del Plata.", "Agropyron scabriglume"
+  ),
+  ed2_agropyron_scabrifolium: species(
+    "ed2_agropyron_scabrifolium", "Agropyron scabrifolium", "Gramínea perenne con rizomas cortos y cañas de hasta 2 m.",
+    "Raquilla glabra o escabrosa; espiguillas solitarias de seis a doce flores; espigas de 10-26 cm.",
+    "Uruguay y norte y centro argentino; terrenos húmedos del Delta y costa del Río de la Plata.", "Agropyron scabrifolium"
+  ),
+  ed2_agropyron_repens: species(
+    "ed2_agropyron_repens", "Agropyron repens", "Gramínea perenne con rizomas muy largos y cañas de hasta 1,2 m.",
+    "Raquilla glabra o escabrosa; espiguillas solitarias de tres a ocho flores; espigas de 5-18 cm.",
+    "Eurasia; maleza invasora, rara cerca de Buenos Aires.", "Agropyron repens"
+  ),
+  ed2_triticum_aestivum: species(
+    "ed2_triticum_aestivum", "Triticum aestivum", "Gramínea anual de alrededor de 1 m, cultivada como cereal.",
+    "Glumas ventradas o carenadas; espiguillas de tres a siete flores en espigas subcilíndricas densas.",
+    "Cultivada para elaborar pan y ocasionalmente escapada de cultivo.", "Trigo"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -683,9 +708,27 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_cereals_pending: {
     id: "ed2_gramineae_group_7_cereals_pending", milestone: "Gramineae: grupo 7, dos glumas", manualPage: 68,
-    descripcion: "Continuar con los géneros de espiga dística y dos glumas.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "S'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "S'", especieId: "ed2_gramineae" },
+    descripcion: "¿Las glumas son lineares y uninervadas o cóncavas con tres o más nervaduras?",
+    opcionA: { label: "Lineares y uninervadas; espiguillas de dos a tres flores", keyStep: "T", especieId: "ed2_secale_cereale" },
+    opcionA_prima: { label: "Cóncavas o carenadas, con tres o más nervaduras", keyStep: "T'", nextNodeId: "ed2_gramineae_group_7_cereal_habit" },
+  },
+  ed2_gramineae_group_7_cereal_habit: {
+    id: "ed2_gramineae_group_7_cereal_habit", milestone: "Gramineae: cereales de glumas anchas", manualPage: 68,
+    descripcion: "¿La planta es perenne o anual?",
+    opcionA: { label: "Perenne; glumas plano-cóncavas", keyStep: "U", nextNodeId: "ed2_agropyron" },
+    opcionA_prima: { label: "Anual; glumas ventradas o carenadas", keyStep: "U'", especieId: "ed2_triticum_aestivum" },
+  },
+  ed2_agropyron: {
+    id: "ed2_agropyron", milestone: "Agropyron", manualPage: 92,
+    descripcion: "¿La raquilla es hirsuta y hay espiguillas geminadas?",
+    opcionA: { label: "Raquilla hirsuta; espiguillas geminadas abajo; planta cespitosa", keyStep: "A", especieId: "ed2_agropyron_scabriglume" },
+    opcionA_prima: { label: "Raquilla glabra o escabrosa; espiguillas siempre solitarias", keyStep: "A'", nextNodeId: "ed2_agropyron_rhizome" },
+  },
+  ed2_agropyron_rhizome: {
+    id: "ed2_agropyron_rhizome", milestone: "Agropyron: rizomas", manualPage: 92,
+    descripcion: "¿Los rizomas son cortos o muy largos?",
+    opcionA: { label: "Cortos; cañas de hasta 2 m; espiguillas de seis a doce flores", keyStep: "B", especieId: "ed2_agropyron_scabrifolium" },
+    opcionA_prima: { label: "Muy largos; cañas de hasta 1,2 m; espiguillas de tres a ocho flores", keyStep: "B'", especieId: "ed2_agropyron_repens" },
   },
   ed2_lolium: {
     id: "ed2_lolium", milestone: "Lolium", manualPage: 78,
