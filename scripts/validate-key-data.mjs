@@ -48,6 +48,18 @@ const files = [
     externalNodes: ["ed2_pteridophyta_a", "ed2_dicotyledoneae_a"],
     order: "data-first",
   },
+  {
+    name: "secondEditionDicotGroupsAB.ts",
+    path: path.join(ROOT, "src", "data", "secondEditionDicotGroupsAB.ts"),
+    treeExport: "const secondEditionDicotGroupsABBranchSpecs",
+    dataExport: "export const secondEditionDicotGroupsABFamilies",
+    dataPattern: /^  ([a-zA-Z0-9_]+): family\(/gm,
+    nodePattern: /^  ([a-zA-Z0-9_]+): (?:\{|familyTerminal\()/gm,
+    nextRefPattern: /next: "([a-zA-Z0-9_]+)"/g,
+    familyRefPattern: /familyTerminal\("[a-zA-Z0-9_]+", "([a-zA-Z0-9_]+)", \d+\)/g,
+    externalNodes: ["ed2_dicot_group_c_a", "ed2_dicot_group_d_a", "ed2_dicot_group_e_a"],
+    order: "data-first",
+  },
 ];
 
 function collectMatches(text, pattern, group = 1) {
