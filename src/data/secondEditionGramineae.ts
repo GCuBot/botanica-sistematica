@@ -847,6 +847,21 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Vainas pilosas o subpilosas; espiguillas algo comprimidas lateralmente de 9-18,5 mm; hojas de 3,5-9 mm.",
     "Brasil, Uruguay y Argentina; estepa prístina y sierras bonaerenses.", "Melica aurantiaca"
   ),
+  ed2_glyceria_multiflora: species(
+    "ed2_glyceria_multiflora", "Glyceria multiflora", "Gramínea perenne, rizomatosa y palustre de 30-70 cm.",
+    "Panoja angosta de 10-40 cm; espiguillas lineares de 15-25 mm con 12-15 flores; lemmas oblongas de siete nervaduras.",
+    "América del Sur cálida y templada; común en suelos inundables y zanjas.", "Glyceria multiflora"
+  ),
+  ed2_diandrochloa_glomerata: species(
+    "ed2_diandrochloa_glomerata", "Diandrochloa glomerata", "Gramínea anual, erecta y glabra de 30-100 cm.",
+    "Lígula membranosa; panoja de 10-50 cm; espiguillas de 2-3,5 mm con seis a once antecios; flores con dos estambres.",
+    "América cálida; rara en los alrededores de Buenos Aires.", "Diandrochloa glomerata"
+  ),
+  ed2_tridens_brasiliensis: species(
+    "ed2_tridens_brasiliensis", "Tridens brasiliensis", "Gramínea perenne de 80-150 cm, con panoja contraída.",
+    "Espiguillas con ocho a diez flores; lemma con arista central de 1-1,5 mm y dos arístulas laterales de 0,7 mm.",
+    "Sur de Brasil, Paraguay, Uruguay y norte y centro argentino; rara en la región.", "Tridens brasiliensis"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -1491,9 +1506,33 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_three_nerves_pending: {
     id: "ed2_gramineae_group_7_three_nerves_pending", milestone: "Gramineae: grupo 7, tres nervaduras", manualPage: 69,
-    descripcion: "Continuar con los géneros de lemmas trinervadas.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "Z", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "Z", especieId: "ed2_gramineae" },
+    descripcion: "¿Las lemmas son múticas o mucronadas?",
+    opcionA: { label: "Múticas", keyStep: "a", nextNodeId: "ed2_gramineae_group_7_three_nerves_ligule" },
+    opcionA_prima: { label: "Mucronadas", keyStep: "a'", nextNodeId: "ed2_gramineae_group_7_three_nerves_mucronate" },
+  },
+  ed2_gramineae_group_7_three_nerves_ligule: {
+    id: "ed2_gramineae_group_7_three_nerves_ligule", milestone: "Gramineae: grupo 7, lígula", manualPage: 69,
+    descripcion: "¿La lígula es membranosa o está formada por una hilera de pelos?",
+    opcionA: { label: "Membranosa", keyStep: "b", nextNodeId: "ed2_diandrochloa" },
+    opcionA_prima: { label: "Formada por una hilera de pelos", keyStep: "b'", nextNodeId: "ed2_eragrostis_pending" },
+  },
+  ed2_eragrostis_pending: {
+    id: "ed2_eragrostis_pending", milestone: "Eragrostis", manualPage: 111,
+    descripcion: "Continuar con la clave específica de Eragrostis.",
+    opcionA: { label: "Continuar desarrollando Eragrostis", keyStep: "b'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando Eragrostis", keyStep: "b'", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_three_nerves_mucronate: {
+    id: "ed2_gramineae_group_7_three_nerves_mucronate", milestone: "Gramineae: grupo 7, lemmas mucronadas", manualPage: 69,
+    descripcion: "¿La inflorescencia está formada por una sola espiga terminal y la planta es pigmea?",
+    opcionA: { label: "Sí; una espiga terminal", keyStep: "c", nextNodeId: "ed2_gramineae_group_7_tripogon_pending" },
+    opcionA_prima: { label: "No; varias espigas y planta robusta", keyStep: "c'", nextNodeId: "ed2_gramineae_group_7_diplachne_pending" },
+  },
+  ed2_gramineae_group_7_tripogon_pending: {
+    id: "ed2_gramineae_group_7_tripogon_pending", milestone: "Tripogon", manualPage: 129,
+    descripcion: "Continuar con la clave específica de Tripogon.",
+    opcionA: { label: "Continuar desarrollando Tripogon", keyStep: "c", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando Tripogon", keyStep: "c", especieId: "ed2_gramineae" },
   },
   ed2_gramineae_group_7_many_nerves: {
     id: "ed2_gramineae_group_7_many_nerves", milestone: "Gramineae: grupo 7, cinco o más nervaduras", manualPage: 69,
@@ -1611,9 +1650,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_tridens_pending: {
     id: "ed2_gramineae_group_7_tridens_pending", milestone: "Gramineae: grupo 7, aristas laterales", manualPage: 70,
-    descripcion: "Continuar con el género provisto de aristas laterales.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "o", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "o", especieId: "ed2_gramineae" },
+    descripcion: "Tridens: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Tridens brasiliensis", keyStep: "1", especieId: "ed2_tridens_brasiliensis" },
+    opcionA_prima: { label: "Identificar como Tridens brasiliensis", keyStep: "1", especieId: "ed2_tridens_brasiliensis" },
   },
   ed2_gramineae_group_7_pedicel: {
     id: "ed2_gramineae_group_7_pedicel", milestone: "Gramineae: grupo 7, pedicelo", manualPage: 70,
@@ -1725,9 +1764,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_8_glyceria_pending: {
     id: "ed2_gramineae_group_8_glyceria_pending", milestone: "Gramineae: grupo 8, estilos persistentes", manualPage: 71,
-    descripcion: "Continuar con el género de estilos alargados y persistentes.",
-    opcionA: { label: "Continuar desarrollando el grupo 8", keyStep: "J", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 8", keyStep: "J", especieId: "ed2_gramineae" },
+    descripcion: "Glyceria: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Glyceria multiflora", keyStep: "1", especieId: "ed2_glyceria_multiflora" },
+    opcionA_prima: { label: "Identificar como Glyceria multiflora", keyStep: "1", especieId: "ed2_glyceria_multiflora" },
   },
   ed2_briza: {
     id: "ed2_briza", milestone: "Briza", manualPage: 80,
@@ -2088,6 +2127,12 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿Las espiguillas están comprimidas dorsiventralmente y miden 7-8,5 mm?",
     opcionA: { label: "Sí; hojas de 2-3,5 mm", keyStep: "G", especieId: "ed2_melica_parodiana" },
     opcionA_prima: { label: "No; algo comprimidas lateralmente, de 9-18,5 mm", keyStep: "G'", especieId: "ed2_melica_aurantiaca" },
+  },
+  ed2_diandrochloa: {
+    id: "ed2_diandrochloa", milestone: "Diandrochloa", manualPage: 110,
+    descripcion: "Diandrochloa: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Diandrochloa glomerata", keyStep: "1", especieId: "ed2_diandrochloa_glomerata" },
+    opcionA_prima: { label: "Identificar como Diandrochloa glomerata", keyStep: "1", especieId: "ed2_diandrochloa_glomerata" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
