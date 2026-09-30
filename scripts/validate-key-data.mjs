@@ -62,7 +62,7 @@ const files = [
       "ed2_family_potamogetonaceae",
       "ed2_family_zannichelliaceae", "ed2_family_juncaginaceae",
       "ed2_family_alismataceae", "ed2_family_butomaceae",
-      "ed2_family_hydrocharitaceae",
+      "ed2_family_hydrocharitaceae", "ed2_family_gramineae",
     ],
     order: "data-first",
   },
@@ -300,6 +300,18 @@ const files = [
     speciesKey: true,
     order: "data-first",
   },
+  {
+    name: "secondEditionGramineae.ts",
+    path: path.join(ROOT, "src", "data", "secondEditionGramineae.ts"),
+    treeExport: "export const secondEditionGramineaeKeyData",
+    dataExport: "export const secondEditionGramineaeSpecies",
+    dataPattern: /^  ([a-zA-Z0-9_]+): species\(/gm,
+    nodePattern: /^  ([a-zA-Z0-9_]+): (?:\{|continuationNode\()/gm,
+    externalSpecies: ["ed2_gramineae"],
+    externalNodes: [],
+    speciesKey: true,
+    order: "data-first",
+  },
 ];
 
 function collectMatches(text, pattern, group = 1) {
@@ -323,7 +335,10 @@ function validateFile(config) {
     ...collectMatches(treeText, config.nodePattern || /^  ([a-zA-Z0-9_]+): \{/gm),
     ...(config.externalNodes || []),
   ]);
-  const species = new Set(collectMatches(dataText, config.dataPattern));
+  const species = new Set([
+    ...collectMatches(dataText, config.dataPattern),
+    ...(config.externalSpecies || []),
+  ]);
   if (config.generatedFamilyNodes) {
     species.forEach((id) => nodes.add(`ed2_family_${id.replace(/^ed2_/, "")}`));
   }
