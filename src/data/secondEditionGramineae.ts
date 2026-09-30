@@ -712,6 +712,91 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Antecio verrucoso-papiloso y comprimido de 1,5-2 mm; corona muy estrecha; arista finamente pubescente de 5-9 mm.",
     "América austral; sierras de Buenos Aires.", "Piptochaetium montevidense"
   ),
+  ed2_stipa_trichotoma: species(
+    "ed2_stipa_trichotoma", "Stipa trichotoma", "Gramínea perenne y cespitosa de 20-60 cm, con hojas setáceas y convolutas.",
+    "Antecio obovoide algo giboso, de 2 mm, sin corona; antopodio con pelos cortos; arista notablemente excéntrica de 2-3,5 cm.",
+    "Uruguay y centro argentino; frecuente en las estepas prístinas bonaerenses.", "Pasto puna"
+  ),
+  ed2_stipa_papposa: species(
+    "ed2_stipa_papposa", "Stipa papposa", "Gramínea perenne y cespitosa de 15-80 cm, con hojas planas o convolutas.",
+    "Antecio cilíndrico o fusiforme, velludo y sin corona; pelos apicales de más de 1,5 mm forman una especie de papus.",
+    "Sur de Brasil, Uruguay, Argentina y centro de Chile; frecuente en estepas y campos húmedos.", "Stipa papposa"
+  ),
+  ed2_stipa_bonariensis: species(
+    "ed2_stipa_bonariensis", "Stipa bonariensis", "Gramínea cespitosa de 30-60 cm, con hojas plegadas y panoja angosta y laxa.",
+    "Antecio rojizo, glabro y brillante de 11-13 mm, con antopodio velludo y ápice papiloso; corona ciliada y arista velluda de 4-5 cm.",
+    "Estepa clímax de la provincia de Buenos Aires.", "Stipa bonariensis"
+  ),
+  ed2_stipa_charruana: species(
+    "ed2_stipa_charruana", "Stipa charruana", "Gramínea cespitosa de 50-80 cm, con hojas convolutas y panojas brillantes y nutantes.",
+    "Corona acartuchada de hasta 7,5 mm, tan larga o más que el antecio; cuerpo densamente papiloso; arista de 6-9 cm.",
+    "Estepas del Uruguay y nordeste argentino; frecuente en la región.", "Flechilla"
+  ),
+  ed2_stipa_philippii: species(
+    "ed2_stipa_philippii", "Stipa philippii", "Gramínea cespitosa de 40-100 cm, con panojas erectas y laxas.",
+    "Antecio uniformemente pubescente de 3-4 mm; corona obcónica diferenciada de 0,3 mm; antopodio brevísimo y velludo.",
+    "Nordeste argentino y sur de Chile; campos húmedos y bosques de Celtis tala.", "Stipa philippii"
+  ),
+  ed2_stipa_airoides: species(
+    "ed2_stipa_airoides", "Stipa airoides", "Gramínea cespitosa de cerca de 1 m, con panojas laxas y abiertas.",
+    "Antecio uniformemente pubescente de 2,5-3,2 mm; corona cilíndrica apenas diferenciada de 0,4-0,5 mm; arista de 17-20 mm.",
+    "Sur de Brasil, Uruguay y nordeste argentino; rara en Buenos Aires.", "Stipa airoides"
+  ),
+  ed2_stipa_clarazii: species(
+    "ed2_stipa_clarazii", "Stipa clarazii", "Gramínea cespitosa de 30-80 cm, con hojas rígidas y convolutas.",
+    "Antecio de 9-14 mm con nervaduras velludas hasta el ápice; corona cilíndrica largamente ciliada; arista hirsuta de 12-17 cm.",
+    "Centro argentino y Uruguay; frecuente en la estepa clímax del este y sur bonaerense.", "Stipa clarazii"
+  ),
+  ed2_stipa_megapotamia: species(
+    "ed2_stipa_megapotamia", "Stipa megapotamia", "Gramínea cespitosa de 50-150 cm, con hojas planas y panojas laxas.",
+    "Antecio de 4-5 mm con nervaduras velludas hasta la mitad; corona cilíndrica continua con el cuerpo; arista de 3-5 cm.",
+    "Suelos húmedos o pedregosos de Uruguay y nordeste argentino; bosques del Delta y la ribera.", "Stipa megapotamia"
+  ),
+  ed2_stipa_poeppigiana: species(
+    "ed2_stipa_poeppigiana", "Stipa poeppigiana", "Gramínea perenne de 50-100 cm, con hojas planas y panojas erectas y laxas.",
+    "Antecio de 6-8 mm con nervaduras velludas hasta la mitad; corona cilíndrica continua; arista pubescente de 5-9 cm.",
+    "Centro y sur de Chile y Argentina; sierras de Tandil y Balcarce.", "Stipa poeppigiana"
+  ),
+  ed2_stipa_formicarum: species(
+    "ed2_stipa_formicarum", "Stipa formicarum", "Gramínea cespitosa de 40-80 cm, con hojas lineares planas o convolutas.",
+    "Antopodio corto; antecio de 0,7-0,9 mm de diámetro; corona diferenciada de 1-1,3 mm; arista filiforme ciliolada abajo.",
+    "Campos bajos y húmedos del nordeste bonaerense.", "Stipa formicarum"
+  ),
+  ed2_stipa_hyalina: species(
+    "ed2_stipa_hyalina", "Stipa hyalina", "Gramínea cespitosa de 50-120 cm, con hojas planas y panojas erectas y alargadas.",
+    "Antopodio corto; antecio de 0,4-0,5 mm de diámetro; corona diferenciada de 0,5-0,7 mm; arista capilar, glabra y tenue.",
+    "Uruguay y centro argentino; frecuente en Buenos Aires y de valor forrajero.", "Flechilla mansa"
+  ),
+  ed2_stipa_neesiana: species(
+    "ed2_stipa_neesiana", "Stipa neesiana", "Gramínea cespitosa de 30-140 cm, con panoja erecta o nutante y laxa.",
+    "Antopodio mucho más largo que el diámetro del antecio; hojas planas o convolutas de 1,5-5 mm; corona cilíndrica corta.",
+    "América austral; muy frecuente en la estepa prístina y de valor forrajero.", "Flechilla"
+  ),
+  ed2_stipa_torquata: species(
+    "ed2_stipa_torquata", "Stipa torquata", "Gramínea cespitosa de 20-45 cm, con panojas laxas y paucifloras.",
+    "Antopodio mucho más largo que el diámetro del antecio; hojas filiformes plegadas de 0,5-1 mm; corona cilíndrica largamente ciliada.",
+    "Uruguay y sierras de la provincia de Buenos Aires.", "Flechilla"
+  ),
+  ed2_stipa_filifolia: species(
+    "ed2_stipa_filifolia", "Stipa filifolia", "Gramínea cespitosa de 40-80 cm, con panojas fusiformes muy densas.",
+    "Antecio sin corona, pubescente abajo, de 3-4 mm; ápice sin anillo de pelos; arista de 2,5-3 cm.",
+    "Uruguay y sierras de Tandil y Balcarce.", "Stipa filifolia"
+  ),
+  ed2_stipa_juncoides: species(
+    "ed2_stipa_juncoides", "Stipa juncoides", "Gramínea cespitosa de 30-50 cm, con hojas convolutas subuladas.",
+    "Antecio sin corona, con anillo de pelos en el ápice; arista de 5-8 cm; pálea mucho más corta que la lemma.",
+    "Uruguay y sierras bonaerenses; vegeta entre rocas.", "Stipa juncoides"
+  ),
+  ed2_stipa_brachychaeta: species(
+    "ed2_stipa_brachychaeta", "Stipa brachychaeta", "Gramínea densamente cespitosa de 40-100 cm, con hojas rígidas y convolutas.",
+    "Antecio sin corona y totalmente velludo; anillo de pelos apical; arista de 1,5-2,5 cm; cariopse oblongo.",
+    "Uruguay y centro argentino; suelos sueltos o modificados.", "Paja vizcachera"
+  ),
+  ed2_stipa_caudata: species(
+    "ed2_stipa_caudata", "Stipa caudata", "Gramínea densamente cespitosa de 100-120 cm, con hojas flexuosas.",
+    "Antecio sin corona, velludo sobre la nervadura principal y la zona marginal; anillo de pelos apical; cariopse obovoide.",
+    "Centro de Chile y Argentina; barrancas, bosques de Celtis tala y sierras de Tandil y Balcarce.", "Paja vizcachera"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -1056,9 +1141,99 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_stipa_pending: {
     id: "ed2_stipa_pending", milestone: "Stipa", manualPage: 102,
-    descripcion: "Continuar con la clave específica de Stipa.",
-    opcionA: { label: "Continuar desarrollando Stipa", keyStep: "I'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando Stipa", keyStep: "I'", especieId: "ed2_gramineae" },
+    descripcion: "¿Los antecios son obovoides, algo gibosos y de unos 2 mm?",
+    opcionA: { label: "Sí; antopodio con pelos cortos y arista de 2-3,5 cm", keyStep: "A", especieId: "ed2_stipa_trichotoma" },
+    opcionA_prima: { label: "No; antecios cilíndricos o fusiformes", keyStep: "A'", nextNodeId: "ed2_stipa_apical_hairs" },
+  },
+  ed2_stipa_apical_hairs: {
+    id: "ed2_stipa_apical_hairs", milestone: "Stipa: pelos apicales", manualPage: 103,
+    descripcion: "¿La parte apical del antecio posee pelos largos, de más de 1,5 mm, formando una especie de papus?",
+    opcionA: { label: "Sí; antecio velludo sin corona, de 6-9 mm", keyStep: "B", especieId: "ed2_stipa_papposa" },
+    opcionA_prima: { label: "No; parte apical con pelos cortos o sin pelos", keyStep: "B'", nextNodeId: "ed2_stipa_corona_presence" },
+  },
+  ed2_stipa_corona_presence: {
+    id: "ed2_stipa_corona_presence", milestone: "Stipa: corona", manualPage: 104,
+    descripcion: "¿El antecio posee una corona obcónica o cilíndrica diferenciada?",
+    opcionA: { label: "Sí; corona más o menos diferenciada", keyStep: "C", nextNodeId: "ed2_stipa_coronate_color" },
+    opcionA_prima: { label: "No; antecio sin corona", keyStep: "C'", nextNodeId: "ed2_stipa_no_corona_ring" },
+  },
+  ed2_stipa_coronate_color: {
+    id: "ed2_stipa_coronate_color", milestone: "Stipa: color del antecio", manualPage: 104,
+    descripcion: "¿Los antecios son rojizos, glabros y brillantes, de 11-13 mm?",
+    opcionA: { label: "Sí; corona ciliada y arista velluda de 4-5 cm", keyStep: "D", especieId: "ed2_stipa_bonariensis" },
+    opcionA_prima: { label: "No; verdosos o pajizos, de hasta 14 mm", keyStep: "D'", nextNodeId: "ed2_stipa_corona_length" },
+  },
+  ed2_stipa_corona_length: {
+    id: "ed2_stipa_corona_length", milestone: "Stipa: longitud de la corona", manualPage: 104,
+    descripcion: "¿La corona es acartuchada y tan larga o más larga que el antecio?",
+    opcionA: { label: "Sí; corona de hasta 7,5 mm y cuerpo densamente papiloso", keyStep: "E", especieId: "ed2_stipa_charruana" },
+    opcionA_prima: { label: "No; corona corta", keyStep: "E'", nextNodeId: "ed2_stipa_indument" },
+  },
+  ed2_stipa_indument: {
+    id: "ed2_stipa_indument", milestone: "Stipa: indumento del antecio", manualPage: 104,
+    descripcion: "¿Los antecios son uniformemente pubescentes y miden 2,5-4 mm?",
+    opcionA: { label: "Sí; uniformemente pubescentes", keyStep: "F", nextNodeId: "ed2_stipa_pubescent_corona" },
+    opcionA_prima: { label: "No; glabros o velludos sólo sobre las nervaduras", keyStep: "F'", nextNodeId: "ed2_stipa_nerve_hairs" },
+  },
+  ed2_stipa_pubescent_corona: {
+    id: "ed2_stipa_pubescent_corona", milestone: "Stipa: corona del antecio pubescente", manualPage: 104,
+    descripcion: "¿La corona es obcónica y está claramente diferenciada del cuerpo?",
+    opcionA: { label: "Sí; corona de 0,3 mm y antopodio brevísimo", keyStep: "G", especieId: "ed2_stipa_philippii" },
+    opcionA_prima: { label: "No; corona cilíndrica apenas diferenciada, de 0,4-0,5 mm", keyStep: "G'", especieId: "ed2_stipa_airoides" },
+  },
+  ed2_stipa_nerve_hairs: {
+    id: "ed2_stipa_nerve_hairs", milestone: "Stipa: pelos de las nervaduras", manualPage: 104,
+    descripcion: "¿Las nervaduras del antecio son velludas hasta el ápice?",
+    opcionA: { label: "Sí; antecio de 9-14 mm y corona largamente ciliada", keyStep: "H", especieId: "ed2_stipa_clarazii" },
+    opcionA_prima: { label: "No; velludas sólo abajo o glabras", keyStep: "H'", nextNodeId: "ed2_stipa_corona_shape" },
+  },
+  ed2_stipa_corona_shape: {
+    id: "ed2_stipa_corona_shape", milestone: "Stipa: forma de la corona", manualPage: 104,
+    descripcion: "¿La corona es cilíndrica, poco diferenciada y continua con el cuerpo del antecio?",
+    opcionA: { label: "Sí; hojas de 4-12 mm de ancho", keyStep: "I", nextNodeId: "ed2_stipa_continuous_corona" },
+    opcionA_prima: { label: "No; contraída en la base, bien diferenciada o muy corta", keyStep: "I'", nextNodeId: "ed2_stipa_antopodium" },
+  },
+  ed2_stipa_continuous_corona: {
+    id: "ed2_stipa_continuous_corona", milestone: "Stipa: corona continua", manualPage: 104,
+    descripcion: "¿El antecio mide 4-5 mm?",
+    opcionA: { label: "Sí; nervaduras velludas hasta la mitad y arista de 3-5 cm", keyStep: "J", especieId: "ed2_stipa_megapotamia" },
+    opcionA_prima: { label: "No; antecio de 6-8 mm y arista pubescente de 5-9 cm", keyStep: "J'", especieId: "ed2_stipa_poeppigiana" },
+  },
+  ed2_stipa_antopodium: {
+    id: "ed2_stipa_antopodium", milestone: "Stipa: antopodio", manualPage: 104,
+    descripcion: "¿El antopodio es tan largo como el diámetro del antecio o más corto?",
+    opcionA: { label: "Sí; antopodio corto", keyStep: "K", nextNodeId: "ed2_stipa_short_antopodium" },
+    opcionA_prima: { label: "No; antopodio mucho más largo que el diámetro del antecio", keyStep: "K'", nextNodeId: "ed2_stipa_long_antopodium" },
+  },
+  ed2_stipa_short_antopodium: {
+    id: "ed2_stipa_short_antopodium", milestone: "Stipa: antopodio corto", manualPage: 104,
+    descripcion: "¿El antecio mide 0,7-0,9 mm de diámetro y la corona 1-1,3 mm?",
+    opcionA: { label: "Sí; arista filiforme ciliolada abajo", keyStep: "L", especieId: "ed2_stipa_formicarum" },
+    opcionA_prima: { label: "No; antecio de 0,4-0,5 mm y corona de 0,5-0,7 mm", keyStep: "L'", especieId: "ed2_stipa_hyalina" },
+  },
+  ed2_stipa_long_antopodium: {
+    id: "ed2_stipa_long_antopodium", milestone: "Stipa: antopodio largo", manualPage: 106,
+    descripcion: "¿Las hojas son lineares, planas o convolutas, de 1,5-5 mm de ancho?",
+    opcionA: { label: "Sí; antecio de 7-10 mm y corona corta", keyStep: "M", especieId: "ed2_stipa_neesiana" },
+    opcionA_prima: { label: "No; hojas filiformes plegadas de 0,5-1 mm", keyStep: "M'", especieId: "ed2_stipa_torquata" },
+  },
+  ed2_stipa_no_corona_ring: {
+    id: "ed2_stipa_no_corona_ring", milestone: "Stipa: antecio sin corona", manualPage: 106,
+    descripcion: "¿El ápice carece de un anillo de pelos en el punto de inserción de la arista?",
+    opcionA: { label: "Sí; antecio de 3-4 mm y panoja fusiforme muy densa", keyStep: "N", especieId: "ed2_stipa_filifolia" },
+    opcionA_prima: { label: "No; ápice con un anillo de pelos", keyStep: "N'", nextNodeId: "ed2_stipa_no_corona_awn" },
+  },
+  ed2_stipa_no_corona_awn: {
+    id: "ed2_stipa_no_corona_awn", milestone: "Stipa: arista sin corona", manualPage: 106,
+    descripcion: "¿La arista mide 5-8 cm y la pálea es mucho más corta que la lemma?",
+    opcionA: { label: "Sí; antecio de 5-6 mm, velludo sólo abajo", keyStep: "O", especieId: "ed2_stipa_juncoides" },
+    opcionA_prima: { label: "No; arista de 1,5-2,5 cm y pálea apenas más corta", keyStep: "O'", nextNodeId: "ed2_stipa_no_corona_indument" },
+  },
+  ed2_stipa_no_corona_indument: {
+    id: "ed2_stipa_no_corona_indument", milestone: "Stipa: indumento sin corona", manualPage: 106,
+    descripcion: "¿El antecio es totalmente velludo y las hojas son rígidas?",
+    opcionA: { label: "Sí; cariopse oblongo", keyStep: "P", especieId: "ed2_stipa_brachychaeta" },
+    opcionA_prima: { label: "No; velludo sobre la nervadura principal y el margen; hojas flexuosas", keyStep: "P'", especieId: "ed2_stipa_caudata" },
   },
   ed2_gramineae_group_7_soft_glumes: {
     id: "ed2_gramineae_group_7_soft_glumes", milestone: "Gramineae: grupo 7, glumas", manualPage: 68,
