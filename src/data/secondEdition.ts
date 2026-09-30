@@ -51,6 +51,10 @@ import {
   secondEditionDavalliaceaePolypodiaceaeKeyData,
   secondEditionDavalliaceaePolypodiaceaeSpecies,
 } from "./secondEditionDavalliaceaePolypodiaceae";
+import {
+  secondEditionAspidiaceaeKeyData,
+  secondEditionAspidiaceaeSpecies,
+} from "./secondEditionAspidiaceae";
 
 function mergeUniqueRecords<T>(label: string, records: Array<Record<string, T>>) {
   const merged: Record<string, T> = {};
@@ -79,6 +83,7 @@ export const secondEditionSpeciesData: Record<string, Especie> = mergeUniqueReco
     secondEditionEarlyPteridophyteSpecies,
     secondEditionAdiantaceaeSpecies,
     secondEditionDavalliaceaePolypodiaceaeSpecies,
+    secondEditionAspidiaceaeSpecies,
   ]
 );
 
@@ -98,6 +103,7 @@ export const secondEditionTree: Record<string, CladoNode> = mergeUniqueRecords(
     secondEditionEarlyPteridophyteKeyData,
     secondEditionAdiantaceaeKeyData,
     secondEditionDavalliaceaePolypodiaceaeKeyData,
+    secondEditionAspidiaceaeKeyData,
   ]
 );
 
