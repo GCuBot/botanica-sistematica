@@ -106,6 +106,18 @@ const files = [
     ],
     order: "data-first",
   },
+  {
+    name: "secondEditionDicotGroupD.ts",
+    path: path.join(ROOT, "src", "data", "secondEditionDicotGroupD.ts"),
+    treeExport: "const secondEditionDicotGroupDBranchSpecs",
+    dataExport: "export const secondEditionDicotGroupDFamilies",
+    dataPattern: /^  ([a-zA-Z0-9_]+): family\(/gm,
+    nodePattern: /^  ([a-zA-Z0-9_]+): (?:\{|terminal\()/gm,
+    nextRefPattern: /\["[^\"]+", "[^\"]+", "([a-zA-Z0-9_]+)"\]/g,
+    familyRefPattern: /terminal\("[a-zA-Z0-9_]+", "([a-zA-Z0-9_]+)", \d+\)/g,
+    externalNodes: [],
+    order: "data-first",
+  },
 ];
 
 function collectMatches(text, pattern, group = 1) {
