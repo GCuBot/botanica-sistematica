@@ -376,6 +376,42 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Lemmas redondeadas y múticas; panoja estrecha y densa; espiguillas lanceoladas de cuatro a once flores.",
     "Originaria de Europa, adventicia en América; común en suelos modificados.", "Catapodium rigidum"
   ),
+  ed2_gaudinia_fragilis: species(
+    "ed2_gaudinia_fragilis", "Gaudinia fragilis",
+    "Gramínea anual de 25-80 cm, con hojas planas y pubescentes.",
+    "Espiguillas plurifloras sésiles en excavaciones del raquis; lemmas con arista dorsal; espiga dística de 10-30 cm.",
+    "Originaria del sur de Europa; adventicia en Argentina sobre suelos modificados.", "Gaudinia fragilis"
+  ),
+  ed2_avena_barbata: species(
+    "ed2_avena_barbata", "Avena barbata", "Gramínea anual de hasta 1,5 m.",
+    "Espiguillas bifloras; lemma profundamente bífida, con dos lacinias de 4-8 mm; lemmas velludas.",
+    "Originaria de Europa, adventicia en América; frecuente en suelos modificados.", "Avena silvestre"
+  ),
+  ed2_avena_fatua: species(
+    "ed2_avena_fatua", "Avena fatua", "Gramínea anual de hasta 1,5 m.",
+    "Raquilla articulada; antecios se desprenden por separado; lemmas pilosas y las dos basales aristadas.",
+    "Originaria de Europa; adventicia en América, en rastrojos y terraplenes.", "Avena guacha"
+  ),
+  ed2_avena_sativa: species(
+    "ed2_avena_sativa", "Avena sativa", "Gramínea anual de 60-150 cm, cultivada como cereal.",
+    "Raquilla articulada; lemmas glabras, la inferior aristada y las restantes múticas; espiguillas de dos a tres flores.",
+    "Originaria de Europa; cultivada y asilvestrada en suelos modificados.", "Avena"
+  ),
+  ed2_avena_sterilis: species(
+    "ed2_avena_sterilis", "Avena sterilis", "Gramínea anual robusta, de 1-2 m, con hojas glaucas.",
+    "Raquilla continua; antecios caen juntos; espiguillas de tres a cinco flores.",
+    "Originaria del Viejo Mundo; adventicia en América.", "Avena"
+  ),
+  ed2_avena_bizantina: species(
+    "ed2_avena_bizantina", "Avena bizantina", "Gramínea anual de alrededor de 1 m.",
+    "Raquilla continua; espiguillas generalmente bifloras; lemmas glabras, pilosas sólo en la base.",
+    "Cultivada y a veces adventicia.", "Avena amarilla"
+  ),
+  ed2_avena_ludoviciana: species(
+    "ed2_avena_ludoviciana", "Avena ludoviciana", "Gramínea anual de hasta 1,5 m.",
+    "Raquilla continua; espiguillas generalmente bifloras; lemmas velludas al menos en la base y junto a la arista.",
+    "Originaria de Asia Central; adventicia en América.", "Avena cimarrona"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -582,9 +618,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_gaudinia_pending: {
     id: "ed2_gramineae_group_7_gaudinia_pending", milestone: "Gramineae: grupo 7, arista dorsal", manualPage: 68,
-    descripcion: "Continuar con el género de espiga dística y arista dorsal.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "R", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "R", especieId: "ed2_gramineae" },
+    descripcion: "Gaudinia: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Gaudinia fragilis", keyStep: "R", especieId: "ed2_gaudinia_fragilis" },
+    opcionA_prima: { label: "Identificar como Gaudinia fragilis", keyStep: "R", especieId: "ed2_gaudinia_fragilis" },
   },
   ed2_gramineae_group_7_distichous_orientation: {
     id: "ed2_gramineae_group_7_distichous_orientation", milestone: "Gramineae: orientación de las espiguillas", manualPage: 68,
@@ -786,9 +822,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_8_avena_pending: {
     id: "ed2_gramineae_group_8_avena_pending", milestone: "Gramineae: grupo 8, arista dorsal", manualPage: 70,
-    descripcion: "Continuar con el género de arista dorsal geniculada.",
-    opcionA: { label: "Continuar desarrollando el grupo 8", keyStep: "C", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 8", keyStep: "C", especieId: "ed2_gramineae" },
+    descripcion: "Avena: espiguillas grandes con lemmas provistas de arista dorsal geniculada.",
+    opcionA: { label: "Continuar con la clave de Avena", keyStep: "C", nextNodeId: "ed2_avena" },
+    opcionA_prima: { label: "Continuar con la clave de Avena", keyStep: "C", nextNodeId: "ed2_avena" },
   },
   ed2_gramineae_group_8_florets: {
     id: "ed2_gramineae_group_8_florets", milestone: "Gramineae: grupo 8, número de flores", manualPage: 70,
@@ -1011,6 +1047,36 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿La gluma superior mide al menos 6 mm y casi iguala al antecio contiguo?",
     opcionA: { label: "De 6-10 mm; casi tan larga como el antecio", keyStep: "C", especieId: "ed2_vulpia_dertonensis" },
     opcionA_prima: { label: "Menor de 6 mm; bastante más corta que el antecio", keyStep: "C'", especieId: "ed2_vulpia_australis" },
+  },
+  ed2_avena: {
+    id: "ed2_avena", milestone: "Avena", manualPage: 87,
+    descripcion: "¿La lemma está profundamente bífida o apenas bidentada?",
+    opcionA: { label: "Profundamente bífida, con dos lacinias de 4-8 mm; espiguillas bifloras", keyStep: "A", especieId: "ed2_avena_barbata" },
+    opcionA_prima: { label: "Cortamente bidentada o casi entera", keyStep: "A'", nextNodeId: "ed2_avena_rachilla" },
+  },
+  ed2_avena_rachilla: {
+    id: "ed2_avena_rachilla", milestone: "Avena: raquilla", manualPage: 87,
+    descripcion: "¿La raquilla se articula y libera cada antecio por separado?",
+    opcionA: { label: "Articulada; antecios se desprenden independientemente", keyStep: "B", nextNodeId: "ed2_avena_articulated" },
+    opcionA_prima: { label: "Continua; antecios de la espiguilla caen juntos", keyStep: "B'", nextNodeId: "ed2_avena_continuous" },
+  },
+  ed2_avena_articulated: {
+    id: "ed2_avena_articulated", milestone: "Avena: raquilla articulada", manualPage: 87,
+    descripcion: "¿Las lemmas son pilosas o glabras?",
+    opcionA: { label: "Pilosas; las dos basales aristadas", keyStep: "C", especieId: "ed2_avena_fatua" },
+    opcionA_prima: { label: "Glabras; sólo la inferior aristada", keyStep: "C'", especieId: "ed2_avena_sativa" },
+  },
+  ed2_avena_continuous: {
+    id: "ed2_avena_continuous", milestone: "Avena: raquilla continua", manualPage: 87,
+    descripcion: "¿Las espiguillas poseen tres a cinco flores o generalmente dos?",
+    opcionA: { label: "De tres a cinco flores", keyStep: "D", especieId: "ed2_avena_sterilis" },
+    opcionA_prima: { label: "Dos flores, rara vez hasta cuatro", keyStep: "D'", nextNodeId: "ed2_avena_indument" },
+  },
+  ed2_avena_indument: {
+    id: "ed2_avena_indument", milestone: "Avena: indumento de la lemma", manualPage: 87,
+    descripcion: "¿Las lemmas son glabras salvo en la base?",
+    opcionA: { label: "Glabras, pilosas sólo en la base", keyStep: "E", especieId: "ed2_avena_bizantina" },
+    opcionA_prima: { label: "Más o menos velludas, al menos abajo y junto a la arista", keyStep: "E'", especieId: "ed2_avena_ludoviciana" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
