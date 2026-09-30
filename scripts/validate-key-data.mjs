@@ -56,7 +56,10 @@ const files = [
     nodePattern: /^  ([a-zA-Z0-9_]+): (?:\{|familyTerminal\()/gm,
     nextRefPattern: /next: "([a-zA-Z0-9_]+)"/g,
     familyRefPattern: /familyTerminal\("[a-zA-Z0-9_]+", "([a-zA-Z0-9_]+)", \d+\)/g,
-    externalNodes: ["ed2_pteridophyta_a", "ed2_dicotyledoneae_a", "ed2_family_ephedraceae"],
+    externalNodes: [
+      "ed2_pteridophyta_a", "ed2_dicotyledoneae_a",
+      "ed2_family_ephedraceae", "ed2_family_typhaceae",
+    ],
     order: "data-first",
   },
   {
@@ -234,6 +237,16 @@ const files = [
     path: path.join(ROOT, "src", "data", "secondEditionEphedraceae.ts"),
     treeExport: "export const secondEditionEphedraceaeKeyData",
     dataExport: "export const secondEditionEphedraceaeSpecies",
+    dataPattern: /^  ([a-zA-Z0-9_]+): species\(/gm,
+    externalNodes: [],
+    speciesKey: true,
+    order: "data-first",
+  },
+  {
+    name: "secondEditionTyphaceae.ts",
+    path: path.join(ROOT, "src", "data", "secondEditionTyphaceae.ts"),
+    treeExport: "export const secondEditionTyphaceaeKeyData",
+    dataExport: "export const secondEditionTyphaceaeSpecies",
     dataPattern: /^  ([a-zA-Z0-9_]+): species\(/gm,
     externalNodes: [],
     speciesKey: true,
