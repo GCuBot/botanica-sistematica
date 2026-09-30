@@ -33,7 +33,7 @@ const files = [
     dataPattern: /^  ([a-zA-Z0-9_]+): family\(/gm,
     nodePattern: /^  ([a-zA-Z0-9_]+): (?:\{|familyTerminal\()/gm,
     familyRefPattern: /familyTerminal\("[a-zA-Z0-9_]+", "([a-zA-Z0-9_]+)", \d+\)/g,
-    externalNodes: [],
+    externalNodes: ["ed2_family_selaginellaceae"],
     order: "data-first",
   },
   {
@@ -142,6 +142,16 @@ const files = [
     externalNodes: ["ed2_family_santalaceae", "ed2_family_rubiaceae", "ed2_family_symplocaceae"],
     order: "data-first",
   },
+  {
+    name: "secondEditionSelaginellaceae.ts",
+    path: path.join(ROOT, "src", "data", "secondEditionSelaginellaceae.ts"),
+    treeExport: "export const secondEditionSelaginellaceaeKeyData",
+    dataExport: "export const secondEditionSelaginellaceaeSpecies",
+    dataPattern: /^  ([a-zA-Z0-9_]+): species\(/gm,
+    externalNodes: [],
+    speciesKey: true,
+    order: "data-first",
+  },
 ];
 
 function collectMatches(text, pattern, group = 1) {
@@ -233,20 +243,24 @@ function validateSecondEdition() {
   const configs = files.filter((config) => config.name.startsWith("secondEdition"));
   const data = configs.map(collectConfigData);
   const nodes = data.flatMap((item) => item.nodes);
-  const species = data.flatMap((item) => item.species);
+  const taxa = data.flatMap((item) => item.species);
+  const families = data.flatMap((item, index) =>
+    configs[index].speciesKey ? [] : item.species
+  );
   const nodeSet = new Set(nodes);
-  const speciesSet = new Set(species);
+  const taxaSet = new Set(taxa);
+  const familySet = new Set(families);
   const missingNodes = [...new Set(data.flatMap((item) => item.nextRefs))]
     .filter((id) => !nodeSet.has(id))
     .sort();
   const missingSpecies = [...new Set(data.flatMap((item) => item.familyRefs))]
-    .filter((id) => !speciesSet.has(id))
+    .filter((id) => !taxaSet.has(id))
     .sort();
   const duplicateNodes = duplicates(nodes).sort();
-  const duplicateSpecies = duplicates(species).sort();
+  const duplicateSpecies = duplicates(taxa).sort();
   const errors = [];
 
-  if (speciesSet.size !== 145) errors.push(`familias esperadas: 145; encontradas: ${speciesSet.size}`);
+  if (familySet.size !== 145) errors.push(`familias esperadas: 145; encontradas: ${familySet.size}`);
   if (!nodeSet.has("ed2_root")) errors.push("falta el nodo raíz ed2_root");
   if (missingNodes.length) errors.push(`nodos globales faltantes: ${missingNodes.join(", ")}`);
   if (missingSpecies.length) errors.push(`familias globales faltantes: ${missingSpecies.join(", ")}`);
@@ -257,7 +271,7 @@ function validateSecondEdition() {
     console.error(`\nSegunda edición: ${errors.join("; ")}`);
     return false;
   }
-  console.log(`Segunda edición: ${nodes.length} nodos y ${speciesSet.size} familias, referencias globales OK`);
+  console.log(`Segunda edición: ${nodes.length} nodos, ${familySet.size} familias y ${taxaSet.size - familySet.size} especies; referencias globales OK`);
   return true;
 }
 

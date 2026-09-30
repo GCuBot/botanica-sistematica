@@ -372,7 +372,6 @@ export const secondEditionPteridophytaKeyData: Record<string, CladoNode> = {
       nextNodeId: "ed2_family_athyriaceae",
     },
   },
-  ed2_family_selaginellaceae: familyTerminal("ed2_family_selaginellaceae", "ed2_selaginellaceae", 21),
   ed2_family_isoetaceae: familyTerminal("ed2_family_isoetaceae", "ed2_isoetaceae", 22),
   ed2_family_equisetaceae: familyTerminal("ed2_family_equisetaceae", "ed2_equisetaceae", 23),
   ed2_family_ophioglossaceae: familyTerminal("ed2_family_ophioglossaceae", "ed2_ophioglossaceae", 23),
