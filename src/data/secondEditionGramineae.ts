@@ -158,6 +158,55 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Originaria del Mediterráneo y Abisinia; cultivada y adventicia en La Plata.",
     "Lamarckia aurea"
   ),
+  ed2_briza_brizoides: species(
+    "ed2_briza_brizoides", "Briza brizoides",
+    "Gramínea perenne y cespitosa, de 20-50 cm.",
+    "Espiguillas violáceas comprimidas lateralmente; lemma triangular de perfil, con margen muy dilatado y arista de 4-8 mm.",
+    "Sur del Brasil, Chile, Uruguay y nordeste argentino; campos graminosos y sierras bonaerenses.",
+    "Briza brizoides"
+  ),
+  ed2_briza_subaristata: species(
+    "ed2_briza_subaristata", "Briza subaristata",
+    "Gramínea perenne y cespitosa, de 30-80 cm.",
+    "Espiguillas globosas de seis a doce flores; lemmas agudas, bidentadas y con arista corta; panoja contraída.",
+    "Desde México al centro argentino; frecuente en la estepa graminosa y las sierras.",
+    "Briza subaristata"
+  ),
+  ed2_briza_uniolae: species(
+    "ed2_briza_uniolae", "Briza uniolae",
+    "Gramínea perenne y rizomatosa, de 60-100 cm.",
+    "Panoja densa casi espiciforme; lemma blanquecino-verdosa, obtusa y brevemente mucronada.",
+    "América austral; lugares húmedos y sierras de la provincia de Buenos Aires.",
+    "Briza uniolae"
+  ),
+  ed2_briza_rufa: species(
+    "ed2_briza_rufa", "Briza rufa",
+    "Gramínea perenne de 30-120 cm.",
+    "Panoja densa casi espiciforme; lemma castaño-rojiza, obtusa y mútica.",
+    "América austral; frecuente en las sierras y en la ribera platense.",
+    "Briza rufa"
+  ),
+  ed2_briza_minor: species(
+    "ed2_briza_minor", "Briza minor",
+    "Gramínea anual de 10-50 cm.",
+    "Panoja laxa y delicada; espiguillas globosas nutantes, de cuatro a seis flores, con glumas y glumelas redondeadas.",
+    "Originaria de Europa, naturalizada en América austral; común en praderas naturales.",
+    "Briza"
+  ),
+  ed2_briza_maxima: species(
+    "ed2_briza_maxima", "Briza maxima",
+    "Gramínea anual de 30-60 cm.",
+    "Panoja laxa y nutante; espiguillas ovoides grandes, con doce a veinte flores y glumas y glumelas ovadas y obtusas.",
+    "Originaria de Europa; cultivada y adventicia en América.",
+    "Briza maxima"
+  ),
+  ed2_puccinellia_glaucescens_osteniana: species(
+    "ed2_puccinellia_glaucescens_osteniana", "Puccinellia glaucescens var. osteniana",
+    "Gramínea perenne y cespitosa de suelos salobres, de 20-60 cm.",
+    "Espiguillas casi cilíndricas de cinco a diez flores; estilos cortos y caducos; lemmas con nervaduras tenues; cariopse no hendido.",
+    "Uruguay y estepa pampeana argentina.",
+    "Puccinellia glaucescens var. osteniana"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -440,7 +489,114 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     opcionA: { label: "Lemma velluda; raquilla glabra", keyStep: "l", especieId: "ed2_arundo_donax" },
     opcionA_prima: { label: "Lemma glabra; raquilla velluda", keyStep: "l'", especieId: "ed2_phragmites_australis" },
   },
-  ed2_gramineae_group_8: continuationNode(8, 70),
+  ed2_gramineae_group_8: {
+    id: "ed2_gramineae_group_8", milestone: "Gramineae: grupo 8", manualPage: 70,
+    descripcion: "¿Las espiguillas unifloras se alojan en excavaciones alternas del raquis?",
+    opcionA: { label: "Sí; forman una espiga cilíndrica", keyStep: "A", nextNodeId: "ed2_gramineae_group_8_excavated_pending" },
+    opcionA_prima: { label: "No; inflorescencias de otros tipos", keyStep: "A'", nextNodeId: "ed2_gramineae_group_8_awn" },
+  },
+  ed2_gramineae_group_8_excavated_pending: {
+    id: "ed2_gramineae_group_8_excavated_pending", milestone: "Gramineae: grupo 8, espiguillas excavadas", manualPage: 70,
+    descripcion: "Continuar con los géneros de espiguillas alojadas en el raquis.",
+    opcionA: { label: "Continuar desarrollando el grupo 8", keyStep: "A", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 8", keyStep: "A", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_8_awn: {
+    id: "ed2_gramineae_group_8_awn", milestone: "Gramineae: grupo 8, posición de la arista", manualPage: 70,
+    descripcion: "¿La lemma lleva una arista dorsal geniculada?",
+    opcionA: { label: "Sí, arista dorsal geniculada", keyStep: "C", nextNodeId: "ed2_gramineae_group_8_avena_pending" },
+    opcionA_prima: { label: "Mútica o con arista apical", keyStep: "C'", nextNodeId: "ed2_gramineae_group_8_florets" },
+  },
+  ed2_gramineae_group_8_avena_pending: {
+    id: "ed2_gramineae_group_8_avena_pending", milestone: "Gramineae: grupo 8, arista dorsal", manualPage: 70,
+    descripcion: "Continuar con el género de arista dorsal geniculada.",
+    opcionA: { label: "Continuar desarrollando el grupo 8", keyStep: "C", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 8", keyStep: "C", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_8_florets: {
+    id: "ed2_gramineae_group_8_florets", milestone: "Gramineae: grupo 8, número de flores", manualPage: 70,
+    descripcion: "¿Las espiguillas son unifloras o plurifloras?",
+    opcionA: { label: "Unifloras", keyStep: "D", nextNodeId: "ed2_gramineae_group_8_uniflorous_pending" },
+    opcionA_prima: { label: "Plurifloras", keyStep: "D'", nextNodeId: "ed2_gramineae_group_8_glumes" },
+  },
+  ed2_gramineae_group_8_uniflorous_pending: {
+    id: "ed2_gramineae_group_8_uniflorous_pending", milestone: "Gramineae: grupo 8, unifloras", manualPage: 70,
+    descripcion: "Continuar con los géneros unifloros del grupo 8.",
+    opcionA: { label: "Continuar desarrollando el grupo 8", keyStep: "D", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 8", keyStep: "D", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_8_glumes: {
+    id: "ed2_gramineae_group_8_glumes", milestone: "Gramineae: grupo 8, plurifloras", manualPage: 70,
+    descripcion: "¿Las glumas son anchas, membranosas e igualan o superan a la espiguilla?",
+    opcionA: { label: "Sí; lemmas múticas", keyStep: "G", nextNodeId: "ed2_gramineae_group_8_melica_pending" },
+    opcionA_prima: { label: "Lanceoladas y menores que la espiguilla", keyStep: "G'", nextNodeId: "ed2_gramineae_group_8_shape" },
+  },
+  ed2_gramineae_group_8_melica_pending: {
+    id: "ed2_gramineae_group_8_melica_pending", milestone: "Gramineae: grupo 8, glumas anchas", manualPage: 70,
+    descripcion: "Continuar con el género de glumas anchas y lemmas múticas.",
+    opcionA: { label: "Continuar desarrollando el grupo 8", keyStep: "G", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 8", keyStep: "G", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_8_shape: {
+    id: "ed2_gramineae_group_8_shape", milestone: "Gramineae: grupo 8, forma de la espiguilla", manualPage: 70,
+    descripcion: "¿Las espiguillas son casi tan anchas como largas?",
+    opcionA: { label: "Globosas, casi tan anchas como largas; lemmas con margen membranoso", keyStep: "H", nextNodeId: "ed2_briza" },
+    opcionA_prima: { label: "Lineares o lanceoladas, más largas que anchas", keyStep: "H'", nextNodeId: "ed2_gramineae_group_8_linear" },
+  },
+  ed2_gramineae_group_8_linear: {
+    id: "ed2_gramineae_group_8_linear", milestone: "Gramineae: grupo 8, espiguillas alargadas", manualPage: 70,
+    descripcion: "¿Las espiguillas son lineares, casi cilíndricas, y las lemmas tienen nervaduras paralelas?",
+    opcionA: { label: "Sí; lemmas obtusas y múticas", keyStep: "I", nextNodeId: "ed2_gramineae_group_8_styles" },
+    opcionA_prima: { label: "Lanceoladas; nervaduras de la lemma convergentes hacia el ápice", keyStep: "I'", nextNodeId: "ed2_gramineae_group_8_lanceolate_pending" },
+  },
+  ed2_gramineae_group_8_lanceolate_pending: {
+    id: "ed2_gramineae_group_8_lanceolate_pending", milestone: "Gramineae: grupo 8, espiguillas lanceoladas", manualPage: 71,
+    descripcion: "Continuar con los géneros de espiguillas lanceoladas del grupo 8.",
+    opcionA: { label: "Continuar desarrollando el grupo 8", keyStep: "I'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 8", keyStep: "I'", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_8_styles: {
+    id: "ed2_gramineae_group_8_styles", milestone: "Gramineae: grupo 8, estilos", manualPage: 71,
+    descripcion: "¿Los estilos son alargados y persistentes?",
+    opcionA: { label: "Alargados y persistentes; cariopse con hendidura longitudinal", keyStep: "J", nextNodeId: "ed2_gramineae_group_8_glyceria_pending" },
+    opcionA_prima: { label: "Cortos y caducos; cariopse no hendido", keyStep: "J'", especieId: "ed2_puccinellia_glaucescens_osteniana" },
+  },
+  ed2_gramineae_group_8_glyceria_pending: {
+    id: "ed2_gramineae_group_8_glyceria_pending", milestone: "Gramineae: grupo 8, estilos persistentes", manualPage: 71,
+    descripcion: "Continuar con el género de estilos alargados y persistentes.",
+    opcionA: { label: "Continuar desarrollando el grupo 8", keyStep: "J", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 8", keyStep: "J", especieId: "ed2_gramineae" },
+  },
+  ed2_briza: {
+    id: "ed2_briza", milestone: "Briza", manualPage: 80,
+    descripcion: "¿Las espiguillas están comprimidas lateralmente o son globosas?",
+    opcionA: { label: "Comprimidas lateralmente y violáceas; lemma triangular con margen muy dilatado", keyStep: "A", especieId: "ed2_briza_brizoides" },
+    opcionA_prima: { label: "Más o menos globosas; lemma cortamente aristada o mútica", keyStep: "A'", nextNodeId: "ed2_briza_lemma" },
+  },
+  ed2_briza_lemma: {
+    id: "ed2_briza_lemma", milestone: "Briza: lemma", manualPage: 80,
+    descripcion: "¿La lemma es aguda, bidentada y aristada?",
+    opcionA: { label: "Aguda, bidentada, con arista de 0,5-1 mm", keyStep: "B", especieId: "ed2_briza_subaristata" },
+    opcionA_prima: { label: "Obtusa, mútica o apenas mucronada", keyStep: "B'", nextNodeId: "ed2_briza_habit" },
+  },
+  ed2_briza_habit: {
+    id: "ed2_briza_habit", milestone: "Briza: hábito", manualPage: 80,
+    descripcion: "¿La planta es perenne y rizomatosa o anual?",
+    opcionA: { label: "Perenne y rizomatosa; panoja densa, casi espiciforme", keyStep: "C", nextNodeId: "ed2_briza_perennial" },
+    opcionA_prima: { label: "Anual; panoja laxa", keyStep: "C'", nextNodeId: "ed2_briza_annual" },
+  },
+  ed2_briza_perennial: {
+    id: "ed2_briza_perennial", milestone: "Briza: perennes", manualPage: 80,
+    descripcion: "¿Qué color y terminación tiene la lemma?",
+    opcionA: { label: "Blanquecino-verdosa y brevemente mucronada", keyStep: "D", especieId: "ed2_briza_uniolae" },
+    opcionA_prima: { label: "Castaño-rojiza y mútica", keyStep: "D'", especieId: "ed2_briza_rufa" },
+  },
+  ed2_briza_annual: {
+    id: "ed2_briza_annual", milestone: "Briza: anuales", manualPage: 80,
+    descripcion: "¿Las espiguillas son pequeñas y globosas o grandes y ovoides?",
+    opcionA: { label: "De 2-4 mm, globosas, con cuatro a seis flores", keyStep: "E", especieId: "ed2_briza_minor" },
+    opcionA_prima: { label: "De 15-20 mm, ovoides, con doce a veinte flores", keyStep: "E'", especieId: "ed2_briza_maxima" },
+  },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
     id: "ed2_gramineae_group_10",
