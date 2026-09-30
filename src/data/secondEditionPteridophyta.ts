@@ -34,27 +34,6 @@ export const secondEditionPteridophytaFamilies: Record<string, Especie> = {
   ed2_azollaceae: family("ed2_azollaceae", "XIX", "Azollaceae", 46),
 };
 
-function familyTerminal(nodeId: string, familyId: string, manualPage: number): CladoNode {
-  const especie = secondEditionPteridophytaFamilies[familyId];
-  return {
-    id: nodeId,
-    milestone: especie.nombreCientifico,
-    manualPage,
-    descripcion: `${especie.nombreCientifico}: continuar con la clave propia de la familia.`,
-    opcionA: {
-      label: `Continuar en ${especie.nombreCientifico}`,
-      keyStep: "Familia",
-      especieId: familyId,
-    },
-    opcionA_prima: {
-      label: `Continuar en ${especie.nombreCientifico}`,
-      keyStep: "Familia",
-      especieId: familyId,
-    },
-    especie,
-  };
-}
-
 export const secondEditionPteridophytaKeyData: Record<string, CladoNode> = {
   ed2_pteridophyta_a: {
     id: "ed2_pteridophyta_a",
@@ -372,8 +351,4 @@ export const secondEditionPteridophytaKeyData: Record<string, CladoNode> = {
       nextNodeId: "ed2_family_athyriaceae",
     },
   },
-  ed2_family_blechnaceae: familyTerminal("ed2_family_blechnaceae", "ed2_blechnaceae", 43),
-  ed2_family_marsileaceae: familyTerminal("ed2_family_marsileaceae", "ed2_marsileaceae", 44),
-  ed2_family_salviniaceae: familyTerminal("ed2_family_salviniaceae", "ed2_salviniaceae", 45),
-  ed2_family_azollaceae: familyTerminal("ed2_family_azollaceae", "ed2_azollaceae", 46),
 };
