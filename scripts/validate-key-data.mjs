@@ -25,6 +25,17 @@ const files = [
     externalNodes: [],
     order: "tree-first",
   },
+  {
+    name: "secondEditionPteridophyta.ts",
+    path: path.join(ROOT, "src", "data", "secondEditionPteridophyta.ts"),
+    treeExport: "export const secondEditionPteridophytaKeyData",
+    dataExport: "export const secondEditionPteridophytaFamilies",
+    dataPattern: /^  ([a-zA-Z0-9_]+): family\(/gm,
+    nodePattern: /^  ([a-zA-Z0-9_]+): (?:\{|familyTerminal\()/gm,
+    familyRefPattern: /familyTerminal\("[a-zA-Z0-9_]+", "([a-zA-Z0-9_]+)", \d+\)/g,
+    externalNodes: [],
+    order: "data-first",
+  },
 ];
 
 function collectMatches(text, pattern, group = 1) {
@@ -45,17 +56,20 @@ function validateFile(config) {
   const treeText =
     config.order === "data-first" ? text.slice(treeStart) : text.slice(treeStart, dataStart);
   const nodes = new Set([
-    ...collectMatches(treeText, /^  ([a-zA-Z0-9_]+): \{/gm),
+    ...collectMatches(treeText, config.nodePattern || /^  ([a-zA-Z0-9_]+): \{/gm),
     ...(config.externalNodes || []),
   ]);
   const species = new Set(collectMatches(dataText, config.dataPattern));
   const nextRefs = collectMatches(treeText, /nextNodeId: "([a-zA-Z0-9_]+)"/g);
   const speciesRefs = collectMatches(treeText, /especieId: "([a-zA-Z0-9_]+)"/g);
   const manualRefs = collectMatches(treeText, /manualFamilyData\.([a-zA-Z0-9_]+)/g);
+  const familyRefs = config.familyRefPattern
+    ? collectMatches(treeText, config.familyRefPattern)
+    : [];
 
   const missingNodes = [...new Set(nextRefs.filter((id) => !nodes.has(id)))].sort();
   const missingSpecies = [
-    ...new Set([...speciesRefs, ...manualRefs].filter((id) => !species.has(id))),
+    ...new Set([...speciesRefs, ...manualRefs, ...familyRefs].filter((id) => !species.has(id))),
   ].sort();
 
   if (missingNodes.length || missingSpecies.length) {
