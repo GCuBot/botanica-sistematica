@@ -23,7 +23,11 @@
 # misc
 .DS_Store
 *.pem
+__pycache__/
+*.py[cod]
 manual-text/
+/source-pdfs/
+/.local-tools/
 
 # debug
 npm-debug.log*

@@ -9,6 +9,8 @@
     "lint": "eslint",
     "extract:manual": "python scripts/extract-manual-pages.py --combined",
     "extract:manual:pages": "python scripts/extract-manual-pages.py",
+    "extract:manual:second": "python scripts/extract-manual-pages.py --edition second --combined",
+    "ocr:manual:second": "python scripts/ocr-second-edition.py",
     "draft:manual": "node scripts/draft-manual-range.mjs",
     "validate:data": "node scripts/validate-key-data.mjs"
   },
