@@ -60,6 +60,18 @@ const files = [
     externalNodes: ["ed2_dicot_group_c_a", "ed2_dicot_group_d_a", "ed2_dicot_group_e_a"],
     order: "data-first",
   },
+  {
+    name: "secondEditionDicotGroupC1.ts",
+    path: path.join(ROOT, "src", "data", "secondEditionDicotGroupC1.ts"),
+    treeExport: "const secondEditionDicotGroupC1BranchSpecs",
+    dataExport: "export const secondEditionDicotGroupC1Families",
+    dataPattern: /^  ([a-zA-Z0-9_]+): family\(/gm,
+    nodePattern: /^  ([a-zA-Z0-9_]+): (?:\{|terminal\()/gm,
+    nextRefPattern: /\["[^\"]+", "[^\"]+", "([a-zA-Z0-9_]+)"\]/g,
+    familyRefPattern: /terminal\("[a-zA-Z0-9_]+", "([a-zA-Z0-9_]+)", \d+\)/g,
+    externalNodes: ["ed2_family_rosaceae", "ed2_dicot_group_c_m"],
+    order: "data-first",
+  },
 ];
 
 function collectMatches(text, pattern, group = 1) {
