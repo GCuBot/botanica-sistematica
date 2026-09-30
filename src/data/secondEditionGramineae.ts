@@ -472,6 +472,61 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Glumas ventradas o carenadas; espiguillas de tres a siete flores en espigas subcilíndricas densas.",
     "Cultivada para elaborar pan y ocasionalmente escapada de cultivo.", "Trigo"
   ),
+  ed2_hordeum_vulgare: species(
+    "ed2_hordeum_vulgare", "Hordeum vulgare", "Gramínea anual de cerca de 1 m.",
+    "Hojas de más de 1 cm con aurículas largas; raquis tenaz; espigas polimorfas.",
+    "Originaria de Asia; cultivada para cerveza y forraje, frecuentemente subespontánea.", "Cebada"
+  ),
+  ed2_hordeum_murinum: species(
+    "ed2_hordeum_murinum", "Hordeum murinum", "Gramínea anual de 15-50 cm.",
+    "Raquis frágil; glumas ciliadas; antecio central sésil o casi y mayor que los laterales.",
+    "Europa central; frecuente en suelos modificados de Buenos Aires.", "Cola de zorro"
+  ),
+  ed2_hordeum_glaucum: species(
+    "ed2_hordeum_glaucum", "Hordeum glaucum", "Gramínea anual de 20-70 cm.",
+    "Antecio central pedicelado; espiga inmadura glauca; raquis largamente ciliado; anteras centrales de hasta 0,5 mm.",
+    "Eurasia; adventicia en América, en cultivos y pastizales.", "Cola de zorro"
+  ),
+  ed2_hordeum_leporinum: species(
+    "ed2_hordeum_leporinum", "Hordeum leporinum", "Gramínea anual de 25-70 cm.",
+    "Antecio central pedicelado; espiga inmadura verde; raquis brevemente ciliado; anteras centrales mayores de 0,7 mm.",
+    "Eurasia; adventicia en América y frecuente en suelos modificados.", "Cola de zorro"
+  ),
+  ed2_hordeum_compressum: species(
+    "ed2_hordeum_compressum", "Hordeum compressum", "Gramínea perenne de 40-60 cm.",
+    "Glumas no ciliadas; lemma fértil con siete a nueve nervaduras; prolongación de la raquilla muy breve o nula.",
+    "Centro argentino; rara cerca de Buenos Aires.", "Hordeum compressum"
+  ),
+  ed2_hordeum_bonariense: species(
+    "ed2_hordeum_bonariense", "Hordeum bonariense", "Gramínea perenne de 15-60 cm.",
+    "Glumas centrales lanceoladas; glumas interiores laterales obtusas y aristadas; raquilla bien desarrollada.",
+    "Centro y sur argentino y Uruguay; suelos salobres.", "Hordeum bonariense"
+  ),
+  ed2_hordeum_euclaston: species(
+    "ed2_hordeum_euclaston", "Hordeum euclaston", "Gramínea anual de campos bajos y húmedos.",
+    "Glumas centrales lanceoladas; glumas interiores laterales atenuadas y aristadas; raquilla bien desarrollada.",
+    "Sur del Brasil hasta el norte patagónico.", "Hordeum euclaston"
+  ),
+  ed2_hordeum_geniculatum: species(
+    "ed2_hordeum_geniculatum", "Hordeum geniculatum", "Gramínea anual de 10-35 cm.",
+    "Glumas centrales filiformes o lineares; espiga ovoide a oblonga de hasta 5 cm.",
+    "Eurasia, introducida en América; escasa en campos bajos salinos.", "Hordeum geniculatum"
+  ),
+  ed2_hordeum_jubatum: species(
+    "ed2_hordeum_jubatum", "Hordeum jubatum", "Gramínea perenne y cespitosa, de 25-80 cm.",
+    "Espiga cilíndrica nutante; glumas y aristas capilares de hasta 8 cm.",
+    "Regiones templadas de América y Siberia; campos bajos y húmedos.", "Hordeum jubatum"
+  ),
+  ed2_hordeum_stenostachys: species(
+    "ed2_hordeum_stenostachys", "Hordeum stenostachys", "Gramínea perenne y cespitosa, de 50-80 cm.",
+    "Espiga cilíndrica; glumas y aristas de hasta 2,5 cm; lemma fértil pubescente.",
+    "Sudamérica templada; frecuente en campos bajos y húmedos.", "Hordeum stenostachys"
+  ),
+  ed2_hordeum_parodii: species(
+    "ed2_hordeum_parodii", "Hordeum parodii", "Gramínea perenne y cespitosa, de hasta 60 cm.",
+    "Espiga cilíndrica; glumas y aristas de hasta 2,5 cm; lemma fértil escabrosa.",
+    "Norte patagónico, La Pampa y sur bonaerense hasta Balcarce.", "Hordeum parodii"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -666,9 +721,27 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_6_apical_pending: {
     id: "ed2_gramineae_group_6_apical_pending", milestone: "Gramineae: grupo 6, arista apical", manualPage: 67,
-    descripcion: "Continuar con los géneros de lemma mútica o con arista apical.",
-    opcionA: { label: "Continuar desarrollando el grupo 6", keyStep: "C'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 6", keyStep: "C'", especieId: "ed2_gramineae" },
+    descripcion: "¿Las espiguillas son completamente sésiles y forman espigas?",
+    opcionA: { label: "Sí, sésiles y dispuestas en espigas", keyStep: "E", nextNodeId: "ed2_gramineae_group_6_spikes" },
+    opcionA_prima: { label: "Pediceladas y dispuestas en panojas", keyStep: "E'", nextNodeId: "ed2_gramineae_group_6_panicles_pending" },
+  },
+  ed2_gramineae_group_6_spikes: {
+    id: "ed2_gramineae_group_6_spikes", milestone: "Gramineae: grupo 6, espigas", manualPage: 67,
+    descripcion: "¿Las espiguillas son aristadas o múticas?",
+    opcionA: { label: "Aristadas, reunidas en cada nudo del raquis", keyStep: "F", nextNodeId: "ed2_hordeum" },
+    opcionA_prima: { label: "Múticas, en espigas situadas a lo largo del eje principal", keyStep: "F'", nextNodeId: "ed2_gramineae_group_6_spartina_pending" },
+  },
+  ed2_gramineae_group_6_spartina_pending: {
+    id: "ed2_gramineae_group_6_spartina_pending", milestone: "Gramineae: grupo 6, espigas múticas", manualPage: 67,
+    descripcion: "Continuar con el género de espiguillas múticas.",
+    opcionA: { label: "Continuar desarrollando el grupo 6", keyStep: "F'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 6", keyStep: "F'", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_6_panicles_pending: {
+    id: "ed2_gramineae_group_6_panicles_pending", milestone: "Gramineae: grupo 6, panojas", manualPage: 67,
+    descripcion: "Continuar con los géneros de espiguillas pediceladas del grupo 6.",
+    opcionA: { label: "Continuar desarrollando el grupo 6", keyStep: "E'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 6", keyStep: "E'", especieId: "ed2_gramineae" },
   },
   ed2_gramineae_group_7: {
     id: "ed2_gramineae_group_7", milestone: "Gramineae: grupo 7", manualPage: 67,
@@ -729,6 +802,66 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿Los rizomas son cortos o muy largos?",
     opcionA: { label: "Cortos; cañas de hasta 2 m; espiguillas de seis a doce flores", keyStep: "B", especieId: "ed2_agropyron_scabrifolium" },
     opcionA_prima: { label: "Muy largos; cañas de hasta 1,2 m; espiguillas de tres a ocho flores", keyStep: "B'", especieId: "ed2_agropyron_repens" },
+  },
+  ed2_hordeum: {
+    id: "ed2_hordeum", milestone: "Hordeum", manualPage: 93,
+    descripcion: "¿Las hojas superan 1 cm de ancho y el raquis es tenaz?",
+    opcionA: { label: "Sí; hojas anchas y raquis tenaz", keyStep: "A", especieId: "ed2_hordeum_vulgare" },
+    opcionA_prima: { label: "Hojas menores de 1 cm; raquis frágil", keyStep: "A'", nextNodeId: "ed2_hordeum_glume_cilia" },
+  },
+  ed2_hordeum_glume_cilia: {
+    id: "ed2_hordeum_glume_cilia", milestone: "Hordeum: cilias de las glumas", manualPage: 93,
+    descripcion: "¿Las glumas de la espiguilla central son ciliadas en los márgenes?",
+    opcionA: { label: "Ciliadas", keyStep: "B", nextNodeId: "ed2_hordeum_central_floret" },
+    opcionA_prima: { label: "No ciliadas", keyStep: "B'", nextNodeId: "ed2_hordeum_unciliated" },
+  },
+  ed2_hordeum_central_floret: {
+    id: "ed2_hordeum_central_floret", milestone: "Hordeum: antecio central", manualPage: 93,
+    descripcion: "¿El antecio central es sésil y mayor que los laterales?",
+    opcionA: { label: "Sésil o casi; lemma mayor que los antecios laterales", keyStep: "C", especieId: "ed2_hordeum_murinum" },
+    opcionA_prima: { label: "Pedicelado; lemma más corta que los antecios laterales", keyStep: "C'", nextNodeId: "ed2_hordeum_immature_spike" },
+  },
+  ed2_hordeum_immature_spike: {
+    id: "ed2_hordeum_immature_spike", milestone: "Hordeum: espiga inmadura", manualPage: 94,
+    descripcion: "¿La espiga inmadura es glauca o verde intensa?",
+    opcionA: { label: "Glauca; raquis largamente ciliado; anteras de hasta 0,5 mm", keyStep: "D", especieId: "ed2_hordeum_glaucum" },
+    opcionA_prima: { label: "Verde intensa; raquis brevemente ciliado; anteras mayores de 0,7 mm", keyStep: "D'", especieId: "ed2_hordeum_leporinum" },
+  },
+  ed2_hordeum_unciliated: {
+    id: "ed2_hordeum_unciliated", milestone: "Hordeum: glumas no ciliadas", manualPage: 94,
+    descripcion: "¿La lemma fértil posee siete a nueve nervaduras?",
+    opcionA: { label: "Siete a nueve; raquilla muy breve o nula", keyStep: "E", especieId: "ed2_hordeum_compressum" },
+    opcionA_prima: { label: "Cinco poco visibles; raquilla bien desarrollada", keyStep: "E'", nextNodeId: "ed2_hordeum_central_glumes" },
+  },
+  ed2_hordeum_central_glumes: {
+    id: "ed2_hordeum_central_glumes", milestone: "Hordeum: forma de las glumas centrales", manualPage: 94,
+    descripcion: "¿Las glumas centrales son lanceoladas o filiformes?",
+    opcionA: { label: "Lanceoladas", keyStep: "F", nextNodeId: "ed2_hordeum_lateral_glumes" },
+    opcionA_prima: { label: "Filiformes o lineares", keyStep: "F'", nextNodeId: "ed2_hordeum_spike_shape" },
+  },
+  ed2_hordeum_lateral_glumes: {
+    id: "ed2_hordeum_lateral_glumes", milestone: "Hordeum: glumas laterales", manualPage: 94,
+    descripcion: "¿Las glumas interiores laterales son obtusas o atenuadas?",
+    opcionA: { label: "Obtusas y aristadas", keyStep: "G", especieId: "ed2_hordeum_bonariense" },
+    opcionA_prima: { label: "Atenuadas y aristadas", keyStep: "G'", especieId: "ed2_hordeum_euclaston" },
+  },
+  ed2_hordeum_spike_shape: {
+    id: "ed2_hordeum_spike_shape", milestone: "Hordeum: forma de la espiga", manualPage: 94,
+    descripcion: "¿La espiga es ovoide u oblonga o cilíndrica?",
+    opcionA: { label: "Ovoide a oblonga, de hasta 5 cm", keyStep: "H", especieId: "ed2_hordeum_geniculatum" },
+    opcionA_prima: { label: "Cilíndrica", keyStep: "H'", nextNodeId: "ed2_hordeum_awn_length" },
+  },
+  ed2_hordeum_awn_length: {
+    id: "ed2_hordeum_awn_length", milestone: "Hordeum: longitud de las aristas", manualPage: 94,
+    descripcion: "¿Las glumas y aristas son capilares y alcanzan 8 cm?",
+    opcionA: { label: "Sí, hasta 8 cm", keyStep: "I", especieId: "ed2_hordeum_jubatum" },
+    opcionA_prima: { label: "Hasta 2,5 cm", keyStep: "I'", nextNodeId: "ed2_hordeum_lemma_surface" },
+  },
+  ed2_hordeum_lemma_surface: {
+    id: "ed2_hordeum_lemma_surface", milestone: "Hordeum: superficie de la lemma", manualPage: 94,
+    descripcion: "¿La lemma fértil es pubescente o escabrosa?",
+    opcionA: { label: "Pubescente", keyStep: "J", especieId: "ed2_hordeum_stenostachys" },
+    opcionA_prima: { label: "Escabrosa", keyStep: "J'", especieId: "ed2_hordeum_parodii" },
   },
   ed2_lolium: {
     id: "ed2_lolium", milestone: "Lolium", manualPage: 78,
