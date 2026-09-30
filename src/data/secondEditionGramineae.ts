@@ -942,6 +942,36 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Raquilla frágil; panoja contraída de 3-15 cm; espiguillas casi sésiles de 5-10 mm con ocho a veinte antecios.",
     "Sur de Brasil, Uruguay y nordeste argentino; presente en Isla Maciel.", "Eragrostis cataclasta"
   ),
+  ed2_pappophorum_mucronulatum: species(
+    "ed2_pappophorum_mucronulatum", "Pappophorum mucronulatum", "Gramínea perenne y cespitosa de 30-80 cm.",
+    "Panoja espiciforme de 8-15 cm; espiguillas con dos o tres flores fértiles; lemmas con trece a quince aristas apicales.",
+    "América templado-cálida; presente en la estepa clímax.", "Cola de zorro"
+  ),
+  ed2_aristida_spegazzinii: species(
+    "ed2_aristida_spegazzinii", "Aristida spegazzinii", "Gramínea perenne y cespitosa de 15-45 cm, con hojas filiformes y convolutas.",
+    "Gluma inferior de 17-18 mm, mayor que la superior; lemma de 10-12 mm; aristas de unos 8 cm; panoja alargada.",
+    "Uruguay y nordeste argentino; estepa clímax.", "Aristida spegazzinii"
+  ),
+  ed2_aristida_pallens: species(
+    "ed2_aristida_pallens", "Aristida pallens", "Gramínea perenne y cespitosa de 40-50 cm.",
+    "Gluma inferior menor que la superior; panoja alargada y laxa; lemma de 27-28 mm; aristas de unos 10 cm.",
+    "América austral; rara en la estepa clímax.", "Aristida pallens"
+  ),
+  ed2_aristida_adscensionis: species(
+    "ed2_aristida_adscensionis", "Aristida adscensionis", "Gramínea anual ramificada en la base, de 10-30 cm.",
+    "Gluma inferior menor que la superior; panoja angosta y densa de 5-8 cm; lemma de 8-10 mm; aristas de cerca de 20 mm.",
+    "Isla Ascensión y ampliamente difundida en América; rara cerca de Buenos Aires.", "Aristida adscensionis"
+  ),
+  ed2_aristida_murina: species(
+    "ed2_aristida_murina", "Aristida murina", "Gramínea perenne y erecta de 15-60 cm, con hojas planas o conduplicadas.",
+    "Gluma inferior menor que la superior; panoja contraída, densa y semiespiciforme; lemma de 13-14 mm; aristas de 9 cm.",
+    "América del Sur; muy común en la estepa clímax.", "Aristida murina"
+  ),
+  ed2_tragus_racemosus: species(
+    "ed2_tragus_racemosus", "Tragus racemosus", "Gramínea anual y estolonífera de 10-35 cm.",
+    "Espiguillas unifloras agrupadas de dos a cinco en fascículos caducos; gluma superior cubierta por cerdas ganchudas.",
+    "Originaria del Viejo Mundo; accidental en vías férreas de la región.", "Tragus racemosus"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -1038,7 +1068,18 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     opcionA: { label: "Perenne; lígula de cerca de 1 mm; panoja linear; aristas inconspicuas", keyStep: "A", especieId: "ed2_cynosurus_cristatus" },
     opcionA_prima: { label: "Anual; lígula de 3-5 mm; panoja ovoide o subglobosa; aristas conspicuas", keyStep: "A'", especieId: "ed2_cynosurus_echinatus" },
   },
-  ed2_gramineae_group_3: continuationNode(3, 66),
+  ed2_gramineae_group_3: {
+    id: "ed2_gramineae_group_3", milestone: "Gramineae: grupo 3", manualPage: 66,
+    descripcion: "¿Las espiguillas se agrupan de dos a cinco en fascículos caducos en conjunto?",
+    opcionA: { label: "Sí; fascículos en panojas espiciformes densas", keyStep: "A", nextNodeId: "ed2_tragus" },
+    opcionA_prima: { label: "No; espiguillas caducas por separado en panojas laxas", keyStep: "A'", nextNodeId: "ed2_pseudechinolaena_pending" },
+  },
+  ed2_pseudechinolaena_pending: {
+    id: "ed2_pseudechinolaena_pending", milestone: "Pseudechinolaena", manualPage: 141,
+    descripcion: "Continuar con la especie de Pseudechinolaena tratada por el manual.",
+    opcionA: { label: "Continuar desarrollando Pseudechinolaena", keyStep: "A'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando Pseudechinolaena", keyStep: "A'", especieId: "ed2_gramineae" },
+  },
   ed2_gramineae_group_4: {
     id: "ed2_gramineae_group_4", milestone: "Gramineae: grupo 4", manualPage: 66,
     descripcion: "¿La lemma termina en numerosas aristas o en tres aristas?",
@@ -1047,9 +1088,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_4_many_awns_pending: {
     id: "ed2_gramineae_group_4_many_awns_pending", milestone: "Gramineae: grupo 4, aristas numerosas", manualPage: 66,
-    descripcion: "Continuar con los géneros de lemmas terminadas en numerosas aristas.",
-    opcionA: { label: "Continuar desarrollando el grupo 4", keyStep: "A", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 4", keyStep: "A", especieId: "ed2_gramineae" },
+    descripcion: "Pappophorum: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Pappophorum mucronulatum", keyStep: "1", especieId: "ed2_pappophorum_mucronulatum" },
+    opcionA_prima: { label: "Identificar como Pappophorum mucronulatum", keyStep: "1", especieId: "ed2_pappophorum_mucronulatum" },
   },
   ed2_gramineae_group_4_inflorescence: {
     id: "ed2_gramineae_group_4_inflorescence", milestone: "Gramineae: grupo 4, arista trífida", manualPage: 66,
@@ -1083,9 +1124,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_4_aristida_pending: {
     id: "ed2_gramineae_group_4_aristida_pending", milestone: "Gramineae: grupo 4, unifloras", manualPage: 66,
-    descripcion: "Continuar con el género de espiguillas unifloras del grupo 4.",
-    opcionA: { label: "Continuar desarrollando el grupo 4", keyStep: "E", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 4", keyStep: "E", especieId: "ed2_gramineae" },
+    descripcion: "Continuar con la clave específica de Aristida.",
+    opcionA: { label: "Espiguillas unifloras; lemma con arista trífida", keyStep: "E", nextNodeId: "ed2_aristida" },
+    opcionA_prima: { label: "Espiguillas unifloras; lemma con arista trífida", keyStep: "E", nextNodeId: "ed2_aristida" },
   },
   ed2_danthonia: {
     id: "ed2_danthonia", milestone: "Danthonia", manualPage: 78,
@@ -2303,6 +2344,30 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "Diandrochloa: única especie tratada para la región.",
     opcionA: { label: "Identificar como Diandrochloa glomerata", keyStep: "1", especieId: "ed2_diandrochloa_glomerata" },
     opcionA_prima: { label: "Identificar como Diandrochloa glomerata", keyStep: "1", especieId: "ed2_diandrochloa_glomerata" },
+  },
+  ed2_aristida: {
+    id: "ed2_aristida", milestone: "Aristida", manualPage: 115,
+    descripcion: "¿La gluma inferior es mayor que la superior?",
+    opcionA: { label: "Sí; inferior de 17-18 mm y superior de unos 11 mm", keyStep: "A", especieId: "ed2_aristida_spegazzinii" },
+    opcionA_prima: { label: "No; gluma inferior más corta que la superior", keyStep: "A'", nextNodeId: "ed2_aristida_panicle" },
+  },
+  ed2_aristida_panicle: {
+    id: "ed2_aristida_panicle", milestone: "Aristida: panoja", manualPage: 115,
+    descripcion: "¿La inflorescencia es alargada y débil o contraída y semiespiciforme?",
+    opcionA: { label: "Alargada y débil", keyStep: "B", nextNodeId: "ed2_aristida_duration" },
+    opcionA_prima: { label: "Contraída, densa y semiespiciforme", keyStep: "B'", especieId: "ed2_aristida_murina" },
+  },
+  ed2_aristida_duration: {
+    id: "ed2_aristida_duration", milestone: "Aristida: duración", manualPage: 115,
+    descripcion: "¿La planta es perenne o anual?",
+    opcionA: { label: "Perenne y cespitosa; panoja alargada y laxa", keyStep: "C", especieId: "ed2_aristida_pallens" },
+    opcionA_prima: { label: "Anual y ramificada en la base; panoja angosta y densa", keyStep: "C'", especieId: "ed2_aristida_adscensionis" },
+  },
+  ed2_tragus: {
+    id: "ed2_tragus", milestone: "Tragus", manualPage: 115,
+    descripcion: "Tragus: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Tragus racemosus", keyStep: "1", especieId: "ed2_tragus_racemosus" },
+    opcionA_prima: { label: "Identificar como Tragus racemosus", keyStep: "1", especieId: "ed2_tragus_racemosus" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
