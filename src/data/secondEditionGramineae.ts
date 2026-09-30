@@ -797,6 +797,56 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Antecio sin corona, velludo sobre la nervadura principal y la zona marginal; anillo de pelos apical; cariopse obovoide.",
     "Centro de Chile y Argentina; barrancas, bosques de Celtis tala y sierras de Tandil y Balcarce.", "Paja vizcachera"
   ),
+  ed2_parapholis_incurva: species(
+    "ed2_parapholis_incurva", "Parapholis incurva", "Gramínea anual de 5-20 cm, con espigas cilíndricas solitarias.",
+    "Espiguillas unifloras con dos glumas, incrustadas en excavaciones del raquis; espigas apicales o axilares de 2,5-8 cm.",
+    "Sur de Europa y Asia y norte de África; frecuente en suelos salobres bonaerenses.", "Parapholis incurva"
+  ),
+  ed2_monerma_cylindrica: species(
+    "ed2_monerma_cylindrica", "Monerma cylindrica", "Gramínea anual de hojas planas o convolutas.",
+    "Espiguillas unifloras con una sola gluma, incrustadas en el grueso raquis y desprendiéndose con sus fragmentos.",
+    "Originaria del Mediterráneo europeo; hallada en campos bajos de Buenos Aires.", "Monerma cylindrica"
+  ),
+  ed2_melica_sarmentosa: species(
+    "ed2_melica_sarmentosa", "Melica sarmentosa var. glabrior", "Gramínea perenne de tallos flojos y apoyantes, de 1,5-3 m.",
+    "Glumas casi iguales y agudas; espiguillas fusiformes de 7-8 mm; panoja densa de 7-12 cm; vainas cerradas.",
+    "Sur de Brasil, Uruguay y norte argentino; bosques de la ribera platense e Isla Martín García.", "Melica sarmentosa var. glabrior"
+  ),
+  ed2_melica_macra: species(
+    "ed2_melica_macra", "Melica macra", "Gramínea perenne densamente cespitosa, de alrededor de 50 cm.",
+    "Glumas casi iguales y agudas; hojas rígidas y convolutas; panoja larga y angosta; espiguillas pajizas de 12-15 mm.",
+    "Brasil, Uruguay y nordeste y centro argentino; barrancas y suelos pedregosos.", "Paja brava"
+  ),
+  ed2_melica_eremophila: species(
+    "ed2_melica_eremophila", "Melica eremophila", "Gramínea perenne y rizomatosa de 20-40 cm.",
+    "Glumas muy desiguales; pálea brevemente pilosa entre las nervaduras; gluma inferior obovada de 7-11 mm.",
+    "Uruguay y sierras de la provincia de Buenos Aires.", "Melica eremophila"
+  ),
+  ed2_melica_argyrea: species(
+    "ed2_melica_argyrea", "Melica argyrea", "Gramínea perenne de 15-70 cm, con rizomas cortos.",
+    "Glumas muy desiguales; pálea con asperezas retrorsas; gluma inferior obovada o flabelada, con márgenes hialinos.",
+    "Uruguay, Argentina y Chile; frecuente en la estepa prístina.", "Espartillo dulce"
+  ),
+  ed2_melica_brasiliana: species(
+    "ed2_melica_brasiliana", "Melica brasiliana", "Gramínea perenne cortamente rizomatosa de 20-75 cm.",
+    "Pálea glabra; vainas glabras; gluma inferior obovada y redondeada o subaguda; gluma superior aguda; hojas de 2-2,5 mm.",
+    "Sur de Brasil, Uruguay y Argentina; estepa clímax y sierras bonaerenses.", "Melica brasiliana"
+  ),
+  ed2_melica_hyalina: species(
+    "ed2_melica_hyalina", "Melica hyalina", "Gramínea perenne cortamente rizomatosa de 50-100 cm.",
+    "Pálea glabra; vainas glabras; gluma inferior obovada, truncada o retusa; gluma superior obtusa; hojas de 3-6 mm.",
+    "Brasil, Uruguay y Argentina; ribera platense e Isla Martín García.", "Melica hyalina"
+  ),
+  ed2_melica_parodiana: species(
+    "ed2_melica_parodiana", "Melica parodiana", "Gramínea perenne cortamente rizomatosa de 30-50 cm.",
+    "Vainas pilosas o subpilosas; espiguillas comprimidas dorsiventralmente de 7-8,5 mm; hojas de 2-3,5 mm.",
+    "Uruguay y Argentina; sierras de Balcarce y Tandil.", "Melica parodiana"
+  ),
+  ed2_melica_aurantiaca: species(
+    "ed2_melica_aurantiaca", "Melica aurantiaca", "Gramínea perenne cortamente rizomatosa de 30-60 cm.",
+    "Vainas pilosas o subpilosas; espiguillas algo comprimidas lateralmente de 9-18,5 mm; hojas de 3,5-9 mm.",
+    "Brasil, Uruguay y Argentina; estepa prístina y sierras bonaerenses.", "Melica aurantiaca"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -1603,9 +1653,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_8_excavated_pending: {
     id: "ed2_gramineae_group_8_excavated_pending", milestone: "Gramineae: grupo 8, espiguillas excavadas", manualPage: 70,
-    descripcion: "Continuar con los géneros de espiguillas alojadas en el raquis.",
-    opcionA: { label: "Continuar desarrollando el grupo 8", keyStep: "A", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 8", keyStep: "A", especieId: "ed2_gramineae" },
+    descripcion: "¿Las espiguillas poseen dos glumas o una sola?",
+    opcionA: { label: "Dos glumas", keyStep: "B", nextNodeId: "ed2_parapholis" },
+    opcionA_prima: { label: "Una sola gluma", keyStep: "B'", nextNodeId: "ed2_monerma" },
   },
   ed2_gramineae_group_8_awn: {
     id: "ed2_gramineae_group_8_awn", milestone: "Gramineae: grupo 8, posición de la arista", manualPage: 70,
@@ -1645,9 +1695,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_8_melica_pending: {
     id: "ed2_gramineae_group_8_melica_pending", milestone: "Gramineae: grupo 8, glumas anchas", manualPage: 70,
-    descripcion: "Continuar con el género de glumas anchas y lemmas múticas.",
-    opcionA: { label: "Continuar desarrollando el grupo 8", keyStep: "G", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 8", keyStep: "G", especieId: "ed2_gramineae" },
+    descripcion: "Continuar con la clave específica de Melica.",
+    opcionA: { label: "Glumas membranosas y anchas; lemmas múticas", keyStep: "G", nextNodeId: "ed2_melica" },
+    opcionA_prima: { label: "Glumas membranosas y anchas; lemmas múticas", keyStep: "G", nextNodeId: "ed2_melica" },
   },
   ed2_gramineae_group_8_shape: {
     id: "ed2_gramineae_group_8_shape", milestone: "Gramineae: grupo 8, forma de la espiguilla", manualPage: 70,
@@ -1984,6 +2034,60 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿Las glumas son casi iguales?",
     opcionA: { label: "Casi iguales; panoja de 3-7 cm", keyStep: "F", especieId: "ed2_agrostis_tandilensis" },
     opcionA_prima: { label: "Gluma inferior más larga; panoja de 10-20 cm", keyStep: "F'", especieId: "ed2_agrostis_jirgensii" },
+  },
+  ed2_parapholis: {
+    id: "ed2_parapholis", milestone: "Parapholis", manualPage: 108,
+    descripcion: "Parapholis: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Parapholis incurva", keyStep: "1", especieId: "ed2_parapholis_incurva" },
+    opcionA_prima: { label: "Identificar como Parapholis incurva", keyStep: "1", especieId: "ed2_parapholis_incurva" },
+  },
+  ed2_monerma: {
+    id: "ed2_monerma", milestone: "Monerma", manualPage: 108,
+    descripcion: "Monerma: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Monerma cylindrica", keyStep: "1", especieId: "ed2_monerma_cylindrica" },
+    opcionA_prima: { label: "Identificar como Monerma cylindrica", keyStep: "1", especieId: "ed2_monerma_cylindrica" },
+  },
+  ed2_melica: {
+    id: "ed2_melica", milestone: "Melica", manualPage: 108,
+    descripcion: "¿Las glumas son casi iguales y agudas, y las espiguillas fusiformes?",
+    opcionA: { label: "Sí; glumas casi iguales y agudas", keyStep: "A", nextNodeId: "ed2_melica_habit" },
+    opcionA_prima: { label: "No; glumas muy desiguales, la inferior ancha, obovada y casi plana", keyStep: "A'", nextNodeId: "ed2_melica_palea" },
+  },
+  ed2_melica_habit: {
+    id: "ed2_melica_habit", milestone: "Melica: hábito", manualPage: 108,
+    descripcion: "¿Los tallos son flojos y apoyantes, de 1,5-3 m?",
+    opcionA: { label: "Sí; vainas cerradas y panoja densa de 7-12 cm", keyStep: "B", especieId: "ed2_melica_sarmentosa" },
+    opcionA_prima: { label: "No; planta densamente cespitosa de unos 50 cm", keyStep: "B'", especieId: "ed2_melica_macra" },
+  },
+  ed2_melica_palea: {
+    id: "ed2_melica_palea", milestone: "Melica: pálea", manualPage: 109,
+    descripcion: "¿La pálea presenta pelos cortos o asperezas retrorsas entre sus nervaduras?",
+    opcionA: { label: "Sí; pilosa o áspera entre las nervaduras", keyStep: "C", nextNodeId: "ed2_melica_palea_texture" },
+    opcionA_prima: { label: "No; glabra y lisa entre las nervaduras", keyStep: "C'", nextNodeId: "ed2_melica_sheaths" },
+  },
+  ed2_melica_palea_texture: {
+    id: "ed2_melica_palea_texture", milestone: "Melica: textura de la pálea", manualPage: 109,
+    descripcion: "¿La pálea es brevemente pilosa entre las nervaduras?",
+    opcionA: { label: "Sí; gluma inferior de 7-11 mm y superior pubérula en el dorso", keyStep: "D", especieId: "ed2_melica_eremophila" },
+    opcionA_prima: { label: "No; con numerosas asperezas retrorsas", keyStep: "D'", especieId: "ed2_melica_argyrea" },
+  },
+  ed2_melica_sheaths: {
+    id: "ed2_melica_sheaths", milestone: "Melica: vainas", manualPage: 109,
+    descripcion: "¿Las vainas foliares son glabras?",
+    opcionA: { label: "Sí; vainas glabras", keyStep: "E", nextNodeId: "ed2_melica_glabrous_sheaths" },
+    opcionA_prima: { label: "No; vainas pilosas o subpilosas", keyStep: "E'", nextNodeId: "ed2_melica_pilose_spikelets" },
+  },
+  ed2_melica_glabrous_sheaths: {
+    id: "ed2_melica_glabrous_sheaths", milestone: "Melica: vainas glabras", manualPage: 109,
+    descripcion: "¿La gluma inferior es redondeada o subaguda y la superior aguda?",
+    opcionA: { label: "Sí; hojas de 2-2,5 mm", keyStep: "F", especieId: "ed2_melica_brasiliana" },
+    opcionA_prima: { label: "No; inferior truncada o retusa y superior obtusa; hojas de 3-6 mm", keyStep: "F'", especieId: "ed2_melica_hyalina" },
+  },
+  ed2_melica_pilose_spikelets: {
+    id: "ed2_melica_pilose_spikelets", milestone: "Melica: vainas pilosas", manualPage: 109,
+    descripcion: "¿Las espiguillas están comprimidas dorsiventralmente y miden 7-8,5 mm?",
+    opcionA: { label: "Sí; hojas de 2-3,5 mm", keyStep: "G", especieId: "ed2_melica_parodiana" },
+    opcionA_prima: { label: "No; algo comprimidas lateralmente, de 9-18,5 mm", keyStep: "G'", especieId: "ed2_melica_aurantiaca" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
