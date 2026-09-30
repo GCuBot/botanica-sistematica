@@ -68,6 +68,30 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Pajonales del Delta, de la provincia de Buenos Aires y del Uruguay.",
     "Espadaña"
   ),
+  ed2_cortaderia_selloana: species(
+    "ed2_cortaderia_selloana",
+    "Cortaderia selloana",
+    "Gramínea perenne y cespitosa, con cañas floríferas robustas de 2-3 m.",
+    "Hojas muy largas amontonadas en la base; panojas plateadas o violáceas; raquilla y lemma de las espiguillas femeninas velludas.",
+    "Suelos arenosos húmedos de América austral; cultivada como ornamental.",
+    "Cortadera"
+  ),
+  ed2_arundo_donax: species(
+    "ed2_arundo_donax",
+    "Arundo donax",
+    "Gramínea perenne y rizomatosa, con cañas huecas de 2-6 m.",
+    "Hojas distribuidas uniformemente por el tallo; panoja amplia; lemma velluda y raquilla glabra.",
+    "Originaria del Viejo Mundo; adventicia y cultivada en América.",
+    "Caña de Castilla"
+  ),
+  ed2_phragmites_australis: species(
+    "ed2_phragmites_australis",
+    "Phragmites australis",
+    "Gramínea perenne y rizomatosa, robusta, de 2-4 m.",
+    "Hojas distribuidas uniformemente; panoja terminal amplia; lemma glabra y raquilla largamente velluda.",
+    "Regiones cálidas; rara en terrenos inundables del Delta y de la ribera del Plata.",
+    "Carrizo"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -178,7 +202,78 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     opcionA: { label: "Continuar desarrollando el grupo 6", keyStep: "A'", especieId: "ed2_gramineae" },
     opcionA_prima: { label: "Continuar desarrollando el grupo 6", keyStep: "A'", especieId: "ed2_gramineae" },
   },
-  ed2_gramineae_group_7: continuationNode(7, 67),
+  ed2_gramineae_group_7: {
+    id: "ed2_gramineae_group_7", milestone: "Gramineae: grupo 7", manualPage: 67,
+    descripcion: "¿La espiguilla tiene una sola flor fértil o varias?",
+    opcionA: { label: "Una sola flor fértil, a veces con antecios estériles", keyStep: "A", nextNodeId: "ed2_gramineae_group_7_uniflorous_pending" },
+    opcionA_prima: { label: "Dos o más flores fértiles", keyStep: "A'", nextNodeId: "ed2_gramineae_group_7_multiflorous" },
+  },
+  ed2_gramineae_group_7_uniflorous_pending: {
+    id: "ed2_gramineae_group_7_uniflorous_pending", milestone: "Gramineae: grupo 7, unifloras", manualPage: 67,
+    descripcion: "Continuar con los géneros de espiguillas unifloras del grupo 7.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "A", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "A", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_multiflorous: {
+    id: "ed2_gramineae_group_7_multiflorous", milestone: "Gramineae: grupo 7, plurifloras", manualPage: 68,
+    descripcion: "¿Las espiguillas son sésiles y forman una espiga dística?",
+    opcionA: { label: "Sésiles o casi sésiles, en una espiga dística", keyStep: "Q", nextNodeId: "ed2_gramineae_group_7_distichous_pending" },
+    opcionA_prima: { label: "En espigas fasciculadas o panojas laxas o contraídas", keyStep: "Q'", nextNodeId: "ed2_gramineae_group_7_inflorescence" },
+  },
+  ed2_gramineae_group_7_distichous_pending: {
+    id: "ed2_gramineae_group_7_distichous_pending", milestone: "Gramineae: grupo 7, espiga dística", manualPage: 68,
+    descripcion: "Continuar con los géneros de espiga dística del grupo 7.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "Q", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "Q", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_inflorescence: {
+    id: "ed2_gramineae_group_7_inflorescence", milestone: "Gramineae: grupo 7, panojas o espigas fasciculadas", manualPage: 69,
+    descripcion: "¿La lemma es mútica o aristada?",
+    opcionA: { label: "Mútica o muy cortamente mucronada", keyStep: "V", nextNodeId: "ed2_gramineae_group_7_mutic_pending" },
+    opcionA_prima: { label: "Aristada", keyStep: "V'", nextNodeId: "ed2_gramineae_group_7_awn_position" },
+  },
+  ed2_gramineae_group_7_mutic_pending: {
+    id: "ed2_gramineae_group_7_mutic_pending", milestone: "Gramineae: grupo 7, lemmas múticas", manualPage: 69,
+    descripcion: "Continuar con los géneros de lemmas múticas del grupo 7.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "V", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "V", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_awn_position: {
+    id: "ed2_gramineae_group_7_awn_position", milestone: "Gramineae: grupo 7, lemmas aristadas", manualPage: 69,
+    descripcion: "¿La arista es terminal o dorsal?",
+    opcionA: { label: "Terminal o nacida entre dos dientes muy cortos", keyStep: "i", nextNodeId: "ed2_gramineae_group_7_terminal_awn" },
+    opcionA_prima: { label: "Dorsal", keyStep: "i'", nextNodeId: "ed2_gramineae_group_7_dorsal_pending" },
+  },
+  ed2_gramineae_group_7_dorsal_pending: {
+    id: "ed2_gramineae_group_7_dorsal_pending", milestone: "Gramineae: grupo 7, arista dorsal", manualPage: 70,
+    descripcion: "Continuar con los géneros de arista dorsal del grupo 7.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "i'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "i'", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_terminal_awn: {
+    id: "ed2_gramineae_group_7_terminal_awn", milestone: "Gramineae: grupo 7, arista terminal", manualPage: 69,
+    descripcion: "¿La planta es muy robusta, supera 1,5 m y posee largos pelos plateados?",
+    opcionA: { label: "Sí; panoja densa de más de 25 cm; lemmas o raquillas con pelos plateados", keyStep: "j", nextNodeId: "ed2_arundineae" },
+    opcionA_prima: { label: "Planta grácil, generalmente menor de 1,5 m; sin largos pelos plateados", keyStep: "j'", nextNodeId: "ed2_gramineae_group_7_gracile_pending" },
+  },
+  ed2_gramineae_group_7_gracile_pending: {
+    id: "ed2_gramineae_group_7_gracile_pending", milestone: "Gramineae: grupo 7, plantas gráciles", manualPage: 69,
+    descripcion: "Continuar con los géneros gráciles de arista terminal del grupo 7.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "j'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "j'", especieId: "ed2_gramineae" },
+  },
+  ed2_arundineae: {
+    id: "ed2_arundineae", milestone: "Arundineae", manualPage: 69,
+    descripcion: "¿Las hojas se amontonan en la base de las cañas o se distribuyen por todo el tallo?",
+    opcionA: { label: "Muy largas y amontonadas en la base; raquilla y lemma femeninas velludas", keyStep: "k", especieId: "ed2_cortaderia_selloana" },
+    opcionA_prima: { label: "Distribuidas uniformemente por el tallo", keyStep: "k'", nextNodeId: "ed2_arundineae_uniform" },
+  },
+  ed2_arundineae_uniform: {
+    id: "ed2_arundineae_uniform", milestone: "Arundineae: hojas caulinares", manualPage: 69,
+    descripcion: "¿La lemma o la raquilla es velluda?",
+    opcionA: { label: "Lemma velluda; raquilla glabra", keyStep: "l", especieId: "ed2_arundo_donax" },
+    opcionA_prima: { label: "Lemma glabra; raquilla velluda", keyStep: "l'", especieId: "ed2_phragmites_australis" },
+  },
   ed2_gramineae_group_8: continuationNode(8, 70),
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
