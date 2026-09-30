@@ -36,6 +36,38 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Sur del Brasil y nordeste argentino hasta el Río de la Plata; Punta Lara.",
     "Tacuaruzú, tacuara brava"
   ),
+  ed2_rhynchoryza_subulata: species(
+    "ed2_rhynchoryza_subulata",
+    "Rhynchoryza subulata",
+    "Gramínea palustre perenne y robusta, con cañas de 2-3 m.",
+    "Espiguillas fusiformes unifloras, terminadas en una punta alargada; glumas rudimentarias; seis estambres.",
+    "Sur del Brasil, Paraguay, Uruguay y nordeste argentino; accidental en la Capital Federal.",
+    "Rhynchoryza subulata"
+  ),
+  ed2_leersia_hexandra: species(
+    "ed2_leersia_hexandra",
+    "Leersia hexandra",
+    "Gramínea palustre perenne y rizomatosa, con cañas comprimidas de 20-50 cm.",
+    "Espiguillas ovadas unifloras, muy comprimidas lateralmente y sin glumas; hojas lanceoladas; seis estambres.",
+    "Pantropical; frecuente en el Delta, la ribera platense y pantanos del interior.",
+    "Leersia hexandra"
+  ),
+  ed2_luziola_peruviana: species(
+    "ed2_luziola_peruviana",
+    "Luziola peruviana",
+    "Gramínea palustre perenne y delicada, con cañas ascendentes de 10-40 cm.",
+    "Espiguillas sin glumas y con lemma mútica; flores masculinas y femeninas en panojas separadas.",
+    "América cálida; común en lugares pantanosos.",
+    "Luziola peruviana"
+  ),
+  ed2_zizaniopsis_bonariensis: species(
+    "ed2_zizaniopsis_bonariensis",
+    "Zizaniopsis bonariensis",
+    "Gramínea acuática o palustre perenne y robusta, de hasta 2 m.",
+    "Espiguillas unisexuales sin glumas; flores de ambos sexos en la misma panoja; lemma femenina largamente aristada.",
+    "Pajonales del Delta, de la provincia de Buenos Aires y del Uruguay.",
+    "Espadaña"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -124,9 +156,51 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   ed2_gramineae_group_3: continuationNode(3, 66),
   ed2_gramineae_group_4: continuationNode(4, 66),
   ed2_gramineae_group_5: continuationNode(5, 67),
-  ed2_gramineae_group_6: continuationNode(6, 67),
+  ed2_gramineae_group_6: {
+    id: "ed2_gramineae_group_6",
+    milestone: "Gramineae: grupo 6",
+    manualPage: 67,
+    descripcion: "¿Las flores poseen seis estambres y las glumas están ausentes o son rudimentarias?",
+    opcionA: { label: "Seis estambres; glumas ausentes o rudimentarias", keyStep: "A", nextNodeId: "ed2_oryzeae_lateral" },
+    opcionA_prima: { label: "Tres estambres; glumas presentes", keyStep: "A'", nextNodeId: "ed2_gramineae_group_6_pending" },
+  },
+  ed2_oryzeae_lateral: {
+    id: "ed2_oryzeae_lateral",
+    milestone: "Oryzeae: espiguillas comprimidas lateralmente",
+    manualPage: 67,
+    descripcion: "¿Las espiguillas son fusiformes y la planta es robusta?",
+    opcionA: { label: "Fusiformes, con punta alargada; planta robusta de 2-3 m", keyStep: "B", especieId: "ed2_rhynchoryza_subulata" },
+    opcionA_prima: { label: "Ovadas, sin punta alargada; planta débil y baja", keyStep: "B'", especieId: "ed2_leersia_hexandra" },
+  },
+  ed2_gramineae_group_6_pending: {
+    id: "ed2_gramineae_group_6_pending", milestone: "Gramineae: grupo 6, tres estambres", manualPage: 67,
+    descripcion: "Continuar con los géneros de tres estambres del grupo 6.",
+    opcionA: { label: "Continuar desarrollando el grupo 6", keyStep: "A'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 6", keyStep: "A'", especieId: "ed2_gramineae" },
+  },
   ed2_gramineae_group_7: continuationNode(7, 67),
   ed2_gramineae_group_8: continuationNode(8, 70),
   ed2_gramineae_group_9: continuationNode(9, 71),
-  ed2_gramineae_group_10: continuationNode(10, 72),
+  ed2_gramineae_group_10: {
+    id: "ed2_gramineae_group_10",
+    milestone: "Gramineae: grupo 10",
+    manualPage: 72,
+    descripcion: "¿Las espiguillas carecen de glumas?",
+    opcionA: { label: "Sin glumas; flores envueltas sólo por lemma y pálea", keyStep: "A", nextNodeId: "ed2_oryzeae_dorsiventral" },
+    opcionA_prima: { label: "Con dos o tres estructuras semejantes a glumas", keyStep: "A'", nextNodeId: "ed2_gramineae_group_10_pending" },
+  },
+  ed2_oryzeae_dorsiventral: {
+    id: "ed2_oryzeae_dorsiventral",
+    milestone: "Oryzeae: espiguillas sin glumas",
+    manualPage: 72,
+    descripcion: "¿La lemma es mútica y las flores de cada sexo están en inflorescencias separadas?",
+    opcionA: { label: "Lemma mútica; flores masculinas y femeninas en inflorescencias separadas", keyStep: "B", especieId: "ed2_luziola_peruviana" },
+    opcionA_prima: { label: "Lemma aristada; flores masculinas y femeninas en la misma inflorescencia", keyStep: "B'", especieId: "ed2_zizaniopsis_bonariensis" },
+  },
+  ed2_gramineae_group_10_pending: {
+    id: "ed2_gramineae_group_10_pending", milestone: "Gramineae: grupo 10, con glumas", manualPage: 72,
+    descripcion: "Continuar con los géneros provistos de glumas del grupo 10.",
+    opcionA: { label: "Continuar desarrollando el grupo 10", keyStep: "A'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 10", keyStep: "A'", especieId: "ed2_gramineae" },
+  },
 };
