@@ -116,6 +116,48 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Sur del Brasil, Uruguay y centro argentino; frecuente en las sierras bonaerenses.",
     "Danthonia cirrata"
   ),
+  ed2_lolium_temulentum: species(
+    "ed2_lolium_temulentum", "Lolium temulentum",
+    "Gramínea anual de 0,5-1 m, con cañas erectas y hojas planas.",
+    "Gluma igual o más larga que la espiguilla; espiga laxa; lemmas generalmente aristadas.",
+    "Originaria de Europa; maleza de cultivos de lino y cereales en los alrededores de Buenos Aires.",
+    "Triollo"
+  ),
+  ed2_lolium_perenne: species(
+    "ed2_lolium_perenne", "Lolium perenne",
+    "Gramínea perenne de 30-70 cm, cultivada como forrajera y césped.",
+    "Gluma más corta que la espiguilla; hojas de prefoliación conduplicada; cañas cilíndricas; lemmas casi siempre múticas.",
+    "Originaria de Europa; cultivada y a veces espontánea.",
+    "Ray grass inglés"
+  ),
+  ed2_lolium_multiflorum: species(
+    "ed2_lolium_multiflorum", "Lolium multiflorum",
+    "Gramínea anual de 40-100 cm, cultivada como forrajera.",
+    "Gluma más corta que la espiguilla; hojas de prefoliación convoluta; cañas algo comprimidas; lemmas aristadas o múticas.",
+    "Originaria del sur de Europa; cultivada y adventicia en Buenos Aires.",
+    "Ray grass"
+  ),
+  ed2_cynosurus_cristatus: species(
+    "ed2_cynosurus_cristatus", "Cynosurus cristatus",
+    "Gramínea perenne de 30-80 cm.",
+    "Espiguillas fértiles de dos a tres flores; lemmas estériles aristadas; panoja espiciforme linear; aristas inconspicuas.",
+    "Originaria de Europa; hallada ocasionalmente en la provincia de Buenos Aires.",
+    "Cynosurus cristatus"
+  ),
+  ed2_cynosurus_echinatus: species(
+    "ed2_cynosurus_echinatus", "Cynosurus echinatus",
+    "Gramínea anual, con cañas simples o ramificadas en la base.",
+    "Espiguillas fértiles de dos a tres flores; lemmas estériles aristadas; panoja ovoide o subglobosa; aristas conspicuas.",
+    "Originaria de Europa; accidental en la provincia de Buenos Aires.",
+    "Cynosurus echinatus"
+  ),
+  ed2_lamarckia_aurea: species(
+    "ed2_lamarckia_aurea", "Lamarckia aurea",
+    "Gramínea anual de 10-40 cm, con panoja contraída unilateral.",
+    "Espiguillas fértiles unifloras; lemmas de las espiguillas estériles múticas; fascículos nutantes.",
+    "Originaria del Mediterráneo y Abisinia; cultivada y adventicia en La Plata.",
+    "Lamarckia aurea"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -200,7 +242,18 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
       especieId: "ed2_guadua_trinii",
     },
   },
-  ed2_gramineae_group_2: continuationNode(2, 66),
+  ed2_gramineae_group_2: {
+    id: "ed2_gramineae_group_2", milestone: "Gramineae: grupo 2", manualPage: 66,
+    descripcion: "¿Cuántas flores poseen las espiguillas fértiles y cómo son las lemmas estériles?",
+    opcionA: { label: "Fértiles de dos a tres flores; lemmas estériles aristadas", keyStep: "A", nextNodeId: "ed2_cynosurus" },
+    opcionA_prima: { label: "Fértiles unifloras; lemmas estériles múticas", keyStep: "A'", especieId: "ed2_lamarckia_aurea" },
+  },
+  ed2_cynosurus: {
+    id: "ed2_cynosurus", milestone: "Cynosurus", manualPage: 79,
+    descripcion: "¿La planta es perenne con panoja linear o anual con panoja ovoide?",
+    opcionA: { label: "Perenne; lígula de cerca de 1 mm; panoja linear; aristas inconspicuas", keyStep: "A", especieId: "ed2_cynosurus_cristatus" },
+    opcionA_prima: { label: "Anual; lígula de 3-5 mm; panoja ovoide o subglobosa; aristas conspicuas", keyStep: "A'", especieId: "ed2_cynosurus_echinatus" },
+  },
   ed2_gramineae_group_3: continuationNode(3, 66),
   ed2_gramineae_group_4: {
     id: "ed2_gramineae_group_4", milestone: "Gramineae: grupo 4", manualPage: 66,
@@ -305,9 +358,39 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_distichous_pending: {
     id: "ed2_gramineae_group_7_distichous_pending", milestone: "Gramineae: grupo 7, espiga dística", manualPage: 68,
-    descripcion: "Continuar con los géneros de espiga dística del grupo 7.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "Q", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "Q", especieId: "ed2_gramineae" },
+    descripcion: "¿La arista de la lemma es dorsal o apical?",
+    opcionA: { label: "Arista dorsal", keyStep: "R", nextNodeId: "ed2_gramineae_group_7_gaudinia_pending" },
+    opcionA_prima: { label: "Arista apical", keyStep: "R'", nextNodeId: "ed2_gramineae_group_7_distichous_orientation" },
+  },
+  ed2_gramineae_group_7_gaudinia_pending: {
+    id: "ed2_gramineae_group_7_gaudinia_pending", milestone: "Gramineae: grupo 7, arista dorsal", manualPage: 68,
+    descripcion: "Continuar con el género de espiga dística y arista dorsal.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "R", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "R", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_distichous_orientation: {
+    id: "ed2_gramineae_group_7_distichous_orientation", milestone: "Gramineae: orientación de las espiguillas", manualPage: 68,
+    descripcion: "¿Las espiguillas muestran el costado o las caras hacia el raquis?",
+    opcionA: { label: "En un solo plano, con el costado hacia el raquis; laterales con una sola gluma", keyStep: "S", nextNodeId: "ed2_lolium" },
+    opcionA_prima: { label: "Con sus caras hacia el raquis; todas con dos glumas", keyStep: "S'", nextNodeId: "ed2_gramineae_group_7_cereals_pending" },
+  },
+  ed2_gramineae_group_7_cereals_pending: {
+    id: "ed2_gramineae_group_7_cereals_pending", milestone: "Gramineae: grupo 7, dos glumas", manualPage: 68,
+    descripcion: "Continuar con los géneros de espiga dística y dos glumas.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "S'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "S'", especieId: "ed2_gramineae" },
+  },
+  ed2_lolium: {
+    id: "ed2_lolium", milestone: "Lolium", manualPage: 78,
+    descripcion: "¿La gluma iguala o supera a la espiguilla?",
+    opcionA: { label: "Tan larga o más larga que la espiguilla", keyStep: "A", especieId: "ed2_lolium_temulentum" },
+    opcionA_prima: { label: "Más corta que la espiguilla", keyStep: "A'", nextNodeId: "ed2_lolium_habit" },
+  },
+  ed2_lolium_habit: {
+    id: "ed2_lolium_habit", milestone: "Lolium: hábito y prefoliación", manualPage: 78,
+    descripcion: "¿La planta es perenne, con hojas conduplicadas y cañas cilíndricas?",
+    opcionA: { label: "Perenne; prefoliación conduplicada; cañas cilíndricas; lemmas casi siempre múticas", keyStep: "B", especieId: "ed2_lolium_perenne" },
+    opcionA_prima: { label: "Anual a trienal; prefoliación convoluta; cañas comprimidas; lemmas aristadas o múticas", keyStep: "B'", especieId: "ed2_lolium_multiflorum" },
   },
   ed2_gramineae_group_7_inflorescence: {
     id: "ed2_gramineae_group_7_inflorescence", milestone: "Gramineae: grupo 7, panojas o espigas fasciculadas", manualPage: 69,
