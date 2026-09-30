@@ -527,6 +527,41 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Espiga cilíndrica; glumas y aristas de hasta 2,5 cm; lemma fértil escabrosa.",
     "Norte patagónico, La Pampa y sur bonaerense hasta Balcarce.", "Hordeum parodii"
   ),
+  ed2_anthoxanthum_odoratum: species(
+    "ed2_anthoxanthum_odoratum", "Anthoxanthum odoratum", "Gramínea perenne fragante, de 30-50 cm.",
+    "Antecio fértil acompañado por dos lemmas estériles aristadas; panoja amarillenta y espiciforme.",
+    "Originaria de Europa; cultivada para césped y ocasionalmente espontánea en suelos húmedos.", "Grama de olor"
+  ),
+  ed2_phalaris_paradoxa: species(
+    "ed2_phalaris_paradoxa", "Phalaris paradoxa", "Gramínea anual de hasta 1 m.",
+    "Espiguillas se desprenden en grupos de seis a nueve, una fértil y las restantes estériles.",
+    "Originaria del Mediterráneo; rara adventicia en la región.", "Phalaris paradoxa"
+  ),
+  ed2_phalaris_aquatica: species(
+    "ed2_phalaris_aquatica", "Phalaris aquatica", "Gramínea perenne cespitosa de hasta 1,5 m.",
+    "Espiguillas caen por separado; panoja espiciforme; glumas con quilla anchamente alada.",
+    "Originaria del Mediterráneo; cultivada como forrajera y frecuentemente adventicia.", "Mata dulce, falaris bulbosa"
+  ),
+  ed2_phalaris_canariensis: species(
+    "ed2_phalaris_canariensis", "Phalaris canariensis", "Gramínea anual de hasta 1 m.",
+    "Panoja ovoide corta y gruesa; glumas conspicuamente aladas; antecios estériles iguales.",
+    "Sur de Europa e islas Canarias; cultivada para aves y escapada de cultivo.", "Alpiste"
+  ),
+  ed2_phalaris_minor: species(
+    "ed2_phalaris_minor", "Phalaris minor", "Gramínea anual de hasta 1 m.",
+    "Panoja ovoide; glumas aladas; antecios estériles desiguales, uno muy reducido.",
+    "Cultivada como forrajera y ocasionalmente espontánea.", "Alfarín, pasto romano"
+  ),
+  ed2_phalaris_angusta: species(
+    "ed2_phalaris_angusta", "Phalaris angusta", "Gramínea anual de hasta 1,5 m.",
+    "Panoja cilíndrica; antecio fértil agudo y totalmente pubescente; hoja lisa arriba.",
+    "América templada y cálida; común en campos húmedos y bosques de la ribera.", "Alpistillo"
+  ),
+  ed2_phalaris_platensis: species(
+    "ed2_phalaris_platensis", "Phalaris platensis", "Gramínea anual con cañas de unos 60 cm.",
+    "Panoja cilíndrica; antecio fértil acuminado y glabro arriba; hoja estriada en la cara superior.",
+    "Uruguay y nordeste argentino; campos húmedos.", "Alpistillo"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -1093,9 +1128,15 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_8_uniflorous_pending: {
     id: "ed2_gramineae_group_8_uniflorous_pending", milestone: "Gramineae: grupo 8, unifloras", manualPage: 70,
-    descripcion: "Continuar con los géneros unifloros del grupo 8.",
-    opcionA: { label: "Continuar desarrollando el grupo 8", keyStep: "D", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 8", keyStep: "D", especieId: "ed2_gramineae" },
+    descripcion: "¿El antecio fértil está acompañado por dos lemmas estériles aristadas?",
+    opcionA: { label: "Sí, acompañado por dos lemmas estériles aristadas", keyStep: "E", especieId: "ed2_anthoxanthum_odoratum" },
+    opcionA_prima: { label: "No acompañado por lemmas estériles", keyStep: "E'", nextNodeId: "ed2_gramineae_group_8_uniflorous_lemma_pending" },
+  },
+  ed2_gramineae_group_8_uniflorous_lemma_pending: {
+    id: "ed2_gramineae_group_8_uniflorous_lemma_pending", milestone: "Gramineae: grupo 8, antecio sin flores estériles", manualPage: 70,
+    descripcion: "Continuar según la presencia de mucrón o arista en la lemma.",
+    opcionA: { label: "Continuar desarrollando el grupo 8", keyStep: "E'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 8", keyStep: "E'", especieId: "ed2_gramineae" },
   },
   ed2_gramineae_group_8_glumes: {
     id: "ed2_gramineae_group_8_glumes", milestone: "Gramineae: grupo 8, plurifloras", manualPage: 70,
@@ -1336,6 +1377,36 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿Las lemmas son glabras salvo en la base?",
     opcionA: { label: "Glabras, pilosas sólo en la base", keyStep: "E", especieId: "ed2_avena_bizantina" },
     opcionA_prima: { label: "Más o menos velludas, al menos abajo y junto a la arista", keyStep: "E'", especieId: "ed2_avena_ludoviciana" },
+  },
+  ed2_phalaris: {
+    id: "ed2_phalaris", milestone: "Phalaris", manualPage: 95,
+    descripcion: "¿Las espiguillas se desprenden en grupos o individualmente?",
+    opcionA: { label: "En grupos de seis a nueve: una fértil y las demás estériles", keyStep: "A", especieId: "ed2_phalaris_paradoxa" },
+    opcionA_prima: { label: "Todas fértiles y desprendiéndose por separado", keyStep: "A'", nextNodeId: "ed2_phalaris_habit" },
+  },
+  ed2_phalaris_habit: {
+    id: "ed2_phalaris_habit", milestone: "Phalaris: hábito", manualPage: 95,
+    descripcion: "¿La planta es perenne o anual?",
+    opcionA: { label: "Perenne y cespitosa", keyStep: "B", especieId: "ed2_phalaris_aquatica" },
+    opcionA_prima: { label: "Anual", keyStep: "B'", nextNodeId: "ed2_phalaris_panicle" },
+  },
+  ed2_phalaris_panicle: {
+    id: "ed2_phalaris_panicle", milestone: "Phalaris: panoja", manualPage: 96,
+    descripcion: "¿La panoja es ovoide y gruesa o cilíndrica y angosta?",
+    opcionA: { label: "Ovoide, corta y gruesa; glumas conspicuamente aladas", keyStep: "C", nextNodeId: "ed2_phalaris_ovoid" },
+    opcionA_prima: { label: "Cilíndrica y angosta; glumas poco aladas o sin ala", keyStep: "C'", nextNodeId: "ed2_phalaris_cylindrical" },
+  },
+  ed2_phalaris_ovoid: {
+    id: "ed2_phalaris_ovoid", milestone: "Phalaris: panoja ovoide", manualPage: 96,
+    descripcion: "¿Los antecios estériles son iguales?",
+    opcionA: { label: "Iguales; glumas de 6-10 mm", keyStep: "D", especieId: "ed2_phalaris_canariensis" },
+    opcionA_prima: { label: "Desiguales; uno muy reducido; glumas de 4-6,5 mm", keyStep: "D'", especieId: "ed2_phalaris_minor" },
+  },
+  ed2_phalaris_cylindrical: {
+    id: "ed2_phalaris_cylindrical", milestone: "Phalaris: panoja cilíndrica", manualPage: 96,
+    descripcion: "¿El antecio fértil es completamente pubescente?",
+    opcionA: { label: "Agudo y totalmente pubescente; hoja lisa arriba", keyStep: "E", especieId: "ed2_phalaris_angusta" },
+    opcionA_prima: { label: "Acuminado y glabro arriba; hoja estriada", keyStep: "E'", especieId: "ed2_phalaris_platensis" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
