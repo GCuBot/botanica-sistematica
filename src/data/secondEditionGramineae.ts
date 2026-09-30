@@ -340,6 +340,42 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Innovaciones planas, plegadas o subconvolutas; cañas con dos a cuatro nudos; hojas lisas; panoja densa y contraída.",
     "Sur del Brasil, Uruguay y centro argentino; estepa clímax.", "Poa lanigera"
   ),
+  ed2_festuca_arundinacea: species(
+    "ed2_festuca_arundinacea", "Festuca arundinacea",
+    "Gramínea perenne y rizomatosa, con cañas de 40-150 cm.",
+    "Lemmas redondeadas en el dorso, múticas o con arista corta; hojas planas; panoja oblonga, laxa o algo contraída.",
+    "Originaria de Europa; cultivada como forrajera y adventicia en Balcarce.", "Festuca arundinacea"
+  ),
+  ed2_vulpia_megalura: species(
+    "ed2_vulpia_megalura", "Vulpia megalura",
+    "Gramínea anual de 20-60 cm.",
+    "Lemmas linear-lanceoladas, ciliadas en la mitad superior del margen; aristas de 8-10 mm; hojas glabras.",
+    "América; frecuente en Patagonia y en la provincia de Buenos Aires.", "Vulpia megalura"
+  ),
+  ed2_vulpia_myuros: species(
+    "ed2_vulpia_myuros", "Vulpia myuros",
+    "Gramínea anual de cañas delgadas, de 10-70 cm.",
+    "Lemmas no ciliadas; gluma inferior menor que la mitad de la superior; panoja incluida o apenas exerta.",
+    "Originaria de Europa, naturalizada en América; frecuente en la estepa bonaerense.", "Vulpia myuros"
+  ),
+  ed2_vulpia_dertonensis: species(
+    "ed2_vulpia_dertonensis", "Vulpia dertonensis",
+    "Gramínea anual de 5-60 cm.",
+    "Gluma inferior al menos igual a la mitad de la superior; gluma superior de 6-10 mm; panoja bien exerta.",
+    "Originaria de Europa, naturalizada en América austral.", "Pasto cedilla"
+  ),
+  ed2_vulpia_australis: species(
+    "ed2_vulpia_australis", "Vulpia australis",
+    "Gramínea anual delicada, de 10-25 cm.",
+    "Gluma superior menor de 6 mm y bastante más corta que el antecio contiguo; panoja espiciforme unilateral.",
+    "América austral; rara en la estepa bonaerense.", "Vulpia australis"
+  ),
+  ed2_catapodium_rigidum: species(
+    "ed2_catapodium_rigidum", "Catapodium rigidum",
+    "Gramínea anual pequeña, erecta o ascendente, de 10-30 cm.",
+    "Lemmas redondeadas y múticas; panoja estrecha y densa; espiguillas lanceoladas de cuatro a once flores.",
+    "Originaria de Europa, adventicia en América; común en suelos modificados.", "Catapodium rigidum"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -648,9 +684,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_rounded_pending: {
     id: "ed2_gramineae_group_7_rounded_pending", milestone: "Gramineae: grupo 7, lemma redondeada", manualPage: 69,
-    descripcion: "Continuar con los géneros de lemma redondeada en el dorso.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "f'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "f'", especieId: "ed2_gramineae" },
+    descripcion: "¿La planta es perenne y robusta o anual y pequeña?",
+    opcionA: { label: "Perenne y robusta", keyStep: "g", especieId: "ed2_festuca_arundinacea" },
+    opcionA_prima: { label: "Anual y pequeña", keyStep: "g'", especieId: "ed2_catapodium_rigidum" },
   },
   ed2_gramineae_group_7_awn_position: {
     id: "ed2_gramineae_group_7_awn_position", milestone: "Gramineae: grupo 7, lemmas aristadas", manualPage: 69,
@@ -678,9 +714,45 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_small_awned_pending: {
     id: "ed2_gramineae_group_7_small_awned_pending", milestone: "Gramineae: grupo 7, espiguillas pequeñas", manualPage: 69,
-    descripcion: "Continuar con los géneros aristados de espiguillas menores de 15 mm.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "m'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "m'", especieId: "ed2_gramineae" },
+    descripcion: "¿La lemma es carenada o redondeada en el dorso?",
+    opcionA: { label: "Carenada", keyStep: "n", nextNodeId: "ed2_gramineae_group_7_small_carinate_pending" },
+    opcionA_prima: { label: "Redondeada", keyStep: "n'", nextNodeId: "ed2_gramineae_group_7_small_rounded" },
+  },
+  ed2_gramineae_group_7_small_carinate_pending: {
+    id: "ed2_gramineae_group_7_small_carinate_pending", milestone: "Gramineae: grupo 7, lemma carenada aristada", manualPage: 69,
+    descripcion: "Continuar con los géneros de lemma carenada.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "n", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "n", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_small_rounded: {
+    id: "ed2_gramineae_group_7_small_rounded", milestone: "Gramineae: grupo 7, lemma redondeada aristada", manualPage: 70,
+    descripcion: "¿La lemma posee pequeñas aristas laterales además de la central?",
+    opcionA: { label: "Una arista corta a cada lado de la central", keyStep: "o", nextNodeId: "ed2_gramineae_group_7_tridens_pending" },
+    opcionA_prima: { label: "Sin aristas laterales", keyStep: "o'", nextNodeId: "ed2_gramineae_group_7_pedicel" },
+  },
+  ed2_gramineae_group_7_tridens_pending: {
+    id: "ed2_gramineae_group_7_tridens_pending", milestone: "Gramineae: grupo 7, aristas laterales", manualPage: 70,
+    descripcion: "Continuar con el género provisto de aristas laterales.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "o", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "o", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_pedicel: {
+    id: "ed2_gramineae_group_7_pedicel", milestone: "Gramineae: grupo 7, pedicelo", manualPage: 70,
+    descripcion: "¿Las espiguillas son casi sésiles o conspicuamente pediceladas?",
+    opcionA: { label: "Casi sésiles y cilíndricas; lemmas con dientes laterales", keyStep: "p", nextNodeId: "ed2_gramineae_group_7_diplachne_pending" },
+    opcionA_prima: { label: "Conspicuamente pediceladas; lemmas sin dientes laterales", keyStep: "p'", nextNodeId: "ed2_gramineae_group_7_annuality" },
+  },
+  ed2_gramineae_group_7_diplachne_pending: {
+    id: "ed2_gramineae_group_7_diplachne_pending", milestone: "Gramineae: grupo 7, espiguillas subsésiles", manualPage: 70,
+    descripcion: "Continuar con el género de espiguillas casi sésiles.",
+    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "p", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "p", especieId: "ed2_gramineae" },
+  },
+  ed2_gramineae_group_7_annuality: {
+    id: "ed2_gramineae_group_7_annuality", milestone: "Gramineae: grupo 7, hábito", manualPage: 70,
+    descripcion: "¿La planta es anual o perenne?",
+    opcionA: { label: "Anual", keyStep: "q", nextNodeId: "ed2_vulpia" },
+    opcionA_prima: { label: "Perenne", keyStep: "q'", especieId: "ed2_festuca_arundinacea" },
   },
   ed2_arundineae: {
     id: "ed2_arundineae", milestone: "Arundineae", manualPage: 69,
@@ -921,6 +993,24 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿Las cañas poseen uno o varios nudos?",
     opcionA: { label: "Un nudo; hojas escabrosas arriba; panoja algo laxa", keyStep: "N", especieId: "ed2_poa_pilcomayensis" },
     opcionA_prima: { label: "Dos a cuatro nudos; hojas lisas; panoja contraída y densa", keyStep: "N'", especieId: "ed2_poa_lanigera" },
+  },
+  ed2_vulpia: {
+    id: "ed2_vulpia", milestone: "Vulpia", manualPage: 85,
+    descripcion: "¿Las lemmas poseen cilias en la mitad superior del margen?",
+    opcionA: { label: "Sí; aristas de 8-10 mm; hojas glabras", keyStep: "A", especieId: "ed2_vulpia_megalura" },
+    opcionA_prima: { label: "No ciliadas en el margen", keyStep: "A'", nextNodeId: "ed2_vulpia_glumes" },
+  },
+  ed2_vulpia_glumes: {
+    id: "ed2_vulpia_glumes", milestone: "Vulpia: proporción de las glumas", manualPage: 85,
+    descripcion: "¿La gluma inferior es menor que la mitad de la superior?",
+    opcionA: { label: "Sí; espiguillas de cuatro a cinco flores; panoja incluida o apenas exerta", keyStep: "B", especieId: "ed2_vulpia_myuros" },
+    opcionA_prima: { label: "Igual o mayor que la mitad; panoja exerta", keyStep: "B'", nextNodeId: "ed2_vulpia_upper_glume" },
+  },
+  ed2_vulpia_upper_glume: {
+    id: "ed2_vulpia_upper_glume", milestone: "Vulpia: gluma superior", manualPage: 85,
+    descripcion: "¿La gluma superior mide al menos 6 mm y casi iguala al antecio contiguo?",
+    opcionA: { label: "De 6-10 mm; casi tan larga como el antecio", keyStep: "C", especieId: "ed2_vulpia_dertonensis" },
+    opcionA_prima: { label: "Menor de 6 mm; bastante más corta que el antecio", keyStep: "C'", especieId: "ed2_vulpia_australis" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
