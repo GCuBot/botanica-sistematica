@@ -657,6 +657,61 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Panoja espiciforme muy densa de 10-20 cm; gluma inferior más larga; lemma con dos aristas apicales cortas y una dorsal fuerte y larga.",
     "Sur de Brasil, Uruguay y nordeste argentino; en campos húmedos.", "Agrostis jirgensii"
   ),
+  ed2_oryzopsis_miliacea: species(
+    "ed2_oryzopsis_miliacea", "Oryzopsis miliacea", "Gramínea perenne de 60-150 cm, con hojas planas.",
+    "Panoja laxa de 15-30 cm; espiguillas cortamente pediceladas de 3 mm; lemma rígida con arista corta y caduca de 4 mm.",
+    "Originaria del Mediterráneo; adventicia en la Isla Maciel, Avellaneda.", "Oryzopsis miliacea"
+  ),
+  ed2_piptochaetium_hackelii: species(
+    "ed2_piptochaetium_hackelii", "Piptochaetium hackelii", "Gramínea perenne de 60-100 cm, con hojas convolutas y glabras.",
+    "Antecio cilíndrico de 9-14 mm, finamente estriado; glumas violáceas o castañas de 21-30 mm; arista de 8-10 cm.",
+    "Estepas graminosas del Uruguay y de la provincia de Buenos Aires.", "Flechilla"
+  ),
+  ed2_piptochaetium_ruprechtianum: species(
+    "ed2_piptochaetium_ruprechtianum", "Piptochaetium ruprechtianum", "Gramínea perenne de 80-150 cm, con hojas lineares convolutas o planas.",
+    "Antecio cilíndrico-obovado de 7-8,5 mm, glabro salvo el antopodio velludo; glumas violáceas de 13-15 mm; arista de 5,5-7,5 cm.",
+    "Sur de Brasil, Uruguay y nordeste argentino; sierras de Tandil y Balcarce.", "Piptochaetium ruprechtianum"
+  ),
+  ed2_piptochaetium_bicolor: species(
+    "ed2_piptochaetium_bicolor", "Piptochaetium bicolor", "Gramínea perenne de 40-80 cm, con hojas estrechas planas o convolutas.",
+    "Antecio obpiriforme de 3,5-6,5 mm, con corona laciniado-ciliada de 0,5-1 mm; glumas de 7,5-10,5 mm; arista de 3-5 cm.",
+    "Chile, Uruguay y Argentina; forrajera de la estepa graminosa.", "Piptochaetium bicolor"
+  ),
+  ed2_piptochaetium_medium: species(
+    "ed2_piptochaetium_medium", "Piptochaetium medium", "Gramínea perenne de 40-80 cm.",
+    "Antecio obpiriforme de 3,5-6,5 mm, con corona papilosa muy reducida; glumas de 9-11 mm; arista de 3-4,5 cm.",
+    "Argentina y Uruguay; presente en las sierras bonaerenses.", "Piptochaetium medium"
+  ),
+  ed2_piptochaetium_lasianthum: species(
+    "ed2_piptochaetium_lasianthum", "Piptochaetium lasianthum", "Gramínea perenne de 30-70 cm, con hojas setáceas.",
+    "Antecio obovoide de unos 3 mm cubierto por largos pelos castaños que sobrepasan la corona; arista débil y glabra de 1,5-2 cm.",
+    "Uruguay y Argentina; sierras de Tandil y Balcarce.", "Piptochaetium lasianthum"
+  ),
+  ed2_piptochaetium_stipoides: species(
+    "ed2_piptochaetium_stipoides", "Piptochaetium stipoides", "Gramínea perenne de hojas filiformes, plegadas y pilosas o casi glabras.",
+    "Antecio glabro con corona ancha y antopodio piloso; el manual distingue las variedades stipoides, chaetophorum, verruculosum y purpurascens.",
+    "América austral; frecuente en la estepa graminosa y en el este bonaerense.", "Piptochaetium stipoides"
+  ),
+  ed2_piptochaetium_grisebachii: species(
+    "ed2_piptochaetium_grisebachii", "Piptochaetium grisebachii", "Gramínea perenne con cañas de unos 60 cm y hojas glabras de 2 mm de ancho.",
+    "Panoja contraída de 5-15 cm; glumas violáceas de 6,5-8 mm; antecio castaño de 3-4,5 mm con corona ciliada y arista excéntrica de 2 cm.",
+    "Estepas de Entre Ríos y Buenos Aires.", "Piptochaetium grisebachii"
+  ),
+  ed2_piptochaetium_panicoides: species(
+    "ed2_piptochaetium_panicoides", "Piptochaetium panicoides", "Gramínea perenne de 15-40 cm, con hojas setáceas.",
+    "Antecio liso, estriado, lenticular y comprimido de 1,8-2,5 mm; corona muy reducida; arista caduca de 1 cm; panoja contraída.",
+    "América austral; nordeste de Buenos Aires.", "Piptochaetium panicoides"
+  ),
+  ed2_piptochaetium_uruguense: species(
+    "ed2_piptochaetium_uruguense", "Piptochaetium uruguense", "Gramínea perenne de 40-70 cm.",
+    "Antecio verrucoso-papiloso, grueso, de 2,5-3 mm; corona muy estrecha o inconspicua; arista casi glabra de 2-2,5 cm.",
+    "Argentina y Uruguay; sierra de Balcarce.", "Piptochaetium uruguense"
+  ),
+  ed2_piptochaetium_montevidense: species(
+    "ed2_piptochaetium_montevidense", "Piptochaetium montevidense", "Gramínea perenne de 15-60 cm, con hojas capilares plegadas.",
+    "Antecio verrucoso-papiloso y comprimido de 1,5-2 mm; corona muy estrecha; arista finamente pubescente de 5-9 mm.",
+    "América austral; sierras de Buenos Aires.", "Piptochaetium montevidense"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -935,9 +990,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_oryzopsis_pending: {
     id: "ed2_oryzopsis_pending", milestone: "Oryzopsis", manualPage: 100,
-    descripcion: "Continuar con la especie de Oryzopsis tratada por el manual.",
-    opcionA: { label: "Continuar desarrollando Oryzopsis", keyStep: "H", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando Oryzopsis", keyStep: "H", especieId: "ed2_gramineae" },
+    descripcion: "Oryzopsis: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Oryzopsis miliacea", keyStep: "1", especieId: "ed2_oryzopsis_miliacea" },
+    opcionA_prima: { label: "Identificar como Oryzopsis miliacea", keyStep: "1", especieId: "ed2_oryzopsis_miliacea" },
   },
   ed2_gramineae_group_7_twisted_palea: {
     id: "ed2_gramineae_group_7_twisted_palea", milestone: "Gramineae: grupo 7, pálea", manualPage: 68,
@@ -947,9 +1002,57 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_piptochaetium_pending: {
     id: "ed2_piptochaetium_pending", milestone: "Piptochaetium", manualPage: 100,
-    descripcion: "Continuar con la clave específica de Piptochaetium.",
-    opcionA: { label: "Continuar desarrollando Piptochaetium", keyStep: "I", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando Piptochaetium", keyStep: "I", especieId: "ed2_gramineae" },
+    descripcion: "¿El antecio fructífero es alargado, con antopodio agudo y punzante de 2-5 mm?",
+    opcionA: { label: "Sí; antecio cilíndrico u obovoide alargado; glumas generalmente mayores de 9,5 mm", keyStep: "A", nextNodeId: "ed2_piptochaetium_elongated" },
+    opcionA_prima: { label: "No; antecio obovoide o globoso, corto y grueso; antopodio obtuso menor de 1 mm", keyStep: "A'", nextNodeId: "ed2_piptochaetium_short_indument" },
+  },
+  ed2_piptochaetium_elongated: {
+    id: "ed2_piptochaetium_elongated", milestone: "Piptochaetium: antecio alargado", manualPage: 100,
+    descripcion: "¿El antecio es cilíndrico, de 9-14 mm, inconspicuamente giboso y de color castaño oscuro?",
+    opcionA: { label: "Sí; glumas de 21-30 mm y arista de 8-10 cm", keyStep: "B", especieId: "ed2_piptochaetium_hackelii" },
+    opcionA_prima: { label: "No; antecio alargadamente obovoide de 5-8,5 mm y conspicuamente giboso", keyStep: "B'", nextNodeId: "ed2_piptochaetium_obovoid" },
+  },
+  ed2_piptochaetium_obovoid: {
+    id: "ed2_piptochaetium_obovoid", milestone: "Piptochaetium: antecio obovoide", manualPage: 100,
+    descripcion: "¿El antecio es cilíndrico-obovado, de 7-8,5 mm, y la panoja generalmente nutante?",
+    opcionA: { label: "Sí; glumas violáceas de 13-15 mm", keyStep: "C", especieId: "ed2_piptochaetium_ruprechtianum" },
+    opcionA_prima: { label: "No; antecio obpiriforme de 3,5-6,5 mm", keyStep: "C'", nextNodeId: "ed2_piptochaetium_corona" },
+  },
+  ed2_piptochaetium_corona: {
+    id: "ed2_piptochaetium_corona", milestone: "Piptochaetium: corona", manualPage: 100,
+    descripcion: "¿La corona es laciniado-ciliada y mide 0,5-1 mm?",
+    opcionA: { label: "Sí; antecio de 1,3-1,5 mm de diámetro; glumas de 7,5-10,5 mm", keyStep: "D", especieId: "ed2_piptochaetium_bicolor" },
+    opcionA_prima: { label: "No; corona papilosa muy reducida; antecio de 1,7-2 mm de diámetro", keyStep: "D'", especieId: "ed2_piptochaetium_medium" },
+  },
+  ed2_piptochaetium_short_indument: {
+    id: "ed2_piptochaetium_short_indument", milestone: "Piptochaetium: antecio corto", manualPage: 102,
+    descripcion: "¿El antecio está cubierto por largos pelos castaños que sobrepasan la corona?",
+    opcionA: { label: "Sí; antecio de unos 3 mm y arista débil glabra de 1,5-2 cm", keyStep: "E", especieId: "ed2_piptochaetium_lasianthum" },
+    opcionA_prima: { label: "No; antecio glabro, aunque el antopodio puede ser piloso", keyStep: "E'", nextNodeId: "ed2_piptochaetium_corona_width" },
+  },
+  ed2_piptochaetium_corona_width: {
+    id: "ed2_piptochaetium_corona_width", milestone: "Piptochaetium: ancho de la corona", manualPage: 102,
+    descripcion: "¿La corona es ancha, de 0,6-2 mm de diámetro?",
+    opcionA: { label: "Sí; antopodio piloso", keyStep: "F", nextNodeId: "ed2_piptochaetium_leaves" },
+    opcionA_prima: { label: "No; corona muy estrecha o inconspicua", keyStep: "F'", nextNodeId: "ed2_piptochaetium_surface" },
+  },
+  ed2_piptochaetium_leaves: {
+    id: "ed2_piptochaetium_leaves", milestone: "Piptochaetium: hojas", manualPage: 102,
+    descripcion: "¿Las hojas tienen lámina plegada, filiforme y de 1 mm de ancho?",
+    opcionA: { label: "Sí; pilosas o casi glabras", keyStep: "G", especieId: "ed2_piptochaetium_stipoides" },
+    opcionA_prima: { label: "No; lámina plana o convoluta de 2 mm, glabra", keyStep: "G'", especieId: "ed2_piptochaetium_grisebachii" },
+  },
+  ed2_piptochaetium_surface: {
+    id: "ed2_piptochaetium_surface", milestone: "Piptochaetium: superficie del antecio", manualPage: 102,
+    descripcion: "¿El antecio es liso, estriado, lenticular y comprimido?",
+    opcionA: { label: "Sí; de 1,8-2,5 mm, con arista caduca de 1 cm", keyStep: "H", especieId: "ed2_piptochaetium_panicoides" },
+    opcionA_prima: { label: "No; verrucoso-papiloso y rugoso", keyStep: "H'", nextNodeId: "ed2_piptochaetium_rugose" },
+  },
+  ed2_piptochaetium_rugose: {
+    id: "ed2_piptochaetium_rugose", milestone: "Piptochaetium: antecio rugoso", manualPage: 102,
+    descripcion: "¿El antecio es grueso, de 2,5-3 mm, y la arista casi glabra mide 2-2,5 cm?",
+    opcionA: { label: "Sí", keyStep: "I", especieId: "ed2_piptochaetium_uruguense" },
+    opcionA_prima: { label: "No; antecio comprimido de 1,5-2 mm y arista pubescente de 5-9 mm", keyStep: "I'", especieId: "ed2_piptochaetium_montevidense" },
   },
   ed2_stipa_pending: {
     id: "ed2_stipa_pending", milestone: "Stipa", manualPage: 102,
