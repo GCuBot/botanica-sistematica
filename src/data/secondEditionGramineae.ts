@@ -972,6 +972,31 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Espiguillas unifloras agrupadas de dos a cinco en fascículos caducos; gluma superior cubierta por cerdas ganchudas.",
     "Originaria del Viejo Mundo; accidental en vías férreas de la región.", "Tragus racemosus"
   ),
+  ed2_muhlenbergia_asperifolia: species(
+    "ed2_muhlenbergia_asperifolia", "Muhlenbergia asperifolia", "Gramínea perenne y rizomatosa de 8-25 cm.",
+    "Lemma cortamente mucronada; hojas densas, cortas y plegadas; espiguillas unifloras de 2 mm en panojas laxas.",
+    "Norte de Chile y regiones secas argentinas; accidental en la Capital Federal.", "Muhlenbergia asperifolia"
+  ),
+  ed2_muhlenbergia_schreberi: species(
+    "ed2_muhlenbergia_schreberi", "Muhlenbergia schreberi", "Gramínea perenne ascendente, de unos 50 cm.",
+    "Lemma largamente aristada; hojas lineares; panojas angostas y flojas; glumas muy cortas e hialinas.",
+    "América templado-cálida; frecuente en el Delta y la ribera platense.", "Muhlenbergia schreberi"
+  ),
+  ed2_sporobolus_indicus: species(
+    "ed2_sporobolus_indicus", "Sporobolus indicus", "Gramínea perenne y cespitosa de 30-100 cm.",
+    "Panoja densa, muy larga y angosta, casi espiciforme; espiguillas glabras y verdosas de 2 mm.",
+    "Cosmopolita; muy común en la región platense.", "Sporobolus indicus"
+  ),
+  ed2_sporobolus_platensis: species(
+    "ed2_sporobolus_platensis", "Sporobolus platensis", "Gramínea perenne de 50-100 cm.",
+    "Panoja contraída de 10-25 cm; espiguillas lanceoladas muy comprimidas de 6-7 mm; glumas rígidas y acuminadas.",
+    "Provincia de Buenos Aires y Uruguay; hallada en San Vicente y Pipinas.", "Sporobolus platensis"
+  ),
+  ed2_sporobolus_pyramidatus: species(
+    "ed2_sporobolus_pyramidatus", "Sporobolus pyramidatus", "Gramínea perenne y cespitosa de 20-50 cm.",
+    "Inflorescencia laxa y piramidal; espiguillas lanceoladas y glabras de 1,5-1,7 mm.",
+    "América templado-cálida; común en campos salobres.", "Sporobolus pyramidatus"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -1471,9 +1496,15 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_no_rudimentary_pending: {
     id: "ed2_gramineae_group_7_no_rudimentary_pending", milestone: "Gramineae: grupo 7, sin flores rudimentarias", manualPage: 68,
-    descripcion: "Continuar con los géneros sin flores rudimentarias basales.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "N'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "N'", especieId: "ed2_gramineae" },
+    descripcion: "¿Las glumas son mucho menores que la lemma?",
+    opcionA: { label: "Sí; glumas mucho menores", keyStep: "O", nextNodeId: "ed2_sporobolus" },
+    opcionA_prima: { label: "No; glumas casi iguales o mayores que la lemma", keyStep: "O'", nextNodeId: "ed2_gramineae_group_7_no_rudimentary_habit" },
+  },
+  ed2_gramineae_group_7_no_rudimentary_habit: {
+    id: "ed2_gramineae_group_7_no_rudimentary_habit", milestone: "Gramineae: grupo 7, hábito", manualPage: 68,
+    descripcion: "¿Las plantas son laxas, volubles o apoyantes?",
+    opcionA: { label: "Sí; laxas, volubles o apoyantes", keyStep: "P", nextNodeId: "ed2_melica" },
+    opcionA_prima: { label: "No; plantas erectas", keyStep: "P'", nextNodeId: "ed2_agrostis" },
   },
   ed2_gramineae_group_7_multiflorous: {
     id: "ed2_gramineae_group_7_multiflorous", milestone: "Gramineae: grupo 7, plurifloras", manualPage: 68,
@@ -1933,9 +1964,15 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_8_uniflorous_lemma_pending: {
     id: "ed2_gramineae_group_8_uniflorous_lemma_pending", milestone: "Gramineae: grupo 8, antecio sin flores estériles", manualPage: 70,
-    descripcion: "Continuar según la presencia de mucrón o arista en la lemma.",
-    opcionA: { label: "Continuar desarrollando el grupo 8", keyStep: "E'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 8", keyStep: "E'", especieId: "ed2_gramineae" },
+    descripcion: "¿La lemma es mútica o mucronada/aristada?",
+    opcionA: { label: "Mútica", keyStep: "F", nextNodeId: "ed2_willbleibia_pending" },
+    opcionA_prima: { label: "Mucronada o aristada", keyStep: "F'", nextNodeId: "ed2_muhlenbergia" },
+  },
+  ed2_willbleibia_pending: {
+    id: "ed2_willbleibia_pending", milestone: "Willbleibia", manualPage: 118,
+    descripcion: "Continuar con la especie de Willbleibia tratada por el manual.",
+    opcionA: { label: "Continuar desarrollando Willbleibia", keyStep: "F", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando Willbleibia", keyStep: "F", especieId: "ed2_gramineae" },
   },
   ed2_gramineae_group_8_glumes: {
     id: "ed2_gramineae_group_8_glumes", milestone: "Gramineae: grupo 8, plurifloras", manualPage: 70,
@@ -2368,6 +2405,24 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "Tragus: única especie tratada para la región.",
     opcionA: { label: "Identificar como Tragus racemosus", keyStep: "1", especieId: "ed2_tragus_racemosus" },
     opcionA_prima: { label: "Identificar como Tragus racemosus", keyStep: "1", especieId: "ed2_tragus_racemosus" },
+  },
+  ed2_muhlenbergia: {
+    id: "ed2_muhlenbergia", milestone: "Muhlenbergia", manualPage: 116,
+    descripcion: "¿La lemma es cortamente mucronada o largamente aristada?",
+    opcionA: { label: "Cortamente mucronada; planta rizomatosa de 8-25 cm", keyStep: "A", especieId: "ed2_muhlenbergia_asperifolia" },
+    opcionA_prima: { label: "Largamente aristada; planta ascendente de unos 50 cm", keyStep: "A'", especieId: "ed2_muhlenbergia_schreberi" },
+  },
+  ed2_sporobolus: {
+    id: "ed2_sporobolus", milestone: "Sporobolus", manualPage: 116,
+    descripcion: "¿La inflorescencia es densa y más o menos espiciforme?",
+    opcionA: { label: "Sí; ramas laterales alternas", keyStep: "A", nextNodeId: "ed2_sporobolus_dense" },
+    opcionA_prima: { label: "No; laxa y piramidal", keyStep: "A'", especieId: "ed2_sporobolus_pyramidatus" },
+  },
+  ed2_sporobolus_dense: {
+    id: "ed2_sporobolus_dense", milestone: "Sporobolus: panoja densa", manualPage: 116,
+    descripcion: "¿Las espiguillas son glabras y verdosas, de 2 mm?",
+    opcionA: { label: "Sí; panoja muy larga y angosta", keyStep: "B", especieId: "ed2_sporobolus_indicus" },
+    opcionA_prima: { label: "No; lanceoladas, claras y muy comprimidas, de 6-7 mm", keyStep: "B'", especieId: "ed2_sporobolus_platensis" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
