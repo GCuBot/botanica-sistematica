@@ -1252,6 +1252,86 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Involucro formado sólo por espinas muy anchas en la base, abiertas y sin pelos retrorsos; dos espiguillas por involucro.",
     "América cálida; muy común en suelos arenosos.", "Roseta"
   ),
+  ed2_stenotaphrum_secundatum: species(
+    "ed2_stenotaphrum_secundatum", "Stenotaphrum secundatum", "Gramínea perenne y rastrera, de 10-70 cm, con tallos radicantes.",
+    "Espiguillas de a una o dos incrustadas en un raquis grueso y plano; hojas cortas y obtusas.",
+    "América cálida; común en suelos bajos y húmedos y cultivada como césped.", "Gramillón"
+  ),
+  ed2_leptocoryphium_lanatum: species(
+    "ed2_leptocoryphium_lanatum", "Leptocoryphium lanatum", "Gramínea perenne, erecta y cespitosa de 30-90 cm.",
+    "Gluma inferior ausente; segunda gluma y lemma estéril velludas; panoja fusiforme de 10-20 cm.",
+    "América cálida; norte de la provincia de Buenos Aires.", "Leptocoryphium lanatum"
+  ),
+  ed2_digitaria_phaeotrix: species(
+    "ed2_digitaria_phaeotrix", "Digitaria phaeotrix", "Gramínea perenne de 70-150 cm, con rizomas cortos y gruesos.",
+    "Racimos a lo largo del eje; espiguillas ovadas y agudas de 2,4-3,5 mm, con pubescencia corta.",
+    "Sur de Brasil, Uruguay, Paraguay y nordeste argentino; rara en Junín.", "Digitaria phaeotrix"
+  ),
+  ed2_digitaria_californica: species(
+    "ed2_digitaria_californica", "Digitaria californica", "Gramínea perenne de 20-80 cm, con rizomas cortos y gruesos.",
+    "Cuatro a ocho racimos a lo largo del eje; espiguillas ovadas de 3-4 mm, largamente lanosas y plateadas.",
+    "América cálida; rara en la estepa prístina regional.", "Gramilla cuarentona"
+  ),
+  ed2_digitaria_insularis: species(
+    "ed2_digitaria_insularis", "Digitaria insularis", "Gramínea perenne de más de 1 m, con hojas anchas.",
+    "Veinte a cincuenta racimos; espiguillas lanceoladas de 4-4,5 mm, con pelos amarillentos que las sobrepasan.",
+    "América tropical; rara en la región.", "Pasto amargo"
+  ),
+  ed2_digitaria_sacchariflora: species(
+    "ed2_digitaria_sacchariflora", "Digitaria sacchariflora", "Gramínea perenne menor de 1 m, con hojas de 2-5 mm.",
+    "Cuatro a quince racimos; espiguillas lanceoladas de 4-5,5 mm, con pelos amarillentos que las sobrepasan.",
+    "América del Sur cálida; suelos arenosos próximos a Capital Federal.", "Digitaria sacchariflora"
+  ),
+  ed2_digitaria_sanguinalis: species(
+    "ed2_digitaria_sanguinalis", "Digitaria sanguinalis", "Gramínea anual de cañas decumbentes, de 40-70 cm.",
+    "Racimos fasciculados en el ápice; segunda gluma glabra o apenas pubescente, de hasta la mitad del antecio.",
+    "Originaria de Europa; invasora frecuente en suelos removidos, jardines y rastrojos.", "Pata de gallina, pasto de cuaresma"
+  ),
+  ed2_digitaria_ciliaris: species(
+    "ed2_digitaria_ciliaris", "Digitaria ciliaris", "Gramínea anual semejante a Digitaria sanguinalis.",
+    "Racimos fasciculados en el ápice; segunda gluma pubescente y de hasta tres cuartos del antecio.",
+    "Regiones cálidas; vegeta junto a Digitaria sanguinalis.", "Digitaria ciliaris"
+  ),
+  ed2_digitaria_aequiglumis: species(
+    "ed2_digitaria_aequiglumis", "Digitaria aequiglumis", "Gramínea anual recostada de 20-70 cm.",
+    "Segunda gluma casi igual a la lemma estéril; espiguillas de 3-4 mm; dos a ocho racimos apicales.",
+    "Uruguay y nordeste argentino; suelos húmedos del Delta y la ribera platense.", "Digitaria aequiglumis"
+  ),
+  ed2_digitaria_cuyabensis: species(
+    "ed2_digitaria_cuyabensis", "Digitaria cuyabensis", "Gramínea anual erguida de 50-100 cm.",
+    "Segunda gluma casi igual a la lemma estéril; espiguillas menores de 3 mm; cinco a catorce racimos apicales.",
+    "América tropical; norte de Buenos Aires.", "Digitaria cuyabensis"
+  ),
+  ed2_ichnanthus_pallens: species(
+    "ed2_ichnanthus_pallens", "Ichnanthus pallens", "Gramínea perenne, rastrera o ascendente, de 20-80 cm.",
+    "Lemma fértil con excavación basal en herradura y apéndices alados; hojas anchas; espiguillas lanceoladas.",
+    "Regiones cálidas de América, Asia y Australia; rara en Isla Martín García.", "Ichnanthus pallens"
+  ),
+  ed2_eriochloa_punctata: species(
+    "ed2_eriochloa_punctata", "Eriochloa punctata", "Gramínea perenne de 50-150 cm.",
+    "Eje de la panoja y raquis velludos; diez a veinticinco racimos; espiguillas de 4-5 mm con apéndice basal globoso.",
+    "América tropical y subtropical; Delta del Paraná y Capital Federal.", "Eriochloa punctata"
+  ),
+  ed2_eriochloa_montevidensis: species(
+    "ed2_eriochloa_montevidensis", "Eriochloa montevidensis", "Gramínea perenne de 40-70 cm.",
+    "Eje de la panoja glabrescente y raquis casi glabros; cinco a doce racimos; espiguillas de 4 mm.",
+    "Sur de Brasil, Uruguay y nordeste argentino hasta el norte y este bonaerense.", "Eriochloa montevidensis"
+  ),
+  ed2_pseudechinolaena_polystachya: species(
+    "ed2_pseudechinolaena_polystachya", "Pseudechinolaena polystachya", "Gramínea perenne de 20-40 cm, con hojas lanceoladas anchas.",
+    "Espiguillas pediceladas de 3,5-4 mm; segunda gluma ventricosa y cubierta de pelos ganchudos al madurar.",
+    "Regiones tropicales de ambos hemisferios; Isla Martín García.", "Pseudechinolaena polystachya"
+  ),
+  ed2_oplismenopsis_najada: species(
+    "ed2_oplismenopsis_najada", "Oplismenopsis najada", "Gramínea perenne acuática, con tallos nadantes y cañas floríferas erectas.",
+    "Glumas aristadas; panoja con varios racimos espiciformes; espiguillas lanceoladas violáceas de 7-8 mm.",
+    "Uruguay y nordeste argentino; Delta y ribera del Plata.", "Oplismenopsis najada"
+  ),
+  ed2_brachiaria_extensa: species(
+    "ed2_brachiaria_extensa", "Brachiaria extensa", "Gramínea anual de unos 50 cm, con tallos radicantes y hojas anchas.",
+    "Dos a seis racimos distantes; raquis alado; espiguillas subsésiles de 4-4,5 mm en dos hileras.",
+    "Sur de Estados Unidos; suelos húmedos del norte bonaerense.", "Brachiaria extensa"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -1356,9 +1436,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_pseudechinolaena_pending: {
     id: "ed2_pseudechinolaena_pending", milestone: "Pseudechinolaena", manualPage: 141,
-    descripcion: "Continuar con la especie de Pseudechinolaena tratada por el manual.",
-    opcionA: { label: "Continuar desarrollando Pseudechinolaena", keyStep: "A'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando Pseudechinolaena", keyStep: "A'", especieId: "ed2_gramineae" },
+    descripcion: "Pseudechinolaena: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Pseudechinolaena polystachya", keyStep: "1", especieId: "ed2_pseudechinolaena_polystachya" },
+    opcionA_prima: { label: "Identificar como Pseudechinolaena polystachya", keyStep: "1", especieId: "ed2_pseudechinolaena_polystachya" },
   },
   ed2_gramineae_group_4: {
     id: "ed2_gramineae_group_4", milestone: "Gramineae: grupo 4", manualPage: 66,
@@ -2905,6 +2985,84 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿El involucro combina cerdas externas delgadas e internas ensanchadas con pelos retrorsos?",
     opcionA: { label: "Sí; dos a cinco espiguillas por involucro", keyStep: "B", especieId: "ed2_cenchrus_echinatus" },
     opcionA_prima: { label: "No; sólo espinas anchas, abiertas y sin pelos retrorsos", keyStep: "B'", especieId: "ed2_cenchrus_pauciflorus" },
+  },
+  ed2_stenotaphrum: {
+    id: "ed2_stenotaphrum", milestone: "Stenotaphrum", manualPage: 130,
+    descripcion: "Stenotaphrum: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Stenotaphrum secundatum", keyStep: "1", especieId: "ed2_stenotaphrum_secundatum" },
+    opcionA_prima: { label: "Identificar como Stenotaphrum secundatum", keyStep: "1", especieId: "ed2_stenotaphrum_secundatum" },
+  },
+  ed2_leptocoryphium: {
+    id: "ed2_leptocoryphium", milestone: "Leptocoryphium", manualPage: 130,
+    descripcion: "Leptocoryphium: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Leptocoryphium lanatum", keyStep: "1", especieId: "ed2_leptocoryphium_lanatum" },
+    opcionA_prima: { label: "Identificar como Leptocoryphium lanatum", keyStep: "1", especieId: "ed2_leptocoryphium_lanatum" },
+  },
+  ed2_digitaria: {
+    id: "ed2_digitaria", milestone: "Digitaria", manualPage: 131,
+    descripcion: "¿Los racimos se distribuyen a lo largo de un eje principal o se fasciculan en el ápice?",
+    opcionA: { label: "Distribuidos a lo largo de un eje; plantas perennes", keyStep: "A", nextNodeId: "ed2_digitaria_perennial_indument" },
+    opcionA_prima: { label: "Fasciculados en el ápice; plantas anuales", keyStep: "A'", nextNodeId: "ed2_digitaria_annual_glume" },
+  },
+  ed2_digitaria_perennial_indument: {
+    id: "ed2_digitaria_perennial_indument", milestone: "Digitaria perenne: indumento", manualPage: 131,
+    descripcion: "¿La pubescencia de la espiguilla es corta y nunca la sobrepasa?",
+    opcionA: { label: "Sí; espiguillas ovadas de 2,4-3,5 mm", keyStep: "B", especieId: "ed2_digitaria_phaeotrix" },
+    opcionA_prima: { label: "No; pelos largos que sobrepasan la espiguilla", keyStep: "B'", nextNodeId: "ed2_digitaria_wool" },
+  },
+  ed2_digitaria_wool: {
+    id: "ed2_digitaria_wool", milestone: "Digitaria perenne: pelos largos", manualPage: 131,
+    descripcion: "¿Las espiguillas son ovadas y poseen indumento plateado?",
+    opcionA: { label: "Sí; panoja con cuatro a ocho racimos", keyStep: "C", especieId: "ed2_digitaria_californica" },
+    opcionA_prima: { label: "No; lanceoladas con indumento amarillento", keyStep: "C'", nextNodeId: "ed2_digitaria_yellow_panicle" },
+  },
+  ed2_digitaria_yellow_panicle: {
+    id: "ed2_digitaria_yellow_panicle", milestone: "Digitaria: indumento amarillento", manualPage: 131,
+    descripcion: "¿La panoja posee veinte a cincuenta racimos y la planta supera 1 m?",
+    opcionA: { label: "Sí; hojas de 1,5-2 cm", keyStep: "D", especieId: "ed2_digitaria_insularis" },
+    opcionA_prima: { label: "No; cuatro a quince racimos y planta menor de 1 m", keyStep: "D'", especieId: "ed2_digitaria_sacchariflora" },
+  },
+  ed2_digitaria_annual_glume: {
+    id: "ed2_digitaria_annual_glume", milestone: "Digitaria anual: segunda gluma", manualPage: 131,
+    descripcion: "¿La segunda gluma es mucho más corta que la lemma estéril?",
+    opcionA: { label: "Sí", keyStep: "E", nextNodeId: "ed2_digitaria_short_glume" },
+    opcionA_prima: { label: "No; casi igual a la lemma estéril", keyStep: "E'", nextNodeId: "ed2_digitaria_equal_glume" },
+  },
+  ed2_digitaria_short_glume: {
+    id: "ed2_digitaria_short_glume", milestone: "Digitaria: gluma corta", manualPage: 131,
+    descripcion: "¿La gluma superior es glabra o apenas pubescente y alcanza la mitad del antecio?",
+    opcionA: { label: "Sí", keyStep: "F", especieId: "ed2_digitaria_sanguinalis" },
+    opcionA_prima: { label: "No; pubescente y alcanza tres cuartos del antecio", keyStep: "F'", especieId: "ed2_digitaria_ciliaris" },
+  },
+  ed2_digitaria_equal_glume: {
+    id: "ed2_digitaria_equal_glume", milestone: "Digitaria: gluma casi igual", manualPage: 131,
+    descripcion: "¿Las espiguillas miden 3-4 mm y la planta es recostada?",
+    opcionA: { label: "Sí; dos a ocho racimos", keyStep: "G", especieId: "ed2_digitaria_aequiglumis" },
+    opcionA_prima: { label: "No; menores de 3 mm y planta erguida", keyStep: "G'", especieId: "ed2_digitaria_cuyabensis" },
+  },
+  ed2_ichnanthus: {
+    id: "ed2_ichnanthus", milestone: "Ichnanthus", manualPage: 132,
+    descripcion: "Ichnanthus: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Ichnanthus pallens", keyStep: "1", especieId: "ed2_ichnanthus_pallens" },
+    opcionA_prima: { label: "Identificar como Ichnanthus pallens", keyStep: "1", especieId: "ed2_ichnanthus_pallens" },
+  },
+  ed2_eriochloa: {
+    id: "ed2_eriochloa", milestone: "Eriochloa", manualPage: 132,
+    descripcion: "¿El eje de la panoja y el raquis de los racimos son velludos?",
+    opcionA: { label: "Sí; diez a veinticinco racimos", keyStep: "A", especieId: "ed2_eriochloa_punctata" },
+    opcionA_prima: { label: "No; eje glabrescente y raquis casi glabro", keyStep: "A'", especieId: "ed2_eriochloa_montevidensis" },
+  },
+  ed2_oplismenopsis: {
+    id: "ed2_oplismenopsis", milestone: "Oplismenopsis", manualPage: 133,
+    descripcion: "Oplismenopsis: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Oplismenopsis najada", keyStep: "1", especieId: "ed2_oplismenopsis_najada" },
+    opcionA_prima: { label: "Identificar como Oplismenopsis najada", keyStep: "1", especieId: "ed2_oplismenopsis_najada" },
+  },
+  ed2_brachiaria: {
+    id: "ed2_brachiaria", milestone: "Brachiaria", manualPage: 133,
+    descripcion: "Brachiaria: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Brachiaria extensa", keyStep: "1", especieId: "ed2_brachiaria_extensa" },
+    opcionA_prima: { label: "Identificar como Brachiaria extensa", keyStep: "1", especieId: "ed2_brachiaria_extensa" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
