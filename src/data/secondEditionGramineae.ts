@@ -1637,18 +1637,62 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Espiguillas de 5,5-6 mm; arista de 10-15 mm; panoja terminal de 10-30 cm.",
     "Sur de Brasil, Uruguay y nordeste y centro argentino; estepa clímax y sierras.", "Sorghastrum pellitum"
   ),
+  ed2_elyonurus_muticus: species(
+    "ed2_elyonurus_muticus", "Elyonurus muticus", "Gramínea perenne de 50-70 cm, con hojas estrechas.",
+    "Espiguillas densamente velludas en pares; racimos espiciformes de 8-10 cm; gluma inferior bífida.",
+    "Brasil, Uruguay y nordeste argentino; sierras de Tandil y Balcarce.", "Espartillo, pasto amargo"
+  ),
+  ed2_schizachyrium_spicatum: species(
+    "ed2_schizachyrium_spicatum", "Schizachyrium spicatum", "Gramínea perenne ramificada de 15-50 cm.",
+    "Gluma inferior bífida; espiguilla fértil de 7-9 mm; racimos poco numerosos.",
+    "Sur de Brasil, Uruguay y norte y centro argentino; frecuente en la estepa prístina.", "Paja pampa"
+  ),
+  ed2_schizachyrium_microstachyum: species(
+    "ed2_schizachyrium_microstachyum", "Schizachyrium microstachyum", "Gramínea perenne robusta, cespitosa y rojiza, de 50-150 cm.",
+    "Gluma inferior generalmente entera; espiguilla pedicelada con arista más corta; panoja con muchos racimos.",
+    "América cálida; frecuente en campos húmedos.", "Paja colorada"
+  ),
+  ed2_schizachyrium_plumigerum: species(
+    "ed2_schizachyrium_plumigerum", "Schizachyrium plumigerum", "Gramínea perenne baja, cespitosa, verdosa o glauca, de 25-40 cm.",
+    "Gluma inferior generalmente entera; arista de la espiguilla pedicelada igual o doble de su longitud.",
+    "Sur de Brasil, Uruguay y nordeste argentino.", "Schizachyrium plumigerum"
+  ),
+  ed2_andropogon_ternatus: species(
+    "ed2_andropogon_ternatus", "Andropogon ternatus", "Gramínea perenne de 30-50 cm, con hojas amontonadas en la base.",
+    "Tres a cinco racimos espiciformes digitados de 4-5 cm; espiguillas en pares, una sésil fértil y otra pedicelada.",
+    "Sur de Brasil, Paraguay, Uruguay y nordeste argentino; sierras de Tandil y Balcarce.", "Andropogon ternatus"
+  ),
+  ed2_bothriochloa_hassleri: species(
+    "ed2_bothriochloa_hassleri", "Bothriochloa hassleri", "Gramínea perenne y cespitosa de 70-150 cm.",
+    "Espiguillas múticas de 3 mm; tallos glabros; numerosos racimos formando una panoja oblonga.",
+    "Paraguay y nordeste argentino; accidental en Buenos Aires.", "Bothriochloa hassleri"
+  ),
+  ed2_bothriochloa_edwardsiana: species(
+    "ed2_bothriochloa_edwardsiana", "Bothriochloa edwardsiana", "Gramínea perenne y cespitosa.",
+    "Espiguillas aristadas de 5-7 mm; panoja corimbiforme o flabeliforme, con eje corto y ramas más largas.",
+    "México; hallada en las barrancas del Paraná.", "Bothriochloa edwardsiana"
+  ),
+  ed2_bothriochloa_laguroides: species(
+    "ed2_bothriochloa_laguroides", "Bothriochloa laguroides", "Gramínea perenne grácil, menor de 80 cm.",
+    "Nudos glabros; espiguilla sésil de 3-3,3 mm no foveolada; panoja oblonga de 5-10 cm.",
+    "Sur de Brasil, Uruguay y norte argentino; muy frecuente en la llanura pampeana.", "Bothriochloa laguroides"
+  ),
+  ed2_bothriochloa_saccharoides: species(
+    "ed2_bothriochloa_saccharoides", "Bothriochloa saccharoides", "Gramínea perenne menor de 80 cm.",
+    "Nudos superiores pilosos; espiguillas de 3,5-4 mm no foveoladas; arista de 9-12 mm.",
+    "América templado-cálida; estepa clímax.", "Bothriochloa saccharoides"
+  ),
+  ed2_bothriochloa_barbinodis: species(
+    "ed2_bothriochloa_barbinodis", "Bothriochloa barbinodis", "Gramínea perenne robusta de hasta 150 cm.",
+    "Nudos pilosos; espiguilla de 4,5-6 mm con gluma inferior lisa; arista de 2-2,5 cm.",
+    "América cálida hasta el norte argentino; frecuente en suelos secos y buena forrajera.", "Bothriochloa barbinodis"
+  ),
+  ed2_bothriochloa_alta: species(
+    "ed2_bothriochloa_alta", "Bothriochloa alta", "Gramínea perenne robusta de 1-1,5 m.",
+    "Nudos barbados; espiguilla de 4,5-6 mm con gluma inferior foveolada; arista de 2-2,5 cm.",
+    "América cálida; accidental en Buenos Aires.", "Bothriochloa alta"
+  ),
 };
-
-function continuationNode(group: number, manualPage: number): CladoNode {
-  return {
-    id: `ed2_gramineae_group_${group}`,
-    milestone: `Gramineae: grupo ${group}`,
-    manualPage,
-    descripcion: `Grupo ${group}: continuar con la clave de géneros y especies.`,
-    opcionA: { label: `Continuar desarrollando el grupo ${group}`, keyStep: `Grupo ${group}`, especieId: "ed2_gramineae" },
-    opcionA_prima: { label: `Continuar desarrollando el grupo ${group}`, keyStep: `Grupo ${group}`, especieId: "ed2_gramineae" },
-  };
-}
 
 export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   ed2_family_gramineae: {
@@ -3693,14 +3737,133 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     opcionA: { label: "Sí; cañas de 1-2 m y panoja de 40-60 cm", keyStep: "A", especieId: "ed2_sorghastrum_agrostoides" },
     opcionA_prima: { label: "No; espiguillas de 5,5-6 mm y arista de 10-15 mm", keyStep: "A'", especieId: "ed2_sorghastrum_pellitum" },
   },
-  ed2_gramineae_group_9: continuationNode(9, 71),
+  ed2_elyonurus: {
+    id: "ed2_elyonurus", milestone: "Elyonurus", manualPage: 148,
+    descripcion: "Elyonurus: unica especie tratada para la region.",
+    opcionA: { label: "Identificar como Elyonurus muticus", keyStep: "1", especieId: "ed2_elyonurus_muticus" },
+    opcionA_prima: { label: "Identificar como Elyonurus muticus", keyStep: "1", especieId: "ed2_elyonurus_muticus" },
+  },
+  ed2_schizachyrium: {
+    id: "ed2_schizachyrium", milestone: "Schizachyrium", manualPage: 148,
+    descripcion: "¿La gluma inferior de la espiguilla sesil es bifida o entera en el apice?",
+    opcionA: { label: "Bifida en el apice", keyStep: "A", especieId: "ed2_schizachyrium_spicatum" },
+    opcionA_prima: { label: "Entera en el apice", keyStep: "A'", nextNodeId: "ed2_schizachyrium_entire" },
+  },
+  ed2_schizachyrium_entire: {
+    id: "ed2_schizachyrium_entire", milestone: "Schizachyrium: gluma entera", manualPage: 149,
+    descripcion: "¿Como se comparan la arista de la espiguilla pedicelada, el porte y el numero de racimos?",
+    opcionA: { label: "Arista mas corta que la espiguilla; planta robusta de 50-150 cm, con numerosos racimos", keyStep: "B", especieId: "ed2_schizachyrium_microstachyum" },
+    opcionA_prima: { label: "Arista igual o hasta dos veces mas larga; planta baja de 25-40 cm", keyStep: "B'", especieId: "ed2_schizachyrium_plumigerum" },
+  },
+  ed2_andropogon: {
+    id: "ed2_andropogon", milestone: "Andropogon", manualPage: 149,
+    descripcion: "Andropogon: unica especie tratada para la region.",
+    opcionA: { label: "Identificar como Andropogon ternatus", keyStep: "1", especieId: "ed2_andropogon_ternatus" },
+    opcionA_prima: { label: "Identificar como Andropogon ternatus", keyStep: "1", especieId: "ed2_andropogon_ternatus" },
+  },
+  ed2_bothriochloa: {
+    id: "ed2_bothriochloa", milestone: "Bothriochloa", manualPage: 149,
+    descripcion: "¿Las espiguillas son muticas o aristadas?",
+    opcionA: { label: "Muticas, de unos 3 mm", keyStep: "A", especieId: "ed2_bothriochloa_hassleri" },
+    opcionA_prima: { label: "Aristadas", keyStep: "A'", nextNodeId: "ed2_bothriochloa_panicle" },
+  },
+  ed2_bothriochloa_panicle: {
+    id: "ed2_bothriochloa_panicle", milestone: "Bothriochloa: panoja", manualPage: 149,
+    descripcion: "¿La panoja es corimbiforme o flabeliforme, o bien oblonga?",
+    opcionA: { label: "Corimbiforme o flabeliforme; eje principal de 1-3 cm y espiguilla fertil de 5-7 mm", keyStep: "B", especieId: "ed2_bothriochloa_edwardsiana" },
+    opcionA_prima: { label: "Oblonga; eje principal de 5-20 cm", keyStep: "B'", nextNodeId: "ed2_bothriochloa_nodes" },
+  },
+  ed2_bothriochloa_nodes: {
+    id: "ed2_bothriochloa_nodes", milestone: "Bothriochloa: nudos", manualPage: 149,
+    descripcion: "¿Los nudos de las cañas son glabros o los superiores son pilosos?",
+    opcionA: { label: "Glabros; espiguilla sesil de 3-3,3 mm, sin fosetas; planta menor de 80 cm", keyStep: "C", especieId: "ed2_bothriochloa_laguroides" },
+    opcionA_prima: { label: "Nudos superiores pilosos; espiguilla sesil mayor de 3,5 mm", keyStep: "C'", nextNodeId: "ed2_bothriochloa_large_spikelet" },
+  },
+  ed2_bothriochloa_large_spikelet: {
+    id: "ed2_bothriochloa_large_spikelet", milestone: "Bothriochloa: espiguilla grande", manualPage: 150,
+    descripcion: "¿La espiguilla sesil mide 3,5-4 mm o 4,5-6 mm?",
+    opcionA: { label: "3,5-4 mm, sin fosetas; arista de 9-12 mm y planta menor de 80 cm", keyStep: "D", especieId: "ed2_bothriochloa_saccharoides" },
+    opcionA_prima: { label: "4,5-6 mm; arista de 2-2,5 cm y planta robusta, a menudo mayor de 1 m", keyStep: "D'", nextNodeId: "ed2_bothriochloa_glume_surface" },
+  },
+  ed2_bothriochloa_glume_surface: {
+    id: "ed2_bothriochloa_glume_surface", milestone: "Bothriochloa: superficie de la gluma", manualPage: 150,
+    descripcion: "¿La gluma inferior es lisa o presenta fosetas?",
+    opcionA: { label: "Lisa, excepcionalmente con alguna foseta aislada", keyStep: "E", especieId: "ed2_bothriochloa_barbinodis" },
+    opcionA_prima: { label: "Con fosetas", keyStep: "E'", especieId: "ed2_bothriochloa_alta" },
+  },
+  ed2_gramineae_group_9: {
+    id: "ed2_gramineae_group_9", milestone: "Gramineae: grupo 9", manualPage: 71,
+    descripcion: "¿Las espiguillas estan incrustadas en excavaciones alternas del raquis?",
+    opcionA: { label: "Si; incrustadas en excavaciones alternas", keyStep: "A", nextNodeId: "ed2_group9_embedded_pedicel" },
+    opcionA_prima: { label: "No; en panojas o racimos espiciformes, sin estar incrustadas", keyStep: "A'", nextNodeId: "ed2_group9_lemma" },
+  },
+  ed2_group9_embedded_pedicel: {
+    id: "ed2_group9_embedded_pedicel", milestone: "Grupo 9: espiguillas incrustadas", manualPage: 71,
+    descripcion: "¿El pedicelo de la espiguilla pedicelada esta soldado al artejo del raquis?",
+    opcionA: { label: "Soldado; espigas comprimidas, tenaces o de desarticulacion tardia", keyStep: "B", nextNodeId: "ed2_hemarthria" },
+    opcionA_prima: { label: "No soldado; espigas casi cilindricas que se desarticulan facilmente", keyStep: "B'", nextNodeId: "ed2_coelorhachis" },
+  },
+  ed2_group9_lemma: {
+    id: "ed2_group9_lemma", milestone: "Grupo 9: lemma", manualPage: 71,
+    descripcion: "¿Las lemmas son muticas o generalmente aristadas?",
+    opcionA: { label: "Muticas", keyStep: "C", nextNodeId: "ed2_group9_unawned_inflorescence" },
+    opcionA_prima: { label: "Generalmente aristadas", keyStep: "C'", nextNodeId: "ed2_group9_awn" },
+  },
+  ed2_group9_unawned_inflorescence: {
+    id: "ed2_group9_unawned_inflorescence", milestone: "Grupo 9: lemmas muticas", manualPage: 71,
+    descripcion: "¿Las espiguillas forman espigas glabras, unilaterales y digitadas?",
+    opcionA: { label: "Si; espigas glabras, unilaterales y digitadas en el apice de la caña", keyStep: "D", nextNodeId: "ed2_ischaemum" },
+    opcionA_prima: { label: "No; espigas o panojas velludas, no digitadas", keyStep: "D'", nextNodeId: "ed2_group9_unawned_density" },
+  },
+  ed2_group9_unawned_density: {
+    id: "ed2_group9_unawned_density", milestone: "Grupo 9: inflorescencia velluda", manualPage: 71,
+    descripcion: "¿Las espiguillas estan en panojas densas o en espigas de raquis fragil?",
+    opcionA: { label: "En panojas densas", keyStep: "E", nextNodeId: "ed2_imperata" },
+    opcionA_prima: { label: "En espigas con raquis articulado muy fragil", keyStep: "E'", nextNodeId: "ed2_elyonurus" },
+  },
+  ed2_group9_awn: {
+    id: "ed2_group9_awn", milestone: "Grupo 9: arista", manualPage: 71,
+    descripcion: "¿La arista es geniculada y plumosa?",
+    opcionA: { label: "Si; geniculada y plumosa", keyStep: "F", nextNodeId: "ed2_trachypogon" },
+    opcionA_prima: { label: "No plumosa", keyStep: "F'", nextNodeId: "ed2_group9_spikelet_pair" },
+  },
+  ed2_group9_spikelet_pair: {
+    id: "ed2_group9_spikelet_pair", milestone: "Grupo 9: par de espiguillas", manualPage: 71,
+    descripcion: "¿Las espiguillas sesil y pedicelada son iguales y ambas hermafroditas?",
+    opcionA: { label: "Si; iguales y ambas hermafroditas", keyStep: "G", nextNodeId: "ed2_erianthus" },
+    opcionA_prima: { label: "No; diferentes, con la pedicelada masculina, atrofiada o ausente", keyStep: "G'", nextNodeId: "ed2_group9_inflorescence_size" },
+  },
+  ed2_group9_inflorescence_size: {
+    id: "ed2_group9_inflorescence_size", milestone: "Grupo 9: tipo de inflorescencia", manualPage: 71,
+    descripcion: "¿Las espiguillas forman panojas de mas de 10 cm o racimos espiciformes y panojas menores?",
+    opcionA: { label: "Panojas piramidales u ovoides de mas de 10 cm, con base de las ramas desnuda", keyStep: "H", nextNodeId: "ed2_group9_large_panicle" },
+    opcionA_prima: { label: "Racimos espiciformes digitados, fasciculados o solitarios, o panojas menores de 10 cm", keyStep: "H'", nextNodeId: "ed2_group9_raceme_arrangement" },
+  },
+  ed2_group9_large_panicle: {
+    id: "ed2_group9_large_panicle", milestone: "Grupo 9: panoja grande", manualPage: 71,
+    descripcion: "¿La espiguilla pedicelada esta presente y las lodiculas son pestañosas?",
+    opcionA: { label: "Presente, masculina o neutra; lodiculas pestañosas", keyStep: "I", nextNodeId: "ed2_sorghum" },
+    opcionA_prima: { label: "Ausente, representada por el pedicelo; lodiculas glabras", keyStep: "I'", nextNodeId: "ed2_sorghastrum" },
+  },
+  ed2_group9_raceme_arrangement: {
+    id: "ed2_group9_raceme_arrangement", milestone: "Grupo 9: racimos espiciformes", manualPage: 71,
+    descripcion: "¿Los racimos son solitarios en axilas de hojas reducidas o hay dos o mas?",
+    opcionA: { label: "Solitarios en axilas de espatas florales, a menudo reunidos en falsa panoja", keyStep: "J", nextNodeId: "ed2_schizachyrium" },
+    opcionA_prima: { label: "Dos o mas, digitados o formando panojas densas", keyStep: "J'", nextNodeId: "ed2_group9_fertile_lemma" },
+  },
+  ed2_group9_fertile_lemma: {
+    id: "ed2_group9_fertile_lemma", milestone: "Grupo 9: lemma fertil", manualPage: 71,
+    descripcion: "¿La lemma fertil es hialina y bidentada, o aristiforme desde la base?",
+    opcionA: { label: "Hialina y bidentada; arista fuerte entre los dientes, sin banda hialina en pedicelo y raquis", keyStep: "K", nextNodeId: "ed2_andropogon" },
+    opcionA_prima: { label: "Aristiforme desde la base; pedicelos y raquis con banda media longitudinal hialina", keyStep: "K'", nextNodeId: "ed2_bothriochloa" },
+  },
   ed2_gramineae_group_10: {
     id: "ed2_gramineae_group_10",
     milestone: "Gramineae: grupo 10",
     manualPage: 72,
     descripcion: "¿Las espiguillas carecen de glumas?",
     opcionA: { label: "Sin glumas; flores envueltas sólo por lemma y pálea", keyStep: "A", nextNodeId: "ed2_oryzeae_dorsiventral" },
-    opcionA_prima: { label: "Con dos o tres estructuras semejantes a glumas", keyStep: "A'", nextNodeId: "ed2_gramineae_group_10_pending" },
+    opcionA_prima: { label: "Con dos o tres estructuras semejantes a glumas", keyStep: "A'", nextNodeId: "ed2_group10_embedded" },
   },
   ed2_oryzeae_dorsiventral: {
     id: "ed2_oryzeae_dorsiventral",
@@ -3710,10 +3873,82 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     opcionA: { label: "Lemma mútica; flores masculinas y femeninas en inflorescencias separadas", keyStep: "B", especieId: "ed2_luziola_peruviana" },
     opcionA_prima: { label: "Lemma aristada; flores masculinas y femeninas en la misma inflorescencia", keyStep: "B'", especieId: "ed2_zizaniopsis_bonariensis" },
   },
-  ed2_gramineae_group_10_pending: {
-    id: "ed2_gramineae_group_10_pending", milestone: "Gramineae: grupo 10, con glumas", manualPage: 72,
-    descripcion: "Continuar con los géneros provistos de glumas del grupo 10.",
-    opcionA: { label: "Continuar desarrollando el grupo 10", keyStep: "A'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 10", keyStep: "A'", especieId: "ed2_gramineae" },
+  ed2_group10_embedded: {
+    id: "ed2_group10_embedded", milestone: "Grupo 10: disposicion", manualPage: 72,
+    descripcion: "¿Las espiguillas estan incrustadas en excavaciones de un raquis engrosado?",
+    opcionA: { label: "Si; sobre un solo lado del raquis engrosado", keyStep: "C", nextNodeId: "ed2_stenotaphrum" },
+    opcionA_prima: { label: "No; en panojas o espigas de raquis delgado", keyStep: "C'", nextNodeId: "ed2_group10_spikelet_base" },
+  },
+  ed2_group10_spikelet_base: {
+    id: "ed2_group10_spikelet_base", milestone: "Grupo 10: base de la espiguilla", manualPage: 72,
+    descripcion: "¿La espiguilla presenta una dilatacion claviforme en la base?",
+    opcionA: { label: "Si; con dilatacion claviforme", keyStep: "D", nextNodeId: "ed2_eriochloa" },
+    opcionA_prima: { label: "No; sin dilatacion claviforme", keyStep: "D'", nextNodeId: "ed2_group10_inflorescence" },
+  },
+  ed2_group10_inflorescence: {
+    id: "ed2_group10_inflorescence", milestone: "Grupo 10: inflorescencia", manualPage: 72,
+    descripcion: "¿Las espiguillas estan en panojas o en racimos y espigas unilaterales?",
+    opcionA: { label: "En panojas laxas o contraidas", keyStep: "E", nextNodeId: "ed2_group10_panicle_glumes" },
+    opcionA_prima: { label: "En racimos o espigas unilaterales regulares, digitados o apanojados", keyStep: "E'", nextNodeId: "ed2_group10_raceme_glumes" },
+  },
+  ed2_group10_panicle_glumes: {
+    id: "ed2_group10_panicle_glumes", milestone: "Grupo 10: panojas", manualPage: 72,
+    descripcion: "¿Las espiguillas aparentan tener dos glumas y son densamente velludas?",
+    opcionA: { label: "Si; gluma superior y lemma esteril, densamente velludas", keyStep: "F", nextNodeId: "ed2_leptocoryphium" },
+    opcionA_prima: { label: "No; aparentan tres glumas", keyStep: "F'", nextNodeId: "ed2_group10_fertile_lemma_base" },
+  },
+  ed2_group10_fertile_lemma_base: {
+    id: "ed2_group10_fertile_lemma_base", milestone: "Grupo 10: base de la lemma fertil", manualPage: 72,
+    descripcion: "¿La lemma de la flor hermafrodita tiene dos excavaciones en la base?",
+    opcionA: { label: "Si; con dos excavaciones basales", keyStep: "G", nextNodeId: "ed2_ichnanthus" },
+    opcionA_prima: { label: "No; sin excavaciones basales", keyStep: "G'", nextNodeId: "ed2_group10_panicle_shape" },
+  },
+  ed2_group10_panicle_shape: {
+    id: "ed2_group10_panicle_shape", milestone: "Grupo 10: forma de la panoja", manualPage: 72,
+    descripcion: "¿La inflorescencia es una panoja espiciforme?",
+    opcionA: { label: "Si; panoja espiciforme", keyStep: "H", nextNodeId: "ed2_hymenachne" },
+    opcionA_prima: { label: "No; panoja laxa o densa, pero no espiciforme", keyStep: "H'", nextNodeId: "ed2_panicum" },
+  },
+  ed2_group10_raceme_glumes: {
+    id: "ed2_group10_raceme_glumes", milestone: "Grupo 10: glumas en racimos", manualPage: 72,
+    descripcion: "¿Las espiguillas tienen dos o tres glumas aparentes?",
+    opcionA: { label: "Dos glumas", keyStep: "J", nextNodeId: "ed2_group10_two_glumes_orientation" },
+    opcionA_prima: { label: "Tres glumas: dos glumas y una lemma esteril", keyStep: "J'", nextNodeId: "ed2_group10_awns" },
+  },
+  ed2_group10_two_glumes_orientation: {
+    id: "ed2_group10_two_glumes_orientation", milestone: "Grupo 10: orientacion de la lemma", manualPage: 72,
+    descripcion: "¿El dorso de la lemma fertil esta orientado hacia el raquis o hacia afuera?",
+    opcionA: { label: "Hacia el raquis", keyStep: "K", nextNodeId: "ed2_paspalum" },
+    opcionA_prima: { label: "Hacia afuera", keyStep: "K'", nextNodeId: "ed2_axonopus" },
+  },
+  ed2_group10_awns: {
+    id: "ed2_group10_awns", milestone: "Grupo 10: aristas", manualPage: 72,
+    descripcion: "¿Todas las glumas carecen de aristas?",
+    opcionA: { label: "Si; todas desprovistas de aristas", keyStep: "L", nextNodeId: "ed2_group10_lower_glume_orientation" },
+    opcionA_prima: { label: "No; todas o algunas aristadas", keyStep: "L'", nextNodeId: "ed2_group10_leaf_shape" },
+  },
+  ed2_group10_lower_glume_orientation: {
+    id: "ed2_group10_lower_glume_orientation", milestone: "Grupo 10: gluma inferior", manualPage: 72,
+    descripcion: "¿La gluma inferior esta orientada hacia el raquis o hacia afuera?",
+    opcionA: { label: "Hacia el raquis", keyStep: "M", nextNodeId: "ed2_brachiaria" },
+    opcionA_prima: { label: "Hacia afuera", keyStep: "M'", nextNodeId: "ed2_group10_fertile_lemma_margin" },
+  },
+  ed2_group10_fertile_lemma_margin: {
+    id: "ed2_group10_fertile_lemma_margin", milestone: "Grupo 10: margen de la lemma", manualPage: 72,
+    descripcion: "¿La lemma de la flor superior es coriacea y de margen estrecho y enrollado?",
+    opcionA: { label: "Coriacea; margen estrecho y enrollado que apenas cubre la palea", keyStep: "N", nextNodeId: "ed2_paspalidium" },
+    opcionA_prima: { label: "Cartilaginosa delgada; bordes planos que cubren ampliamente la palea", keyStep: "N'", nextNodeId: "ed2_digitaria" },
+  },
+  ed2_group10_leaf_shape: {
+    id: "ed2_group10_leaf_shape", milestone: "Grupo 10: hojas", manualPage: 72,
+    descripcion: "¿Las hojas son lineares, largas y estrechas o lanceoladas, cortas y anchas?",
+    opcionA: { label: "Lineares, largas y estrechas", keyStep: "Ñ", nextNodeId: "ed2_echinochloa" },
+    opcionA_prima: { label: "Lanceoladas, cortas y anchas", keyStep: "Ñ'", nextNodeId: "ed2_group10_lanceolate_orientation" },
+  },
+  ed2_group10_lanceolate_orientation: {
+    id: "ed2_group10_lanceolate_orientation", milestone: "Grupo 10: hojas lanceoladas", manualPage: 72,
+    descripcion: "¿La gluma inferior esta orientada hacia el raquis o hacia afuera?",
+    opcionA: { label: "Hacia el raquis", keyStep: "O", nextNodeId: "ed2_oplismenopsis" },
+    opcionA_prima: { label: "Hacia afuera", keyStep: "O'", nextNodeId: "ed2_oplismenus" },
   },
 };
