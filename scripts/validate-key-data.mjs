@@ -396,7 +396,6 @@ const files = [
     treeExport: "export const secondEditionLiliaceaeKeyData",
     dataExport: "export const secondEditionLiliaceaeSpecies",
     dataPattern: /^  ([a-zA-Z0-9_]+): species\(/gm,
-    externalSpecies: ["ed2_liliaceae"],
     externalNodes: [],
     speciesKey: true,
     order: "data-first",
