@@ -1112,6 +1112,71 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Siete a catorce seudoespigas fasciculadas; espiguillas con dos antecios fértiles y dos o tres estériles; lemmas con tres aristas.",
     "América cálida; frecuente en regiones secas argentinas y accidental en Capital Federal.", "Trichloris pluriflora"
   ),
+  ed2_bouteloua_megapotamica: species(
+    "ed2_bouteloua_megapotamica", "Bouteloua megapotamica", "Gramínea perenne y estolonífera de 15-20 cm.",
+    "Tres a seis espigas rojizas, cortas y caducas en conjunto; espiguillas largamente aristadas; lemmas con tres aristas.",
+    "Sur de Brasil, Uruguay y norte y centro argentino; estepa clímax.", "Bouteloua megapotamica"
+  ),
+  ed2_tripogon_spicatus: species(
+    "ed2_tripogon_spicatus", "Tripogon spicatus", "Gramínea perenne y cespitosa de 10-20 cm.",
+    "Espiga linear solitaria de 4-6 cm; espiguillas de cinco a doce flores; lemma bilobada con arista corta.",
+    "América cálida; sierras de Tandil y Curamalal.", "Tripogon spicatus"
+  ),
+  ed2_gymnopogon_grandiflorus: species(
+    "ed2_gymnopogon_grandiflorus", "Gymnopogon grandiflorus", "Gramínea perenne de 20-40 cm, con rizoma corto y grueso.",
+    "Panoja laxa de 10-17 cm formada por racimos espiciformes; espiguillas generalmente bifloras con lemmas aristadas.",
+    "Sur de Brasil, Uruguay y norte y centro argentino; rara en las sierras de Balcarce.", "Gymnopogon grandiflorus"
+  ),
+  ed2_eleusine_indica: species(
+    "ed2_eleusine_indica", "Eleusine indica", "Gramínea anual de tallos ascendentes y radicantes, de 30-50 cm.",
+    "Cinco a doce espigas de 5-7 cm; espiguillas ovadas de seis a diez flores; glumas y lemmas glabras.",
+    "Originaria de Asia; adventicia en regiones cálidas, en suelos modificados y de valor forrajero.", "Eleusine indica"
+  ),
+  ed2_eleusine_tristachya: species(
+    "ed2_eleusine_tristachya", "Eleusine tristachya", "Gramínea perenne de 10-30 cm.",
+    "Dos a cuatro espigas gruesas de 1-4 cm; espiguillas ovado-lanceoladas de 6-9 mm con cinco a diez flores.",
+    "América tropical; frecuente en la estepa clímax.", "Eleusine tristachya"
+  ),
+  ed2_leptochloa_chloridiformis: species(
+    "ed2_leptochloa_chloridiformis", "Leptochloa chloridiformis", "Gramínea perenne y cespitosa de 60-150 cm.",
+    "Cinco a quince espigas fasciculadas en el ápice; espiguillas de tres a cuatro flores; lemmas bilobadas y cortamente aristadas.",
+    "Norte argentino y Paraguay; hallada en Campana, Otamendi y Lobería.", "Leptochloa chloridiformis"
+  ),
+  ed2_leptochloa_virgata: species(
+    "ed2_leptochloa_virgata", "Leptochloa virgata", "Gramínea perenne y cespitosa de 50-100 cm.",
+    "Numerosas espigas delgadas a lo largo del eje; espiguillas rojizo-violáceas de tres a seis flores; lemmas largamente aristadas.",
+    "América cálida; accidental en Capital Federal.", "Leptochloa virgata"
+  ),
+  ed2_diplachne_dubia: species(
+    "ed2_diplachne_dubia", "Diplachne dubia", "Gramínea perenne y cespitosa de hasta 80 cm.",
+    "Lemma bilobada, con nervadura central en diente corto; racimos casi perpendiculares o descendentes; espiguillas de ocho a diecisiete flores.",
+    "América cálida; accidental en Palermo.", "Diplachne dubia"
+  ),
+  ed2_diplachne_fusca: species(
+    "ed2_diplachne_fusca", "Diplachne fusca", "Gramínea perenne de hasta 80 cm, con hojas planas.",
+    "Lemma tridentada, obtusa y no aristada; anteras de 1-1,4 mm; panoja con quince a veinte racimos.",
+    "Norte de África; accidental en Dock Sud.", "Diplachne fusca"
+  ),
+  ed2_diplachne_fascicularis: species(
+    "ed2_diplachne_fascicularis", "Diplachne fascicularis", "Gramínea anual de 70-80 cm.",
+    "Lemma tridentada y acuminada, con arista central de 1 mm; anteras cortas; panoja con veinte a treinta racimos.",
+    "América cálida; accidental en Dock Sud.", "Diplachne fascicularis"
+  ),
+  ed2_diplachne_uninervia: species(
+    "ed2_diplachne_uninervia", "Diplachne uninervia", "Gramínea anual y erecta de 30-90 cm.",
+    "Lemma tridentada, obtusa o truncada; diente central a veces aristulado; panoja con unos quince racimos abiertos.",
+    "América cálida; común en suelos salobres o húmedos.", "Diplachne uninervia"
+  ),
+  ed2_distichlis_spicata: species(
+    "ed2_distichlis_spicata", "Distichlis spicata", "Gramínea perenne, rizomatosa y dioica de 10-25 cm.",
+    "Panoja muy densa; lámina plana o convoluta sólo en el ápice; espiguillas de 6-10 mm con siete a veinte flores.",
+    "América; común y a veces maleza en suelos salobres.", "Pasto salado"
+  ),
+  ed2_distichlis_scoparia: species(
+    "ed2_distichlis_scoparia", "Distichlis scoparia", "Gramínea perenne, rizomatosa y dioica de 10-15 cm.",
+    "Panoja laxa; lámina rígida, puntiaguda y convoluta; espiguillas de 8-10 mm con cinco a nueve flores.",
+    "América austral; campos húmedos y salobres, a veces invasora.", "Pasto salado"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -1258,9 +1323,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_bouteloua_pending: {
     id: "ed2_bouteloua_pending", milestone: "Bouteloua", manualPage: 123,
-    descripcion: "Continuar con la especie de Bouteloua tratada por el manual.",
-    opcionA: { label: "Continuar desarrollando Bouteloua", keyStep: "D'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando Bouteloua", keyStep: "D'", especieId: "ed2_gramineae" },
+    descripcion: "Bouteloua: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Bouteloua megapotamica", keyStep: "1", especieId: "ed2_bouteloua_megapotamica" },
+    opcionA_prima: { label: "Identificar como Bouteloua megapotamica", keyStep: "1", especieId: "ed2_bouteloua_megapotamica" },
   },
   ed2_gramineae_group_4_florets: {
     id: "ed2_gramineae_group_4_florets", milestone: "Gramineae: grupo 4, espiguillas pediceladas", manualPage: 66,
@@ -1593,9 +1658,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gymnopogon_pending: {
     id: "ed2_gymnopogon_pending", milestone: "Gymnopogon", manualPage: 112,
-    descripcion: "Continuar con la clave específica de Gymnopogon.",
-    opcionA: { label: "Continuar desarrollando Gymnopogon", keyStep: "L", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando Gymnopogon", keyStep: "L", especieId: "ed2_gramineae" },
+    descripcion: "Gymnopogon: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Gymnopogon grandiflorus", keyStep: "1", especieId: "ed2_gymnopogon_grandiflorus" },
+    opcionA_prima: { label: "Identificar como Gymnopogon grandiflorus", keyStep: "1", especieId: "ed2_gymnopogon_grandiflorus" },
   },
   ed2_gramineae_group_7_uniflorous_mutic: {
     id: "ed2_gramineae_group_7_uniflorous_mutic", milestone: "Gramineae: grupo 7, unifloras múticas", manualPage: 68,
@@ -1767,9 +1832,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_fascicled_pending: {
     id: "ed2_gramineae_group_7_fascicled_pending", milestone: "Gramineae: grupo 7, espigas fasciculadas", manualPage: 69,
-    descripcion: "Continuar con los géneros de espigas fasciculadas y lemmas múticas.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "W", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "W", especieId: "ed2_gramineae" },
+    descripcion: "¿La lemma es aguda o mútica, o bien bilobada o tridentada?",
+    opcionA: { label: "Aguda o mútica", keyStep: "X", nextNodeId: "ed2_eleusine" },
+    opcionA_prima: { label: "Bilobada o tridentada", keyStep: "X'", nextNodeId: "ed2_leptochloa" },
   },
   ed2_gramineae_group_7_mutic_size: {
     id: "ed2_gramineae_group_7_mutic_size", milestone: "Gramineae: grupo 7, tamaño de la espiguilla", manualPage: 69,
@@ -1899,9 +1964,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_tripogon_pending: {
     id: "ed2_gramineae_group_7_tripogon_pending", milestone: "Tripogon", manualPage: 129,
-    descripcion: "Continuar con la clave específica de Tripogon.",
-    opcionA: { label: "Continuar desarrollando Tripogon", keyStep: "c", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando Tripogon", keyStep: "c", especieId: "ed2_gramineae" },
+    descripcion: "Tripogon: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Tripogon spicatus", keyStep: "1", especieId: "ed2_tripogon_spicatus" },
+    opcionA_prima: { label: "Identificar como Tripogon spicatus", keyStep: "1", especieId: "ed2_tripogon_spicatus" },
   },
   ed2_gramineae_group_7_many_nerves: {
     id: "ed2_gramineae_group_7_many_nerves", milestone: "Gramineae: grupo 7, cinco o más nervaduras", manualPage: 69,
@@ -1911,9 +1976,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_over_five_pending: {
     id: "ed2_gramineae_group_7_over_five_pending", milestone: "Gramineae: grupo 7, más de cinco nervaduras", manualPage: 69,
-    descripcion: "Continuar con los géneros de lemmas con más de cinco nervaduras.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "d'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "d'", especieId: "ed2_gramineae" },
+    descripcion: "¿Las plantas son dioicas y habitan suelos salados?",
+    opcionA: { label: "Sí; plantas dioicas de suelos salados", keyStep: "h", nextNodeId: "ed2_distichlis" },
+    opcionA_prima: { label: "No; flores hermafroditas", keyStep: "h'", nextNodeId: "ed2_melica" },
   },
   ed2_gramineae_group_7_five_nerves: {
     id: "ed2_gramineae_group_7_five_nerves", milestone: "Gramineae: grupo 7, cinco nervaduras", manualPage: 69,
@@ -1965,9 +2030,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_dorsal_spikes_pending: {
     id: "ed2_gramineae_group_7_dorsal_spikes_pending", milestone: "Gramineae: grupo 7, espigas", manualPage: 70,
-    descripcion: "Continuar con los géneros de espigas y arista recta.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "s'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "s'", especieId: "ed2_gramineae" },
+    descripcion: "¿Las espiguillas poseen tres a cuatro flores o una a dos?",
+    opcionA: { label: "Tres a cuatro flores", keyStep: "t", nextNodeId: "ed2_leptochloa" },
+    opcionA_prima: { label: "Una a dos flores", keyStep: "t'", nextNodeId: "ed2_gymnopogon_pending" },
   },
   ed2_gramineae_group_7_dorsal_geniculate: {
     id: "ed2_gramineae_group_7_dorsal_geniculate", milestone: "Gramineae: grupo 7, arista geniculada", manualPage: 70,
@@ -2031,9 +2096,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_diplachne_pending: {
     id: "ed2_gramineae_group_7_diplachne_pending", milestone: "Gramineae: grupo 7, espiguillas subsésiles", manualPage: 70,
-    descripcion: "Continuar con el género de espiguillas casi sésiles.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "p", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "p", especieId: "ed2_gramineae" },
+    descripcion: "Continuar con la clave específica de Diplachne.",
+    opcionA: { label: "Espiguillas casi sésiles y lemmas dentadas", keyStep: "p", nextNodeId: "ed2_diplachne" },
+    opcionA_prima: { label: "Espiguillas casi sésiles y lemmas dentadas", keyStep: "p", nextNodeId: "ed2_diplachne" },
   },
   ed2_gramineae_group_7_annuality: {
     id: "ed2_gramineae_group_7_annuality", milestone: "Gramineae: grupo 7, hábito", manualPage: 70,
@@ -2646,6 +2711,42 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "Trichloris: única especie tratada para la región.",
     opcionA: { label: "Identificar como Trichloris pluriflora", keyStep: "1", especieId: "ed2_trichloris_pluriflora" },
     opcionA_prima: { label: "Identificar como Trichloris pluriflora", keyStep: "1", especieId: "ed2_trichloris_pluriflora" },
+  },
+  ed2_eleusine: {
+    id: "ed2_eleusine", milestone: "Eleusine", manualPage: 124,
+    descripcion: "¿La planta posee cinco a doce espigas delgadas o dos a cuatro espigas gruesas?",
+    opcionA: { label: "Cinco a doce espigas de 5-7 cm", keyStep: "A", especieId: "ed2_eleusine_indica" },
+    opcionA_prima: { label: "Dos a cuatro espigas gruesas de 1-4 cm", keyStep: "A'", especieId: "ed2_eleusine_tristachya" },
+  },
+  ed2_leptochloa: {
+    id: "ed2_leptochloa", milestone: "Leptochloa", manualPage: 124,
+    descripcion: "¿Las espigas están fasciculadas en el ápice o distribuidas a lo largo del raquis?",
+    opcionA: { label: "Cinco a quince, fasciculadas en el ápice", keyStep: "A", especieId: "ed2_leptochloa_chloridiformis" },
+    opcionA_prima: { label: "Numerosas y distribuidas a lo largo del raquis", keyStep: "A'", especieId: "ed2_leptochloa_virgata" },
+  },
+  ed2_diplachne: {
+    id: "ed2_diplachne", milestone: "Diplachne", manualPage: 126,
+    descripcion: "¿La lemma es bilobada y la planta es perenne?",
+    opcionA: { label: "Sí; nervadura central terminada en un diente corto", keyStep: "A", especieId: "ed2_diplachne_dubia" },
+    opcionA_prima: { label: "No; lemma tridentada y planta anual", keyStep: "A'", nextNodeId: "ed2_diplachne_anthers" },
+  },
+  ed2_diplachne_anthers: {
+    id: "ed2_diplachne_anthers", milestone: "Diplachne: anteras", manualPage: 126,
+    descripcion: "¿Las anteras miden 1-1,4 mm y la lemma es obtusa y no aristada?",
+    opcionA: { label: "Sí", keyStep: "B", especieId: "ed2_diplachne_fusca" },
+    opcionA_prima: { label: "No; anteras de 0,4-0,7 mm y lemma generalmente aristada", keyStep: "B'", nextNodeId: "ed2_diplachne_lemma_apex" },
+  },
+  ed2_diplachne_lemma_apex: {
+    id: "ed2_diplachne_lemma_apex", milestone: "Diplachne: ápice de la lemma", manualPage: 126,
+    descripcion: "¿La lemma es acuminada y posee dos dientes agudos con una arista central?",
+    opcionA: { label: "Sí; panoja con veinte a treinta racimos", keyStep: "C", especieId: "ed2_diplachne_fascicularis" },
+    opcionA_prima: { label: "No; obtusa o truncada, con tres dientes cortos", keyStep: "C'", especieId: "ed2_diplachne_uninervia" },
+  },
+  ed2_distichlis: {
+    id: "ed2_distichlis", milestone: "Distichlis", manualPage: 127,
+    descripcion: "¿La panoja es muy densa o laxa?",
+    opcionA: { label: "Muy densa; lámina plana o convoluta sólo en el ápice", keyStep: "A", especieId: "ed2_distichlis_spicata" },
+    opcionA_prima: { label: "Laxa; lámina rígida, puntiaguda y convoluta", keyStep: "A'", especieId: "ed2_distichlis_scoparia" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
