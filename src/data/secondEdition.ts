@@ -163,6 +163,10 @@ import {
   secondEditionChenopodiaceaeKeyData,
   secondEditionChenopodiaceaeSpecies,
 } from "./secondEditionChenopodiaceae";
+import {
+  secondEditionAmaranthaceaeKeyData,
+  secondEditionAmaranthaceaeSpecies,
+} from "./secondEditionAmaranthaceae";
 
 function mergeUniqueRecords<T>(label: string, records: Array<Record<string, T>>) {
   const merged: Record<string, T> = {};
@@ -219,6 +223,7 @@ export const secondEditionSpeciesData: Record<string, Especie> = mergeUniqueReco
     secondEditionSantalaceaeLoranthaceaeAristolochiaceaeSpecies,
     secondEditionPolygonaceaeSpecies,
     secondEditionChenopodiaceaeSpecies,
+    secondEditionAmaranthaceaeSpecies,
   ]
 );
 
@@ -266,6 +271,7 @@ export const secondEditionTree: Record<string, CladoNode> = mergeUniqueRecords(
     secondEditionSantalaceaeLoranthaceaeAristolochiaceaeKeyData,
     secondEditionPolygonaceaeKeyData,
     secondEditionChenopodiaceaeKeyData,
+    secondEditionAmaranthaceaeKeyData,
   ]
 );
 
