@@ -162,8 +162,6 @@ export const secondEditionDicotGroupC2KeyData: Record<string, CladoNode> = {
   ...Object.fromEntries(
     Object.entries(secondEditionDicotGroupC2BranchSpecs).map(([id, spec]) => [id, buildNode(id, spec)])
   ),
-  ed2_family_berberidaceae: terminal("ed2_family_berberidaceae", "ed2_berberidaceae", 282),
-  ed2_family_lauraceae: terminal("ed2_family_lauraceae", "ed2_lauraceae", 284),
   ed2_family_zygophyllaceae: terminal("ed2_family_zygophyllaceae", "ed2_zygophyllaceae", 365),
   ed2_family_anacardiaceae: terminal("ed2_family_anacardiaceae", "ed2_anacardiaceae", 390),
   ed2_family_celastraceae: terminal("ed2_family_celastraceae", "ed2_celastraceae", 391),
