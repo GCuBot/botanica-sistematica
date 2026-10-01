@@ -27,12 +27,15 @@ import { supabase } from "@/lib/supabase";
 import { usePersistentState } from "@/hooks/usePersistentState";
 import { Especie, PhotoRecord, PlantFormData } from "@/types";
 import { especiesData } from "@/data/clados";
+import { SECOND_EDITION_ROOT_NODE_ID } from "@/data/secondEdition";
 
 type PageState = "quiz" | "form" | "edit" | "complete";
 type WorkspaceTab = "identifier" | "records" | "first-exam";
+type ManualEdition = "first" | "second";
 
 const ALLOWED_DOMAIN = "@agro.uba.ar";
 const WORKSPACE_TABS: readonly WorkspaceTab[] = ["identifier", "records", "first-exam"];
+const MANUAL_EDITIONS: readonly ManualEdition[] = ["first", "second"];
 
 export default function Home() {
   const [pageState, setPageState] = useState<PageState>("quiz");
@@ -40,6 +43,11 @@ export default function Home() {
     "botanica:last-workspace-tab",
     "identifier",
     WORKSPACE_TABS
+  );
+  const [manualEdition, setManualEdition] = usePersistentState<ManualEdition>(
+    "botanica:manual-edition",
+    "first",
+    MANUAL_EDITIONS
   );
   const [selectedEspecie, setSelectedEspecie] = useState<Especie | null>(null);
   const [session, setSession] = useState<Session | null>(null);
@@ -311,7 +319,32 @@ export default function Home() {
                 {pageState === "quiz" && (
                   <div className="flex justify-center">
                     <div className="w-full max-w-2xl">
-                      <Quiz onComplete={handleQuizComplete} />
+                      <div className="mb-4 grid grid-cols-2 rounded-md border border-gray-300 bg-white p-1" aria-label="Edicion del manual">
+                        <button
+                          type="button"
+                          onClick={() => setManualEdition("first")}
+                          className={`rounded px-3 py-2 text-sm font-semibold ${manualEdition === "first" ? "bg-green-700 text-white" : "text-gray-700 hover:bg-gray-100"}`}
+                        >
+                          1.ª edicion
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setManualEdition("second")}
+                          className={`rounded px-3 py-2 text-sm font-semibold ${manualEdition === "second" ? "bg-green-700 text-white" : "text-gray-700 hover:bg-gray-100"}`}
+                        >
+                          2.ª edicion
+                        </button>
+                      </div>
+                      {manualEdition === "second" && (
+                        <p className="mb-4 rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-950" role="status">
+                          En construccion: disponible hasta Cruciferae (especie 793).
+                        </p>
+                      )}
+                      <Quiz
+                        key={manualEdition}
+                        rootNodeId={manualEdition === "second" ? SECOND_EDITION_ROOT_NODE_ID : "root"}
+                        onComplete={handleQuizComplete}
+                      />
                     </div>
                   </div>
                 )}

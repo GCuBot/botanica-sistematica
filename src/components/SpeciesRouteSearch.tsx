@@ -6,6 +6,7 @@ import SpeciesReferenceLinks from "@/components/SpeciesReferenceLinks";
 import { getTaxonomicAliasForPdfName } from "@/data/taxonomicAliases";
 import { GbifTaxonomicResult, lookupGbifSynonyms } from "@/lib/gbifTaxonomy";
 import {
+  buildSpeciesRoutes,
   findSpeciesRoutesByScientificNames,
   searchSpeciesRoutes,
   SpeciesKeyRoute,
@@ -15,11 +16,13 @@ import { Especie } from "@/types";
 interface SpeciesRouteSearchProps {
   onRouteOpenChange?: (isOpen: boolean) => void;
   onRegister: (especie: Especie) => void;
+  rootNodeId?: string;
 }
 
 export default function SpeciesRouteSearch({
   onRouteOpenChange,
   onRegister,
+  rootNodeId = "root",
 }: SpeciesRouteSearchProps) {
   const [query, setQuery] = useState("");
   const [selectedRoute, setSelectedRoute] = useState<SpeciesKeyRoute | null>(null);
@@ -28,7 +31,8 @@ export default function SpeciesRouteSearch({
   const [gbifResult, setGbifResult] = useState<GbifTaxonomicResult | null>(null);
   const [taxonomyMessage, setTaxonomyMessage] = useState<string | null>(null);
   const [isSearchingTaxonomy, setIsSearchingTaxonomy] = useState(false);
-  const results = useMemo(() => searchSpeciesRoutes(query), [query]);
+  const routes = useMemo(() => buildSpeciesRoutes(rootNodeId), [rootNodeId]);
+  const results = useMemo(() => searchSpeciesRoutes(query, 8, routes), [query, routes]);
   const visibleResults = results.length > 0 ? results : externalRoutes;
   const hasSearch = query.replace(/^\s*\*+\s*/, "").trim().length >= 2;
   const selectedAlias = selectedRoute
@@ -67,7 +71,7 @@ export default function SpeciesRouteSearch({
       const matchedCandidate = taxonomicResults
         .map((taxonomicResult) => ({
           taxonomicResult,
-          routes: findSpeciesRoutesByScientificNames(taxonomicResult.names),
+          routes: findSpeciesRoutesByScientificNames(taxonomicResult.names, routes),
         }))
         .find((candidate) => candidate.routes.length > 0);
       const taxonomicResult = matchedCandidate?.taxonomicResult ?? taxonomicResults[0];

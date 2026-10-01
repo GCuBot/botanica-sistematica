@@ -70,7 +70,7 @@ function routeStep(node: CladoNode, option: CladoOption, keyStep: string): KeyRo
   };
 }
 
-function buildSpeciesRoutes() {
+export function buildSpeciesRoutes(rootNodeId = "root") {
   const routes = new Map<string, SpeciesKeyRoute>();
 
   const visit = (nodeId: string, steps: KeyRouteStep[], visited: Set<string>) => {
@@ -94,17 +94,21 @@ function buildSpeciesRoutes() {
     });
   };
 
-  visit("root", [], new Set());
+  visit(rootNodeId, [], new Set());
   return [...routes.values()];
 }
 
 export const speciesKeyRoutes = buildSpeciesRoutes();
 
-export function searchSpeciesRoutes(query: string, limit = 8) {
+export function searchSpeciesRoutes(
+  query: string,
+  limit = 8,
+  routes = speciesKeyRoutes
+) {
   const normalizedQuery = normalize(query);
   if (normalizedQuery.length < 2) return [];
 
-  return speciesKeyRoutes
+  return routes
     .map((route) => {
       const scientificName = normalize(route.especie.nombreCientifico);
       const commonName = normalize(route.especie.nombreVulgar);
@@ -139,9 +143,12 @@ export function searchSpeciesRoutes(query: string, limit = 8) {
     .map((result) => result.route);
 }
 
-export function findSpeciesRoutesByScientificNames(names: string[]) {
+export function findSpeciesRoutesByScientificNames(
+  names: string[],
+  routes = speciesKeyRoutes
+) {
   const normalizedNames = new Set(names.map(normalize));
-  return speciesKeyRoutes.filter((route) =>
+  return routes.filter((route) =>
     normalizedNames.has(normalize(route.especie.nombreCientifico))
   );
 }

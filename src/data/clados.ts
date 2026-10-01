@@ -1,11 +1,13 @@
 import { CladoNode, Especie } from "@/types";
 import { manualFamilyData, manualKeyData } from "./manualKey";
 import { monocotiledoneaeData, monocotEspecies } from "./monocotyledoneae";
+import { secondEditionSpeciesData, secondEditionTree } from "./secondEdition";
 
 // Datos de especies/familias basados en el manual
 export const especiesData: Record<string, Especie> = {
   ...manualFamilyData,
   ...monocotEspecies,
+  ...secondEditionSpeciesData,
 };
 
 // Árbol de clados - Estructura del manual de Flora de Buenos Aires
@@ -32,4 +34,5 @@ export const cladosTree: Record<string, CladoNode> = {
 
   // Rama MONOCOTILEDONEAE - Toda la estructura del manual
   ...monocotiledoneaeData,
+  ...secondEditionTree,
 };

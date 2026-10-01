@@ -8,6 +8,7 @@ import SpeciesRouteSearch from "@/components/SpeciesRouteSearch";
 
 interface QuizProps {
   onComplete: (especie: Especie) => void;
+  rootNodeId?: string;
 }
 
 interface HistoryEntry {
@@ -63,9 +64,9 @@ function buildKeyPath(history: HistoryEntry[]) {
   return path.join(" > ");
 }
 
-export default function Quiz({ onComplete }: QuizProps) {
-  const [currentNodeId, setCurrentNodeId] = useState<string>("root");
-  const [history, setHistory] = useState<HistoryEntry[]>([{ nodeId: "root" }]);
+export default function Quiz({ onComplete, rootNodeId = "root" }: QuizProps) {
+  const [currentNodeId, setCurrentNodeId] = useState<string>(rootNodeId);
+  const [history, setHistory] = useState<HistoryEntry[]>([{ nodeId: rootNodeId }]);
   const [identifiedEspecie, setIdentifiedEspecie] = useState<Especie | null>(
     null
   );
@@ -161,8 +162,8 @@ export default function Quiz({ onComplete }: QuizProps) {
           </button>
           <button
             onClick={() => {
-              setCurrentNodeId("root");
-              setHistory([{ nodeId: "root" }]);
+              setCurrentNodeId(rootNodeId);
+              setHistory([{ nodeId: rootNodeId }]);
               setIdentifiedEspecie(null);
               setCommonNameDraft(null);
             }}
@@ -230,6 +231,7 @@ export default function Quiz({ onComplete }: QuizProps) {
       <SpeciesRouteSearch
         onRouteOpenChange={setIsRouteOpen}
         onRegister={onComplete}
+        rootNodeId={rootNodeId}
       />
 
       {!isRouteOpen && (
