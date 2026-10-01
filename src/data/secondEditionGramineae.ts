@@ -2707,9 +2707,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_8_lanceolate_pending: {
     id: "ed2_gramineae_group_8_lanceolate_pending", milestone: "Gramineae: grupo 8, espiguillas lanceoladas", manualPage: 71,
-    descripcion: "Continuar con los géneros de espiguillas lanceoladas del grupo 8.",
-    opcionA: { label: "Continuar desarrollando el grupo 8", keyStep: "I'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 8", keyStep: "I'", especieId: "ed2_gramineae" },
+    descripcion: "¿Las espiguillas miden 15-35 mm o menos de 12 mm?",
+    opcionA: { label: "Lanceoladas, de 15-35 mm", keyStep: "K", nextNodeId: "ed2_bromus" },
+    opcionA_prima: { label: "Linear-lanceoladas, de menos de 12 mm", keyStep: "K'", nextNodeId: "ed2_diplachne" },
   },
   ed2_gramineae_group_8_styles: {
     id: "ed2_gramineae_group_8_styles", milestone: "Gramineae: grupo 8, estilos", manualPage: 71,

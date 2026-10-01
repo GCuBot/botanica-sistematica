@@ -307,7 +307,6 @@ const files = [
     dataExport: "export const secondEditionGramineaeSpecies",
     dataPattern: /^  ([a-zA-Z0-9_]+): species\(/gm,
     nodePattern: /^  ([a-zA-Z0-9_]+): (?:\{|continuationNode\()/gm,
-    externalSpecies: ["ed2_gramineae"],
     externalNodes: [],
     speciesKey: true,
     order: "data-first",
