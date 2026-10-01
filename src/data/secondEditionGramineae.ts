@@ -1382,6 +1382,91 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Panoja con tres a seis espigas cortas; espiguillas gruesas de 3 mm; glumas casi iguales y aristadas.",
     "América cálida hasta los bosques del Delta e Isla Martín García.", "Oplismenus setarius"
   ),
+  ed2_paspalum_repens: species(
+    "ed2_paspalum_repens", "Paspalum repens", "Gramínea perenne flotante, con tallos radicantes y vainas esponjosas.",
+    "Más de veinte racimos con raquis membranoso y ancho; espiguillas ovado-lanceoladas de unos 2 mm.",
+    "América cálida y templado-cálida; camalotales del Delta y la ribera platense.", "Paspalum repens"
+  ),
+  ed2_paspalum_pumilum: species(
+    "ed2_paspalum_pumilum", "Paspalum pumilum", "Gramínea perenne terrestre de 15-40 cm, con rizomas cortos.",
+    "Dos espigas geminadas; espiguillas opacas de 1,8-2,8 mm; racimos de 4-7 cm.",
+    "América cálida; frecuente en el césped de la ribera.", "Paspalum pumilum"
+  ),
+  ed2_paspalum_saurae: species(
+    "ed2_paspalum_saurae", "Paspalum saurae", "Gramínea perenne de 50-70 cm, con rizomas cortos.",
+    "Racimos geminados o tres a cinco digitados; espiguillas lustrosas de 2,8-3,2 mm; hojas angostas.",
+    "Sur de Brasil y nordeste argentino; suelos arenosos de Isla Maciel.", "Paspalum saurae"
+  ),
+  ed2_paspalum_notatum: species(
+    "ed2_paspalum_notatum", "Paspalum notatum var. latiflorum", "Gramínea perenne de 30-50 cm, con rizomas cortos.",
+    "Dos racimos geminados, raramente tres; espiguillas lustrosas de 3,3-4 mm; hojas de 5-10 mm.",
+    "América tropical y templado-cálida; praderas húmedas.", "Pasto horqueta, Bahía grass"
+  ),
+  ed2_paspalum_distichum: species(
+    "ed2_paspalum_distichum", "Paspalum distichum", "Gramínea perenne baja, con rizomas largos y profundos.",
+    "Dos espigas desigualmente pedunculadas; gluma finamente pubescente y lemma estéril glabra; espiguillas de 3-3,5 mm.",
+    "Cosmopolita; estepa prístina y suelos modificados.", "Gramilla blanca, chépica"
+  ),
+  ed2_paspalum_vaginatum: species(
+    "ed2_paspalum_vaginatum", "Paspalum vaginatum", "Gramínea perenne menor de 60 cm, con rizomas largos y profundos.",
+    "Dos racimos con pedúnculos casi iguales; gluma y lemma estéril glabras; espiguillas lanceoladas.",
+    "América cálida y templada; suelos salobres.", "Paspalum vaginatum"
+  ),
+  ed2_paspalum_plicatulum: species(
+    "ed2_paspalum_plicatulum", "Paspalum plicatulum", "Gramínea perenne y cespitosa de 30-90 cm.",
+    "Tres a seis racimos alternos; lemma fértil castaña, lustrosa y muy convexa; espiguillas ovado-elípticas.",
+    "América cálida; seudoestepas prístinas.", "Paspalum plicatulum"
+  ),
+  ed2_paspalum_nicorae: species(
+    "ed2_paspalum_nicorae", "Paspalum nicorae", "Gramínea perenne de 30-40 cm, con largos rizomas horizontales.",
+    "Tres a seis racimos cortos; lemma fértil castaña y lustrosa; espiguillas elípticas castaño claras de unos 3 mm.",
+    "Sur de Brasil, Paraguay, Uruguay y nordeste argentino; suelos arenosos o rocosos.", "Paspalum nicorae"
+  ),
+  ed2_paspalum_lividum: species(
+    "ed2_paspalum_lividum", "Paspalum lividum", "Gramínea perenne cespitosa y estolonífera, con cañas de unos 50 cm.",
+    "Seis a ocho racimos cortos de 1,5-3 cm; lemma fértil blanca o pajiza; espiguillas glabras de 2-2,5 mm.",
+    "América tropical y subtropical; Delta y ribera platense.", "Pasto morado"
+  ),
+  ed2_paspalum_simplex: species(
+    "ed2_paspalum_simplex", "Paspalum simplex", "Gramínea perenne robusta y rizomatosa de 80-150 cm.",
+    "Cuatro a diez racimos; espiguillas sin gluma de 2 mm; lemma fértil blanca o pajiza.",
+    "Paraguay, Uruguay y nordeste argentino; accidental cerca de Buenos Aires.", "Paspalum simplex"
+  ),
+  ed2_paspalum_alcalinum: species(
+    "ed2_paspalum_alcalinum", "Paspalum alcalinum", "Gramínea perenne y cespitosa de 50-150 cm.",
+    "Cinco a doce racimos; espiguillas obovadas, pajizas y laxamente pubescentes de 3-3,5 mm.",
+    "México, Paraguay y norte argentino; accidental en Capital Federal.", "Paspalum alcalinum"
+  ),
+  ed2_paspalum_dilatatum: species(
+    "ed2_paspalum_dilatatum", "Paspalum dilatatum", "Gramínea perenne de 40-80 cm.",
+    "Tres a seis racimos; espiguillas verdosas ovadas de 3-3,5 mm, con gluma y lemma estéril ciliado-velludas.",
+    "Sur de Brasil, Uruguay y norte y centro argentino; frecuente y valiosa como forrajera.", "Pasto miel, pasto polaco"
+  ),
+  ed2_paspalum_urvillei: species(
+    "ed2_paspalum_urvillei", "Paspalum urvillei", "Gramínea perenne y cespitosa de 75-250 cm.",
+    "Doce a veinte racimos; espiguillas verdosas de 2,3-2,6 mm; gluma largamente velluda y lemma ciliada.",
+    "Sur de Brasil, Paraguay, Uruguay, Bolivia y norte argentino; Delta y ribera.", "Paspalum urvillei"
+  ),
+  ed2_paspalum_intermedium: species(
+    "ed2_paspalum_intermedium", "Paspalum intermedium", "Gramínea perenne y cespitosa de 1-1,5 m.",
+    "Numerosos racimos; vainas notablemente carenadas; espiguillas glabras pajizas o rojizas de 2,5-2,8 mm.",
+    "Paraguay y nordeste argentino; accidental en Capital Federal.", "Paspalum intermedium"
+  ),
+  ed2_paspalum_quadrifarium: species(
+    "ed2_paspalum_quadrifarium", "Paspalum quadrifarium", "Gramínea perenne y cespitosa de 1-1,8 m.",
+    "Quince a veinticinco racimos; vainas cilíndricas o apenas carenadas; espiguillas pubescentes de 2-2,6 mm.",
+    "Uruguay y nordeste y centro argentino; forma pajonales en campos húmedos.", "Paja colorada"
+  ),
+  ed2_paspalum_exaltatum: species(
+    "ed2_paspalum_exaltatum", "Paspalum exaltatum", "Gramínea perenne y cespitosa de 1,5-2 m.",
+    "Doce a treinta racimos; espiguillas ovadas pubescentes de 3-3,5 mm; hojas de 5-7 mm.",
+    "Uruguay y nordeste argentino; lugares húmedos.", "Paja de embarrar"
+  ),
+  ed2_paspalum_haumanii: species(
+    "ed2_paspalum_haumanii", "Paspalum haumanii", "Gramínea perenne y cespitosa de 2,5-3 m.",
+    "Cuarenta a ochenta racimos; espiguillas lanceoladas pubescentes de 3,5-4 mm; hojas de 12-14 mm.",
+    "Uruguay y Mesopotamia argentina; pajonales de la ribera y del Delta.", "Paspalum haumanii"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -3161,6 +3246,102 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "Oplismenus: única especie tratada para la región.",
     opcionA: { label: "Identificar como Oplismenus setarius", keyStep: "1", especieId: "ed2_oplismenus_setarius" },
     opcionA_prima: { label: "Identificar como Oplismenus setarius", keyStep: "1", especieId: "ed2_oplismenus_setarius" },
+  },
+  ed2_paspalum: {
+    id: "ed2_paspalum", milestone: "Paspalum", manualPage: 137,
+    descripcion: "¿La planta es acuática y flotante, con vainas dilatadas y esponjosas?",
+    opcionA: { label: "Sí; más de veinte racimos con raquis ancho", keyStep: "A", especieId: "ed2_paspalum_repens" },
+    opcionA_prima: { label: "No; terrestre, con vainas no dilatadas", keyStep: "A'", nextNodeId: "ed2_paspalum_inflorescence" },
+  },
+  ed2_paspalum_inflorescence: {
+    id: "ed2_paspalum_inflorescence", milestone: "Paspalum: inflorescencia", manualPage: 137,
+    descripcion: "¿La inflorescencia está formada por dos espigas geminadas en V?",
+    opcionA: { label: "Sí; raramente con una tercera espiga cercana", keyStep: "B", nextNodeId: "ed2_paspalum_rhizome" },
+    opcionA_prima: { label: "No; uno o más racimos distribuidos a lo largo de la caña", keyStep: "B'", nextNodeId: "ed2_paspalum_lemma_color" },
+  },
+  ed2_paspalum_rhizome: {
+    id: "ed2_paspalum_rhizome", milestone: "Paspalum: rizoma", manualPage: 137,
+    descripcion: "¿Los rizomas son cortos y gruesos o largos y profundos?",
+    opcionA: { label: "Cortos y gruesos; forman matas compactas", keyStep: "C", nextNodeId: "ed2_paspalum_short_rhizome_size" },
+    opcionA_prima: { label: "Largos y profundos", keyStep: "C'", nextNodeId: "ed2_paspalum_long_rhizome_indument" },
+  },
+  ed2_paspalum_short_rhizome_size: {
+    id: "ed2_paspalum_short_rhizome_size", milestone: "Paspalum: rizoma corto", manualPage: 137,
+    descripcion: "¿Las espiguillas miden 1,8-2,8 mm y son opacas?",
+    opcionA: { label: "Sí; racimos de 4-7 cm", keyStep: "D", especieId: "ed2_paspalum_pumilum" },
+    opcionA_prima: { label: "No; de 2,8-4 mm y lustrosas", keyStep: "D'", nextNodeId: "ed2_paspalum_lustrous_size" },
+  },
+  ed2_paspalum_lustrous_size: {
+    id: "ed2_paspalum_lustrous_size", milestone: "Paspalum: espiguillas lustrosas", manualPage: 137,
+    descripcion: "¿Las espiguillas miden 2,8-3,2 mm y las hojas 2-4 mm de ancho?",
+    opcionA: { label: "Sí; racimos geminados o tres a cinco digitados", keyStep: "E", especieId: "ed2_paspalum_saurae" },
+    opcionA_prima: { label: "No; espiguillas de 3,3-4 mm y hojas de 5-10 mm", keyStep: "E'", especieId: "ed2_paspalum_notatum" },
+  },
+  ed2_paspalum_long_rhizome_indument: {
+    id: "ed2_paspalum_long_rhizome_indument", milestone: "Paspalum: rizoma largo", manualPage: 137,
+    descripcion: "¿La gluma es finamente pubescente y la lemma estéril glabra?",
+    opcionA: { label: "Sí; espigas desigualmente pedunculadas", keyStep: "F", especieId: "ed2_paspalum_distichum" },
+    opcionA_prima: { label: "No; ambas glabras y pedúnculos casi iguales", keyStep: "F'", especieId: "ed2_paspalum_vaginatum" },
+  },
+  ed2_paspalum_lemma_color: {
+    id: "ed2_paspalum_lemma_color", milestone: "Paspalum: color de la lemma fértil", manualPage: 138,
+    descripcion: "¿La lemma fértil es castaña, lustrosa y pronunciadamente convexa?",
+    opcionA: { label: "Sí", keyStep: "G", nextNodeId: "ed2_paspalum_brown_habit" },
+    opcionA_prima: { label: "No; blanca o pajiza, suavemente convexa o navicular", keyStep: "G'", nextNodeId: "ed2_paspalum_raceme_count" },
+  },
+  ed2_paspalum_brown_habit: {
+    id: "ed2_paspalum_brown_habit", milestone: "Paspalum: lemma castaña", manualPage: 138,
+    descripcion: "¿La planta es cespitosa o posee largos rizomas horizontales?",
+    opcionA: { label: "Cespitosa, de 30-90 cm", keyStep: "H", especieId: "ed2_paspalum_plicatulum" },
+    opcionA_prima: { label: "Con largos rizomas horizontales; cañas de 30-40 cm", keyStep: "H'", especieId: "ed2_paspalum_nicorae" },
+  },
+  ed2_paspalum_raceme_count: {
+    id: "ed2_paspalum_raceme_count", milestone: "Paspalum: número de racimos", manualPage: 138,
+    descripcion: "¿La inflorescencia posee tres a doce racimos o doce o más?",
+    opcionA: { label: "Tres a doce", keyStep: "I", nextNodeId: "ed2_paspalum_few_racemes" },
+    opcionA_prima: { label: "Doce o más", keyStep: "I'", nextNodeId: "ed2_paspalum_many_racemes" },
+  },
+  ed2_paspalum_few_racemes: {
+    id: "ed2_paspalum_few_racemes", milestone: "Paspalum: pocos racimos", manualPage: 138,
+    descripcion: "¿Los racimos miden 1,5-3 cm y la planta posee estolones?",
+    opcionA: { label: "Sí; seis a ocho racimos", keyStep: "J", especieId: "ed2_paspalum_lividum" },
+    opcionA_prima: { label: "No; racimos de 3-9 cm y planta sin estolones", keyStep: "J'", nextNodeId: "ed2_paspalum_few_spikelet" },
+  },
+  ed2_paspalum_few_spikelet: {
+    id: "ed2_paspalum_few_spikelet", milestone: "Paspalum: espiguillas con pocos racimos", manualPage: 138,
+    descripcion: "¿Las espiguillas miden 2 mm y carecen de gluma?",
+    opcionA: { label: "Sí; planta robusta y rizomatosa", keyStep: "K", especieId: "ed2_paspalum_simplex" },
+    opcionA_prima: { label: "No; de 3-3,5 mm y con gluma superior", keyStep: "K'", nextNodeId: "ed2_paspalum_few_color" },
+  },
+  ed2_paspalum_few_color: {
+    id: "ed2_paspalum_few_color", milestone: "Paspalum: color de espiguillas", manualPage: 138,
+    descripcion: "¿Las espiguillas son castaño claras o pajizas y laxamente pubescentes?",
+    opcionA: { label: "Sí; cinco a doce racimos", keyStep: "L", especieId: "ed2_paspalum_alcalinum" },
+    opcionA_prima: { label: "No; verdosas, ovadas y ciliado-velludas", keyStep: "L'", especieId: "ed2_paspalum_dilatatum" },
+  },
+  ed2_paspalum_many_racemes: {
+    id: "ed2_paspalum_many_racemes", milestone: "Paspalum: muchos racimos", manualPage: 138,
+    descripcion: "¿Las espiguillas son verdosas, obovadas y miden 2,3-2,6 mm?",
+    opcionA: { label: "Sí; doce a veinte racimos", keyStep: "M", especieId: "ed2_paspalum_urvillei" },
+    opcionA_prima: { label: "No; pajizas, ferrugíneas o rojizas", keyStep: "M'", nextNodeId: "ed2_paspalum_sheath" },
+  },
+  ed2_paspalum_sheath: {
+    id: "ed2_paspalum_sheath", milestone: "Paspalum: vainas", manualPage: 138,
+    descripcion: "¿Las vainas foliares están notablemente carenadas?",
+    opcionA: { label: "Sí; espiguillas glabras de 2,5-2,8 mm", keyStep: "N", especieId: "ed2_paspalum_intermedium" },
+    opcionA_prima: { label: "No; cilíndricas o apenas carenadas; espiguillas pubescentes", keyStep: "N'", nextNodeId: "ed2_paspalum_pubescence_size" },
+  },
+  ed2_paspalum_pubescence_size: {
+    id: "ed2_paspalum_pubescence_size", milestone: "Paspalum: espiguillas pubescentes", manualPage: 138,
+    descripcion: "¿Las espiguillas miden 2-2,6 mm o 3-4 mm?",
+    opcionA: { label: "2-2,6 mm; planta de 1-1,8 m", keyStep: "O", especieId: "ed2_paspalum_quadrifarium" },
+    opcionA_prima: { label: "3-4 mm", keyStep: "O'", nextNodeId: "ed2_paspalum_tall_habit" },
+  },
+  ed2_paspalum_tall_habit: {
+    id: "ed2_paspalum_tall_habit", milestone: "Paspalum: plantas altas", manualPage: 138,
+    descripcion: "¿La planta mide 1,5-2 m y posee doce a treinta racimos?",
+    opcionA: { label: "Sí; hojas de 5-7 mm", keyStep: "P", especieId: "ed2_paspalum_exaltatum" },
+    opcionA_prima: { label: "No; 2,5-3 m, hojas de 12-14 mm y cuarenta a ochenta racimos", keyStep: "P'", especieId: "ed2_paspalum_haumanii" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
