@@ -79,6 +79,66 @@ export const secondEditionCyperaceaeSpecies: Record<string, Especie> = {
     "Tres a cinco espiguillas casi sesiles y erectas; utriculos obovoideos pajizos, con rostro corto y tridentado.",
     "Uruguay y Argentina; suelos humedos."
   ),
+  ed2_androtrichum_trigynum: species(
+    "ed2_androtrichum_trigynum", "Androtrichum trigynum", "Perenne rizomatosa y afila, de unos 50 cm.",
+    "Espiguillas plurifloras en fasciculos reunidos en cabezuelas esfericas; filamentos estaminales acrescentes que dan aspecto lanoso.",
+    "Litoral del sur de Brasil, Uruguay y Buenos Aires; comun en dunas costeras de Pipinas y San Clemente del Tuyu."
+  ),
+  ed2_cyperus_cayennensis: species(
+    "ed2_cyperus_cayennensis", "Cyperus cayennensis", "Perenne de 5-45 cm.",
+    "Cuatro a numerosas espigas gruesas rodeadas por cinco a ocho bracteas; espiguillas con una o dos flores fertiles y aquenio trigono.",
+    "America calida; comun en suelos humedos."
+  ),
+  ed2_cyperus_sesquiflorus: species(
+    "ed2_cyperus_sesquiflorus", "Cyperus sesquiflorus", "Perenne cespitosa de 5-30 cm, con rizomas muy cortos.",
+    "Una a tres espigas blancas y sesiles; espiguillas unifloras, involucro con tres bracteas reflejas y aquenio biconvexo.",
+    "Pantropical; suelos humedos de la isla Martin Garcia."
+  ),
+  ed2_cyperus_obtusatus: species(
+    "ed2_cyperus_obtusatus", "Cyperus obtusatus", "Perenne largamente rizomatosa de 10-45 cm.",
+    "Espiguillas de una o dos flores, con cinco glumas de carena lisa, reunidas en un capitulo eliptico.",
+    "America calida y Africa; Delta y ribera platense."
+  ),
+  ed2_cyperus_brevifolius: species(
+    "ed2_cyperus_brevifolius", "Cyperus brevifolius", "Perenne largamente rizomatosa de 15-40 cm.",
+    "Espiguillas unifloras con glumas blancas de carena espinulosa; capitulo solitario con tres bracteas lineares.",
+    "Pantropical; alrededores de la Capital Federal."
+  ),
+  ed2_cyperus_meridionalis: species(
+    "ed2_cyperus_meridionalis", "Cyperus meridionalis", "Perenne de 10-40 cm.",
+    "Capitulo piramidal o hemisferico formado por tres a cinco espigas; espiguillas verdosas con cuatro a nueve flores.",
+    "Sierras de Buenos Aires y Uruguay."
+  ),
+  ed2_cyperus_incomtus: species(
+    "ed2_cyperus_incomtus", "Cyperus incomtus", "Perenne de 15-75 cm.",
+    "Espiguillas oblongas verdosas o amarillentas, de 10-20 mm y 20-30 flores; estilo trifido.",
+    "America del Sur; isla Martin Garcia."
+  ),
+  ed2_cyperus_reflexus: species(
+    "ed2_cyperus_reflexus", "Cyperus reflexus", "Perenne de 20-75 cm.",
+    "Espiguillas rojizas ovado-lanceoladas de 6-12 mm, reunidas en uno a cuatro capitulos; estilo trifido.",
+    "America calida; muy comun en campos humedos."
+  ),
+  ed2_cyperus_laevigatus: species(
+    "ed2_cyperus_laevigatus", "Cyperus laevigatus", "Perenne de 5-30 cm, con rizomas horizontales conspicuos y casi sin hojas.",
+    "Espiguillas muy gruesas de 10-20 flores; glumas con grandes manchas castañas y aquenio plano-convexo.",
+    "Cosmopolita; hallada en la estepa bonaerense."
+  ),
+  ed2_cyperus_barrosianus: species(
+    "ed2_cyperus_barrosianus", "Cyperus barrosianus", "Perenne cespitosa de 5-20 cm.",
+    "Espiguillas blanquecinas, muy comprimidas, sesiles y reunidas en un unico capitulo; 16-30 flores.",
+    "America austral; alrededores de la Capital Federal."
+  ),
+  ed2_cyperus_lanceolatus: species(
+    "ed2_cyperus_lanceolatus", "Cyperus lanceolatus", "Perenne de 12-45 cm.",
+    "Espiguillas pardo claras de 12-20 mm y 10-30 flores; glumas generalmente trinervadas; umbela de uno a cinco radios.",
+    "America y Africa tropicales; isla Martin Garcia."
+  ),
+  ed2_cyperus_megapotamicus: species(
+    "ed2_cyperus_megapotamicus", "Cyperus megapotamicus var. jaeggii", "Perenne de 25-80 cm.",
+    "Espiguillas castañas de 8-10 mm y 6-14 flores, con glumas binervadas; un capitulo sesil y dos o tres pedicelados.",
+    "Sur de Brasil, Uruguay y nordeste argentino hasta el Delta y la ribera platense."
+  ),
 };
 
 export const secondEditionCyperaceaeKeyData: Record<string, CladoNode> = {
@@ -86,7 +146,91 @@ export const secondEditionCyperaceaeKeyData: Record<string, CladoNode> = {
     id: "ed2_family_cyperaceae", milestone: "Cyperaceae", manualPage: 154,
     descripcion: "¿Las flores fructiferas son unisexuales y estan encerradas en un utriculo?",
     opcionA: { label: "Si; flores unisexuales encerradas en un utriculo", keyStep: "A", nextNodeId: "ed2_carex" },
-    opcionA_prima: { label: "No; flores hermafroditas, sin utriculo", keyStep: "A'", especieId: "ed2_cyperaceae" },
+    opcionA_prima: { label: "No; flores hermafroditas, sin utriculo", keyStep: "A'", nextNodeId: "ed2_cyperaceae_glume_arrangement" },
+  },
+  ed2_cyperaceae_glume_arrangement: {
+    id: "ed2_cyperaceae_glume_arrangement", milestone: "Cyperaceae: glumas", manualPage: 154,
+    descripcion: "¿Las glumas se disponen en dos filas o en espiral?",
+    opcionA: { label: "Disticas", keyStep: "B", nextNodeId: "ed2_cyperaceae_distichous" },
+    opcionA_prima: { label: "Espiraladas", keyStep: "B'", especieId: "ed2_cyperaceae" },
+  },
+  ed2_cyperaceae_distichous: {
+    id: "ed2_cyperaceae_distichous", milestone: "Cyperaceae: glumas disticas", manualPage: 154,
+    descripcion: "¿La planta carece de hojas y sus estambres crecen despues de la antesis?",
+    opcionA: { label: "Si; planta afila y estambres acrescentes", keyStep: "C", nextNodeId: "ed2_androtrichum" },
+    opcionA_prima: { label: "No; generalmente con hojas y estambres no acrescentes", keyStep: "C'", nextNodeId: "ed2_cyperus" },
+  },
+  ed2_androtrichum: {
+    id: "ed2_androtrichum", milestone: "Androtrichum", manualPage: 155,
+    descripcion: "Androtrichum: unica especie tratada para la region.",
+    opcionA: { label: "Identificar como Androtrichum trigynum", keyStep: "1", especieId: "ed2_androtrichum_trigynum" },
+    opcionA_prima: { label: "Identificar como Androtrichum trigynum", keyStep: "1", especieId: "ed2_androtrichum_trigynum" },
+  },
+  ed2_cyperus: {
+    id: "ed2_cyperus", milestone: "Cyperus", manualPage: 156,
+    descripcion: "¿Las espiguillas forman capitulos o fasciculos solitarios en los apices de los tallos?",
+    opcionA: { label: "Si; inflorescencias solitarias y plantas generalmente menores de 1 m", keyStep: "A", nextNodeId: "ed2_cyperus_solitary_fertile_flowers" },
+    opcionA_prima: { label: "No; capitulos, fasciculos o espigas dispuestos en umbela", keyStep: "A'", especieId: "ed2_cyperaceae" },
+  },
+  ed2_cyperus_solitary_fertile_flowers: {
+    id: "ed2_cyperus_solitary_fertile_flowers", milestone: "Cyperus: inflorescencia solitaria", manualPage: 156,
+    descripcion: "¿Las espiguillas tienen una o dos flores fertiles, o cuatro o mas?",
+    opcionA: { label: "Una o dos flores fertiles", keyStep: "B", nextNodeId: "ed2_cyperus_few_style" },
+    opcionA_prima: { label: "Cuatro o mas flores fertiles", keyStep: "B'", nextNodeId: "ed2_cyperus_many_flower_count" },
+  },
+  ed2_cyperus_few_style: {
+    id: "ed2_cyperus_few_style", milestone: "Cyperus: pocas flores", manualPage: 156,
+    descripcion: "¿El estilo es trifido y el aquenio trigono?",
+    opcionA: { label: "Si; varias espigas gruesas rodeadas por cinco a ocho bracteas", keyStep: "C", especieId: "ed2_cyperus_cayennensis" },
+    opcionA_prima: { label: "No; estilo bifido, aquenio biconvexo y una a tres espigas blancas", keyStep: "C'", nextNodeId: "ed2_cyperus_few_rhizome" },
+  },
+  ed2_cyperus_few_rhizome: {
+    id: "ed2_cyperus_few_rhizome", milestone: "Cyperus: rizoma", manualPage: 156,
+    descripcion: "¿La planta es cespitosa con rizomas muy cortos o largamente rizomatosa?",
+    opcionA: { label: "Cespitosa, con rizomas muy cortos y tres bracteas reflejas", keyStep: "D", especieId: "ed2_cyperus_sesquiflorus" },
+    opcionA_prima: { label: "Largamente rizomatosa", keyStep: "D'", nextNodeId: "ed2_cyperus_few_glumes" },
+  },
+  ed2_cyperus_few_glumes: {
+    id: "ed2_cyperus_few_glumes", milestone: "Cyperus: glumas", manualPage: 156,
+    descripcion: "¿Las espiguillas tienen cinco glumas de carena lisa o glumas blancas de carena espinulosa?",
+    opcionA: { label: "Una o dos flores, cinco glumas de carena lisa y capitulo eliptico", keyStep: "E", especieId: "ed2_cyperus_obtusatus" },
+    opcionA_prima: { label: "Una flor, glumas blancas de carena espinulosa y capitulo de 6-9 mm", keyStep: "E'", especieId: "ed2_cyperus_brevifolius" },
+  },
+  ed2_cyperus_many_flower_count: {
+    id: "ed2_cyperus_many_flower_count", milestone: "Cyperus: espiguillas plurifloras", manualPage: 156,
+    descripcion: "¿Las espiguillas tienen cuatro a nueve flores o entre diez y cuarenta?",
+    opcionA: { label: "Cuatro a nueve; capitulo piramidal o hemisferico", keyStep: "F", especieId: "ed2_cyperus_meridionalis" },
+    opcionA_prima: { label: "Diez a cuarenta", keyStep: "F'", nextNodeId: "ed2_cyperus_many_style" },
+  },
+  ed2_cyperus_many_style: {
+    id: "ed2_cyperus_many_style", milestone: "Cyperus: estilo", manualPage: 156,
+    descripcion: "¿El estilo es trifido o bifido?",
+    opcionA: { label: "Trifido", keyStep: "G", nextNodeId: "ed2_cyperus_trifid_shape" },
+    opcionA_prima: { label: "Bifido", keyStep: "G'", nextNodeId: "ed2_cyperus_bifid_thickness" },
+  },
+  ed2_cyperus_trifid_shape: {
+    id: "ed2_cyperus_trifid_shape", milestone: "Cyperus: estilo trifido", manualPage: 156,
+    descripcion: "¿Las espiguillas son oblongas verdosas o ovado-lanceoladas rojizas?",
+    opcionA: { label: "Oblongas, verdosas o amarillentas, de 10-20 mm", keyStep: "H", especieId: "ed2_cyperus_incomtus" },
+    opcionA_prima: { label: "Ovado-lanceoladas, rojizas, de 6-12 mm", keyStep: "H'", especieId: "ed2_cyperus_reflexus" },
+  },
+  ed2_cyperus_bifid_thickness: {
+    id: "ed2_cyperus_bifid_thickness", milestone: "Cyperus: estilo bifido", manualPage: 156,
+    descripcion: "¿Las espiguillas son muy gruesas o muy comprimidas lateralmente?",
+    opcionA: { label: "Muy gruesas, de 5-10 mm, con grandes manchas castañas", keyStep: "I", especieId: "ed2_cyperus_laevigatus" },
+    opcionA_prima: { label: "Muy comprimidas lateralmente", keyStep: "I'", nextNodeId: "ed2_cyperus_compressed_color" },
+  },
+  ed2_cyperus_compressed_color: {
+    id: "ed2_cyperus_compressed_color", milestone: "Cyperus: espiguillas comprimidas", manualPage: 156,
+    descripcion: "¿Las espiguillas son blanquecinas o pardas a castañas?",
+    opcionA: { label: "Blanquecinas, sesiles, en un unico capitulo", keyStep: "J", especieId: "ed2_cyperus_barrosianus" },
+    opcionA_prima: { label: "Pardo claras o castañas", keyStep: "J'", nextNodeId: "ed2_cyperus_compressed_length" },
+  },
+  ed2_cyperus_compressed_length: {
+    id: "ed2_cyperus_compressed_length", milestone: "Cyperus: longitud", manualPage: 157,
+    descripcion: "¿Las espiguillas miden 12-20 mm o 8-10 mm?",
+    opcionA: { label: "12-20 mm, con 10-30 flores y glumas generalmente trinervadas", keyStep: "K", especieId: "ed2_cyperus_lanceolatus" },
+    opcionA_prima: { label: "8-10 mm, con 6-14 flores y glumas binervadas", keyStep: "K'", especieId: "ed2_cyperus_megapotamicus" },
   },
   ed2_carex: {
     id: "ed2_carex", milestone: "Carex", manualPage: 154,
