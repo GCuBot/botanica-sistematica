@@ -997,6 +997,61 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Inflorescencia laxa y piramidal; espiguillas lanceoladas y glabras de 1,5-1,7 mm.",
     "América templado-cálida; común en campos salobres.", "Sporobolus pyramidatus"
   ),
+  ed2_microchloa_indica: species(
+    "ed2_microchloa_indica", "Microchloa indica", "Gramínea perenne y cespitosa de 10-20 cm.",
+    "Espiga terminal solitaria de 4-8 cm; espiguillas unifloras sésiles en dos hileras; hojas con lámina plegada.",
+    "Regiones tropicales; norte y centro argentino hasta la sierra de Tandil.", "Microchloa indica"
+  ),
+  ed2_spartina_coarctata: species(
+    "ed2_spartina_coarctata", "Spartina coarctata", "Gramínea perenne muy robusta, cespitosa, de 100-160 cm.",
+    "Gluma superior falcada con quilla de cerdas rígidas; panoja gruesa y densa; espiguillas de 15-20 mm.",
+    "Dunas costeras de Uruguay y Buenos Aires; utilizada para fijar arena.", "Espartillo"
+  ),
+  ed2_spartina_densiflora: species(
+    "ed2_spartina_densiflora", "Spartina densiflora", "Gramínea perenne cespitosa, de 1-1,5 m, con rizomas cortos.",
+    "Gluma superior recta y obtusa; espigas inferiores sésiles y menores de 9 cm; espiguillas de 8-14 mm.",
+    "Suelos pantanosos y salobres de América austral; frecuente en la región.", "Esparto"
+  ),
+  ed2_spartina_alterniflora: species(
+    "ed2_spartina_alterniflora", "Spartina alterniflora", "Gramínea perenne cespitosa, de 1-1,5 m, con rizomas alargados.",
+    "Espigas inferiores pediceladas; espiguillas densas de 15-18 mm; hojas planas.",
+    "Costas pantanosas de América; arenales y cangrejales de Punta Indio y Pipinas.", "Espartillo"
+  ),
+  ed2_spartina_longispica: species(
+    "ed2_spartina_longispica", "Spartina longispica", "Gramínea perenne cespitosa de 1,2-1,5 m, con rizomas cortos.",
+    "Espigas inferiores pediceladas de 8-16 cm; espiguillas de 12-14 mm; láminas convolutas.",
+    "Costas pantanosas de la boca del Río de la Plata.", "Spartina longispica"
+  ),
+  ed2_schedonnardus_paniculatus: species(
+    "ed2_schedonnardus_paniculatus", "Schedonnardus paniculatus", "Gramínea perenne, glauca y cespitosa de 20-40 cm.",
+    "Varias espigas a lo largo de un eje principal; espiguillas unifloras sésiles de 4 mm; hojas basales estrechas.",
+    "Sur de Estados Unidos y centro argentino; hallada en Capital Federal y Pergamino.", "Schedonnardus paniculatus"
+  ),
+  ed2_willbleibia_stolonifera: species(
+    "ed2_willbleibia_stolonifera", "Willbleibia stolonifera", "Gramínea perenne, estolonífera y glabra de 20-30 cm.",
+    "Espiguillas unifloras con lemma mútica; seis a doce espigas cortas a lo largo del eje; hojas convolutas.",
+    "Uruguay y nordeste de la provincia de Buenos Aires.", "Willbleibia stolonifera"
+  ),
+  ed2_cynodon_hirsutus: species(
+    "ed2_cynodon_hirsutus", "Cynodon hirsutus", "Gramínea perenne, rastrera y estolonífera de 15-40 cm.",
+    "Lemma con quilla brevemente alada y ciliolada; lígula membranosa; tres a cinco espigas; hojas hirsutas.",
+    "Originaria de Sudáfrica; naturalizada, invasora y tóxica para el ganado.", "Pata de perdiz, gramilla rastrera"
+  ),
+  ed2_cynodon_dactylon: species(
+    "ed2_cynodon_dactylon", "Cynodon dactylon", "Gramínea perenne y rastrera, con rizomas poderosos y estolones.",
+    "Lemma de quilla no alada; lígula pestañosa; prefoliación conduplicada; tres a ocho espigas.",
+    "Cosmopolita; maleza invasora, tóxica en ciertos estados y utilizada como césped.", "Pata de perdiz, gramilla, Bermuda grass"
+  ),
+  ed2_cynodon_maritimus: species(
+    "ed2_cynodon_maritimus", "Cynodon maritimus", "Gramínea perenne, rastrera y estolonífera, con cañas de unos 40 cm.",
+    "Prefoliación convoluta; lemma notablemente ciliada en la quilla y los bordes; cuatro a seis espigas.",
+    "América cálida y templada.", "Cynodon maritimus"
+  ),
+  ed2_cynodon_hirsutissimus: species(
+    "ed2_cynodon_hirsutissimus", "Cynodon hirsutissimus", "Gramínea perenne, rastrera y estolonífera, de unos 50 cm.",
+    "Prefoliación convoluta; lemma brevemente ciliada en la quilla y con bordes casi glabros; hojas muy hirsutas.",
+    "África, Europa y América del Sur; común en la región.", "Cynodon hirsutissimus"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -1214,9 +1269,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_6_spartina_pending: {
     id: "ed2_gramineae_group_6_spartina_pending", milestone: "Gramineae: grupo 6, espigas múticas", manualPage: 67,
-    descripcion: "Continuar con el género de espiguillas múticas.",
-    opcionA: { label: "Continuar desarrollando el grupo 6", keyStep: "F'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 6", keyStep: "F'", especieId: "ed2_gramineae" },
+    descripcion: "Continuar con la clave específica de Spartina.",
+    opcionA: { label: "Espiguillas múticas en espigas a lo largo del eje", keyStep: "F'", nextNodeId: "ed2_spartina" },
+    opcionA_prima: { label: "Espiguillas múticas en espigas a lo largo del eje", keyStep: "F'", nextNodeId: "ed2_spartina" },
   },
   ed2_gramineae_group_6_panicles_pending: {
     id: "ed2_gramineae_group_6_panicles_pending", milestone: "Gramineae: grupo 6, panojas", manualPage: 67,
@@ -1250,9 +1305,15 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_apical_spikes_pending: {
     id: "ed2_gramineae_group_7_apical_spikes_pending", milestone: "Gramineae: grupo 7, espigas apicales", manualPage: 67,
-    descripcion: "Continuar con los géneros de espigas o racimos alargados apicales.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "B", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "B", especieId: "ed2_gramineae" },
+    descripcion: "¿La espiguilla tiene un antecio hermafrodita y otro rudimentario en el extremo de la raquilla?",
+    opcionA: { label: "Sí; lemma mútica o mucronada", keyStep: "C", nextNodeId: "ed2_cynodon" },
+    opcionA_prima: { label: "No; uno o más antecios masculinos estériles; glumas o lemmas aristadas", keyStep: "C'", nextNodeId: "ed2_gramineae_group_7_chloris_eustachys_pending" },
+  },
+  ed2_gramineae_group_7_chloris_eustachys_pending: {
+    id: "ed2_gramineae_group_7_chloris_eustachys_pending", milestone: "Chloris y Eustachys", manualPage: 120,
+    descripcion: "Continuar con los géneros Chloris y Eustachys.",
+    opcionA: { label: "Continuar desarrollando Chloris y Eustachys", keyStep: "C'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando Chloris y Eustachys", keyStep: "C'", especieId: "ed2_gramineae" },
   },
   ed2_gramineae_group_7_uniflorous_arrangement: {
     id: "ed2_gramineae_group_7_uniflorous_arrangement", milestone: "Gramineae: grupo 7, disposición", manualPage: 67,
@@ -1262,9 +1323,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_microchloa_pending: {
     id: "ed2_gramineae_group_7_microchloa_pending", milestone: "Gramineae: grupo 7, espiga única", manualPage: 67,
-    descripcion: "Continuar con el género de espiga linear única.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "E", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "E", especieId: "ed2_gramineae" },
+    descripcion: "Microchloa: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Microchloa indica", keyStep: "1", especieId: "ed2_microchloa_indica" },
+    opcionA_prima: { label: "Identificar como Microchloa indica", keyStep: "1", especieId: "ed2_microchloa_indica" },
   },
   ed2_gramineae_group_7_uniflorous_awn: {
     id: "ed2_gramineae_group_7_uniflorous_awn", milestone: "Gramineae: grupo 7, lemma", manualPage: 67,
@@ -1478,9 +1539,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_schedonnardus_pending: {
     id: "ed2_gramineae_group_7_schedonnardus_pending", milestone: "Gramineae: grupo 7, varias espigas", manualPage: 68,
-    descripcion: "Continuar con el género de varias espigas alargadas.",
-    opcionA: { label: "Continuar desarrollando el grupo 7", keyStep: "M", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 7", keyStep: "M", especieId: "ed2_gramineae" },
+    descripcion: "Schedonnardus: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Schedonnardus paniculatus", keyStep: "1", especieId: "ed2_schedonnardus_paniculatus" },
+    opcionA_prima: { label: "Identificar como Schedonnardus paniculatus", keyStep: "1", especieId: "ed2_schedonnardus_paniculatus" },
   },
   ed2_gramineae_group_7_rudimentary_florets: {
     id: "ed2_gramineae_group_7_rudimentary_florets", milestone: "Gramineae: grupo 7, flores rudimentarias", manualPage: 68,
@@ -1970,9 +2031,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_willbleibia_pending: {
     id: "ed2_willbleibia_pending", milestone: "Willbleibia", manualPage: 118,
-    descripcion: "Continuar con la especie de Willbleibia tratada por el manual.",
-    opcionA: { label: "Continuar desarrollando Willbleibia", keyStep: "F", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando Willbleibia", keyStep: "F", especieId: "ed2_gramineae" },
+    descripcion: "Willbleibia: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Willbleibia stolonifera", keyStep: "1", especieId: "ed2_willbleibia_stolonifera" },
+    opcionA_prima: { label: "Identificar como Willbleibia stolonifera", keyStep: "1", especieId: "ed2_willbleibia_stolonifera" },
   },
   ed2_gramineae_group_8_glumes: {
     id: "ed2_gramineae_group_8_glumes", milestone: "Gramineae: grupo 8, plurifloras", manualPage: 70,
@@ -2423,6 +2484,42 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿Las espiguillas son glabras y verdosas, de 2 mm?",
     opcionA: { label: "Sí; panoja muy larga y angosta", keyStep: "B", especieId: "ed2_sporobolus_indicus" },
     opcionA_prima: { label: "No; lanceoladas, claras y muy comprimidas, de 6-7 mm", keyStep: "B'", especieId: "ed2_sporobolus_platensis" },
+  },
+  ed2_spartina: {
+    id: "ed2_spartina", milestone: "Spartina", manualPage: 117,
+    descripcion: "¿La gluma superior es falcada, acuminada y posee cerdas rígidas visibles en la quilla?",
+    opcionA: { label: "Sí; panoja gruesa y densa; planta de dunas", keyStep: "A", especieId: "ed2_spartina_coarctata" },
+    opcionA_prima: { label: "No; gluma oblongo-linear, recta y obtusa; planta halófila", keyStep: "A'", nextNodeId: "ed2_spartina_spikes" },
+  },
+  ed2_spartina_spikes: {
+    id: "ed2_spartina_spikes", milestone: "Spartina: espigas inferiores", manualPage: 117,
+    descripcion: "¿Las espigas inferiores son sésiles y generalmente menores de 9 cm?",
+    opcionA: { label: "Sí; rizomas muy cortos y espiguillas de 8-12 mm", keyStep: "B", especieId: "ed2_spartina_densiflora" },
+    opcionA_prima: { label: "No; pediceladas, de 6-16 cm; rizomas alargados", keyStep: "B'", nextNodeId: "ed2_spartina_spikelet_length" },
+  },
+  ed2_spartina_spikelet_length: {
+    id: "ed2_spartina_spikelet_length", milestone: "Spartina: longitud de la espiguilla", manualPage: 117,
+    descripcion: "¿Las espiguillas miden 15-18 mm o 12-14 mm?",
+    opcionA: { label: "15-18 mm", keyStep: "C", especieId: "ed2_spartina_alterniflora" },
+    opcionA_prima: { label: "12-14 mm", keyStep: "C'", especieId: "ed2_spartina_longispica" },
+  },
+  ed2_cynodon: {
+    id: "ed2_cynodon", milestone: "Cynodon", manualPage: 119,
+    descripcion: "¿La quilla de la lemma es brevemente alada y ciliolada?",
+    opcionA: { label: "Sí; lígula membranosa y hojas planas hirsutas", keyStep: "A", especieId: "ed2_cynodon_hirsutus" },
+    opcionA_prima: { label: "No; quilla no alada y lígula pestañosa", keyStep: "A'", nextNodeId: "ed2_cynodon_prefoliation" },
+  },
+  ed2_cynodon_prefoliation: {
+    id: "ed2_cynodon_prefoliation", milestone: "Cynodon: prefoliación", manualPage: 119,
+    descripcion: "¿La prefoliación es conduplicada o convoluta?",
+    opcionA: { label: "Conduplicada", keyStep: "B", especieId: "ed2_cynodon_dactylon" },
+    opcionA_prima: { label: "Convoluta", keyStep: "B'", nextNodeId: "ed2_cynodon_lemma_hairs" },
+  },
+  ed2_cynodon_lemma_hairs: {
+    id: "ed2_cynodon_lemma_hairs", milestone: "Cynodon: cilias de la lemma", manualPage: 119,
+    descripcion: "¿La lemma es notablemente ciliada en la quilla y en los bordes?",
+    opcionA: { label: "Sí; pelos de 0,3-1 mm", keyStep: "C", especieId: "ed2_cynodon_maritimus" },
+    opcionA_prima: { label: "No; quilla brevemente ciliada y bordes glabros o casi glabros", keyStep: "C'", especieId: "ed2_cynodon_hirsutissimus" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
