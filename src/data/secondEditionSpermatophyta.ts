@@ -499,7 +499,6 @@ export const secondEditionSpermatophytaKeyData: Record<string, CladoNode> = {
       buildBranch(id, spec),
     ])
   ),
-  ed2_family_amaryllidaceae: familyTerminal("ed2_family_amaryllidaceae", "ed2_amaryllidaceae", 193),
   ed2_family_dioscoreaceae: familyTerminal("ed2_family_dioscoreaceae", "ed2_dioscoreaceae", 198),
   ed2_family_iridaceae: familyTerminal("ed2_family_iridaceae", "ed2_iridaceae", 199),
   ed2_family_zingiberaceae: familyTerminal("ed2_family_zingiberaceae", "ed2_zingiberaceae", 204),
