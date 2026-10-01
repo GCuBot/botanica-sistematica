@@ -139,6 +139,91 @@ export const secondEditionCyperaceaeSpecies: Record<string, Especie> = {
     "Espiguillas castañas de 8-10 mm y 6-14 flores, con glumas binervadas; un capitulo sesil y dos o tres pedicelados.",
     "Sur de Brasil, Uruguay y nordeste argentino hasta el Delta y la ribera platense."
   ),
+  ed2_cyperus_esculentus: species(
+    "ed2_cyperus_esculentus", "Cyperus esculentus var. leptostachyus", "Perenne de 20-50 cm, con largos rizomas terminados en tuberculos rojizos.",
+    "Espiguillas pardo amarillentas de 15-40 mm; glumas con mucron subapical y nervaduras laterales y dorsales.",
+    "America; comun en suelos humedos."
+  ),
+  ed2_cyperus_corymbosus: species(
+    "ed2_cyperus_corymbosus", "Cyperus corymbosus var. subnodosus", "Perenne rizomatosa, de 60-120 cm.",
+    "Una a tres hojas cortas; espiguillas castaño rojizas, lineares, de 20-50 mm y 20-40 flores.",
+    "America calida; suelos inundables."
+  ),
+  ed2_cyperus_rotundus: species(
+    "ed2_cyperus_rotundus", "Cyperus rotundus", "Cipero o cebollin; perenne rizomatosa de 15-30 cm.",
+    "Cuatro a diez hojas casi tan largas como el tallo; espiguillas castaño rojizas de 10-30 mm.",
+    "Cosmopolita de regiones calidas; maleza muy comun en suelos modificados y viveros."
+  ),
+  ed2_cyperus_prolixus: species(
+    "ed2_cyperus_prolixus", "Cyperus prolixus", "Perenne cespitosa y robusta, de cerca de 1 m.",
+    "Espiguillas linear-lanceoladas recostadas sobre el eje, de 10-15 mm y siete a nueve flores; umbela muy compuesta.",
+    "America calida; pajonales del Delta y la ribera y orillas de arroyos."
+  ),
+  ed2_cyperus_exaltatus: species(
+    "ed2_cyperus_exaltatus", "Cyperus exaltatus", "Perenne cespitosa de 30-80 cm.",
+    "Espiguillas lanceolado-oblongas recostadas sobre el eje, de 5-7 mm y 16-20 flores; espigas cilindricas densas.",
+    "Regiones tropicales; hallada en Puerto Nuevo."
+  ),
+  ed2_cyperus_odoratus: species(
+    "ed2_cyperus_odoratus", "Cyperus odoratus", "Anual cespitosa de 20-80 cm.",
+    "Espiguillas cilindricas con raquilla articulada, que se fragmenta en unidades uninucigeras; umbela compuesta.",
+    "Regiones calidas; comun en pajonales del Delta y la ribera."
+  ),
+  ed2_cyperus_rigens: species(
+    "ed2_cyperus_rigens", "Cyperus rigens", "Perenne rizomatosa de 40-120 cm.",
+    "Umbela simple o poco compuesta, con espigas ovoides densas; espiguillas lanceoladas de 10-16 mm.",
+    "Sudamerica calida; suelos humedos y sierras del sur bonaerense."
+  ),
+  ed2_cyperus_pohlii: species(
+    "ed2_cyperus_pohlii", "Cyperus pohlii", "Perenne rizomatosa de cerca de 1 m.",
+    "Umbela compuesta muy amplia; espigas ovoides a cilindricas y espiguillas linear-lanceoladas de 10-15 mm.",
+    "Brasil, Paraguay y nordeste argentino hasta el Delta y la ribera."
+  ),
+  ed2_cyperus_giganteus: species(
+    "ed2_cyperus_giganteus", "Cyperus giganteus", "Perenne rizomatosa, afila o subafila, de hasta 2 m.",
+    "Umbela compuesta con muchos radios; espiguillas laxas y redondeadas de 11-13 mm y 18-20 flores.",
+    "America calida; frecuente en pajonales del Delta."
+  ),
+  ed2_cyperus_imbricatus: species(
+    "ed2_cyperus_imbricatus", "Cyperus imbricatus", "Perenne cespitosa de 20-80 cm.",
+    "Raquilla no alada; glumas orbiculares y mucronadas; espigas muy densas en umbela compuesta.",
+    "Regiones muy calidas; lugares muy humedos."
+  ),
+  ed2_cyperus_digitatus: species(
+    "ed2_cyperus_digitatus", "Cyperus digitatus var. obtusifructus", "Perenne cespitosa de 50-120 cm.",
+    "Raquilla alada y glumas decurrentes; espiguillas lanceolado-lineares de 8-12 mm en umbela compuesta.",
+    "Bolivia, Paraguay y Argentina; comun en pajonales del Delta y la ribera platense."
+  ),
+  ed2_cyperus_haspan: species(
+    "ed2_cyperus_haspan", "Cyperus haspan subsp. juncoides", "Perenne cespitosa de 20-60 cm.",
+    "Umbela compuesta con menos de treinta espiguillas castaño rojizas, linear-lanceoladas, y aquenio blanco o vitreo.",
+    "America tropical y subtropical; Delta del Parana y Capital Federal."
+  ),
+  ed2_cyperus_virens: species(
+    "ed2_cyperus_virens", "Cyperus virens", "Perenne robusta y hojosa de cerca de 1 m.",
+    "Tallo triquetro semialado y aspero; umbela compuesta con cabezuelas amarillentas y espiguillas ovadas de 30-40 flores.",
+    "America calida; comun en el Delta, la ribera y bañados."
+  ),
+  ed2_cyperus_surinamensis: species(
+    "ed2_cyperus_surinamensis", "Cyperus surinamensis", "Perenne de 20-40 cm, con hojas largas y rigidas.",
+    "Tallo trigono con diminutas espinas retrorsas; capitulos esfericos o trilobados con espiguillas pajizas.",
+    "America tropical y subtropical; pajonales del Delta."
+  ),
+  ed2_cyperus_unicolor: species(
+    "ed2_cyperus_unicolor", "Cyperus unicolor", "Anual cespitosa y delicada, de 5-20 cm.",
+    "Tallo liso; umbela simple y espiguillas de 3-9 mm con glumas acuminadas.",
+    "Sudamerica calida; Delta del Parana."
+  ),
+  ed2_cyperus_eragrostis: species(
+    "ed2_cyperus_eragrostis", "Cyperus eragrostis", "Perenne de 30-60 cm.",
+    "Tallo trigono de caras planas; umbela de capitulos con espiguillas verde claras, oblongas, de 10-15 mm.",
+    "America calida; comun en lugares humedos."
+  ),
+  ed2_cyperus_entrerianus: species(
+    "ed2_cyperus_entrerianus", "Cyperus entrerianus", "Perenne de 25-65 cm.",
+    "Tallo subterete o trigono de caras convexas; capitulos densos con espiguillas ovadas de 4-5 mm.",
+    "America tropical; rara en Puerto Nuevo."
+  ),
 };
 
 export const secondEditionCyperaceaeKeyData: Record<string, CladoNode> = {
@@ -170,7 +255,7 @@ export const secondEditionCyperaceaeKeyData: Record<string, CladoNode> = {
     id: "ed2_cyperus", milestone: "Cyperus", manualPage: 156,
     descripcion: "¿Las espiguillas forman capitulos o fasciculos solitarios en los apices de los tallos?",
     opcionA: { label: "Si; inflorescencias solitarias y plantas generalmente menores de 1 m", keyStep: "A", nextNodeId: "ed2_cyperus_solitary_fertile_flowers" },
-    opcionA_prima: { label: "No; capitulos, fasciculos o espigas dispuestos en umbela", keyStep: "A'", especieId: "ed2_cyperaceae" },
+    opcionA_prima: { label: "No; capitulos, fasciculos o espigas dispuestos en umbela", keyStep: "A'", nextNodeId: "ed2_cyperus_umbel_style" },
   },
   ed2_cyperus_solitary_fertile_flowers: {
     id: "ed2_cyperus_solitary_fertile_flowers", milestone: "Cyperus: inflorescencia solitaria", manualPage: 156,
@@ -231,6 +316,120 @@ export const secondEditionCyperaceaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿Las espiguillas miden 12-20 mm o 8-10 mm?",
     opcionA: { label: "12-20 mm, con 10-30 flores y glumas generalmente trinervadas", keyStep: "K", especieId: "ed2_cyperus_lanceolatus" },
     opcionA_prima: { label: "8-10 mm, con 6-14 flores y glumas binervadas", keyStep: "K'", especieId: "ed2_cyperus_megapotamicus" },
+  },
+  ed2_cyperus_umbel_style: {
+    id: "ed2_cyperus_umbel_style", milestone: "Cyperus: umbelas", manualPage: 157,
+    descripcion: "¿El estilo es bifido o trifido?",
+    opcionA: { label: "Bifido; aquenio biconvexo", keyStep: "L", nextNodeId: "ed2_cyperus_compressed_length" },
+    opcionA_prima: { label: "Trifido; aquenio trigono", keyStep: "L'", nextNodeId: "ed2_cyperus_umbel_arrangement" },
+  },
+  ed2_cyperus_umbel_arrangement: {
+    id: "ed2_cyperus_umbel_arrangement", milestone: "Cyperus: disposicion en umbela", manualPage: 157,
+    descripcion: "¿Las espiguillas estan dispuestas en espigas o en fasciculos y capitulos?",
+    opcionA: { label: "En espigas", keyStep: "N", nextNodeId: "ed2_cyperus_spike_density" },
+    opcionA_prima: { label: "En fasciculos o capitulos", keyStep: "N'", nextNodeId: "ed2_cyperus_head_color" },
+  },
+  ed2_cyperus_spike_density: {
+    id: "ed2_cyperus_spike_density", milestone: "Cyperus: densidad de las espigas", manualPage: 157,
+    descripcion: "¿Hay cinco a veinte espiguillas laxas por espiga o son muy numerosas y densas?",
+    opcionA: { label: "Laxas; rizomas horizontales largos y tallos debiles", keyStep: "O", nextNodeId: "ed2_cyperus_lax_spike_color" },
+    opcionA_prima: { label: "Densas y muy numerosas; plantas cespitosas o con rizomas cortos", keyStep: "O'", nextNodeId: "ed2_cyperus_dense_orientation" },
+  },
+  ed2_cyperus_lax_spike_color: {
+    id: "ed2_cyperus_lax_spike_color", milestone: "Cyperus: espiguillas laxas", manualPage: 157,
+    descripcion: "¿Las espiguillas son pardo amarillentas o castaño rojizas?",
+    opcionA: { label: "Pardo amarillentas, de 15-40 mm; glumas nervadas tambien en los costados", keyStep: "P", especieId: "ed2_cyperus_esculentus" },
+    opcionA_prima: { label: "Castaño rojizas; glumas nervadas solamente en el dorso", keyStep: "P'", nextNodeId: "ed2_cyperus_red_leaves" },
+  },
+  ed2_cyperus_red_leaves: {
+    id: "ed2_cyperus_red_leaves", milestone: "Cyperus: hojas", manualPage: 157,
+    descripcion: "¿La planta tiene una a tres hojas cortas o cuatro a diez casi tan largas como el tallo?",
+    opcionA: { label: "Una a tres hojas mucho mas cortas; bracteas apenas superan la inflorescencia", keyStep: "Q", especieId: "ed2_cyperus_corymbosus" },
+    opcionA_prima: { label: "Cuatro a diez hojas casi tan largas; bracteas mas largas que la inflorescencia", keyStep: "Q'", especieId: "ed2_cyperus_rotundus" },
+  },
+  ed2_cyperus_dense_orientation: {
+    id: "ed2_cyperus_dense_orientation", milestone: "Cyperus: espiguillas densas", manualPage: 157,
+    descripcion: "¿Las espiguillas estan recostadas sobre el eje o abiertas hasta perpendiculares?",
+    opcionA: { label: "Recostadas sobre el eje", keyStep: "R", nextNodeId: "ed2_cyperus_appressed_shape" },
+    opcionA_prima: { label: "Abiertas hasta perpendiculares al eje", keyStep: "R'", nextNodeId: "ed2_cyperus_open_spike_shape" },
+  },
+  ed2_cyperus_appressed_shape: {
+    id: "ed2_cyperus_appressed_shape", milestone: "Cyperus: espiguillas recostadas", manualPage: 157,
+    descripcion: "¿Son linear-lanceoladas de 10-15 mm o lanceolado-oblongas de 5-7 mm?",
+    opcionA: { label: "Linear-lanceoladas, 10-15 mm y siete a nueve flores", keyStep: "S", especieId: "ed2_cyperus_prolixus" },
+    opcionA_prima: { label: "Lanceolado-oblongas, 5-7 mm y 16-20 flores", keyStep: "S'", especieId: "ed2_cyperus_exaltatus" },
+  },
+  ed2_cyperus_open_spike_shape: {
+    id: "ed2_cyperus_open_spike_shape", milestone: "Cyperus: forma de la espiga", manualPage: 157,
+    descripcion: "¿Las espigas son cortas y ovadas o cilindricas y alargadas?",
+    opcionA: { label: "Ovadas, cortas y anchas", keyStep: "T", nextNodeId: "ed2_cyperus_ovate_rachilla" },
+    opcionA_prima: { label: "Cilindricas y alargadas; raquilla persistente", keyStep: "T'", nextNodeId: "ed2_cyperus_cylindrical_habit" },
+  },
+  ed2_cyperus_ovate_rachilla: {
+    id: "ed2_cyperus_ovate_rachilla", milestone: "Cyperus: raquilla", manualPage: 157,
+    descripcion: "¿La raquilla se articula en cada gluma y se fragmenta al madurar?",
+    opcionA: { label: "Si; se divide en fragmentos uninucigeros", keyStep: "U", especieId: "ed2_cyperus_odoratus" },
+    opcionA_prima: { label: "No; persistente o caduca en conjunto", keyStep: "U'", nextNodeId: "ed2_cyperus_ovate_umbel" },
+  },
+  ed2_cyperus_ovate_umbel: {
+    id: "ed2_cyperus_ovate_umbel", milestone: "Cyperus: umbela de espigas ovadas", manualPage: 157,
+    descripcion: "¿La umbela es simple o muy compuesta y amplia?",
+    opcionA: { label: "Simple o apenas compuesta; espigas ovoides o globosas", keyStep: "V", especieId: "ed2_cyperus_rigens" },
+    opcionA_prima: { label: "Compuesta y muy amplia; espigas ovoides o casi cilindricas", keyStep: "V'", especieId: "ed2_cyperus_pohlii" },
+  },
+  ed2_cyperus_cylindrical_habit: {
+    id: "ed2_cyperus_cylindrical_habit", milestone: "Cyperus: espigas cilindricas", manualPage: 158,
+    descripcion: "¿La planta es afila o subafila, o presenta hojas desarrolladas?",
+    opcionA: { label: "Afila o subafila, de hasta 2 m", keyStep: "W", especieId: "ed2_cyperus_giganteus" },
+    opcionA_prima: { label: "Con hojas", keyStep: "W'", nextNodeId: "ed2_cyperus_rachilla_wing" },
+  },
+  ed2_cyperus_rachilla_wing: {
+    id: "ed2_cyperus_rachilla_wing", milestone: "Cyperus: ala de la raquilla", manualPage: 158,
+    descripcion: "¿La raquilla carece de alas y las glumas no son decurrentes?",
+    opcionA: { label: "Si; raquilla no alada y glumas orbiculares mucronadas", keyStep: "X", especieId: "ed2_cyperus_imbricatus" },
+    opcionA_prima: { label: "No; raquilla alada y glumas decurrentes", keyStep: "X'", especieId: "ed2_cyperus_digitatus" },
+  },
+  ed2_cyperus_head_color: {
+    id: "ed2_cyperus_head_color", milestone: "Cyperus: fasciculos o capitulos", manualPage: 158,
+    descripcion: "¿Las espiguillas son castaño rojizas o verdosas a pajizas?",
+    opcionA: { label: "Castaño rojizas", keyStep: "Y", nextNodeId: "ed2_cyperus_red_head_length" },
+    opcionA_prima: { label: "Verdosas o pajizas", keyStep: "Y'", nextNodeId: "ed2_cyperus_green_stem" },
+  },
+  ed2_cyperus_red_head_length: {
+    id: "ed2_cyperus_red_head_length", milestone: "Cyperus: capitulos rojizos", manualPage: 158,
+    descripcion: "¿Las espiguillas suelen medir menos de 10 mm o entre 10 y 50 mm?",
+    opcionA: { label: "Menos de 10 mm, en fasciculos o capitulos densos", keyStep: "Z", nextNodeId: "ed2_cyperus_red_umbel" },
+    opcionA_prima: { label: "10-50 mm, en una espiga muy corta semejante a un fasciculo", keyStep: "Z'", nextNodeId: "ed2_cyperus_red_leaves" },
+  },
+  ed2_cyperus_red_umbel: {
+    id: "ed2_cyperus_red_umbel", milestone: "Cyperus: umbela rojiza", manualPage: 158,
+    descripcion: "¿La umbela es simple o compuesta?",
+    opcionA: { label: "Simple; capitulos con muchas espiguillas lanceoladas", keyStep: "a", especieId: "ed2_cyperus_reflexus" },
+    opcionA_prima: { label: "Compuesta; menos de treinta espiguillas y aquenio blanco o vitreo", keyStep: "a'", especieId: "ed2_cyperus_haspan" },
+  },
+  ed2_cyperus_green_stem: {
+    id: "ed2_cyperus_green_stem", milestone: "Cyperus: tallo", manualPage: 158,
+    descripcion: "¿El tallo es aspero o liso?",
+    opcionA: { label: "Aspero", keyStep: "c", nextNodeId: "ed2_cyperus_rough_stem" },
+    opcionA_prima: { label: "Liso", keyStep: "c'", nextNodeId: "ed2_cyperus_smooth_height" },
+  },
+  ed2_cyperus_rough_stem: {
+    id: "ed2_cyperus_rough_stem", milestone: "Cyperus: tallo aspero", manualPage: 158,
+    descripcion: "¿El tallo es triquetro y semialado o trigono con espinitas dirigidas hacia abajo?",
+    opcionA: { label: "Triquetro, semialado y escabroso en los angulos; cerca de 1 m", keyStep: "d", especieId: "ed2_cyperus_virens" },
+    opcionA_prima: { label: "Trigono con diminutas espinas retrorsas; 20-40 cm", keyStep: "d'", especieId: "ed2_cyperus_surinamensis" },
+  },
+  ed2_cyperus_smooth_height: {
+    id: "ed2_cyperus_smooth_height", milestone: "Cyperus: tallo liso", manualPage: 158,
+    descripcion: "¿La planta mide 5-20 cm o mas de 25 cm?",
+    opcionA: { label: "5-20 cm; glumas acuminadas y umbela simple", keyStep: "e", especieId: "ed2_cyperus_unicolor" },
+    opcionA_prima: { label: "Mas de 25 cm; glumas no acuminadas", keyStep: "e'", nextNodeId: "ed2_cyperus_smooth_spikelet" },
+  },
+  ed2_cyperus_smooth_spikelet: {
+    id: "ed2_cyperus_smooth_spikelet", milestone: "Cyperus: espiguillas de tallo liso", manualPage: 159,
+    descripcion: "¿Las espiguillas son oblongas y verde claras u ovadas y mas pequeñas?",
+    opcionA: { label: "Oblongas, verde claras, de 10-15 mm y 20-30 flores", keyStep: "f", especieId: "ed2_cyperus_eragrostis" },
+    opcionA_prima: { label: "Ovadas, de 4-5 mm y 10-25 flores", keyStep: "f'", especieId: "ed2_cyperus_entrerianus" },
   },
   ed2_carex: {
     id: "ed2_carex", milestone: "Carex", manualPage: 154,
