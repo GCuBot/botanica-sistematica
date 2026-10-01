@@ -54,27 +54,6 @@ export const secondEditionSpermatophytaFamilies: Record<string, Especie> = {
   ed2_orchidaceae: family("ed2_orchidaceae", "XLIV", "Orchidaceae", 208),
 };
 
-function familyTerminal(nodeId: string, familyId: string, manualPage: number): CladoNode {
-  const especie = secondEditionSpermatophytaFamilies[familyId];
-  return {
-    id: nodeId,
-    milestone: especie.nombreCientifico,
-    manualPage,
-    descripcion: `${especie.nombreCientifico}: continuar con la clave propia de la familia.`,
-    opcionA: {
-      label: `Continuar en ${especie.nombreCientifico}`,
-      keyStep: "Familia",
-      especieId: familyId,
-    },
-    opcionA_prima: {
-      label: `Continuar en ${especie.nombreCientifico}`,
-      keyStep: "Familia",
-      especieId: familyId,
-    },
-    especie,
-  };
-}
-
 const secondEditionSpermatophytaBranchSpecs: Record<string, BranchSpec> = {
   ed2_root: {
     descripcion: "¿La planta produce flores y semillas?",
@@ -499,5 +478,4 @@ export const secondEditionSpermatophytaKeyData: Record<string, CladoNode> = {
       buildBranch(id, spec),
     ])
   ),
-  ed2_family_orchidaceae: familyTerminal("ed2_family_orchidaceae", "ed2_orchidaceae", 208),
 };
