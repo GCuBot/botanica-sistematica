@@ -1582,6 +1582,61 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Panoja amplia y laxa; pedicelos de 7-15 mm; espiguillas ovoides agudas de 2,5 mm.",
     "Sur de Paraguay y extremo nordeste argentino; accidental en Capital Federal.", "Panicum pilcomayense"
   ),
+  ed2_rhynchelytrum_repens: species(
+    "ed2_rhynchelytrum_repens", "Rhynchelytrum repens", "Gramínea anual o plurienal, cespitosa, de 50-100 cm.",
+    "Espiguillas densamente sedoso-pilosas; gluma superior y lemma estéril aristadas; panoja rosada y luego plateada.",
+    "Originaria de África; naturalizada en América cálida y en terraplenes del norte bonaerense.", "Rhynchelytrum repens"
+  ),
+  ed2_erianthus_trinii: species(
+    "ed2_erianthus_trinii", "Erianthus trinii", "Gramínea perenne robusta de 1,5-3 m.",
+    "Espiguillas bifloras en pares, con largos pelos basales; panoja oblonga velluda de 30-40 cm.",
+    "América tropical hasta el nordeste argentino; rara en el Delta.", "Erianthus trinii"
+  ),
+  ed2_imperata_brasiliensis: species(
+    "ed2_imperata_brasiliensis", "Imperata brasiliensis", "Gramínea perenne y rizomatosa de 50-100 cm.",
+    "Espiguillas múticas en pares envueltas por largos pelos plateados; panoja estrecha y densa de 10-12 cm.",
+    "Brasil y Uruguay hasta el nordeste argentino; dunas de la Ensenada de Samborombón.", "Imperata brasiliensis"
+  ),
+  ed2_ischaemum_urvilleanum: species(
+    "ed2_ischaemum_urvilleanum", "Ischaemum urvilleanum", "Gramínea perenne y rizomatosa de 20-40 cm.",
+    "Racimos espiciformes geminados; espiguillas bifloras en pares, una subsésil y otra largamente pedicelada.",
+    "Brasil, Uruguay y Argentina; accidental en la región.", "Ischaemum urvilleanum"
+  ),
+  ed2_trachypogon_montufari: species(
+    "ed2_trachypogon_montufari", "Trachypogon montufari", "Gramínea perenne cortamente rizomatosa de 40-70 cm.",
+    "Espiguillas unifloras en pares; la hermafrodita con arista velluda de 4-7 cm; racimo espiciforme solitario.",
+    "América cálida hasta el norte bonaerense.", "Trachypogon montufari"
+  ),
+  ed2_coelorhachis_selloana: species(
+    "ed2_coelorhachis_selloana", "Coelorhachis selloana", "Gramínea perenne, rizomatosa y glabra de 30-50 cm.",
+    "Espiguilla fértil apretada contra el raquis articulado; glumas múticas; espigas cilíndricas de 6-15 cm.",
+    "Uruguay y nordeste argentino; alrededores de La Plata.", "Coelorhachis selloana"
+  ),
+  ed2_hemarthria_altissima: species(
+    "ed2_hemarthria_altissima", "Hemarthria altissima", "Gramínea perenne de cañas ramosas, de 40-80 cm.",
+    "Espiguillas en pares sobre raquis tenaz; la pedicelada estéril casi igual a la sésil; racimos algo aplanados.",
+    "Regiones cálidas; común en bosques del Delta y la ribera del Plata.", "Hemarthria altissima"
+  ),
+  ed2_sorghum_halepense: species(
+    "ed2_sorghum_halepense", "Sorghum halepense", "Gramínea perenne y rizomatosa de 0,5-1,5 m.",
+    "Cañas huecas; hojas de 7-20 mm; panoja laxa; espiguillas en pares con lemma fértil aristada.",
+    "Originaria de África; adventicia e invasora, considerada plaga de cultivos.", "Sorgo de Alepo, pasto ruso"
+  ),
+  ed2_sorghum_saccharatum: species(
+    "ed2_sorghum_saccharatum", "Sorghum saccharatum", "Gramínea anual de 1-2,5 m, con médula jugosa y azucarada.",
+    "Cañas macizas; hojas de 30-60 mm; panoja densa; espiguillas de 5-6 mm.",
+    "Originaria de África; cultivada como forraje y subespontánea junto a caminos.", "Sorgo azucarado"
+  ),
+  ed2_sorghastrum_agrostoides: species(
+    "ed2_sorghastrum_agrostoides", "Sorghastrum agrostoides", "Gramínea perenne y cespitosa de 1-2 m.",
+    "Espiguillas de 3,5-4,5 mm; arista de 5-10 mm; panoja nutante de 40-60 cm.",
+    "Paraguay y nordeste argentino; accidental en Capital Federal.", "Sorghastrum agrostoides"
+  ),
+  ed2_sorghastrum_pellitum: species(
+    "ed2_sorghastrum_pellitum", "Sorghastrum pellitum", "Gramínea perenne y cespitosa de 40-100 cm.",
+    "Espiguillas de 5,5-6 mm; arista de 10-15 mm; panoja terminal de 10-30 cm.",
+    "Sur de Brasil, Uruguay y nordeste y centro argentino; estepa clímax y sierras.", "Sorghastrum pellitum"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -1834,9 +1889,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_6_rhynchelytrum_pending: {
     id: "ed2_gramineae_group_6_rhynchelytrum_pending", milestone: "Gramineae: grupo 6, glumas sedosas", manualPage: 67,
-    descripcion: "Continuar con el género de glumas cubiertas por pelos sedosos.",
-    opcionA: { label: "Continuar desarrollando el grupo 6", keyStep: "G'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 6", keyStep: "G'", especieId: "ed2_gramineae" },
+    descripcion: "Rhynchelytrum: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Rhynchelytrum repens", keyStep: "1", especieId: "ed2_rhynchelytrum_repens" },
+    opcionA_prima: { label: "Identificar como Rhynchelytrum repens", keyStep: "1", especieId: "ed2_rhynchelytrum_repens" },
   },
   ed2_gramineae_group_7: {
     id: "ed2_gramineae_group_7", milestone: "Gramineae: grupo 7", manualPage: 67,
@@ -3589,6 +3644,54 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿Las hojas son hirsutas y miden 2-5 mm de ancho?",
     opcionA: { label: "Sí; pedicelos de 3-7 mm", keyStep: "U", especieId: "ed2_panicum_bergii" },
     opcionA_prima: { label: "No; glabras, de 15 mm, con pedicelos de 7-15 mm", keyStep: "U'", especieId: "ed2_panicum_pilcomayense" },
+  },
+  ed2_erianthus: {
+    id: "ed2_erianthus", milestone: "Erianthus", manualPage: 144,
+    descripcion: "Erianthus: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Erianthus trinii", keyStep: "1", especieId: "ed2_erianthus_trinii" },
+    opcionA_prima: { label: "Identificar como Erianthus trinii", keyStep: "1", especieId: "ed2_erianthus_trinii" },
+  },
+  ed2_imperata: {
+    id: "ed2_imperata", milestone: "Imperata", manualPage: 144,
+    descripcion: "Imperata: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Imperata brasiliensis", keyStep: "1", especieId: "ed2_imperata_brasiliensis" },
+    opcionA_prima: { label: "Identificar como Imperata brasiliensis", keyStep: "1", especieId: "ed2_imperata_brasiliensis" },
+  },
+  ed2_ischaemum: {
+    id: "ed2_ischaemum", milestone: "Ischaemum", manualPage: 144,
+    descripcion: "Ischaemum: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Ischaemum urvilleanum", keyStep: "1", especieId: "ed2_ischaemum_urvilleanum" },
+    opcionA_prima: { label: "Identificar como Ischaemum urvilleanum", keyStep: "1", especieId: "ed2_ischaemum_urvilleanum" },
+  },
+  ed2_trachypogon: {
+    id: "ed2_trachypogon", milestone: "Trachypogon", manualPage: 146,
+    descripcion: "Trachypogon: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Trachypogon montufari", keyStep: "1", especieId: "ed2_trachypogon_montufari" },
+    opcionA_prima: { label: "Identificar como Trachypogon montufari", keyStep: "1", especieId: "ed2_trachypogon_montufari" },
+  },
+  ed2_coelorhachis: {
+    id: "ed2_coelorhachis", milestone: "Coelorhachis", manualPage: 146,
+    descripcion: "Coelorhachis: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Coelorhachis selloana", keyStep: "1", especieId: "ed2_coelorhachis_selloana" },
+    opcionA_prima: { label: "Identificar como Coelorhachis selloana", keyStep: "1", especieId: "ed2_coelorhachis_selloana" },
+  },
+  ed2_hemarthria: {
+    id: "ed2_hemarthria", milestone: "Hemarthria", manualPage: 146,
+    descripcion: "Hemarthria: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Hemarthria altissima", keyStep: "1", especieId: "ed2_hemarthria_altissima" },
+    opcionA_prima: { label: "Identificar como Hemarthria altissima", keyStep: "1", especieId: "ed2_hemarthria_altissima" },
+  },
+  ed2_sorghum: {
+    id: "ed2_sorghum", milestone: "Sorghum", manualPage: 147,
+    descripcion: "¿Las cañas son huecas y la planta rizomatosa?",
+    opcionA: { label: "Sí; hojas de 7-20 mm y panoja laxa", keyStep: "A", especieId: "ed2_sorghum_halepense" },
+    opcionA_prima: { label: "No; cañas macizas, planta anual y panoja densa", keyStep: "A'", especieId: "ed2_sorghum_saccharatum" },
+  },
+  ed2_sorghastrum: {
+    id: "ed2_sorghastrum", milestone: "Sorghastrum", manualPage: 147,
+    descripcion: "¿Las espiguillas miden 3,5-4,5 mm y la arista 5-10 mm?",
+    opcionA: { label: "Sí; cañas de 1-2 m y panoja de 40-60 cm", keyStep: "A", especieId: "ed2_sorghastrum_agrostoides" },
+    opcionA_prima: { label: "No; espiguillas de 5,5-6 mm y arista de 10-15 mm", keyStep: "A'", especieId: "ed2_sorghastrum_pellitum" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
