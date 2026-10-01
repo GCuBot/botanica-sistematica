@@ -499,7 +499,6 @@ export const secondEditionSpermatophytaKeyData: Record<string, CladoNode> = {
       buildBranch(id, spec),
     ])
   ),
-  ed2_family_cyperaceae: familyTerminal("ed2_family_cyperaceae", "ed2_cyperaceae", 151),
   ed2_family_palmae: familyTerminal("ed2_family_palmae", "ed2_palmae", 169),
   ed2_family_araceae: familyTerminal("ed2_family_araceae", "ed2_araceae", 170),
   ed2_family_lemnaceae: familyTerminal("ed2_family_lemnaceae", "ed2_lemnaceae", 171),
