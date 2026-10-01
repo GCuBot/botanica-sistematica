@@ -317,7 +317,6 @@ const files = [
     treeExport: "export const secondEditionCyperaceaeKeyData",
     dataExport: "export const secondEditionCyperaceaeSpecies",
     dataPattern: /^  ([a-zA-Z0-9_]+): species\(/gm,
-    externalSpecies: ["ed2_cyperaceae"],
     externalNodes: [],
     speciesKey: true,
     order: "data-first",

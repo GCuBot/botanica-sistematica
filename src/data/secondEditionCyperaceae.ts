@@ -344,6 +344,36 @@ export const secondEditionCyperaceaeSpecies: Record<string, Especie> = {
     "Espiguillas lanceoladas plurifloras de 15-25 mm; glumas agudas, aquenios lisos y vainas ligeramente oblicuas.",
     "Uruguay y nordeste argentino; vive en charcas."
   ),
+  ed2_rhynchospora_megapotamica: species(
+    "ed2_rhynchospora_megapotamica", "Rhynchospora megapotamica", "Perenne rizomatosa y estolonifera, con tallos hojosos de 20-30 cm.",
+    "Estilo profundamente bifido; espiguillas de 3-3,5 mm reunidas en panojas contraidas.",
+    "Sudamerica; cercanias de La Plata."
+  ),
+  ed2_rhynchospora_corymbosa: species(
+    "ed2_rhynchospora_corymbosa", "Rhynchospora corymbosa var. bonariensis", "Perenne rizomatosa de cerca de 1 m.",
+    "Estilo indiviso; panoja corimbiforme muy laxa, con fasciculos pedunculados de tres a cinco espiguillas.",
+    "Region platense; muy comun en pajonales del Delta y la ribera."
+  ),
+  ed2_rhynchospora_legrandii: species(
+    "ed2_rhynchospora_legrandii", "Rhynchospora legrandii", "Perenne de 50-110 cm, con hojas planas.",
+    "Estilo indiviso; fasciculos muy densos y apicales, con espiguillas gruesas castañas de 8-10 mm.",
+    "Sur de Brasil, Paraguay, Uruguay y nordeste argentino; pajonales de la ribera del Plata."
+  ),
+  ed2_rhynchospora_rostrata: species(
+    "ed2_rhynchospora_rostrata", "Rhynchospora rostrata", "Perenne de 1 m o mas, con hojas planas de unos 15 mm.",
+    "Estilo indiviso; fasciculos en panojas contraidas terminales y laterales; espiguillas angostas de 7-8 mm.",
+    "Brasil y nordeste argentino; comun en pajonales del Delta y la ribera."
+  ),
+  ed2_bulbostylis_juncoides: species(
+    "ed2_bulbostylis_juncoides", "Bulbostylis juncoides", "Anual delicada de 10-40 cm, con tallos y hojas filiformes.",
+    "Pocas espiguillas sesiles o subsesiles reunidas en un capitulo terminal con dos o tres bracteas foliaceas.",
+    "Sierras de Olavarria, Tandil y Balcarce."
+  ),
+  ed2_bulbostylis_capillaris: species(
+    "ed2_bulbostylis_capillaris", "Bulbostylis capillaris", "Anual delicada de 5-30 cm, con tallos y hojas filiformes.",
+    "Espiguillas mayormente pediceladas, reunidas en cimas compuestas con dos bracteas foliaceas cortas.",
+    "Regiones calidas del globo; sierras de la provincia de Buenos Aires."
+  ),
 };
 
 export const secondEditionCyperaceaeKeyData: Record<string, CladoNode> = {
@@ -387,7 +417,13 @@ export const secondEditionCyperaceaeKeyData: Record<string, CladoNode> = {
     id: "ed2_cyperaceae_persistent_style_habit", milestone: "Cyperaceae: estilo persistente", manualPage: 154,
     descripcion: "¿La planta es afila y posee una unica espiguilla terminal sin bracteas?",
     opcionA: { label: "Si; afila y con una espiguilla terminal", keyStep: "F", nextNodeId: "ed2_eleocharis" },
-    opcionA_prima: { label: "No; generalmente con hojas y numerosas espiguillas con bracteas", keyStep: "F'", especieId: "ed2_cyperaceae" },
+    opcionA_prima: { label: "No; generalmente con hojas y numerosas espiguillas con bracteas", keyStep: "F'", nextNodeId: "ed2_cyperaceae_spikelet_fertility" },
+  },
+  ed2_cyperaceae_spikelet_fertility: {
+    id: "ed2_cyperaceae_spikelet_fertility", milestone: "Cyperaceae: flores por espiguilla", manualPage: 154,
+    descripcion: "¿Las espiguillas poseen una o dos flores y tres o mas glumas esteriles basales?",
+    opcionA: { label: "Si; espiguillas paucifloras y plantas frecuentemente robustas", keyStep: "G", nextNodeId: "ed2_rhynchospora" },
+    opcionA_prima: { label: "No; espiguillas plurifloras con una o dos glumas esteriles o ninguna; plantas debiles", keyStep: "G'", nextNodeId: "ed2_bulbostylis" },
   },
   ed2_scirpus: {
     id: "ed2_scirpus", milestone: "Scirpus", manualPage: 159,
@@ -514,6 +550,30 @@ export const secondEditionCyperaceaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿Las espiguillas son ovoides y obtusas o lanceoladas y agudas?",
     opcionA: { label: "Ovoides, obtusas, de 4-13 mm; aquenio punteado", keyStep: "M", especieId: "ed2_eleocharis_montevidensis" },
     opcionA_prima: { label: "Lanceoladas, agudas, de 15-25 mm; aquenio liso", keyStep: "M'", especieId: "ed2_eleocharis_haumaniana" },
+  },
+  ed2_rhynchospora: {
+    id: "ed2_rhynchospora", milestone: "Rhynchospora", manualPage: 165,
+    descripcion: "¿El estilo es profundamente bifido o indiviso?",
+    opcionA: { label: "Profundamente bifido; espiguillas de 3-3,5 mm en panojas contraidas", keyStep: "A", especieId: "ed2_rhynchospora_megapotamica" },
+    opcionA_prima: { label: "Indiviso; espiguillas mayores", keyStep: "A'", nextNodeId: "ed2_rhynchospora_panicle" },
+  },
+  ed2_rhynchospora_panicle: {
+    id: "ed2_rhynchospora_panicle", milestone: "Rhynchospora: panoja", manualPage: 165,
+    descripcion: "¿La panoja es corimbiforme y muy laxa o contraida?",
+    opcionA: { label: "Corimbiforme muy laxa; fasciculos de tres a cinco, largamente pedunculados", keyStep: "B", especieId: "ed2_rhynchospora_corymbosa" },
+    opcionA_prima: { label: "Contraida; fasciculos de mas de ocho espiguillas, cortamente pedunculados", keyStep: "B'", nextNodeId: "ed2_rhynchospora_fascicles" },
+  },
+  ed2_rhynchospora_fascicles: {
+    id: "ed2_rhynchospora_fascicles", milestone: "Rhynchospora: fasciculos", manualPage: 165,
+    descripcion: "¿Los fasciculos se amontonan principalmente en el apice del tallo?",
+    opcionA: { label: "Si; muy densos, con espiguillas gruesas castañas de 8-10 mm", keyStep: "C", especieId: "ed2_rhynchospora_legrandii" },
+    opcionA_prima: { label: "No; en panojas contraidas terminales y laterales, con espiguillas angostas", keyStep: "C'", especieId: "ed2_rhynchospora_rostrata" },
+  },
+  ed2_bulbostylis: {
+    id: "ed2_bulbostylis", milestone: "Bulbostylis", manualPage: 166,
+    descripcion: "¿Las espiguillas son sesiles y forman un capitulo terminal o son mayormente pediceladas?",
+    opcionA: { label: "Sesiles o casi sesiles, pocas, en un capitulo terminal", keyStep: "A", especieId: "ed2_bulbostylis_juncoides" },
+    opcionA_prima: { label: "Mayormente pediceladas, reunidas en cimas compuestas", keyStep: "A'", especieId: "ed2_bulbostylis_capillaris" },
   },
   ed2_cyperus: {
     id: "ed2_cyperus", milestone: "Cyperus", manualPage: 156,
