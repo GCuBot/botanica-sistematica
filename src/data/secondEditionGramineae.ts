@@ -1177,6 +1177,81 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Panoja laxa; lámina rígida, puntiaguda y convoluta; espiguillas de 8-10 mm con cinco a nueve flores.",
     "América austral; campos húmedos y salobres, a veces invasora.", "Pasto salado"
   ),
+  ed2_setaria_geniculata: species(
+    "ed2_setaria_geniculata", "Setaria geniculata", "Gramínea perenne y cespitosa de 30-100 cm.",
+    "Más de cinco cerdas involucrales; panoja densa espiciforme; espiguillas de 2-2,8 mm.",
+    "América templado-cálida; ubicua, principalmente en rastrojos y jardines.", "Setaria geniculata"
+  ),
+  ed2_setaria_verticillata: species(
+    "ed2_setaria_verticillata", "Setaria verticillata", "Gramínea anual de 40-100 cm.",
+    "Una a tres cerdas con pelos retrorsos adherentes; panoja espiciforme densa e interrumpida abajo.",
+    "Originaria de Europa; adventicia y maleza de cultivos en suelos modificados.", "Cola de zorro, pega-pega"
+  ),
+  ed2_setaria_viridis: species(
+    "ed2_setaria_viridis", "Setaria viridis", "Gramínea anual de 10-60 cm.",
+    "Cerdas con pelos antrorsos; espiguillas de 1,8-2 mm; antecio algo rugoso; panoja corta y gruesa.",
+    "Originaria de Europa; adventicia en América, en ambientes diversos.", "Setaria viridis"
+  ),
+  ed2_setaria_italica: species(
+    "ed2_setaria_italica", "Setaria italica", "Gramínea anual de hasta 1 m.",
+    "Cerdas con pelos antrorsos; espiguillas de 2,5-3,5 mm; antecio liso y brillante; panoja espiciforme de 8-20 cm.",
+    "Originaria de Eurasia; cultivada como cereal y forrajera, frecuentemente espontánea.", "Mijo de Italia"
+  ),
+  ed2_setaria_leiantha: species(
+    "ed2_setaria_leiantha", "Setaria leiantha", "Gramínea perenne robusta de más de 60 cm.",
+    "Hojas de 12-15 mm; panoja densa de 10-20 cm; espiguillas lanceoladas y glabras de 1,5-2 mm.",
+    "Bolivia, Paraguay y norte argentino; frecuente junto a vías férreas al norte de Capital Federal.", "Avena del monte, cola de zorro"
+  ),
+  ed2_setaria_fiebrigii: species(
+    "ed2_setaria_fiebrigii", "Setaria fiebrigii", "Gramínea perenne de 80-150 cm.",
+    "Nudos glabros; espiguillas globosas de 1,6-2 mm; lemma fértil con surcos transversales profundos.",
+    "Paraguay y nordeste argentino; norte de Capital Federal hasta Palermo.", "Setaria fiebrigii"
+  ),
+  ed2_setaria_pampeana: species(
+    "ed2_setaria_pampeana", "Setaria pampeana", "Gramínea perenne de 30-70 cm.",
+    "Nudos pilosos; espiguillas globosas de 1,6-2 mm; lemma fértil levemente rugosa; panoja espiciforme.",
+    "Centro argentino; rara en las barrancas de Campana.", "Setaria pampeana"
+  ),
+  ed2_setaria_mendocina: species(
+    "ed2_setaria_mendocina", "Setaria mendocina", "Gramínea perenne y cespitosa, menor de 70 cm.",
+    "Antecio fértil brillante y liso o apenas estriado; espiguillas de 3-4 mm; gluma inferior pilosa.",
+    "Provincia fitogeográfica del monte y estepa pampeana.", "Setaria mendocina"
+  ),
+  ed2_setaria_rosengurttii: species(
+    "ed2_setaria_rosengurttii", "Setaria rosengurttii", "Gramínea perenne muy ramificada en los nudos inferiores, de 50-90 cm.",
+    "Antecio opaco y surcado; espiguillas lanceoladas no gibosas; panoja laxa, generalmente verdosa.",
+    "Sur de Brasil, Uruguay y nordeste argentino; suelos fértiles y terrenos modificados.", "Setaria rosengurttii"
+  ),
+  ed2_setaria_vaginata: species(
+    "ed2_setaria_vaginata", "Setaria vaginata", "Gramínea perenne de 20-80 cm, rara vez ramificada abajo.",
+    "Antecio opaco y surcado; espiguillas globosas y gibosas; panoja densa generalmente purpúrea.",
+    "Sur de Brasil, Uruguay y nordeste argentino; común en la región.", "Cola de zorro"
+  ),
+  ed2_pennisetum_villosum: species(
+    "ed2_pennisetum_villosum", "Pennisetum villosum", "Gramínea perenne, rizomatosa y baja.",
+    "Más de veinte cerdas involucrales plumosas de hasta 50 mm; panoja densa; espiguillas lanceoladas de 9-12 mm.",
+    "Originaria de África; adventicia en América, en suelos modificados.", "Cola de zorro"
+  ),
+  ed2_pennisetum_latifolium: species(
+    "ed2_pennisetum_latifolium", "Pennisetum latifolium", "Gramínea perenne y erecta de 1,2-3 m.",
+    "Ocho a doce cerdas involucrales simples, menores de 20 mm; panoja gruesa e inclinada; espiguillas de 4-7 mm.",
+    "América austral; matorrales de la ribera platense.", "Pennisetum latifolium"
+  ),
+  ed2_cenchrus_myosuroides: species(
+    "ed2_cenchrus_myosuroides", "Cenchrus myosuroides", "Gramínea perenne y rizomatosa de 50-150 cm.",
+    "Cerdas involucrales delgadas, unidas sólo en la base y con pelos retrorsos; racimos densos de 6-25 cm.",
+    "América cálida y templada; terrenos secos, dunas y terraplenes ferroviarios.", "Cadillo"
+  ),
+  ed2_cenchrus_echinatus: species(
+    "ed2_cenchrus_echinatus", "Cenchrus echinatus", "Gramínea anual de 25-70 cm.",
+    "Involucro con cerdas externas delgadas e internas ensanchadas, soldadas hasta casi la mitad y con pelos retrorsos.",
+    "América cálida y templada; accidental en la región.", "Cadillo, roseta"
+  ),
+  ed2_cenchrus_pauciflorus: species(
+    "ed2_cenchrus_pauciflorus", "Cenchrus pauciflorus", "Gramínea anual de 15-90 cm.",
+    "Involucro formado sólo por espinas muy anchas en la base, abiertas y sin pelos retrorsos; dos espiguillas por involucro.",
+    "América cálida; muy común en suelos arenosos.", "Roseta"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -1351,7 +1426,18 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     opcionA: { label: "Identificar como Ehrharta villosa", keyStep: "1", especieId: "ed2_ehrharta_villosa" },
     opcionA_prima: { label: "Identificar como Ehrharta villosa", keyStep: "1", especieId: "ed2_ehrharta_villosa" },
   },
-  ed2_gramineae_group_5: continuationNode(5, 67),
+  ed2_gramineae_group_5: {
+    id: "ed2_gramineae_group_5", milestone: "Gramineae: grupo 5", manualPage: 67,
+    descripcion: "¿Las cerdas involucrales persisten en el raquis después de caer las espiguillas?",
+    opcionA: { label: "Sí; cerdas persistentes", keyStep: "A", nextNodeId: "ed2_setaria" },
+    opcionA_prima: { label: "No; cerdas caducas junto con la espiguilla", keyStep: "A'", nextNodeId: "ed2_gramineae_group_5_bristles" },
+  },
+  ed2_gramineae_group_5_bristles: {
+    id: "ed2_gramineae_group_5_bristles", milestone: "Gramineae: grupo 5, cerdas caducas", manualPage: 67,
+    descripcion: "¿Las cerdas son delgadas y están separadas hasta la base?",
+    opcionA: { label: "Sí; delgadas y libres", keyStep: "B", nextNodeId: "ed2_pennisetum" },
+    opcionA_prima: { label: "No; rígidas y concrescentes en la base, formando un involucro espinoso", keyStep: "B'", nextNodeId: "ed2_cenchrus" },
+  },
   ed2_gramineae_group_6: {
     id: "ed2_gramineae_group_6",
     milestone: "Gramineae: grupo 6",
@@ -2747,6 +2833,78 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿La panoja es muy densa o laxa?",
     opcionA: { label: "Muy densa; lámina plana o convoluta sólo en el ápice", keyStep: "A", especieId: "ed2_distichlis_spicata" },
     opcionA_prima: { label: "Laxa; lámina rígida, puntiaguda y convoluta", keyStep: "A'", especieId: "ed2_distichlis_scoparia" },
+  },
+  ed2_setaria: {
+    id: "ed2_setaria", milestone: "Setaria", manualPage: 127,
+    descripcion: "¿Hay más de cinco cerdas involucrales?",
+    opcionA: { label: "Sí; planta perenne y cespitosa", keyStep: "A", especieId: "ed2_setaria_geniculata" },
+    opcionA_prima: { label: "No; una a tres cerdas", keyStep: "A'", nextNodeId: "ed2_setaria_bristle_hairs" },
+  },
+  ed2_setaria_bristle_hairs: {
+    id: "ed2_setaria_bristle_hairs", milestone: "Setaria: pelos de las cerdas", manualPage: 127,
+    descripcion: "¿Los pelos de las cerdas son retrorsos y adherentes?",
+    opcionA: { label: "Sí; planta anual", keyStep: "B", especieId: "ed2_setaria_verticillata" },
+    opcionA_prima: { label: "No; pelos antrorsos, no adherentes", keyStep: "B'", nextNodeId: "ed2_setaria_duration" },
+  },
+  ed2_setaria_duration: {
+    id: "ed2_setaria_duration", milestone: "Setaria: duración", manualPage: 127,
+    descripcion: "¿La planta es anual o perenne?",
+    opcionA: { label: "Anual", keyStep: "C", nextNodeId: "ed2_setaria_annual_spikelet" },
+    opcionA_prima: { label: "Perenne", keyStep: "C'", nextNodeId: "ed2_setaria_perennial_leaf" },
+  },
+  ed2_setaria_annual_spikelet: {
+    id: "ed2_setaria_annual_spikelet", milestone: "Setaria anual", manualPage: 127,
+    descripcion: "¿Las espiguillas miden 1,8-2 mm y el antecio es algo rugoso?",
+    opcionA: { label: "Sí; panoja corta y gruesa", keyStep: "D", especieId: "ed2_setaria_viridis" },
+    opcionA_prima: { label: "No; espiguillas de 2,5-3,5 mm y antecio liso", keyStep: "D'", especieId: "ed2_setaria_italica" },
+  },
+  ed2_setaria_perennial_leaf: {
+    id: "ed2_setaria_perennial_leaf", milestone: "Setaria perenne: hojas", manualPage: 127,
+    descripcion: "¿Las hojas miden 12-15 mm de ancho y la planta supera 60 cm?",
+    opcionA: { label: "Sí; planta robusta y panoja densa", keyStep: "E", especieId: "ed2_setaria_leiantha" },
+    opcionA_prima: { label: "No; hojas menores de 10 mm", keyStep: "E'", nextNodeId: "ed2_setaria_perennial_spikelet" },
+  },
+  ed2_setaria_perennial_spikelet: {
+    id: "ed2_setaria_perennial_spikelet", milestone: "Setaria perenne: espiguillas", manualPage: 128,
+    descripcion: "¿Las espiguillas miden 1,6-2 mm o 2,2-4 mm?",
+    opcionA: { label: "1,6-2 mm", keyStep: "F", nextNodeId: "ed2_setaria_nodes" },
+    opcionA_prima: { label: "2,2-4 mm", keyStep: "F'", nextNodeId: "ed2_setaria_fertile_floret" },
+  },
+  ed2_setaria_nodes: {
+    id: "ed2_setaria_nodes", milestone: "Setaria: nudos", manualPage: 128,
+    descripcion: "¿Los nudos son glabros o pilosos?",
+    opcionA: { label: "Glabros; lemma con surcos profundos", keyStep: "G", especieId: "ed2_setaria_fiebrigii" },
+    opcionA_prima: { label: "Pilosos; lemma levemente rugosa", keyStep: "G'", especieId: "ed2_setaria_pampeana" },
+  },
+  ed2_setaria_fertile_floret: {
+    id: "ed2_setaria_fertile_floret", milestone: "Setaria: antecio fértil", manualPage: 128,
+    descripcion: "¿El antecio fértil es brillante, liso o apenas estriado?",
+    opcionA: { label: "Sí; espiguillas de 3-4 mm", keyStep: "H", especieId: "ed2_setaria_mendocina" },
+    opcionA_prima: { label: "No; opaco y surcado transversalmente", keyStep: "H'", nextNodeId: "ed2_setaria_opaque_spikelet" },
+  },
+  ed2_setaria_opaque_spikelet: {
+    id: "ed2_setaria_opaque_spikelet", milestone: "Setaria: antecio opaco", manualPage: 128,
+    descripcion: "¿Las espiguillas son lanceoladas y no gibosas?",
+    opcionA: { label: "Sí; panoja laxa y planta muy ramificada abajo", keyStep: "I", especieId: "ed2_setaria_rosengurttii" },
+    opcionA_prima: { label: "No; globosas y gibosas; panoja generalmente densa", keyStep: "I'", especieId: "ed2_setaria_vaginata" },
+  },
+  ed2_pennisetum: {
+    id: "ed2_pennisetum", milestone: "Pennisetum", manualPage: 129,
+    descripcion: "¿Las cerdas involucrales son plumosas, más de veinte y de hasta 50 mm?",
+    opcionA: { label: "Sí; espiguillas de 9-12 mm", keyStep: "A", especieId: "ed2_pennisetum_villosum" },
+    opcionA_prima: { label: "No; ocho a doce cerdas simples menores de 20 mm", keyStep: "A'", especieId: "ed2_pennisetum_latifolium" },
+  },
+  ed2_cenchrus: {
+    id: "ed2_cenchrus", milestone: "Cenchrus", manualPage: 129,
+    descripcion: "¿Las cerdas involucrales son delgadas y están unidas sólo en la base?",
+    opcionA: { label: "Sí; con pelos retrorsos y planta perenne", keyStep: "A", especieId: "ed2_cenchrus_myosuroides" },
+    opcionA_prima: { label: "No; muy anchas y soldadas por encima de la base; planta anual", keyStep: "A'", nextNodeId: "ed2_cenchrus_involucre" },
+  },
+  ed2_cenchrus_involucre: {
+    id: "ed2_cenchrus_involucre", milestone: "Cenchrus: involucro", manualPage: 129,
+    descripcion: "¿El involucro combina cerdas externas delgadas e internas ensanchadas con pelos retrorsos?",
+    opcionA: { label: "Sí; dos a cinco espiguillas por involucro", keyStep: "B", especieId: "ed2_cenchrus_echinatus" },
+    opcionA_prima: { label: "No; sólo espinas anchas, abiertas y sin pelos retrorsos", keyStep: "B'", especieId: "ed2_cenchrus_pauciflorus" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
