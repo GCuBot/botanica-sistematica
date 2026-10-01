@@ -94,6 +94,7 @@ const files = [
       "ed2_family_santalaceae",
       "ed2_family_polygonaceae",
       "ed2_family_chenopodiaceae",
+      "ed2_family_phytolaccaceae",
     ],
     order: "data-first",
   },
@@ -164,8 +165,11 @@ const files = [
     dataPattern: /^  ([a-zA-Z0-9_]+): family\(/gm,
     nodePattern: /^  ([a-zA-Z0-9_]+): \{/gm,
     nextRefPattern: /\["[^\"]+", "[^\"]+", "([a-zA-Z0-9_]+)"\]/g,
-    externalNodes: ["ed2_dicot_group_e_d_lower", "ed2_family_leguminosae"],
+    externalNodes: [
+      "ed2_dicot_group_e_d_lower", "ed2_family_leguminosae", "ed2_family_nyctaginaceae",
+    ],
     generatedFamilyNodes: true,
+    generatedFamilyNodeExclusions: ["ed2_nyctaginaceae"],
     order: "data-first",
   },
   {
@@ -529,6 +533,16 @@ const files = [
     speciesKey: true,
     order: "data-first",
   },
+  {
+    name: "secondEditionNyctaginaceaePhytolaccaceae.ts",
+    path: path.join(ROOT, "src", "data", "secondEditionNyctaginaceaePhytolaccaceae.ts"),
+    treeExport: "export const secondEditionNyctaginaceaePhytolaccaceaeKeyData",
+    dataExport: "export const secondEditionNyctaginaceaePhytolaccaceaeSpecies",
+    dataPattern: /^  ([a-zA-Z0-9_]+): species\(/gm,
+    externalNodes: [],
+    speciesKey: true,
+    order: "data-first",
+  },
 ];
 
 function collectMatches(text, pattern, group = 1) {
@@ -557,7 +571,11 @@ function validateFile(config) {
     ...(config.externalSpecies || []),
   ]);
   if (config.generatedFamilyNodes) {
-    species.forEach((id) => nodes.add(`ed2_family_${id.replace(/^ed2_/, "")}`));
+    species.forEach((id) => {
+      if (!(config.generatedFamilyNodeExclusions || []).includes(id)) {
+        nodes.add(`ed2_family_${id.replace(/^ed2_/, "")}`);
+      }
+    });
   }
   const nextRefs = collectMatches(
     treeText,
@@ -599,7 +617,11 @@ function collectConfigData(config) {
     config.nodePattern || /^  ([a-zA-Z0-9_]+): \{/gm
   );
   if (config.generatedFamilyNodes) {
-    species.forEach((id) => nodes.push(`ed2_family_${id.replace(/^ed2_/, "")}`));
+    species.forEach((id) => {
+      if (!(config.generatedFamilyNodeExclusions || []).includes(id)) {
+        nodes.push(`ed2_family_${id.replace(/^ed2_/, "")}`);
+      }
+    });
   }
   return {
     nodes,

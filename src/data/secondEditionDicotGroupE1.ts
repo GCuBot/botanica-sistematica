@@ -78,6 +78,8 @@ const secondEditionDicotGroupE1FamilyPages: Record<string, number> = {
   ed2_plantaginaceae: 576,
 };
 
+const expandedFamilyIds = new Set(["ed2_nyctaginaceae"]);
+
 function terminal(nodeId: string, familyId: string, page: number): CladoNode {
   const especie = secondEditionDicotGroupE1Families[familyId];
   return {
@@ -286,9 +288,11 @@ export const secondEditionDicotGroupE1KeyData: Record<string, CladoNode> = {
     Object.entries(secondEditionDicotGroupE1BranchSpecs).map(([id, spec]) => [id, buildNode(id, spec)])
   ),
   ...Object.fromEntries(
-    Object.keys(secondEditionDicotGroupE1Families).map((familyId) => {
+    Object.keys(secondEditionDicotGroupE1Families)
+      .filter((familyId) => !expandedFamilyIds.has(familyId))
+      .map((familyId) => {
       const page = secondEditionDicotGroupE1FamilyPages[familyId];
       return [`ed2_family_${familyId.slice(4)}`, terminal(`ed2_family_${familyId.slice(4)}`, familyId, page)];
-    })
+      })
   ),
 };
