@@ -1467,6 +1467,121 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Cuarenta a ochenta racimos; espiguillas lanceoladas pubescentes de 3,5-4 mm; hojas de 12-14 mm.",
     "Uruguay y Mesopotamia argentina; pajonales de la ribera y del Delta.", "Paspalum haumanii"
   ),
+  ed2_paspalidium_paludivagum: species(
+    "ed2_paspalidium_paludivagum", "Paspalidium paludivagum", "Gramínea perenne y palustre de hasta 2 m.",
+    "Racimos espiciformes adosados al eje; gluma inferior muy corta; lemma estéril aguda de 2,8-3 mm.",
+    "Sur de Estados Unidos, México y Guatemala; hallada cerca de Buenos Aires.", "Paspalidium paludivagum"
+  ),
+  ed2_panicum_racemosum: species(
+    "ed2_panicum_racemosum", "Panicum racemosum", "Gramínea perenne y rizomatosa de 50-100 cm.",
+    "Espiguillas ovoideo-globosas de 7 x 5 mm cubiertas de largos pelos blancos; panoja larga, densa y subnutante.",
+    "Sur de Brasil, Uruguay y nordeste argentino; dunas fluviales y marítimas, fijadora de arena.", "Panicum racemosum"
+  ),
+  ed2_panicum_elephantipes: species(
+    "ed2_panicum_elephantipes", "Panicum elephantipes", "Gramínea perenne, robusta y flotante, con tallos ricos en aerénquima.",
+    "Espiguillas lanceoladas de 4,5-5 mm; panoja grande y abierta; hojas planas de 7-20 mm.",
+    "América cálida hasta el Río de la Plata; dominante en camalotales del Delta y la ribera.", "Camalote"
+  ),
+  ed2_panicum_miliaceum: species(
+    "ed2_panicum_miliaceum", "Panicum miliaceum", "Gramínea anual terrestre de 20-100 cm.",
+    "Espiguillas ovoides glabras de 4,5-5 mm; panoja laxa, a menudo parcialmente incluida en la vaina superior.",
+    "Originaria del Viejo Mundo; cultivada por sus granos y subespontánea.", "Mijo"
+  ),
+  ed2_panicum_prionitis: species(
+    "ed2_panicum_prionitis", "Panicum prionitis", "Gramínea perenne, robusta y rizomatosa, de 1-3 m.",
+    "Hojas rígidas y cortantes, las inferiores de cerca de 1 m; espiguillas de 2-2,5 mm; panoja densa.",
+    "Sur de Brasil, Uruguay y nordeste argentino; pajonales inundables del Delta.", "Paja brava"
+  ),
+  ed2_panicum_boliviense: species(
+    "ed2_panicum_boliviense", "Panicum boliviense", "Gramínea perenne robusta de 30-150 cm.",
+    "Hojas herbáceas de 12-25 mm; espiguillas de 1,5 mm; gluma superior y lemma estéril iguales.",
+    "Bolivia y nordeste argentino; islas del Delta.", "Panicum boliviense"
+  ),
+  ed2_panicum_rivulare: species(
+    "ed2_panicum_rivulare", "Panicum rivulare", "Gramínea perenne robusta de 2-2,5 m.",
+    "Hojas de 50-100 cm; espiguillas pajizas de 2 mm; gluma superior bastante más corta que la lemma estéril.",
+    "Sur de Brasil, Uruguay y nordeste argentino; pajonales del Delta y la ribera.", "Panicum rivulare"
+  ),
+  ed2_panicum_grumosum: species(
+    "ed2_panicum_grumosum", "Panicum grumosum", "Gramínea perenne y rizomatosa de 1-1,5 m.",
+    "Hojas de 20-35 cm; espiguillas verdosas o violáceas de 2,5-2,8 mm; gluma superior casi igual a la lemma estéril.",
+    "Sur de Brasil, Paraguay, Uruguay y nordeste argentino; suelos inundables del Delta y la ribera.", "Paja mansa"
+  ),
+  ed2_panicum_laxum: species(
+    "ed2_panicum_laxum", "Panicum laxum", "Gramínea perenne ascendente de 40-100 cm.",
+    "Espiguillas diminutas de 1-1,5 mm; gluma inferior de un cuarto a un tercio; panoja laxa.",
+    "América cálida; Isla Martín García.", "Panicum laxum"
+  ),
+  ed2_panicum_fultum: species(
+    "ed2_panicum_fultum", "Panicum fultum", "Gramínea perenne y rizomatosa de 20-30 cm.",
+    "Hojas pubescentes con lígula largamente ciliada; espiguillas obovoides de 2,5-3 mm; panoja corta y semioculta.",
+    "Paraguay, Uruguay y este argentino; Isla Martín García.", "Panicum fultum"
+  ),
+  ed2_panicum_unilineatum: species(
+    "ed2_panicum_unilineatum", "Panicum unilineatum", "Gramínea perenne de tallos rastreros o ascendentes.",
+    "Hojas pubescentes con lígula membranosa glabra; espiguillas ovoides agudas de 2,6-3 mm; panoja corta semiincluida.",
+    "Nordeste argentino hasta el Delta del Paraná.", "Panicum unilineatum"
+  ),
+  ed2_panicum_milioides: species(
+    "ed2_panicum_milioides", "Panicum milioides", "Gramínea perenne y cespitosa de 20-50 cm.",
+    "Panoja densa y contraída con diez a veinticinco racimos; espiguillas ovoides glabras de 2 mm; pálea estéril desarrollada.",
+    "Sur de Brasil, Paraguay, Uruguay y nordeste y centro argentino; estepas húmedas.", "Panicum milioides"
+  ),
+  ed2_panicum_decipiens: species(
+    "ed2_panicum_decipiens", "Panicum decipiens", "Gramínea perenne y rizomatosa de 20-60 cm.",
+    "Panoja densa; espiguillas lanceoladas de 2,5-3 mm apretadas en cuatro a diez racimos; lígula no ciliada.",
+    "Sur de Brasil, Uruguay y nordeste argentino; suelos arenosos del Delta y la ribera.", "Panicum decipiens"
+  ),
+  ed2_panicum_schenckii: species(
+    "ed2_panicum_schenckii", "Panicum schenckii", "Gramínea perenne de 30-50 cm.",
+    "Panoja densa, larga y delgada; espiguillas lanceoladas distantes, con pedicelos de 2-6 mm; lígula ciliada.",
+    "Sur de Brasil, Uruguay y nordeste argentino; Isla Martín García y Capital Federal.", "Panicum schenckii"
+  ),
+  ed2_panicum_sabulorum: species(
+    "ed2_panicum_sabulorum", "Panicum sabulorum", "Gramínea perenne de 30-60 cm.",
+    "Panoja amplia y laxa; espiguillas obovoides de 2,2-2,5 mm; hojas cortas con lígula largamente ciliada.",
+    "Sur de Brasil, Uruguay y nordeste argentino; bosques del Delta, ribera y sierras bonaerenses.", "Panicum sabulorum"
+  ),
+  ed2_panicum_helobium: species(
+    "ed2_panicum_helobium", "Panicum helobium", "Gramínea perenne y rastrera, con cañas floríferas de hasta 40 cm.",
+    "Panoja amplia y laxa; pedicelos glabros; espiguillas verdosas de 1,8-2 mm; lígulas glabras o apenas ciliadas.",
+    "Sur de Brasil, Paraguay, Uruguay y nordeste argentino hasta el Río de la Plata.", "Panicum helobium"
+  ),
+  ed2_panicum_deltae: species(
+    "ed2_panicum_deltae", "Panicum deltae", "Gramínea perenne y delicada de 30-100 cm.",
+    "Panoja laxa pauciespiculada; pedicelos pubescentes; espiguillas verdosas de 2,4-2,8 mm.",
+    "Endémica del Delta del Paraná.", "Panicum deltae"
+  ),
+  ed2_panicum_capillare: species(
+    "ed2_panicum_capillare", "Panicum capillare", "Gramínea anual de 20-80 cm, con hojas velludas.",
+    "Panoja muy laxa; espiguillas ovoides agudas de 2-3 mm; gluma inferior cercana a la mitad de la espiguilla.",
+    "América del Norte; adventicia en suelos modificados.", "Panicum capillare"
+  ),
+  ed2_panicum_dichotomiflorum: species(
+    "ed2_panicum_dichotomiflorum", "Panicum dichotomiflorum", "Gramínea anual de 50-100 cm, con hojas casi glabras.",
+    "Espiguillas ovado-lanceoladas de 3-3,5 mm; pálea estéril presente; panoja amplia parcialmente incluida.",
+    "América templado-cálida; frecuente como maleza de cultivos.", "Panicum dichotomiflorum"
+  ),
+  ed2_panicum_chloroticum: species(
+    "ed2_panicum_chloroticum", "Panicum chloroticum", "Gramínea anual de 50-80 cm, con hojas casi glabras.",
+    "Espiguillas ovoides de 2-2,5 mm; pálea estéril ausente o rudimentaria; panoja de 7-20 cm parcialmente incluida.",
+    "América cálida hasta el nordeste argentino; pajonales y suelos húmedos del norte bonaerense.", "Panicum chloroticum"
+  ),
+  ed2_panicum_gouinii: species(
+    "ed2_panicum_gouinii", "Panicum gouinii", "Gramínea perenne y rizomatosa de 20-50 cm.",
+    "Espiguillas ovoides de 2,2-2,7 mm; gluma inferior corta; pálea estéril ancha con flor masculina; panoja laxa.",
+    "Sur de Estados Unidos y México, sur de Brasil, Uruguay y nordeste argentino; praderas húmedas.", "Panicum gouinii"
+  ),
+  ed2_panicum_bergii: species(
+    "ed2_panicum_bergii", "Panicum bergii", "Gramínea perenne y cespitosa, con hojas generalmente hirsutas.",
+    "Panoja muy laxa; espiguillas ovoides apiculadas de 2-2,5 mm; gluma inferior cercana a la mitad.",
+    "Uruguay y nordeste argentino; muy abundante en la estepa pampeana.", "Paja voladora"
+  ),
+  ed2_panicum_pilcomayense: species(
+    "ed2_panicum_pilcomayense", "Panicum pilcomayense", "Gramínea perenne y cespitosa, con hojas glabras de 15 mm.",
+    "Panoja amplia y laxa; pedicelos de 7-15 mm; espiguillas ovoides agudas de 2,5 mm.",
+    "Sur de Paraguay y extremo nordeste argentino; accidental en Capital Federal.", "Panicum pilcomayense"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -3342,6 +3457,138 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿La planta mide 1,5-2 m y posee doce a treinta racimos?",
     opcionA: { label: "Sí; hojas de 5-7 mm", keyStep: "P", especieId: "ed2_paspalum_exaltatum" },
     opcionA_prima: { label: "No; 2,5-3 m, hojas de 12-14 mm y cuarenta a ochenta racimos", keyStep: "P'", especieId: "ed2_paspalum_haumanii" },
+  },
+  ed2_paspalidium: {
+    id: "ed2_paspalidium", milestone: "Paspalidium", manualPage: 139,
+    descripcion: "Paspalidium: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Paspalidium paludivagum", keyStep: "1", especieId: "ed2_paspalidium_paludivagum" },
+    opcionA_prima: { label: "Identificar como Paspalidium paludivagum", keyStep: "1", especieId: "ed2_paspalidium_paludivagum" },
+  },
+  ed2_panicum: {
+    id: "ed2_panicum", milestone: "Panicum", manualPage: 140,
+    descripcion: "¿Las espiguillas son ovoideo-globosas, de 7 x 5 mm y con largos pelos blancos?",
+    opcionA: { label: "Sí", keyStep: "A", especieId: "ed2_panicum_racemosum" },
+    opcionA_prima: { label: "No; de 1-5 mm, glabras o cortamente pubescentes", keyStep: "A'", nextNodeId: "ed2_panicum_spikelet_size" },
+  },
+  ed2_panicum_spikelet_size: {
+    id: "ed2_panicum_spikelet_size", milestone: "Panicum: tamaño de espiguilla", manualPage: 140,
+    descripcion: "¿Las espiguillas miden 4,5-5 mm o 1-3,5 mm?",
+    opcionA: { label: "4,5-5 mm", keyStep: "B", nextNodeId: "ed2_panicum_large_habit" },
+    opcionA_prima: { label: "1-3,5 mm", keyStep: "B'", nextNodeId: "ed2_panicum_robustness" },
+  },
+  ed2_panicum_large_habit: {
+    id: "ed2_panicum_large_habit", milestone: "Panicum: espiguillas grandes", manualPage: 140,
+    descripcion: "¿La planta es robusta, flotante y posee tallos ricos en aerénquima?",
+    opcionA: { label: "Sí", keyStep: "C", especieId: "ed2_panicum_elephantipes" },
+    opcionA_prima: { label: "No; terrestre, anual, erecta o ascendente", keyStep: "C'", especieId: "ed2_panicum_miliaceum" },
+  },
+  ed2_panicum_robustness: {
+    id: "ed2_panicum_robustness", milestone: "Panicum: robustez", manualPage: 140,
+    descripcion: "¿La planta es robusta, generalmente de 1-3 m, con panoja de 20-50 cm?",
+    opcionA: { label: "Sí", keyStep: "D", nextNodeId: "ed2_panicum_robust_leaves" },
+    opcionA_prima: { label: "No; más débil, generalmente menor de 1 m", keyStep: "D'", nextNodeId: "ed2_panicum_weak_size" },
+  },
+  ed2_panicum_robust_leaves: {
+    id: "ed2_panicum_robust_leaves", milestone: "Panicum robusto: hojas", manualPage: 140,
+    descripcion: "¿Las hojas son rígidas, gruesas y cortantes?",
+    opcionA: { label: "Sí; inferiores de cerca de 1 m", keyStep: "E", especieId: "ed2_panicum_prionitis" },
+    opcionA_prima: { label: "No; herbáceas, de 12-25 mm de ancho", keyStep: "E'", nextNodeId: "ed2_panicum_robust_spikelet" },
+  },
+  ed2_panicum_robust_spikelet: {
+    id: "ed2_panicum_robust_spikelet", milestone: "Panicum robusto: espiguillas", manualPage: 140,
+    descripcion: "¿Las espiguillas miden 1,5 mm?",
+    opcionA: { label: "Sí; gluma superior igual a la lemma estéril", keyStep: "F", especieId: "ed2_panicum_boliviense" },
+    opcionA_prima: { label: "No; de 2-2,8 mm", keyStep: "F'", nextNodeId: "ed2_panicum_robust_glume" },
+  },
+  ed2_panicum_robust_glume: {
+    id: "ed2_panicum_robust_glume", milestone: "Panicum robusto: gluma", manualPage: 140,
+    descripcion: "¿Las espiguillas son pajizas, de 2 mm, y la gluma superior es bastante más corta?",
+    opcionA: { label: "Sí; hojas de 50-100 cm", keyStep: "G", especieId: "ed2_panicum_rivulare" },
+    opcionA_prima: { label: "No; verdosas o violáceas de 2,5-2,8 mm", keyStep: "G'", especieId: "ed2_panicum_grumosum" },
+  },
+  ed2_panicum_weak_size: {
+    id: "ed2_panicum_weak_size", milestone: "Panicum débil: espiguillas", manualPage: 140,
+    descripcion: "¿Las espiguillas miden sólo 1-1,5 mm?",
+    opcionA: { label: "Sí; panoja laxa", keyStep: "H", especieId: "ed2_panicum_laxum" },
+    opcionA_prima: { label: "No; de 2-3,5 mm", keyStep: "H'", nextNodeId: "ed2_panicum_weak_indument" },
+  },
+  ed2_panicum_weak_indument: {
+    id: "ed2_panicum_weak_indument", milestone: "Panicum débil: indumento", manualPage: 140,
+    descripcion: "¿Las espiguillas son pubescentes y la panoja mide 1,5-6 cm?",
+    opcionA: { label: "Sí", keyStep: "I", nextNodeId: "ed2_panicum_pubescence_shape" },
+    opcionA_prima: { label: "No; espiguillas glabras y panojas generalmente mayores", keyStep: "I'", nextNodeId: "ed2_panicum_glabrous_panicle" },
+  },
+  ed2_panicum_pubescence_shape: {
+    id: "ed2_panicum_pubescence_shape", milestone: "Panicum: espiguillas pubescentes", manualPage: 140,
+    descripcion: "¿Las espiguillas son obovoides y obtusas y la lígula largamente ciliada?",
+    opcionA: { label: "Sí", keyStep: "J", especieId: "ed2_panicum_fultum" },
+    opcionA_prima: { label: "No; ovoides y agudas, con lígula membranosa glabra", keyStep: "J'", especieId: "ed2_panicum_unilineatum" },
+  },
+  ed2_panicum_glabrous_panicle: {
+    id: "ed2_panicum_glabrous_panicle", milestone: "Panicum: panoja", manualPage: 141,
+    descripcion: "¿La panoja es densa y linear-lanceolada o amplia y laxa?",
+    opcionA: { label: "Densa y linear-lanceolada", keyStep: "K", nextNodeId: "ed2_panicum_dense_shape" },
+    opcionA_prima: { label: "Amplia y laxa", keyStep: "K'", nextNodeId: "ed2_panicum_lax_shape" },
+  },
+  ed2_panicum_dense_shape: {
+    id: "ed2_panicum_dense_shape", milestone: "Panicum: panoja densa", manualPage: 141,
+    descripcion: "¿Las espiguillas son ovoides, de 2 mm, y la pálea estéril está muy desarrollada?",
+    opcionA: { label: "Sí", keyStep: "L", especieId: "ed2_panicum_milioides" },
+    opcionA_prima: { label: "No; lanceoladas, de 2,5-3 mm", keyStep: "L'", nextNodeId: "ed2_panicum_dense_spacing" },
+  },
+  ed2_panicum_dense_spacing: {
+    id: "ed2_panicum_dense_spacing", milestone: "Panicum: disposición en racimos", manualPage: 141,
+    descripcion: "¿Las espiguillas están apretadas y los pedicelos miden 0,5-2 mm?",
+    opcionA: { label: "Sí; planta rizomatosa y lígula no ciliada", keyStep: "M", especieId: "ed2_panicum_decipiens" },
+    opcionA_prima: { label: "No; distantes, con pedicelos de 2-6 mm y lígula ciliada", keyStep: "M'", especieId: "ed2_panicum_schenckii" },
+  },
+  ed2_panicum_lax_shape: {
+    id: "ed2_panicum_lax_shape", milestone: "Panicum: panoja laxa", manualPage: 141,
+    descripcion: "¿Las espiguillas son obovoides, obtusas y la gluma inferior supera la mitad?",
+    opcionA: { label: "Sí", keyStep: "N", nextNodeId: "ed2_panicum_obovoid_ligule" },
+    opcionA_prima: { label: "No; ovoides o lanceoladas y agudas", keyStep: "N'", nextNodeId: "ed2_panicum_acute_duration" },
+  },
+  ed2_panicum_obovoid_ligule: {
+    id: "ed2_panicum_obovoid_ligule", milestone: "Panicum: lígula", manualPage: 141,
+    descripcion: "¿La lígula es largamente ciliado-velluda?",
+    opcionA: { label: "Sí; hojas de 4-10 cm", keyStep: "O", especieId: "ed2_panicum_sabulorum" },
+    opcionA_prima: { label: "No; glabra o muy brevemente ciliolada", keyStep: "O'", nextNodeId: "ed2_panicum_obovoid_pedicel" },
+  },
+  ed2_panicum_obovoid_pedicel: {
+    id: "ed2_panicum_obovoid_pedicel", milestone: "Panicum: pedicelos", manualPage: 141,
+    descripcion: "¿Los pedicelos son completamente glabros?",
+    opcionA: { label: "Sí; espiguillas de 1,8-2 mm", keyStep: "P", especieId: "ed2_panicum_helobium" },
+    opcionA_prima: { label: "No; pubescentes y espiguillas de 2,4-2,8 mm", keyStep: "P'", especieId: "ed2_panicum_deltae" },
+  },
+  ed2_panicum_acute_duration: {
+    id: "ed2_panicum_acute_duration", milestone: "Panicum: espiguillas agudas", manualPage: 141,
+    descripcion: "¿La planta es anual o perenne?",
+    opcionA: { label: "Anual", keyStep: "Q", nextNodeId: "ed2_panicum_annual_glume" },
+    opcionA_prima: { label: "Perenne", keyStep: "Q'", nextNodeId: "ed2_panicum_perennial_habit" },
+  },
+  ed2_panicum_annual_glume: {
+    id: "ed2_panicum_annual_glume", milestone: "Panicum anual: gluma inferior", manualPage: 141,
+    descripcion: "¿La gluma inferior alcanza casi la mitad de la espiguilla y las hojas son velludas?",
+    opcionA: { label: "Sí", keyStep: "R", especieId: "ed2_panicum_capillare" },
+    opcionA_prima: { label: "No; alcanza sólo un cuarto a un tercio y las hojas son casi glabras", keyStep: "R'", nextNodeId: "ed2_panicum_annual_palea" },
+  },
+  ed2_panicum_annual_palea: {
+    id: "ed2_panicum_annual_palea", milestone: "Panicum anual: pálea estéril", manualPage: 141,
+    descripcion: "¿La pálea estéril está presente?",
+    opcionA: { label: "Sí; espiguillas de 3-3,5 mm", keyStep: "S", especieId: "ed2_panicum_dichotomiflorum" },
+    opcionA_prima: { label: "No; ausente o rudimentaria y espiguillas de 2-2,5 mm", keyStep: "S'", especieId: "ed2_panicum_chloroticum" },
+  },
+  ed2_panicum_perennial_habit: {
+    id: "ed2_panicum_perennial_habit", milestone: "Panicum perenne: hábito", manualPage: 142,
+    descripcion: "¿La planta es rizomatosa o cespitosa?",
+    opcionA: { label: "Rizomatosa; pálea estéril con flor masculina", keyStep: "T", especieId: "ed2_panicum_gouinii" },
+    opcionA_prima: { label: "Cespitosa; pálea estéril corta y sin flor masculina", keyStep: "T'", nextNodeId: "ed2_panicum_perennial_leaves" },
+  },
+  ed2_panicum_perennial_leaves: {
+    id: "ed2_panicum_perennial_leaves", milestone: "Panicum perenne: hojas", manualPage: 142,
+    descripcion: "¿Las hojas son hirsutas y miden 2-5 mm de ancho?",
+    opcionA: { label: "Sí; pedicelos de 3-7 mm", keyStep: "U", especieId: "ed2_panicum_bergii" },
+    opcionA_prima: { label: "No; glabras, de 15 mm, con pedicelos de 7-15 mm", keyStep: "U'", especieId: "ed2_panicum_pilcomayense" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
