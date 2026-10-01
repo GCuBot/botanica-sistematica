@@ -1052,6 +1052,66 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Prefoliación convoluta; lemma brevemente ciliada en la quilla y con bordes casi glabros; hojas muy hirsutas.",
     "África, Europa y América del Sur; común en la región.", "Cynodon hirsutissimus"
   ),
+  ed2_chloris_halophila: species(
+    "ed2_chloris_halophila", "Chloris halophila", "Gramínea perenne y estolonífera de 40-60 cm.",
+    "Lemma fértil lanceolada casi glabra; antecio estéril agudo; espigas en dos o tres verticilos; espiguillas de 4-5 mm.",
+    "Perú, Bolivia y noroeste argentino hasta el norte bonaerense; campos salobres de Pergamino y Campana.", "Chloris halophila"
+  ),
+  ed2_chloris_inflata: species(
+    "ed2_chloris_inflata", "Chloris inflata", "Gramínea perenne, cespitosa y cortamente rizomatosa, de cerca de 1 m.",
+    "Lemma fértil elíptica y ciliada; dos antecios estériles inflados, casi iguales y aristados; quince a veinticinco espigas.",
+    "América cálida; rara cerca de Buenos Aires.", "Chloris inflata"
+  ),
+  ed2_chloris_berroi: species(
+    "ed2_chloris_berroi", "Chloris berroi", "Gramínea perenne y rizomatosa de 30-90 cm.",
+    "Dos a siete espigas semihelicoidales estrechamente adheridas, simulando una espiga terminal; un solo antecio estéril aristado.",
+    "Uruguay y nordeste argentino; frecuente en campos bajos algo salinos.", "Chloris berroi"
+  ),
+  ed2_chloris_grandiflora: species(
+    "ed2_chloris_grandiflora", "Chloris grandiflora", "Gramínea perenne y cespitosa de 15-60 cm.",
+    "Tres a cinco espigas libres de 2-5 cm; lemma fértil largamente aristada y ciliada en carena y márgenes.",
+    "Sur de Brasil, Uruguay y nordeste argentino; suelos secos.", "Chloris grandiflora"
+  ),
+  ed2_chloris_polydactyla: species(
+    "ed2_chloris_polydactyla", "Chloris polydactyla", "Gramínea perenne cortamente rizomatosa de 60-100 cm.",
+    "Ocho a veintidós espigas libres de 10-15 cm; lemma fértil aristada y largamente ciliada en dorso y márgenes.",
+    "América cálida; accidental en Buenos Aires.", "Chloris polydactyla"
+  ),
+  ed2_chloris_canterai: species(
+    "ed2_chloris_canterai", "Chloris canterai", "Gramínea perenne y rizomatosa de 50-100 cm.",
+    "Tres a siete espigas libres de 6-14 cm; lemma fértil largamente aristada y ciliada en quilla y márgenes.",
+    "Sur de Brasil, Paraguay, Uruguay y nordeste argentino hasta el norte bonaerense.", "Chloris canterai"
+  ),
+  ed2_chloris_gayana: species(
+    "ed2_chloris_gayana", "Chloris gayana", "Gramínea perenne y cespitosa de 80-120 cm, con rizomas cortos.",
+    "Quilla de la lemma casi glabra; tres antecios estériles; doce a veinticuatro espigas fasciculadas.",
+    "Originaria de África; cultivada como forrajera y frecuentemente adventicia.", "Grama Rhodes"
+  ),
+  ed2_chloris_virgata: species(
+    "ed2_chloris_virgata", "Chloris virgata", "Gramínea anual de 40-60 cm.",
+    "Quilla de la lemma casi glabra; un solo antecio estéril; márgenes con cilias muy largas arriba; seis a quince espigas.",
+    "América cálida hasta el norte y centro argentino; frecuente en Pergamino.", "Chloris virgata"
+  ),
+  ed2_eustachys_bahiensis: species(
+    "ed2_eustachys_bahiensis", "Eustachys bahiensis", "Gramínea perenne brevemente rizomatosa de 20-60 cm.",
+    "Lemma fértil ciliada en dorso y bordes, carenada y mútica; cuatro a catorce espigas; espiguillas castañas bifloras.",
+    "Sur de Brasil, Paraguay, Uruguay y nordeste argentino hasta el norte bonaerense.", "Eustachys bahiensis"
+  ),
+  ed2_eustachys_retusa: species(
+    "ed2_eustachys_retusa", "Eustachys retusa", "Gramínea perenne y rizomatosa de 30-80 cm.",
+    "Lemma fértil glabra en el dorso y ciliada en los bordes; lemma estéril truncada; ocho a quince espigas.",
+    "Uruguay y norte y centro argentino; frecuente en la estepa prístina y dunas litorales.", "Eustachys retusa"
+  ),
+  ed2_eustachys_distichifolia: species(
+    "ed2_eustachys_distichifolia", "Eustachys distichifolia", "Gramínea perenne cortamente rizomatosa de 60-120 cm.",
+    "Lemma fértil glabra en el dorso y ciliada en los bordes; lemma estéril aguda u obtusa; doce a treinta espigas.",
+    "América del Sur cálida hasta el norte y centro argentino; rara en Capital Federal.", "Eustachys distichifolia"
+  ),
+  ed2_trichloris_pluriflora: species(
+    "ed2_trichloris_pluriflora", "Trichloris pluriflora", "Gramínea perenne de 50-100 cm.",
+    "Siete a catorce seudoespigas fasciculadas; espiguillas con dos antecios fértiles y dos o tres estériles; lemmas con tres aristas.",
+    "América cálida; frecuente en regiones secas argentinas y accidental en Capital Federal.", "Trichloris pluriflora"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -1192,9 +1252,15 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_4_sessile_pending: {
     id: "ed2_gramineae_group_4_sessile_pending", milestone: "Gramineae: grupo 4, espiguillas sésiles", manualPage: 66,
-    descripcion: "Continuar con los géneros de espiguillas sésiles del grupo 4.",
-    opcionA: { label: "Continuar desarrollando el grupo 4", keyStep: "C", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando el grupo 4", keyStep: "C", especieId: "ed2_gramineae" },
+    descripcion: "¿Las espigas están fasciculadas en el ápice de la caña?",
+    opcionA: { label: "Sí; fasciculadas en el ápice", keyStep: "D", nextNodeId: "ed2_trichloris" },
+    opcionA_prima: { label: "No; a lo largo de la caña o solitarias", keyStep: "D'", nextNodeId: "ed2_bouteloua_pending" },
+  },
+  ed2_bouteloua_pending: {
+    id: "ed2_bouteloua_pending", milestone: "Bouteloua", manualPage: 123,
+    descripcion: "Continuar con la especie de Bouteloua tratada por el manual.",
+    opcionA: { label: "Continuar desarrollando Bouteloua", keyStep: "D'", especieId: "ed2_gramineae" },
+    opcionA_prima: { label: "Continuar desarrollando Bouteloua", keyStep: "D'", especieId: "ed2_gramineae" },
   },
   ed2_gramineae_group_4_florets: {
     id: "ed2_gramineae_group_4_florets", milestone: "Gramineae: grupo 4, espiguillas pediceladas", manualPage: 66,
@@ -1311,9 +1377,9 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_chloris_eustachys_pending: {
     id: "ed2_gramineae_group_7_chloris_eustachys_pending", milestone: "Chloris y Eustachys", manualPage: 120,
-    descripcion: "Continuar con los géneros Chloris y Eustachys.",
-    opcionA: { label: "Continuar desarrollando Chloris y Eustachys", keyStep: "C'", especieId: "ed2_gramineae" },
-    opcionA_prima: { label: "Continuar desarrollando Chloris y Eustachys", keyStep: "C'", especieId: "ed2_gramineae" },
+    descripcion: "¿Las glumas son agudas o mucronadas y la lemma fértil es aristada?",
+    opcionA: { label: "Sí; lemma fértil aristada", keyStep: "D", nextNodeId: "ed2_chloris" },
+    opcionA_prima: { label: "No; gluma superior truncada o bilobada y lemma fértil mútica o aristulada", keyStep: "D'", nextNodeId: "ed2_eustachys" },
   },
   ed2_gramineae_group_7_uniflorous_arrangement: {
     id: "ed2_gramineae_group_7_uniflorous_arrangement", milestone: "Gramineae: grupo 7, disposición", manualPage: 67,
@@ -2520,6 +2586,66 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿La lemma es notablemente ciliada en la quilla y en los bordes?",
     opcionA: { label: "Sí; pelos de 0,3-1 mm", keyStep: "C", especieId: "ed2_cynodon_maritimus" },
     opcionA_prima: { label: "No; quilla brevemente ciliada y bordes glabros o casi glabros", keyStep: "C'", especieId: "ed2_cynodon_hirsutissimus" },
+  },
+  ed2_chloris: {
+    id: "ed2_chloris", milestone: "Chloris", manualPage: 120,
+    descripcion: "¿La lemma fértil es lanceolada, glabra o casi glabra, y el antecio estéril es agudo?",
+    opcionA: { label: "Sí; espigas en dos o tres verticilos", keyStep: "A", especieId: "ed2_chloris_halophila" },
+    opcionA_prima: { label: "No; lemma elíptica y ciliado-velluda; antecio estéril obtuso o truncado", keyStep: "A'", nextNodeId: "ed2_chloris_keel" },
+  },
+  ed2_chloris_keel: {
+    id: "ed2_chloris_keel", milestone: "Chloris: quilla", manualPage: 120,
+    descripcion: "¿La lemma fértil es ciliado-velluda en la quilla?",
+    opcionA: { label: "Sí; dos a cuatro antecios estériles", keyStep: "B", nextNodeId: "ed2_chloris_sterile_florets" },
+    opcionA_prima: { label: "No; quilla glabra o con pelos dispersos", keyStep: "B'", nextNodeId: "ed2_chloris_glabrous_keel" },
+  },
+  ed2_chloris_sterile_florets: {
+    id: "ed2_chloris_sterile_florets", milestone: "Chloris: antecios estériles", manualPage: 120,
+    descripcion: "¿Hay dos antecios estériles inflados, casi iguales y aristados?",
+    opcionA: { label: "Sí; quince a veinticinco espigas", keyStep: "C", especieId: "ed2_chloris_inflata" },
+    opcionA_prima: { label: "No; sólo el antecio estéril inferior es aristado", keyStep: "C'", nextNodeId: "ed2_chloris_inflorescence" },
+  },
+  ed2_chloris_inflorescence: {
+    id: "ed2_chloris_inflorescence", milestone: "Chloris: inflorescencia", manualPage: 120,
+    descripcion: "¿Las espigas son semihelicoidales y están estrechamente adheridas entre sí?",
+    opcionA: { label: "Sí; simulan una espiga terminal única", keyStep: "D", especieId: "ed2_chloris_berroi" },
+    opcionA_prima: { label: "No; espigas libres y divergentes", keyStep: "D'", nextNodeId: "ed2_chloris_free_spikes" },
+  },
+  ed2_chloris_free_spikes: {
+    id: "ed2_chloris_free_spikes", milestone: "Chloris: espigas libres", manualPage: 120,
+    descripcion: "¿Hay tres a cinco espigas de 2-5 cm?",
+    opcionA: { label: "Sí", keyStep: "E", especieId: "ed2_chloris_grandiflora" },
+    opcionA_prima: { label: "No; espigas de 8-14 cm", keyStep: "E'", nextNodeId: "ed2_chloris_long_spikes" },
+  },
+  ed2_chloris_long_spikes: {
+    id: "ed2_chloris_long_spikes", milestone: "Chloris: espigas largas", manualPage: 120,
+    descripcion: "¿Hay ocho a veintidós espigas de 10-15 cm?",
+    opcionA: { label: "Sí; lemma ciliada en dorso y márgenes", keyStep: "F", especieId: "ed2_chloris_polydactyla" },
+    opcionA_prima: { label: "No; tres a siete espigas de 6-14 cm", keyStep: "F'", especieId: "ed2_chloris_canterai" },
+  },
+  ed2_chloris_glabrous_keel: {
+    id: "ed2_chloris_glabrous_keel", milestone: "Chloris: quilla casi glabra", manualPage: 122,
+    descripcion: "¿La espiguilla tiene tres antecios estériles y la planta es perenne?",
+    opcionA: { label: "Sí; estolonífera, con doce a veinticuatro espigas", keyStep: "G", especieId: "ed2_chloris_gayana" },
+    opcionA_prima: { label: "No; un solo antecio estéril y planta anual", keyStep: "G'", especieId: "ed2_chloris_virgata" },
+  },
+  ed2_eustachys: {
+    id: "ed2_eustachys", milestone: "Eustachys", manualPage: 122,
+    descripcion: "¿La lemma fértil es ciliada en el dorso y en los bordes?",
+    opcionA: { label: "Sí; carenada y mútica", keyStep: "A", especieId: "ed2_eustachys_bahiensis" },
+    opcionA_prima: { label: "No; dorso glabro y bordes largamente ciliados", keyStep: "A'", nextNodeId: "ed2_eustachys_sterile_lemma" },
+  },
+  ed2_eustachys_sterile_lemma: {
+    id: "ed2_eustachys_sterile_lemma", milestone: "Eustachys: lemma estéril", manualPage: 122,
+    descripcion: "¿La lemma estéril está truncada en el ápice?",
+    opcionA: { label: "Sí; ocho a quince espigas", keyStep: "B", especieId: "ed2_eustachys_retusa" },
+    opcionA_prima: { label: "No; aguda u obtusa; doce a treinta espigas", keyStep: "B'", especieId: "ed2_eustachys_distichifolia" },
+  },
+  ed2_trichloris: {
+    id: "ed2_trichloris", milestone: "Trichloris", manualPage: 123,
+    descripcion: "Trichloris: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Trichloris pluriflora", keyStep: "1", especieId: "ed2_trichloris_pluriflora" },
+    opcionA_prima: { label: "Identificar como Trichloris pluriflora", keyStep: "1", especieId: "ed2_trichloris_pluriflora" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
