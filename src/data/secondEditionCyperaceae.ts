@@ -274,6 +274,76 @@ export const secondEditionCyperaceaeSpecies: Record<string, Especie> = {
     "Estilo trifido; umbela compuesta; espiguillas lanceoladas agudas con glumas rojizas y aquenio blanquecino.",
     "Regiones tropicales; comun en la ribera y las dunas litorales."
   ),
+  ed2_eleocharis_parodii: species(
+    "ed2_eleocharis_parodii", "Eleocharis parodii", "Perenne cespitosa y cortamente rizomatosa, de 30-50 cm.",
+    "Vaina con diente apical; tallos macizos o imperfectamente septados; espiguilla cilindrica de 2-3 cm.",
+    "Nordeste argentino; pantanos del norte bonaerense."
+  ),
+  ed2_eleocharis_elegans: species(
+    "ed2_eleocharis_elegans", "Eleocharis elegans", "Perenne de rizoma alargado y robusto, con tallos de 35-80 cm.",
+    "Vaina dentada; tallos huecos y septados de unos 4 mm; espiguilla ovoide de 1-3 cm.",
+    "America calida; Delta del Parana."
+  ),
+  ed2_eleocharis_nodulosa: species(
+    "ed2_eleocharis_nodulosa", "Eleocharis nodulosa", "Perenne de rizoma grueso y tallos de 15-65 cm.",
+    "Vaina dentada; tallos huecos y septados de 1,5-2,5 mm; espiguilla lanceolada de 10-25 mm.",
+    "America calida; comun en charcas y arroyos."
+  ),
+  ed2_eleocharis_flavescens: species(
+    "ed2_eleocharis_flavescens", "Eleocharis flavescens", "Perenne de rizomas largos y filiformes, con tallos muy delgados.",
+    "Estilo bifido; vaina de apice membranaceo blanco; espiguillas ovoides con glumas palidas o verdosas.",
+    "America calida; suelos humedos."
+  ),
+  ed2_eleocharis_maculosa: species(
+    "ed2_eleocharis_maculosa", "Eleocharis maculosa", "Perenne de rizoma horizontal robusto y tallos de 5-25 cm.",
+    "Estilo bifido; vaina de apice membranaceo blanco; glumas castaño rojizas y orbiculares.",
+    "America calida; dunas litorales y sierras bonaerenses."
+  ),
+  ed2_eleocharis_macrostachya: species(
+    "ed2_eleocharis_macrostachya", "Eleocharis macrostachya", "Perenne de rizoma horizontal grueso y tallos de 10-60 cm.",
+    "Estilo bifido; vaina truncada de borde verde; espiguillas lanceoladas agudas de 15-25 mm.",
+    "America; frecuente en orillas de zanjas y arroyos."
+  ),
+  ed2_eleocharis_obtusa: species(
+    "ed2_eleocharis_obtusa", "Eleocharis obtusa", "Anual erecta de 3-30 cm, con tallos capilares.",
+    "Estilo bifido; vaina oblicua de borde verde; espiguillas ovoides obtusas de 2-13 mm.",
+    "America; rara en la region."
+  ),
+  ed2_eleocharis_bonariensis: species(
+    "ed2_eleocharis_bonariensis", "Eleocharis bonariensis", "Perenne de rizomas horizontales muy largos y tallos de 5-40 cm.",
+    "Estilo trifido; aquenio con 12-14 costillas; vaina oblicua herbacea y espiguilla lanceolada.",
+    "Sur y centro de America; muy comun en pantanos, arroyos y cesped de la ribera del Plata."
+  ),
+  ed2_eleocharis_radicans: species(
+    "ed2_eleocharis_radicans", "Eleocharis radicans", "Perenne de rizoma largo y delgado, con tallos capilares de 3-10 cm.",
+    "Estilo trifido; aquenio costillado; vaina truncada oblicuamente y espiguilla lanceolada aguda de 3-5 mm.",
+    "America templado-calida; suelos acidos."
+  ),
+  ed2_eleocharis_viridans: species(
+    "ed2_eleocharis_viridans", "Eleocharis viridans", "Perenne cespitosa de 15-40 cm, con tallos capilares cuadrangulares.",
+    "Aquenio sin costillas; glumas obtusas o agudas de margen hialino; vaina superior apenas prolongada dorsalmente.",
+    "Sudamerica; rara en la ribera del Plata."
+  ),
+  ed2_eleocharis_filiculmis: species(
+    "ed2_eleocharis_filiculmis", "Eleocharis filiculmis", "Perenne cespitosa de 10-25 cm, con tallos capilares cuadrangulares.",
+    "Aquenio sin costillas; glumas emarginadas o bilobadas y vaina superior prolongada dorsalmente.",
+    "America calida; rara en Buenos Aires."
+  ),
+  ed2_eleocharis_dunensis: species(
+    "ed2_eleocharis_dunensis", "Eleocharis dunensis", "Perenne de rizomas largos y tallos fasciculados debiles de 10-50 cm.",
+    "Tallos pentagonales de seccion estrellada; vaina de borde rojizo y espiguilla oblonga obtusa de 5-10 mm.",
+    "Uruguay y nordeste argentino."
+  ),
+  ed2_eleocharis_montevidensis: species(
+    "ed2_eleocharis_montevidensis", "Eleocharis montevidensis", "Perenne rizomatosa, con tallos de 5-15 cm.",
+    "Tallos no pentagonales; espiguillas ovoides obtusas de 4-13 mm; aquenio finamente punteado y vainas truncadas.",
+    "America templado-calida; rara en la region."
+  ),
+  ed2_eleocharis_haumaniana: species(
+    "ed2_eleocharis_haumaniana", "Eleocharis haumaniana", "Perenne de rizoma horizontal robusto y tallos de 25-80 cm.",
+    "Espiguillas lanceoladas plurifloras de 15-25 mm; glumas agudas, aquenios lisos y vainas ligeramente oblicuas.",
+    "Uruguay y nordeste argentino; vive en charcas."
+  ),
 };
 
 export const secondEditionCyperaceaeKeyData: Record<string, CladoNode> = {
@@ -311,7 +381,13 @@ export const secondEditionCyperaceaeKeyData: Record<string, CladoNode> = {
     id: "ed2_cyperaceae_thickened_style", milestone: "Cyperaceae: estilo engrosado", manualPage: 154,
     descripcion: "¿La base engrosada del estilo cae junto con el estilo?",
     opcionA: { label: "Si; totalmente caduca", keyStep: "E", nextNodeId: "ed2_fimbristylis" },
-    opcionA_prima: { label: "No; persiste sobre el fruto formando un rostro", keyStep: "E'", especieId: "ed2_cyperaceae" },
+    opcionA_prima: { label: "No; persiste sobre el fruto formando un rostro", keyStep: "E'", nextNodeId: "ed2_cyperaceae_persistent_style_habit" },
+  },
+  ed2_cyperaceae_persistent_style_habit: {
+    id: "ed2_cyperaceae_persistent_style_habit", milestone: "Cyperaceae: estilo persistente", manualPage: 154,
+    descripcion: "¿La planta es afila y posee una unica espiguilla terminal sin bracteas?",
+    opcionA: { label: "Si; afila y con una espiguilla terminal", keyStep: "F", nextNodeId: "ed2_eleocharis" },
+    opcionA_prima: { label: "No; generalmente con hojas y numerosas espiguillas con bracteas", keyStep: "F'", especieId: "ed2_cyperaceae" },
   },
   ed2_scirpus: {
     id: "ed2_scirpus", milestone: "Scirpus", manualPage: 159,
@@ -360,6 +436,84 @@ export const secondEditionCyperaceaeKeyData: Record<string, CladoNode> = {
     descripcion: "¿El estilo es bifido o trifido?",
     opcionA: { label: "Bifido; un estambre y espiguillas cilindrico-conicas de 5 mm", keyStep: "A", especieId: "ed2_fimbristylis_squarrosa" },
     opcionA_prima: { label: "Trifido; tres estambres y espiguillas lanceoladas de 4-8 mm", keyStep: "A'", especieId: "ed2_fimbristylis_autumnalis" },
+  },
+  ed2_eleocharis: {
+    id: "ed2_eleocharis", milestone: "Eleocharis", manualPage: 162,
+    descripcion: "¿La vaina posee un diente apical bien desarrollado?",
+    opcionA: { label: "Si; diente apical marcado", keyStep: "A", nextNodeId: "ed2_eleocharis_tissue" },
+    opcionA_prima: { label: "No; sin diente marcado, a veces aguda y engrosada", keyStep: "A'", nextNodeId: "ed2_eleocharis_style" },
+  },
+  ed2_eleocharis_tissue: {
+    id: "ed2_eleocharis_tissue", milestone: "Eleocharis: tallo", manualPage: 162,
+    descripcion: "¿Los tallos son macizos o huecos con tabiques transversales?",
+    opcionA: { label: "Macizos o imperfectamente septados; espiguilla cilindrica de 2-3 cm", keyStep: "B", especieId: "ed2_eleocharis_parodii" },
+    opcionA_prima: { label: "Huecos y septados transversalmente", keyStep: "B'", nextNodeId: "ed2_eleocharis_septate_diameter" },
+  },
+  ed2_eleocharis_septate_diameter: {
+    id: "ed2_eleocharis_septate_diameter", milestone: "Eleocharis: tallos septados", manualPage: 162,
+    descripcion: "¿El tallo mide cerca de 4 mm o entre 1,5 y 2,5 mm de diametro?",
+    opcionA: { label: "Cerca de 4 mm; espiguilla ovoide de 1-3 cm", keyStep: "C", especieId: "ed2_eleocharis_elegans" },
+    opcionA_prima: { label: "1,5-2,5 mm; espiguilla lanceolada de 10-25 mm", keyStep: "C'", especieId: "ed2_eleocharis_nodulosa" },
+  },
+  ed2_eleocharis_style: {
+    id: "ed2_eleocharis_style", milestone: "Eleocharis: estilo", manualPage: 162,
+    descripcion: "¿El estilo es bifido o trifido?",
+    opcionA: { label: "Bifido", keyStep: "D", nextNodeId: "ed2_eleocharis_bifid_sheath" },
+    opcionA_prima: { label: "Trifido", keyStep: "D'", nextNodeId: "ed2_eleocharis_achene_ribs" },
+  },
+  ed2_eleocharis_bifid_sheath: {
+    id: "ed2_eleocharis_bifid_sheath", milestone: "Eleocharis: estilo bifido", manualPage: 162,
+    descripcion: "¿El apice de la vaina es membranaceo y blanco o herbaceo y verde?",
+    opcionA: { label: "Membranaceo, blanco y transparente", keyStep: "E", nextNodeId: "ed2_eleocharis_membranous_glumes" },
+    opcionA_prima: { label: "Herbaceo y verde", keyStep: "E'", nextNodeId: "ed2_eleocharis_green_spikelet" },
+  },
+  ed2_eleocharis_membranous_glumes: {
+    id: "ed2_eleocharis_membranous_glumes", milestone: "Eleocharis: vaina membranacea", manualPage: 162,
+    descripcion: "¿Las glumas son palidas o castaño rojizas?",
+    opcionA: { label: "Palidas o verdosas; tallos menores de 1 mm y rizomas muy delgados", keyStep: "F", especieId: "ed2_eleocharis_flavescens" },
+    opcionA_prima: { label: "Castaño rojizas y orbiculares; rizomas robustos", keyStep: "F'", especieId: "ed2_eleocharis_maculosa" },
+  },
+  ed2_eleocharis_green_spikelet: {
+    id: "ed2_eleocharis_green_spikelet", milestone: "Eleocharis: vaina verde", manualPage: 162,
+    descripcion: "¿Las espiguillas son lanceoladas y agudas u ovoides y obtusas?",
+    opcionA: { label: "Lanceoladas, agudas, de 15-25 mm; vaina truncada", keyStep: "G", especieId: "ed2_eleocharis_macrostachya" },
+    opcionA_prima: { label: "Ovoides, obtusas, de 2-13 mm; vaina oblicua", keyStep: "G'", especieId: "ed2_eleocharis_obtusa" },
+  },
+  ed2_eleocharis_achene_ribs: {
+    id: "ed2_eleocharis_achene_ribs", milestone: "Eleocharis: aquenio", manualPage: 163,
+    descripcion: "¿El aquenio presenta 12-14 costillas longitudinales y estrias horizontales?",
+    opcionA: { label: "Si; costillado y estriado", keyStep: "H", nextNodeId: "ed2_eleocharis_ribbed_sheath" },
+    opcionA_prima: { label: "No; sin costillas ni estrias", keyStep: "H'", nextNodeId: "ed2_eleocharis_habit" },
+  },
+  ed2_eleocharis_ribbed_sheath: {
+    id: "ed2_eleocharis_ribbed_sheath", milestone: "Eleocharis: aquenio costillado", manualPage: 163,
+    descripcion: "¿La vaina superior tiene borde herbaceo o escarioso-hialino?",
+    opcionA: { label: "Oblicua, con borde herbaceo; glumas obtusas", keyStep: "I", especieId: "ed2_eleocharis_bonariensis" },
+    opcionA_prima: { label: "Truncada oblicuamente, escarioso-hialina; espiguilla aguda", keyStep: "I'", especieId: "ed2_eleocharis_radicans" },
+  },
+  ed2_eleocharis_habit: {
+    id: "ed2_eleocharis_habit", milestone: "Eleocharis: habito", manualPage: 163,
+    descripcion: "¿La planta es cespitosa o rizomatosa?",
+    opcionA: { label: "Cespitosa; tallos capilares cuadrangulares", keyStep: "J", nextNodeId: "ed2_eleocharis_cespitose_glumes" },
+    opcionA_prima: { label: "Rizomatosa", keyStep: "J'", nextNodeId: "ed2_eleocharis_rhizomatous_stem" },
+  },
+  ed2_eleocharis_cespitose_glumes: {
+    id: "ed2_eleocharis_cespitose_glumes", milestone: "Eleocharis: plantas cespitosas", manualPage: 163,
+    descripcion: "¿Las glumas son obtusas o agudas, o emarginadas y bilobadas?",
+    opcionA: { label: "Obtusas o agudas; vaina apenas prolongada dorsalmente", keyStep: "K", especieId: "ed2_eleocharis_viridans" },
+    opcionA_prima: { label: "Emarginadas o bilobadas; vaina prolongada dorsalmente", keyStep: "K'", especieId: "ed2_eleocharis_filiculmis" },
+  },
+  ed2_eleocharis_rhizomatous_stem: {
+    id: "ed2_eleocharis_rhizomatous_stem", milestone: "Eleocharis: plantas rizomatosas", manualPage: 163,
+    descripcion: "¿Los tallos son pentagonales, capilares y de seccion estrellada?",
+    opcionA: { label: "Si; vaina de borde rojizo y espiguilla oblonga de 5-10 mm", keyStep: "L", especieId: "ed2_eleocharis_dunensis" },
+    opcionA_prima: { label: "No; tallos graciles o robustos, no pentagonales", keyStep: "L'", nextNodeId: "ed2_eleocharis_rhizomatous_spikelet" },
+  },
+  ed2_eleocharis_rhizomatous_spikelet: {
+    id: "ed2_eleocharis_rhizomatous_spikelet", milestone: "Eleocharis: espiguilla", manualPage: 163,
+    descripcion: "¿Las espiguillas son ovoides y obtusas o lanceoladas y agudas?",
+    opcionA: { label: "Ovoides, obtusas, de 4-13 mm; aquenio punteado", keyStep: "M", especieId: "ed2_eleocharis_montevidensis" },
+    opcionA_prima: { label: "Lanceoladas, agudas, de 15-25 mm; aquenio liso", keyStep: "M'", especieId: "ed2_eleocharis_haumaniana" },
   },
   ed2_cyperus: {
     id: "ed2_cyperus", milestone: "Cyperus", manualPage: 156,
