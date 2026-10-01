@@ -224,6 +224,56 @@ export const secondEditionCyperaceaeSpecies: Record<string, Especie> = {
     "Tallo subterete o trigono de caras convexas; capitulos densos con espiguillas ovadas de 4-5 mm.",
     "America tropical; rara en Puerto Nuevo."
   ),
+  ed2_scirpus_giganteus: species(
+    "ed2_scirpus_giganteus", "Scirpus giganteus", "Cortadera o paja brava; perenne muy robusta, de hasta 1,5 m.",
+    "Seis a diez bracteas anchas; umbela compuesta con numerosos capitulos y espiguillas pequeñas, plurifloras.",
+    "Sur de Brasil, Paraguay, Uruguay y norte argentino; dominante en pajonales del Delta y la ribera."
+  ),
+  ed2_scirpus_cubensis: species(
+    "ed2_scirpus_cubensis", "Scirpus cubensis var. paraguayensis", "Perenne rizomatosa de 20-75 cm.",
+    "Tres a seis bracteas angostas; espiguillas de unos 4 mm reunidas en uno o pocos capitulos terminales.",
+    "America del Sur; suelos humedos del Delta."
+  ),
+  ed2_scirpus_paludosus: species(
+    "ed2_scirpus_paludosus", "Scirpus paludosus", "Perenne rizomatosa de 30-60 cm.",
+    "Una a diez espiguillas grandes; apice opuesto de la vaina con nervaduras divergentes en V; estilo bifido.",
+    "America; pantanos salobres."
+  ),
+  ed2_scirpus_robustus: species(
+    "ed2_scirpus_robustus", "Scirpus robustus", "Perenne rizomatosa de 30-85 cm, con hojas mas largas que el tallo.",
+    "Pocas espiguillas grandes; nervaduras del apice de la vaina se doblan bruscamente en T; estilo trifido.",
+    "America; marismas y pantanos salobres poco profundos del este bonaerense."
+  ),
+  ed2_scirpus_californicus: species(
+    "ed2_scirpus_californicus", "Scirpus californicus", "Junco; perenne afila, rizomatosa y robusta, de 1-2 m.",
+    "Tallo trigono; umbela compuesta nutante y cerdas hipoginas plumosas; espiguillas ovoides de 8-18 mm.",
+    "America; muy comun en arroyos, zanjas y playas arenosas, donde forma juncales."
+  ),
+  ed2_scirpus_validus: species(
+    "ed2_scirpus_validus", "Scirpus validus", "Perenne afila, rizomatosa y robusta, de 1,5-2,5 m.",
+    "Tallo redondeado; umbela compuesta laxa y cerdas hipoginas con cilias retrorsas; espiguillas castañas de 4-7 mm.",
+    "America; rara en lagunas cercanas a Buenos Aires."
+  ),
+  ed2_scirpus_cernuus: species(
+    "ed2_scirpus_cernuus", "Scirpus cernuus", "Anual de hasta 20 cm, con tallos filiformes.",
+    "Una, rara vez dos o tres, espiguillas sesiles de 2-10 mm; sin cerdas hipoginas.",
+    "Cosmopolita; suelos humedos."
+  ),
+  ed2_scirpus_americanus: species(
+    "ed2_scirpus_americanus", "Scirpus americanus var. longispicatus", "Perenne rizomatosa de 20-100 cm.",
+    "Una a seis espiguillas ovoides con bractea de 1-3 cm y dos bracteas glumaceas; posee cerdas hipoginas.",
+    "Cosmopolita; comun en lugares pantanosos."
+  ),
+  ed2_fimbristylis_squarrosa: species(
+    "ed2_fimbristylis_squarrosa", "Fimbristylis squarrosa", "Perenne cespitosa de 10-20 cm, con tallos filiformes.",
+    "Estilo bifido; umbela compuesta con cuatro a seis bracteas; espiguillas cilindrico-conicas y aquenio blanco reticulado.",
+    "America tropical, Africa y Asia; rara en el Delta."
+  ),
+  ed2_fimbristylis_autumnalis: species(
+    "ed2_fimbristylis_autumnalis", "Fimbristylis autumnalis", "Perenne de rizoma corto y tallos graciles de 25-50 cm.",
+    "Estilo trifido; umbela compuesta; espiguillas lanceoladas agudas con glumas rojizas y aquenio blanquecino.",
+    "Regiones tropicales; comun en la ribera y las dunas litorales."
+  ),
 };
 
 export const secondEditionCyperaceaeKeyData: Record<string, CladoNode> = {
@@ -237,7 +287,7 @@ export const secondEditionCyperaceaeKeyData: Record<string, CladoNode> = {
     id: "ed2_cyperaceae_glume_arrangement", milestone: "Cyperaceae: glumas", manualPage: 154,
     descripcion: "¿Las glumas se disponen en dos filas o en espiral?",
     opcionA: { label: "Disticas", keyStep: "B", nextNodeId: "ed2_cyperaceae_distichous" },
-    opcionA_prima: { label: "Espiraladas", keyStep: "B'", especieId: "ed2_cyperaceae" },
+    opcionA_prima: { label: "Espiraladas", keyStep: "B'", nextNodeId: "ed2_cyperaceae_style_base" },
   },
   ed2_cyperaceae_distichous: {
     id: "ed2_cyperaceae_distichous", milestone: "Cyperaceae: glumas disticas", manualPage: 154,
@@ -250,6 +300,66 @@ export const secondEditionCyperaceaeKeyData: Record<string, CladoNode> = {
     descripcion: "Androtrichum: unica especie tratada para la region.",
     opcionA: { label: "Identificar como Androtrichum trigynum", keyStep: "1", especieId: "ed2_androtrichum_trigynum" },
     opcionA_prima: { label: "Identificar como Androtrichum trigynum", keyStep: "1", especieId: "ed2_androtrichum_trigynum" },
+  },
+  ed2_cyperaceae_style_base: {
+    id: "ed2_cyperaceae_style_base", milestone: "Cyperaceae: base del estilo", manualPage: 154,
+    descripcion: "¿El estilo esta engrosado en la base?",
+    opcionA: { label: "No engrosado", keyStep: "D", nextNodeId: "ed2_scirpus" },
+    opcionA_prima: { label: "Engrosado en la base", keyStep: "D'", nextNodeId: "ed2_cyperaceae_thickened_style" },
+  },
+  ed2_cyperaceae_thickened_style: {
+    id: "ed2_cyperaceae_thickened_style", milestone: "Cyperaceae: estilo engrosado", manualPage: 154,
+    descripcion: "¿La base engrosada del estilo cae junto con el estilo?",
+    opcionA: { label: "Si; totalmente caduca", keyStep: "E", nextNodeId: "ed2_fimbristylis" },
+    opcionA_prima: { label: "No; persiste sobre el fruto formando un rostro", keyStep: "E'", especieId: "ed2_cyperaceae" },
+  },
+  ed2_scirpus: {
+    id: "ed2_scirpus", milestone: "Scirpus", manualPage: 159,
+    descripcion: "¿La inflorescencia esta acompañada por dos o mas bracteas foliaceas?",
+    opcionA: { label: "Si; dos a numerosas bracteas foliaceas", keyStep: "A", nextNodeId: "ed2_scirpus_many_bracts" },
+    opcionA_prima: { label: "No; una bractea subulada que parece continuar el tallo", keyStep: "A'", nextNodeId: "ed2_scirpus_single_bract_inflorescence" },
+  },
+  ed2_scirpus_many_bracts: {
+    id: "ed2_scirpus_many_bracts", milestone: "Scirpus: bracteas foliaceas", manualPage: 159,
+    descripcion: "¿Hay seis a diez bracteas de 10-20 mm de ancho?",
+    opcionA: { label: "Si; planta muy robusta y umbela compuesta con numerosos capitulos", keyStep: "B", especieId: "ed2_scirpus_giganteus" },
+    opcionA_prima: { label: "No; tres a seis bracteas de 1-5 mm", keyStep: "B'", nextNodeId: "ed2_scirpus_spikelet_size" },
+  },
+  ed2_scirpus_spikelet_size: {
+    id: "ed2_scirpus_spikelet_size", milestone: "Scirpus: tamaño de espiguilla", manualPage: 159,
+    descripcion: "¿Las espiguillas miden unos 4 mm o entre 10 y 25 mm?",
+    opcionA: { label: "Pequeñas, de unos 4 mm, en uno o pocos capitulos", keyStep: "C", especieId: "ed2_scirpus_cubensis" },
+    opcionA_prima: { label: "Grandes, ovoides, de 10-25 mm", keyStep: "C'", nextNodeId: "ed2_scirpus_sheath_veins" },
+  },
+  ed2_scirpus_sheath_veins: {
+    id: "ed2_scirpus_sheath_veins", milestone: "Scirpus: nervaduras de la vaina", manualPage: 159,
+    descripcion: "¿Las nervaduras del apice opuesto de la vaina divergen suavemente en V o se doblan bruscamente en T?",
+    opcionA: { label: "Se separan suavemente en V; estilo bifido", keyStep: "D", especieId: "ed2_scirpus_paludosus" },
+    opcionA_prima: { label: "Se doblan bruscamente en T; estilo trifido", keyStep: "D'", especieId: "ed2_scirpus_robustus" },
+  },
+  ed2_scirpus_single_bract_inflorescence: {
+    id: "ed2_scirpus_single_bract_inflorescence", milestone: "Scirpus: bractea unica", manualPage: 160,
+    descripcion: "¿La inflorescencia es una umbela numerosa o un capitulo de una a seis espiguillas?",
+    opcionA: { label: "Umbela con numerosas espiguillas; planta robusta y afila", keyStep: "E", nextNodeId: "ed2_scirpus_robust_stem" },
+    opcionA_prima: { label: "Capitulo de una a seis espiguillas; planta con hojas", keyStep: "E'", nextNodeId: "ed2_scirpus_leafy_duration" },
+  },
+  ed2_scirpus_robust_stem: {
+    id: "ed2_scirpus_robust_stem", milestone: "Scirpus: plantas robustas", manualPage: 160,
+    descripcion: "¿El tallo es trigono o redondeado?",
+    opcionA: { label: "Trigono; cerdas hipoginas plumosas y umbela nutante", keyStep: "F", especieId: "ed2_scirpus_californicus" },
+    opcionA_prima: { label: "Redondeado; cerdas hipoginas con cilias retrorsas", keyStep: "F'", especieId: "ed2_scirpus_validus" },
+  },
+  ed2_scirpus_leafy_duration: {
+    id: "ed2_scirpus_leafy_duration", milestone: "Scirpus: plantas con hojas", manualPage: 160,
+    descripcion: "¿La planta es anual o perenne rizomatosa?",
+    opcionA: { label: "Anual, menor de 20 cm, sin cerdas hipoginas", keyStep: "G", especieId: "ed2_scirpus_cernuus" },
+    opcionA_prima: { label: "Perenne rizomatosa, de 20-100 cm, con cerdas hipoginas", keyStep: "G'", especieId: "ed2_scirpus_americanus" },
+  },
+  ed2_fimbristylis: {
+    id: "ed2_fimbristylis", milestone: "Fimbristylis", manualPage: 162,
+    descripcion: "¿El estilo es bifido o trifido?",
+    opcionA: { label: "Bifido; un estambre y espiguillas cilindrico-conicas de 5 mm", keyStep: "A", especieId: "ed2_fimbristylis_squarrosa" },
+    opcionA_prima: { label: "Trifido; tres estambres y espiguillas lanceoladas de 4-8 mm", keyStep: "A'", especieId: "ed2_fimbristylis_autumnalis" },
   },
   ed2_cyperus: {
     id: "ed2_cyperus", milestone: "Cyperus", manualPage: 156,
