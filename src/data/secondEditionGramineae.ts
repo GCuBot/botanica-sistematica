@@ -1332,6 +1332,56 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Dos a seis racimos distantes; raquis alado; espiguillas subsésiles de 4-4,5 mm en dos hileras.",
     "Sur de Estados Unidos; suelos húmedos del norte bonaerense.", "Brachiaria extensa"
   ),
+  ed2_axonopus_suffultus: species(
+    "ed2_axonopus_suffultus", "Axonopus suffultus", "Gramínea perenne y cespitosa de cerca de 1 m.",
+    "Inflorescencia con varias espigas fasciculadas; antecio castaño; espiguillas de 2 mm.",
+    "Sur de Brasil, Paraguay, Uruguay y nordeste argentino; estepa de Pergamino.", "Axonopus suffultus"
+  ),
+  ed2_axonopus_affinis: species(
+    "ed2_axonopus_affinis", "Axonopus affinis", "Gramínea perenne de unos 70 cm.",
+    "Dos a cinco espigas fasciculadas de 1 mm de diámetro; antecio amarillento; espiguillas de 2 mm.",
+    "América cálida; frecuente en el Delta y la ribera del Plata.", "Axonopus affinis"
+  ),
+  ed2_axonopus_rosengurttii: species(
+    "ed2_axonopus_rosengurttii", "Axonopus rosengurttii", "Gramínea perenne de 20-40 cm.",
+    "Dos a cinco espigas fasciculadas de 2 mm de diámetro; antecio amarillento; espiguillas de 2,5-3 mm.",
+    "Uruguay y nordeste argentino; ribera platense y parques de Capital Federal.", "Axonopus rosengurttii"
+  ),
+  ed2_hymenachne_amplexicaulis: species(
+    "ed2_hymenachne_amplexicaulis", "Hymenachne amplexicaulis", "Gramínea perenne robusta, con hojas anchas subcordadas.",
+    "Panoja espiciforme de 25-45 cm; espiguillas lanceoladas y acuminadas en racimos unilaterales densos.",
+    "América tropical; suelos pantanosos, accidental en Capital Federal.", "Hymenachne amplexicaulis"
+  ),
+  ed2_echinochloa_polystachya: species(
+    "ed2_echinochloa_polystachya", "Echinochloa polystachya", "Gramínea perenne acuática y flotante, de tallos gruesos.",
+    "Hojas de 10-25 mm; panojas densas; espiguillas ovoides de 4,5-7 mm; lemma estéril largamente aristada.",
+    "América tropical y subtropical; frecuente en camalotales del Delta y la ribera.", "Echinochloa polystachya"
+  ),
+  ed2_echinochloa_helodes: species(
+    "ed2_echinochloa_helodes", "Echinochloa helodes", "Gramínea perenne flotante, con rizomas tuberculiformes.",
+    "Hojas de 6-10 mm; panojas laxas y nutantes; espiguillas lanceoladas de 6-7 mm con glumas y lemma estéril aristadas.",
+    "Uruguay y nordeste argentino; frecuente en suelos inundables.", "Echinochloa helodes"
+  ),
+  ed2_echinochloa_colonum: species(
+    "ed2_echinochloa_colonum", "Echinochloa colonum", "Gramínea anual de 10-50 cm.",
+    "Hojas sin lígula; espiguillas ovoides obtusas de 2-2,6 mm, múticas; panoja linear con ramas aplicadas.",
+    "Originaria del Viejo Mundo; adventicia global en suelos modificados.", "Pasto colorado"
+  ),
+  ed2_echinochloa_crusgalli: species(
+    "ed2_echinochloa_crusgalli", "Echinochloa crusgalli", "Gramínea anual de 30-100 cm.",
+    "Espiguillas ovoides gruesas y espinulosas de 2,8-3,7 mm; lemma estéril con arista de 3-30 mm; panoja piramidal.",
+    "Originaria de Europa; adventicia en América, en suelos modificados.", "Pasto colorado, pata de gallo"
+  ),
+  ed2_echinochloa_cruspavonis: species(
+    "ed2_echinochloa_cruspavonis", "Echinochloa cruspavonis", "Gramínea anual de 1-2 m.",
+    "Espiguillas lanceoladas de 2,8-3,7 mm; lemma estéril poco espinulosa con arista de 2-15 mm; panoja nutante.",
+    "América cálida; muy común en la ribera platense.", "Echinochloa cruspavonis"
+  ),
+  ed2_oplismenus_setarius: species(
+    "ed2_oplismenus_setarius", "Oplismenus setarius", "Gramínea perenne, débil y radicante, de 10-30 cm.",
+    "Panoja con tres a seis espigas cortas; espiguillas gruesas de 3 mm; glumas casi iguales y aristadas.",
+    "América cálida hasta los bosques del Delta e Isla Martín García.", "Oplismenus setarius"
+  ),
 };
 
 function continuationNode(group: number, manualPage: number): CladoNode {
@@ -3063,6 +3113,54 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     descripcion: "Brachiaria: única especie tratada para la región.",
     opcionA: { label: "Identificar como Brachiaria extensa", keyStep: "1", especieId: "ed2_brachiaria_extensa" },
     opcionA_prima: { label: "Identificar como Brachiaria extensa", keyStep: "1", especieId: "ed2_brachiaria_extensa" },
+  },
+  ed2_axonopus: {
+    id: "ed2_axonopus", milestone: "Axonopus", manualPage: 134,
+    descripcion: "¿La inflorescencia posee numerosas espigas y el antecio es castaño?",
+    opcionA: { label: "Sí; planta de cerca de 1 m", keyStep: "A", especieId: "ed2_axonopus_suffultus" },
+    opcionA_prima: { label: "No; dos a cinco espigas y antecio amarillento", keyStep: "A'", nextNodeId: "ed2_axonopus_spike_width" },
+  },
+  ed2_axonopus_spike_width: {
+    id: "ed2_axonopus_spike_width", milestone: "Axonopus: ancho de las espigas", manualPage: 134,
+    descripcion: "¿Las espigas miden 1 mm o 2 mm de diámetro?",
+    opcionA: { label: "1 mm; espiguillas de 2 mm", keyStep: "B", especieId: "ed2_axonopus_affinis" },
+    opcionA_prima: { label: "2 mm; espiguillas de 2,5-3 mm", keyStep: "B'", especieId: "ed2_axonopus_rosengurttii" },
+  },
+  ed2_hymenachne: {
+    id: "ed2_hymenachne", milestone: "Hymenachne", manualPage: 134,
+    descripcion: "Hymenachne: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Hymenachne amplexicaulis", keyStep: "1", especieId: "ed2_hymenachne_amplexicaulis" },
+    opcionA_prima: { label: "Identificar como Hymenachne amplexicaulis", keyStep: "1", especieId: "ed2_hymenachne_amplexicaulis" },
+  },
+  ed2_echinochloa: {
+    id: "ed2_echinochloa", milestone: "Echinochloa", manualPage: 135,
+    descripcion: "¿La planta es perenne y posee lígula formada por una hilera de pelos?",
+    opcionA: { label: "Sí; flor inferior masculina", keyStep: "A", nextNodeId: "ed2_echinochloa_perennial_leaf" },
+    opcionA_prima: { label: "No; anual, sin lígula y con flor inferior neutra", keyStep: "A'", nextNodeId: "ed2_echinochloa_annual_spikelet" },
+  },
+  ed2_echinochloa_perennial_leaf: {
+    id: "ed2_echinochloa_perennial_leaf", milestone: "Echinochloa perenne", manualPage: 136,
+    descripcion: "¿Las hojas miden 10-25 mm y la panoja es densa?",
+    opcionA: { label: "Sí; espiguillas ovoides de 4,5-7 mm", keyStep: "B", especieId: "ed2_echinochloa_polystachya" },
+    opcionA_prima: { label: "No; hojas de 6-10 mm y panoja laxa y nutante", keyStep: "B'", especieId: "ed2_echinochloa_helodes" },
+  },
+  ed2_echinochloa_annual_spikelet: {
+    id: "ed2_echinochloa_annual_spikelet", milestone: "Echinochloa anual", manualPage: 136,
+    descripcion: "¿Las espiguillas son ovoides, obtusas, múticas y miden 2-2,6 mm?",
+    opcionA: { label: "Sí; panoja linear erecta", keyStep: "C", especieId: "ed2_echinochloa_colonum" },
+    opcionA_prima: { label: "No; de 3 mm o más, acuminadas y generalmente aristadas", keyStep: "C'", nextNodeId: "ed2_echinochloa_annual_shape" },
+  },
+  ed2_echinochloa_annual_shape: {
+    id: "ed2_echinochloa_annual_shape", milestone: "Echinochloa anual: forma", manualPage: 136,
+    descripcion: "¿Las espiguillas son ovoides, gruesas y conspicuamente espinulosas?",
+    opcionA: { label: "Sí; panoja piramidal densa", keyStep: "D", especieId: "ed2_echinochloa_crusgalli" },
+    opcionA_prima: { label: "No; lanceoladas, poco espinulosas y panoja nutante", keyStep: "D'", especieId: "ed2_echinochloa_cruspavonis" },
+  },
+  ed2_oplismenus: {
+    id: "ed2_oplismenus", milestone: "Oplismenus", manualPage: 136,
+    descripcion: "Oplismenus: única especie tratada para la región.",
+    opcionA: { label: "Identificar como Oplismenus setarius", keyStep: "1", especieId: "ed2_oplismenus_setarius" },
+    opcionA_prima: { label: "Identificar como Oplismenus setarius", keyStep: "1", especieId: "ed2_oplismenus_setarius" },
   },
   ed2_gramineae_group_9: continuationNode(9, 71),
   ed2_gramineae_group_10: {
