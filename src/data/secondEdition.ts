@@ -191,6 +191,10 @@ import {
   secondEditionCapparidaceaeKeyData,
   secondEditionCapparidaceaeSpecies,
 } from "./secondEditionCapparidaceae";
+import {
+  secondEditionCruciferaeKeyData,
+  secondEditionCruciferaeSpecies,
+} from "./secondEditionCruciferae";
 
 function mergeUniqueRecords<T>(label: string, records: Array<Record<string, T>>) {
   const merged: Record<string, T> = {};
@@ -254,6 +258,7 @@ export const secondEditionSpeciesData: Record<string, Especie> = mergeUniqueReco
     secondEditionNymphaeaceaeCeratophyllaceaeRanunculaceaeSpecies,
     secondEditionBerberidaceaeLauraceaePapaveraceaeSpecies,
     secondEditionCapparidaceaeSpecies,
+    secondEditionCruciferaeSpecies,
   ]
 );
 
@@ -308,6 +313,7 @@ export const secondEditionTree: Record<string, CladoNode> = mergeUniqueRecords(
     secondEditionNymphaeaceaeCeratophyllaceaeRanunculaceaeKeyData,
     secondEditionBerberidaceaeLauraceaePapaveraceaeKeyData,
     secondEditionCapparidaceaeKeyData,
+    secondEditionCruciferaeKeyData,
   ]
 );
 
