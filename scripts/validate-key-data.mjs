@@ -117,6 +117,8 @@ const files = [
       "ed2_family_papaveraceae",
       "ed2_family_capparidaceae",
       "ed2_family_resedaceae", "ed2_family_crassulaceae",
+      "ed2_leguminosae_mimosoideae", "ed2_leguminosae_caesalpinioideae",
+      "ed2_leguminosae_papilionoideae",
     ],
     order: "data-first",
   },

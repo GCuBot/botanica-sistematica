@@ -139,7 +139,22 @@ export const secondEditionDicotGroupC1KeyData: Record<string, CladoNode> = {
   ...Object.fromEntries(
     Object.entries(secondEditionDicotGroupC1BranchSpecs).map(([id, spec]) => [id, buildNode(id, spec)])
   ),
-  ed2_family_leguminosae: terminal("ed2_family_leguminosae", "ed2_leguminosae", 315),
+  ed2_family_leguminosae: {
+    id: "ed2_family_leguminosae",
+    milestone: "LXXV. Leguminosae",
+    manualPage: 315,
+    descripcion: "Las flores son actinomorfas y densamente agrupadas, o zigomorfas?",
+    opcionA: { label: "Actinomorfas, en espigas o capitulos densos", keyStep: "A", nextNodeId: "ed2_leguminosae_mimosoideae" },
+    opcionA_prima: { label: "Zigomorfas, con corola imbricada", keyStep: "A'", nextNodeId: "ed2_leguminosae_zigomorphic" },
+  },
+  ed2_leguminosae_zigomorphic: {
+    id: "ed2_leguminosae_zigomorphic",
+    milestone: "Leguminosae: flores zigomorfas",
+    manualPage: 315,
+    descripcion: "El estandarte queda interno o externo respecto de los otros petalos?",
+    opcionA: { label: "Interno; sepalos libres y estambres usualmente libres", keyStep: "B", nextNodeId: "ed2_leguminosae_caesalpinioideae" },
+    opcionA_prima: { label: "Externo; corola amariposada y sepalos soldados", keyStep: "B'", nextNodeId: "ed2_leguminosae_papilionoideae" },
+  },
   ed2_family_tropaeolaceae: terminal("ed2_family_tropaeolaceae", "ed2_tropaeolaceae", 362),
   ed2_family_rutaceae: terminal("ed2_family_rutaceae", "ed2_rutaceae", 367),
   ed2_family_polygalaceae: terminal("ed2_family_polygalaceae", "ed2_polygalaceae", 372),
