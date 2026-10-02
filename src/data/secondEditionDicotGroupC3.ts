@@ -39,19 +39,6 @@ export const secondEditionDicotGroupC3Families: Record<string, Especie> = {
   ed2_lythraceae: family("ed2_lythraceae", "CVI", "Lythraceae", 440),
 };
 
-function terminal(nodeId: string, familyId: string, page: number): CladoNode {
-  const especie = secondEditionDicotGroupC3Families[familyId];
-  return {
-    id: nodeId,
-    milestone: especie.nombreCientifico,
-    manualPage: page,
-    descripcion: `${especie.nombreCientifico}: continuar con la clave propia de la familia.`,
-    opcionA: { label: `Continuar en ${especie.nombreCientifico}`, keyStep: "Familia", especieId: familyId },
-    opcionA_prima: { label: `Continuar en ${especie.nombreCientifico}`, keyStep: "Familia", especieId: familyId },
-    especie,
-  };
-}
-
 const secondEditionDicotGroupC3BranchSpecs: Record<string, BranchSpec> = {
   ed2_dicot_group_c_c_lower: {
     page: 16,
@@ -233,13 +220,4 @@ export const secondEditionDicotGroupC3KeyData: Record<string, CladoNode> = {
   ...Object.fromEntries(
     Object.entries(secondEditionDicotGroupC3BranchSpecs).map(([id, spec]) => [id, buildNode(id, spec)])
   ),
-  ed2_family_malpighiaceae: terminal("ed2_family_malpighiaceae", "ed2_malpighiaceae", 369),
-  ed2_family_vitaceae: terminal("ed2_family_vitaceae", "ed2_vitaceae", 401),
-  ed2_family_guttiferae: terminal("ed2_family_guttiferae", "ed2_guttiferae", 419),
-  ed2_family_elatinaceae: terminal("ed2_family_elatinaceae", "ed2_elatinaceae", 420),
-  ed2_family_frankeniaceae: terminal("ed2_family_frankeniaceae", "ed2_frankeniaceae", 421),
-  ed2_family_cistaceae: terminal("ed2_family_cistaceae", "ed2_cistaceae", 423),
-  ed2_family_turneraceae: terminal("ed2_family_turneraceae", "ed2_turneraceae", 426),
-  ed2_family_passifloraceae: terminal("ed2_family_passifloraceae", "ed2_passifloraceae", 428),
-  ed2_family_lythraceae: terminal("ed2_family_lythraceae", "ed2_lythraceae", 440),
 };

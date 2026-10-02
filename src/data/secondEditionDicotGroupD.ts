@@ -35,19 +35,6 @@ export const secondEditionDicotGroupDFamilies: Record<string, Especie> = {
   ed2_umbelliferae: family("ed2_umbelliferae", "CXIII", "Umbelliferae", 455),
 };
 
-function terminal(nodeId: string, familyId: string, page: number): CladoNode {
-  const especie = secondEditionDicotGroupDFamilies[familyId];
-  return {
-    id: nodeId,
-    milestone: especie.nombreCientifico,
-    manualPage: page,
-    descripcion: `${especie.nombreCientifico}: continuar con la clave propia de la familia.`,
-    opcionA: { label: `Continuar en ${especie.nombreCientifico}`, keyStep: "Familia", especieId: familyId },
-    opcionA_prima: { label: `Continuar en ${especie.nombreCientifico}`, keyStep: "Familia", especieId: familyId },
-    especie,
-  };
-}
-
 const secondEditionDicotGroupDBranchSpecs: Record<string, BranchSpec> = {
   ed2_dicot_group_d_a: {
     page: 17,
@@ -134,14 +121,4 @@ export const secondEditionDicotGroupDKeyData: Record<string, CladoNode> = {
   ...Object.fromEntries(
     Object.entries(secondEditionDicotGroupDBranchSpecs).map(([id, spec]) => [id, buildNode(id, spec)])
   ),
-  ed2_family_loasaceae: terminal("ed2_family_loasaceae", "ed2_loasaceae", 430),
-  ed2_family_begoniaceae: terminal("ed2_family_begoniaceae", "ed2_begoniaceae", 432),
-  ed2_family_cactaceae: terminal("ed2_family_cactaceae", "ed2_cactaceae", 433),
-  ed2_family_combretaceae: terminal("ed2_family_combretaceae", "ed2_combretaceae", 443),
-  ed2_family_myrtaceae: terminal("ed2_family_myrtaceae", "ed2_myrtaceae", 444),
-  ed2_family_melastomataceae: terminal("ed2_family_melastomataceae", "ed2_melastomataceae", 447),
-  ed2_family_onagraceae: terminal("ed2_family_onagraceae", "ed2_onagraceae", 449),
-  ed2_family_haloragaceae: terminal("ed2_family_haloragaceae", "ed2_haloragaceae", 453),
-  ed2_family_araliaceae: terminal("ed2_family_araliaceae", "ed2_araliaceae", 454),
-  ed2_family_umbelliferae: terminal("ed2_family_umbelliferae", "ed2_umbelliferae", 455),
 };

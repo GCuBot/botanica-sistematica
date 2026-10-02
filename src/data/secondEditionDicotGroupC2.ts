@@ -34,19 +34,6 @@ export const secondEditionDicotGroupC2Families: Record<string, Especie> = {
   ed2_sterculiaceae: family("ed2_sterculiaceae", "XCIV", "Sterculiaceae", 417),
 };
 
-function terminal(nodeId: string, familyId: string, page: number): CladoNode {
-  const especie = secondEditionDicotGroupC2Families[familyId];
-  return {
-    id: nodeId,
-    milestone: especie.nombreCientifico,
-    manualPage: page,
-    descripcion: `${especie.nombreCientifico}: continuar con la clave propia de la familia.`,
-    opcionA: { label: `Continuar en ${especie.nombreCientifico}`, keyStep: "Familia", especieId: familyId },
-    opcionA_prima: { label: `Continuar en ${especie.nombreCientifico}`, keyStep: "Familia", especieId: familyId },
-    especie,
-  };
-}
-
 const secondEditionDicotGroupC2BranchSpecs: Record<string, BranchSpec> = {
   ed2_dicot_group_c_m: {
     page: 15,
@@ -162,13 +149,4 @@ export const secondEditionDicotGroupC2KeyData: Record<string, CladoNode> = {
   ...Object.fromEntries(
     Object.entries(secondEditionDicotGroupC2BranchSpecs).map(([id, spec]) => [id, buildNode(id, spec)])
   ),
-  ed2_family_zygophyllaceae: terminal("ed2_family_zygophyllaceae", "ed2_zygophyllaceae", 365),
-  ed2_family_anacardiaceae: terminal("ed2_family_anacardiaceae", "ed2_anacardiaceae", 390),
-  ed2_family_celastraceae: terminal("ed2_family_celastraceae", "ed2_celastraceae", 391),
-  ed2_family_aceraceae: terminal("ed2_family_aceraceae", "ed2_aceraceae", 393),
-  ed2_family_sapindaceae: terminal("ed2_family_sapindaceae", "ed2_sapindaceae", 394),
-  ed2_family_rhamnaceae: terminal("ed2_family_rhamnaceae", "ed2_rhamnaceae", 398),
-  ed2_family_tiliaceae: terminal("ed2_family_tiliaceae", "ed2_tiliaceae", 403),
-  ed2_family_malvaceae: terminal("ed2_family_malvaceae", "ed2_malvaceae", 404),
-  ed2_family_sterculiaceae: terminal("ed2_family_sterculiaceae", "ed2_sterculiaceae", 417),
 };

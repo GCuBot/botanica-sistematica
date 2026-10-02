@@ -78,7 +78,34 @@ const secondEditionDicotGroupE1FamilyPages: Record<string, number> = {
   ed2_plantaginaceae: 576,
 };
 
-const expandedFamilyIds = new Set(["ed2_nyctaginaceae"]);
+const expandedFamilyIds = new Set([
+  "ed2_nyctaginaceae",
+  "ed2_thymelaeaceae",
+  "ed2_myrsinaceae",
+  "ed2_primulaceae",
+  "ed2_plumbaginaceae",
+  "ed2_sapotaceae",
+  "ed2_symplocaceae",
+  "ed2_oleaceae",
+  "ed2_loganiaceae",
+  "ed2_buddlejaceae",
+  "ed2_gentianaceae",
+  "ed2_menyanthaceae",
+  "ed2_apocynaceae",
+  "ed2_asclepiadaceae",
+  "ed2_convolvulaceae",
+  "ed2_hydrophyllaceae",
+  "ed2_boraginaceae",
+  "ed2_verbenaceae",
+  "ed2_labiatae",
+  "ed2_solanaceae",
+  "ed2_scrophulariaceae",
+  "ed2_bignoniaceae",
+  "ed2_martiniaceae",
+  "ed2_lentibulariaceae",
+  "ed2_acanthaceae",
+  "ed2_plantaginaceae",
+]);
 
 function terminal(nodeId: string, familyId: string, page: number): CladoNode {
   const especie = secondEditionDicotGroupE1Families[familyId];

@@ -31,19 +31,6 @@ export const secondEditionDicotGroupE2Families: Record<string, Especie> = {
   ed2_compositae: family("ed2_compositae", "CXLV", "Compositae", 608),
 };
 
-function terminal(nodeId: string, familyId: string, page: number): CladoNode {
-  const especie = secondEditionDicotGroupE2Families[familyId];
-  return {
-    id: nodeId,
-    milestone: especie.nombreCientifico,
-    manualPage: page,
-    descripcion: `${especie.nombreCientifico}: continuar con la clave propia de la familia.`,
-    opcionA: { label: `Continuar en ${especie.nombreCientifico}`, keyStep: "Familia", especieId: familyId },
-    opcionA_prima: { label: `Continuar en ${especie.nombreCientifico}`, keyStep: "Familia", especieId: familyId },
-    especie,
-  };
-}
-
 const secondEditionDicotGroupE2BranchSpecs: Record<string, BranchSpec> = {
   ed2_dicot_group_e_d_lower: {
     page: 20,
@@ -135,11 +122,4 @@ export const secondEditionDicotGroupE2KeyData: Record<string, CladoNode> = {
   ...Object.fromEntries(
     Object.entries(secondEditionDicotGroupE2BranchSpecs).map(([id, spec]) => [id, buildNode(id, spec)])
   ),
-  ed2_family_caprifoliaceae: terminal("ed2_family_caprifoliaceae", "ed2_caprifoliaceae", 590),
-  ed2_family_valerianaceae: terminal("ed2_family_valerianaceae", "ed2_valerianaceae", 592),
-  ed2_family_dipsacaceae: terminal("ed2_family_dipsacaceae", "ed2_dipsacaceae", 593),
-  ed2_family_cucurbitaceae: terminal("ed2_family_cucurbitaceae", "ed2_cucurbitaceae", 595),
-  ed2_family_campanulaceae: terminal("ed2_family_campanulaceae", "ed2_campanulaceae", 603),
-  ed2_family_calyceraceae: terminal("ed2_family_calyceraceae", "ed2_calyceraceae", 605),
-  ed2_family_compositae: terminal("ed2_family_compositae", "ed2_compositae", 608),
 };

@@ -34,19 +34,6 @@ export const secondEditionDicotGroupC1Families: Record<string, Especie> = {
   ed2_violaceae: family("ed2_violaceae", "XCIX", "Violaceae", 424),
 };
 
-function terminal(nodeId: string, familyId: string, page: number): CladoNode {
-  const especie = secondEditionDicotGroupC1Families[familyId];
-  return {
-    id: nodeId,
-    milestone: especie.nombreCientifico,
-    manualPage: page,
-    descripcion: `${especie.nombreCientifico}: continuar con la clave propia de la familia.`,
-    opcionA: { label: `Continuar en ${especie.nombreCientifico}`, keyStep: "Familia", especieId: familyId },
-    opcionA_prima: { label: `Continuar en ${especie.nombreCientifico}`, keyStep: "Familia", especieId: familyId },
-    especie,
-  };
-}
-
 const secondEditionDicotGroupC1BranchSpecs: Record<string, BranchSpec> = {
   ed2_dicot_group_c_a: {
     page: 14,
@@ -155,7 +142,4 @@ export const secondEditionDicotGroupC1KeyData: Record<string, CladoNode> = {
     opcionA: { label: "Interno; sepalos libres y estambres usualmente libres", keyStep: "B", nextNodeId: "ed2_leguminosae_caesalpinioideae" },
     opcionA_prima: { label: "Externo; corola amariposada y sepalos soldados", keyStep: "B'", nextNodeId: "ed2_leguminosae_papilionoideae" },
   },
-  ed2_family_rutaceae: terminal("ed2_family_rutaceae", "ed2_rutaceae", 367),
-  ed2_family_polygalaceae: terminal("ed2_family_polygalaceae", "ed2_polygalaceae", 372),
-  ed2_family_violaceae: terminal("ed2_family_violaceae", "ed2_violaceae", 424),
 };

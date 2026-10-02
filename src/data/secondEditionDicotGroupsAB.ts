@@ -46,27 +46,6 @@ export const secondEditionDicotGroupsABFamilies: Record<string, Especie> = {
   ed2_rubiaceae: family("ed2_rubiaceae", "CXXXVIII", "Rubiaceae", 579),
 };
 
-function familyTerminal(nodeId: string, familyId: string, manualPage: number): CladoNode {
-  const especie = secondEditionDicotGroupsABFamilies[familyId];
-  return {
-    id: nodeId,
-    milestone: especie.nombreCientifico,
-    manualPage,
-    descripcion: `${especie.nombreCientifico}: continuar con la clave propia de la familia.`,
-    opcionA: {
-      label: `Continuar en ${especie.nombreCientifico}`,
-      keyStep: "Familia",
-      especieId: familyId,
-    },
-    opcionA_prima: {
-      label: `Continuar en ${especie.nombreCientifico}`,
-      keyStep: "Familia",
-      especieId: familyId,
-    },
-    especie,
-  };
-}
-
 const secondEditionDicotGroupsABBranchSpecs: Record<string, BranchSpec> = {
   ed2_dicotyledoneae_a: {
     descripcion: "¿Las flores son desnudas o poseen cáliz y corola?",
@@ -491,7 +470,4 @@ export const secondEditionDicotGroupsABKeyData: Record<string, CladoNode> = {
       buildBranch(id, spec),
     ])
   ),
-  ed2_family_euphorbiaceae: familyTerminal("ed2_family_euphorbiaceae", "ed2_euphorbiaceae", 375),
-  ed2_family_callitrichaceae: familyTerminal("ed2_family_callitrichaceae", "ed2_callitrichaceae", 388),
-  ed2_family_rubiaceae: familyTerminal("ed2_family_rubiaceae", "ed2_rubiaceae", 579),
 };

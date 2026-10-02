@@ -223,6 +223,162 @@ import {
   secondEditionTropaeolaceaeLinaceaeKeyData,
   secondEditionTropaeolaceaeLinaceaeSpecies,
 } from "./secondEditionTropaeolaceaeLinaceae";
+import {
+  secondEditionZygophyllaceaeKeyData,
+  secondEditionZygophyllaceaeSpecies,
+} from "./secondEditionZygophyllaceae";
+import {
+  secondEditionRutaceaeKeyData,
+  secondEditionRutaceaeSpecies,
+} from "./secondEditionRutaceae";
+import {
+  secondEditionMalpighiaceaeKeyData,
+  secondEditionMalpighiaceaeSpecies,
+} from "./secondEditionMalpighiaceae";
+import {
+  secondEditionPolygalaceaeKeyData,
+  secondEditionPolygalaceaeSpecies,
+} from "./secondEditionPolygalaceae";
+import {
+  secondEditionEuphorbiaceaeKeyData,
+  secondEditionEuphorbiaceaeSpecies,
+} from "./secondEditionEuphorbiaceae";
+import {
+  secondEditionCallitrichaceaeKeyData,
+  secondEditionCallitrichaceaeSpecies,
+} from "./secondEditionCallitrichaceae";
+import {
+  secondEditionAnacardiaceaeKeyData,
+  secondEditionAnacardiaceaeSpecies,
+} from "./secondEditionAnacardiaceae";
+import {
+  secondEditionCelastraceaeAceraceaeKeyData,
+  secondEditionCelastraceaeAceraceaeSpecies,
+} from "./secondEditionCelastraceaeAceraceae";
+import {
+  secondEditionSapindaceaeKeyData,
+  secondEditionSapindaceaeSpecies,
+} from "./secondEditionSapindaceae";
+import {
+  secondEditionRhamnaceaeKeyData,
+  secondEditionRhamnaceaeSpecies,
+} from "./secondEditionRhamnaceae";
+import {
+  secondEditionVitaceaeTiliaceaeKeyData,
+  secondEditionVitaceaeTiliaceaeSpecies,
+} from "./secondEditionVitaceaeTiliaceae";
+import {
+  secondEditionMalvaceaeKeyData,
+  secondEditionMalvaceaeSpecies,
+} from "./secondEditionMalvaceae";
+import {
+  secondEditionSterculiaceaeKeyData,
+  secondEditionSterculiaceaeSpecies,
+} from "./secondEditionSterculiaceae";
+import {
+  secondEditionGuttiferaeElatinaceaeKeyData,
+  secondEditionGuttiferaeElatinaceaeSpecies,
+} from "./secondEditionGuttiferaeElatinaceae";
+import {
+  secondEditionFrankeniaceaeToBegoniaceaeKeyData,
+  secondEditionFrankeniaceaeToBegoniaceaeSpecies,
+} from "./secondEditionFrankeniaceaeToBegoniaceae";
+import {
+  secondEditionCactaceaeThymelaeaceaeKeyData,
+  secondEditionCactaceaeThymelaeaceaeSpecies,
+} from "./secondEditionCactaceaeThymelaeaceae";
+import {
+  secondEditionLythraceaeCombretaceaeKeyData,
+  secondEditionLythraceaeCombretaceaeSpecies,
+} from "./secondEditionLythraceaeCombretaceae";
+import {
+  secondEditionMyrtaceaeMelastomataceaeKeyData,
+  secondEditionMyrtaceaeMelastomataceaeSpecies,
+} from "./secondEditionMyrtaceaeMelastomataceae";
+import {
+  secondEditionOnagraceaeToAraliaceaeKeyData,
+  secondEditionOnagraceaeToAraliaceaeSpecies,
+} from "./secondEditionOnagraceaeToAraliaceae";
+import {
+  secondEditionUmbelliferaeKeyData,
+  secondEditionUmbelliferaeSpecies,
+} from "./secondEditionUmbelliferae";
+import {
+  secondEditionMyrsinaceaeToSapotaceaeKeyData,
+  secondEditionMyrsinaceaeToSapotaceaeSpecies,
+} from "./secondEditionMyrsinaceaeToSapotaceae";
+import {
+  secondEditionSymplocaceaeToBuddlejaceaeKeyData,
+  secondEditionSymplocaceaeToBuddlejaceaeSpecies,
+} from "./secondEditionSymplocaceaeToBuddlejaceae";
+import {
+  secondEditionGentianaceaeMenyanthaceaeKeyData,
+  secondEditionGentianaceaeMenyanthaceaeSpecies,
+} from "./secondEditionGentianaceaeMenyanthaceae";
+import {
+  secondEditionApocynaceaeKeyData,
+  secondEditionApocynaceaeSpecies,
+} from "./secondEditionApocynaceae";
+import {
+  secondEditionAsclepiadaceaeKeyData,
+  secondEditionAsclepiadaceaeSpecies,
+} from "./secondEditionAsclepiadaceae";
+import {
+  secondEditionConvolvulaceaeHydrophyllaceaeKeyData,
+  secondEditionConvolvulaceaeHydrophyllaceaeSpecies,
+} from "./secondEditionConvolvulaceaeHydrophyllaceae";
+import {
+  secondEditionBoraginaceaeKeyData,
+  secondEditionBoraginaceaeSpecies,
+} from "./secondEditionBoraginaceae";
+import {
+  secondEditionVerbenaceaeKeyData,
+  secondEditionVerbenaceaeSpecies,
+} from "./secondEditionVerbenaceae";
+import {
+  secondEditionLabiataeKeyData,
+  secondEditionLabiataeSpecies,
+} from "./secondEditionLabiatae";
+import {
+  secondEditionSolanaceaeKeyData,
+  secondEditionSolanaceaeSpecies,
+} from "./secondEditionSolanaceae";
+import {
+  secondEditionScrophulariaceaeKeyData,
+  secondEditionScrophulariaceaeSpecies,
+} from "./secondEditionScrophulariaceae";
+import {
+  secondEditionBignoniaceaeToLentibulariaceaeKeyData,
+  secondEditionBignoniaceaeToLentibulariaceaeSpecies,
+} from "./secondEditionBignoniaceaeToLentibulariaceae";
+import {
+  secondEditionAcanthaceaeKeyData,
+  secondEditionAcanthaceaeSpecies,
+} from "./secondEditionAcanthaceae";
+import {
+  secondEditionPlantaginaceaeKeyData,
+  secondEditionPlantaginaceaeSpecies,
+} from "./secondEditionPlantaginaceae";
+import {
+  secondEditionRubiaceaeKeyData,
+  secondEditionRubiaceaeSpecies,
+} from "./secondEditionRubiaceae";
+import {
+  secondEditionCaprifoliaceaeToDipsacaceaeKeyData,
+  secondEditionCaprifoliaceaeToDipsacaceaeSpecies,
+} from "./secondEditionCaprifoliaceaeToDipsacaceae";
+import {
+  secondEditionCucurbitaceaeCampanulaceaeKeyData,
+  secondEditionCucurbitaceaeCampanulaceaeSpecies,
+} from "./secondEditionCucurbitaceaeCampanulaceae";
+import {
+  secondEditionCalyceraceaeKeyData,
+  secondEditionCalyceraceaeSpecies,
+} from "./secondEditionCalyceraceae";
+import {
+  secondEditionCompositaeKeyData,
+  secondEditionCompositaeSpecies,
+} from "./secondEditionCompositae";
 
 function mergeUniqueRecords<T>(label: string, records: Array<Record<string, T>>) {
   const merged: Record<string, T> = {};
@@ -294,6 +450,45 @@ export const secondEditionSpeciesData: Record<string, Especie> = mergeUniqueReco
     secondEditionOxalidaceaeSpecies,
     secondEditionGeraniaceaeSpecies,
     secondEditionTropaeolaceaeLinaceaeSpecies,
+    secondEditionZygophyllaceaeSpecies,
+    secondEditionRutaceaeSpecies,
+    secondEditionMalpighiaceaeSpecies,
+    secondEditionPolygalaceaeSpecies,
+    secondEditionEuphorbiaceaeSpecies,
+    secondEditionCallitrichaceaeSpecies,
+    secondEditionAnacardiaceaeSpecies,
+    secondEditionCelastraceaeAceraceaeSpecies,
+    secondEditionSapindaceaeSpecies,
+    secondEditionRhamnaceaeSpecies,
+    secondEditionVitaceaeTiliaceaeSpecies,
+    secondEditionMalvaceaeSpecies,
+    secondEditionSterculiaceaeSpecies,
+    secondEditionGuttiferaeElatinaceaeSpecies,
+    secondEditionFrankeniaceaeToBegoniaceaeSpecies,
+    secondEditionCactaceaeThymelaeaceaeSpecies,
+    secondEditionLythraceaeCombretaceaeSpecies,
+    secondEditionMyrtaceaeMelastomataceaeSpecies,
+    secondEditionOnagraceaeToAraliaceaeSpecies,
+    secondEditionUmbelliferaeSpecies,
+    secondEditionMyrsinaceaeToSapotaceaeSpecies,
+    secondEditionSymplocaceaeToBuddlejaceaeSpecies,
+    secondEditionGentianaceaeMenyanthaceaeSpecies,
+    secondEditionApocynaceaeSpecies,
+    secondEditionAsclepiadaceaeSpecies,
+    secondEditionConvolvulaceaeHydrophyllaceaeSpecies,
+    secondEditionBoraginaceaeSpecies,
+    secondEditionVerbenaceaeSpecies,
+    secondEditionLabiataeSpecies,
+    secondEditionSolanaceaeSpecies,
+    secondEditionScrophulariaceaeSpecies,
+    secondEditionBignoniaceaeToLentibulariaceaeSpecies,
+    secondEditionAcanthaceaeSpecies,
+    secondEditionPlantaginaceaeSpecies,
+    secondEditionRubiaceaeSpecies,
+    secondEditionCaprifoliaceaeToDipsacaceaeSpecies,
+    secondEditionCucurbitaceaeCampanulaceaeSpecies,
+    secondEditionCalyceraceaeSpecies,
+    secondEditionCompositaeSpecies,
   ]
 );
 
@@ -356,6 +551,45 @@ export const secondEditionTree: Record<string, CladoNode> = mergeUniqueRecords(
     secondEditionOxalidaceaeKeyData,
     secondEditionGeraniaceaeKeyData,
     secondEditionTropaeolaceaeLinaceaeKeyData,
+    secondEditionZygophyllaceaeKeyData,
+    secondEditionRutaceaeKeyData,
+    secondEditionMalpighiaceaeKeyData,
+    secondEditionPolygalaceaeKeyData,
+    secondEditionEuphorbiaceaeKeyData,
+    secondEditionCallitrichaceaeKeyData,
+    secondEditionAnacardiaceaeKeyData,
+    secondEditionCelastraceaeAceraceaeKeyData,
+    secondEditionSapindaceaeKeyData,
+    secondEditionRhamnaceaeKeyData,
+    secondEditionVitaceaeTiliaceaeKeyData,
+    secondEditionMalvaceaeKeyData,
+    secondEditionSterculiaceaeKeyData,
+    secondEditionGuttiferaeElatinaceaeKeyData,
+    secondEditionFrankeniaceaeToBegoniaceaeKeyData,
+    secondEditionCactaceaeThymelaeaceaeKeyData,
+    secondEditionLythraceaeCombretaceaeKeyData,
+    secondEditionMyrtaceaeMelastomataceaeKeyData,
+    secondEditionOnagraceaeToAraliaceaeKeyData,
+    secondEditionUmbelliferaeKeyData,
+    secondEditionMyrsinaceaeToSapotaceaeKeyData,
+    secondEditionSymplocaceaeToBuddlejaceaeKeyData,
+    secondEditionGentianaceaeMenyanthaceaeKeyData,
+    secondEditionApocynaceaeKeyData,
+    secondEditionAsclepiadaceaeKeyData,
+    secondEditionConvolvulaceaeHydrophyllaceaeKeyData,
+    secondEditionBoraginaceaeKeyData,
+    secondEditionVerbenaceaeKeyData,
+    secondEditionLabiataeKeyData,
+    secondEditionSolanaceaeKeyData,
+    secondEditionScrophulariaceaeKeyData,
+    secondEditionBignoniaceaeToLentibulariaceaeKeyData,
+    secondEditionAcanthaceaeKeyData,
+    secondEditionPlantaginaceaeKeyData,
+    secondEditionRubiaceaeKeyData,
+    secondEditionCaprifoliaceaeToDipsacaceaeKeyData,
+    secondEditionCucurbitaceaeCampanulaceaeKeyData,
+    secondEditionCalyceraceaeKeyData,
+    secondEditionCompositaeKeyData,
   ]
 );
 
