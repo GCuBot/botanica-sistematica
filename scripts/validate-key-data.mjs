@@ -654,6 +654,17 @@ const files = [
     speciesKey: true,
     order: "data-first",
   },
+  {
+    name: "secondEditionLeguminosaePapilionoideae.ts",
+    path: path.join(ROOT, "src", "data", "secondEditionLeguminosaePapilionoideae.ts"),
+    treeExport: "export const secondEditionLeguminosaePapilionoideaeKeyData",
+    dataExport: "export const secondEditionLeguminosaePapilionoideaeSpecies",
+    dataPattern: /^  ([a-zA-Z0-9_]+): species\(/gm,
+    nodePattern: /^  ([a-zA-Z0-9_]+): (?:\{|singleSpeciesNode\()/gm,
+    externalNodes: [],
+    speciesKey: true,
+    order: "data-first",
+  },
 ];
 
 function collectMatches(text, pattern, group = 1) {
