@@ -491,7 +491,6 @@ export const secondEditionDicotGroupsABKeyData: Record<string, CladoNode> = {
       buildBranch(id, spec),
     ])
   ),
-  ed2_family_rosaceae: familyTerminal("ed2_family_rosaceae", "ed2_rosaceae", 309),
   ed2_family_euphorbiaceae: familyTerminal("ed2_family_euphorbiaceae", "ed2_euphorbiaceae", 375),
   ed2_family_callitrichaceae: familyTerminal("ed2_family_callitrichaceae", "ed2_callitrichaceae", 388),
   ed2_family_rubiaceae: familyTerminal("ed2_family_rubiaceae", "ed2_rubiaceae", 579),
