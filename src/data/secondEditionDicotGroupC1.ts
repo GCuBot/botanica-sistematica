@@ -155,7 +155,6 @@ export const secondEditionDicotGroupC1KeyData: Record<string, CladoNode> = {
     opcionA: { label: "Interno; sepalos libres y estambres usualmente libres", keyStep: "B", nextNodeId: "ed2_leguminosae_caesalpinioideae" },
     opcionA_prima: { label: "Externo; corola amariposada y sepalos soldados", keyStep: "B'", nextNodeId: "ed2_leguminosae_papilionoideae" },
   },
-  ed2_family_tropaeolaceae: terminal("ed2_family_tropaeolaceae", "ed2_tropaeolaceae", 362),
   ed2_family_rutaceae: terminal("ed2_family_rutaceae", "ed2_rutaceae", 367),
   ed2_family_polygalaceae: terminal("ed2_family_polygalaceae", "ed2_polygalaceae", 372),
   ed2_family_violaceae: terminal("ed2_family_violaceae", "ed2_violaceae", 424),
