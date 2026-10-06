@@ -336,8 +336,8 @@ export default function Home() {
                         </button>
                       </div>
                       {manualEdition === "second" && (
-                        <p className="mb-4 rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-950" role="status">
-                          En construccion: disponible hasta Compositae, Grindelia (especie 1494).
+                        <p className="mb-4 rounded-md border border-green-300 bg-green-50 px-3 py-2 text-sm text-green-950" role="status">
+                          Segunda edicion completa: disponible hasta Compositae (especie 1732).
                         </p>
                       )}
                       <Quiz
