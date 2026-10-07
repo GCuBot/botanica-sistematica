@@ -36,6 +36,7 @@ type ManualEdition = "first" | "second";
 const ALLOWED_DOMAIN = "@agro.uba.ar";
 const WORKSPACE_TABS: readonly WorkspaceTab[] = ["identifier", "records", "first-exam"];
 const MANUAL_EDITIONS: readonly ManualEdition[] = ["first", "second"];
+const MANUAL_EDITION_STORAGE_KEY = "botanica:manual-edition:v2";
 
 export default function Home() {
   const [pageState, setPageState] = useState<PageState>("quiz");
@@ -45,8 +46,8 @@ export default function Home() {
     WORKSPACE_TABS
   );
   const [manualEdition, setManualEdition] = usePersistentState<ManualEdition>(
-    "botanica:manual-edition",
-    "first",
+    MANUAL_EDITION_STORAGE_KEY,
+    "second",
     MANUAL_EDITIONS
   );
   const [selectedEspecie, setSelectedEspecie] = useState<Especie | null>(null);
@@ -319,27 +320,22 @@ export default function Home() {
                 {pageState === "quiz" && (
                   <div className="flex justify-center">
                     <div className="w-full max-w-2xl">
-                      <div className="mb-4 grid grid-cols-2 rounded-md border border-gray-300 bg-white p-1" aria-label="Edicion del manual">
+                      <div className="mb-3 grid grid-cols-2 rounded-md border border-gray-300 bg-white p-0.5" aria-label="Edicion del manual">
                         <button
                           type="button"
                           onClick={() => setManualEdition("first")}
-                          className={`rounded px-3 py-2 text-sm font-semibold ${manualEdition === "first" ? "bg-green-700 text-white" : "text-gray-700 hover:bg-gray-100"}`}
+                          className={`rounded px-3 py-1.5 text-sm font-semibold ${manualEdition === "first" ? "bg-green-700 text-white" : "text-gray-700 hover:bg-gray-100"}`}
                         >
                           1.ª edicion
                         </button>
                         <button
                           type="button"
                           onClick={() => setManualEdition("second")}
-                          className={`rounded px-3 py-2 text-sm font-semibold ${manualEdition === "second" ? "bg-green-700 text-white" : "text-gray-700 hover:bg-gray-100"}`}
+                          className={`rounded px-3 py-1.5 text-sm font-semibold ${manualEdition === "second" ? "bg-green-700 text-white" : "text-gray-700 hover:bg-gray-100"}`}
                         >
                           2.ª edicion
                         </button>
                       </div>
-                      {manualEdition === "second" && (
-                        <p className="mb-4 rounded-md border border-green-300 bg-green-50 px-3 py-2 text-sm text-green-950" role="status">
-                          Segunda edicion completa: disponible hasta Compositae (especie 1732).
-                        </p>
-                      )}
                       <Quiz
                         key={manualEdition}
                         rootNodeId={manualEdition === "second" ? SECOND_EDITION_ROOT_NODE_ID : "root"}
