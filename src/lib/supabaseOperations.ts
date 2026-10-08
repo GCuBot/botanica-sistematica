@@ -229,12 +229,31 @@ export async function setPhotoRecordConfirmed(
   }
 }
 
-export async function getPhotoRecords(): Promise<PhotoRecord[]> {
+const PHOTO_RECORD_SELECT =
+  "id,user_id,plant_number,especie_id,nombre_vulgar,nombre_usuario,fecha,lugar,observaciones,photo_url,is_confirmed,created_at";
+
+export async function getPhotoRecords(userId?: string): Promise<PhotoRecord[]> {
+  let query = supabase
+    .from("photo_records")
+    .select(PHOTO_RECORD_SELECT)
+    .order("plant_number", { ascending: false });
+
+  if (userId) query = query.eq("user_id", userId);
+
+  const { data, error } = await query;
+
+  if (error) {
+    throw new Error(`No se pudieron cargar los registros: ${error.message}`);
+  }
+
+  return data || [];
+}
+
+export async function getVisiblePhotoRecords(): Promise<PhotoRecord[]> {
   const { data, error } = await supabase
     .from("photo_records")
-    .select(
-      "id,user_id,plant_number,especie_id,nombre_vulgar,nombre_usuario,fecha,lugar,observaciones,photo_url,is_confirmed,created_at"
-    )
+    .select(PHOTO_RECORD_SELECT)
+    .order("nombre_usuario", { ascending: true })
     .order("plant_number", { ascending: false });
 
   if (error) {
@@ -242,6 +261,51 @@ export async function getPhotoRecords(): Promise<PhotoRecord[]> {
   }
 
   return data || [];
+}
+
+export async function getCommunityFriendIds(): Promise<string[]> {
+  const { data, error } = await supabase
+    .from("community_friends")
+    .select("friend_user_id")
+    .order("created_at", { ascending: true });
+
+  if (error) {
+    throw new Error(`No se pudieron cargar los amigos: ${error.message}`);
+  }
+
+  return (data || []).map((friend) => friend.friend_user_id);
+}
+
+export async function addCommunityFriend(friendUserId: string): Promise<void> {
+  const { data: userData, error: userError } = await supabase.auth.getUser();
+  if (userError || !userData.user) {
+    throw new Error("No se pudo identificar el usuario actual.");
+  }
+
+  const { error } = await supabase
+    .from("community_friends")
+    .insert([{ owner_user_id: userData.user.id, friend_user_id: friendUserId }]);
+
+  if (error && error.code !== "23505") {
+    throw new Error(`No se pudo agregar el perfil: ${error.message}`);
+  }
+}
+
+export async function removeCommunityFriend(friendUserId: string): Promise<void> {
+  const { data: userData, error: userError } = await supabase.auth.getUser();
+  if (userError || !userData.user) {
+    throw new Error("No se pudo identificar el usuario actual.");
+  }
+
+  const { error } = await supabase
+    .from("community_friends")
+    .delete()
+    .eq("owner_user_id", userData.user.id)
+    .eq("friend_user_id", friendUserId);
+
+  if (error) {
+    throw new Error(`No se pudo quitar el perfil: ${error.message}`);
+  }
 }
 
 export async function saveQuizSession(

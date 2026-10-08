@@ -8,16 +8,22 @@ import {
   LogOut,
   CircleUserRound,
   ScanSearch,
+  Users,
   X,
 } from "lucide-react";
 import AuthPanel from "@/components/AuthPanel";
+import CommunityProfiles from "@/components/CommunityProfiles";
 import FirstExamPractice from "@/components/FirstExamPractice";
 import Quiz from "@/components/Quiz";
 import RecordsList from "@/components/RecordsList";
 import SpeciesForm from "@/components/SpeciesForm";
 import {
   deletePhotoRecord,
+  addCommunityFriend,
   getPhotoRecords,
+  getCommunityFriendIds,
+  getVisiblePhotoRecords,
+  removeCommunityFriend,
   savePhotoRecord,
   saveQuizSession,
   setPhotoRecordConfirmed,
@@ -30,13 +36,15 @@ import { especiesData } from "@/data/clados";
 import { SECOND_EDITION_ROOT_NODE_ID } from "@/data/secondEdition";
 
 type PageState = "quiz" | "form" | "edit" | "complete";
-type WorkspaceTab = "identifier" | "records" | "first-exam";
+type WorkspaceTab = "identifier" | "records" | "community" | "first-exam";
 type ManualEdition = "first" | "second";
 
 const ALLOWED_DOMAIN = "@agro.uba.ar";
-const WORKSPACE_TABS: readonly WorkspaceTab[] = ["identifier", "records", "first-exam"];
+const WORKSPACE_TABS: readonly WorkspaceTab[] = ["identifier", "records", "community", "first-exam"];
 const MANUAL_EDITIONS: readonly ManualEdition[] = ["first", "second"];
 const MANUAL_EDITION_STORAGE_KEY = "botanica:manual-edition:v2";
+const MATECITO_URL = "https://matecito.co/botanicasis";
+const MATECITO_BUTTON_URL = "https://cdn.matecito.co/assets_v2/images/button_11.svg";
 
 export default function Home() {
   const [pageState, setPageState] = useState<PageState>("quiz");
@@ -54,7 +62,11 @@ export default function Home() {
   const [session, setSession] = useState<Session | null>(null);
   const [isAuthLoading, setIsAuthLoading] = useState(true);
   const [records, setRecords] = useState<PhotoRecord[]>([]);
+  const [communityRecords, setCommunityRecords] = useState<PhotoRecord[]>([]);
+  const [communityFriendIds, setCommunityFriendIds] = useState<string[]>([]);
   const [isRecordsLoading, setIsRecordsLoading] = useState(false);
+  const [isCommunityLoading, setIsCommunityLoading] = useState(false);
+  const [communityError, setCommunityError] = useState("");
   const [lastPlantNumber, setLastPlantNumber] = useState<number | null>(null);
   const [editingRecord, setEditingRecord] = useState<PhotoRecord | null>(null);
   const [recordNotice, setRecordNotice] = useState("");
@@ -70,7 +82,7 @@ export default function Home() {
 
     setIsRecordsLoading(true);
     try {
-      const userRecords = await getPhotoRecords();
+      const userRecords = await getPhotoRecords(user.id);
       setRecords(userRecords);
     } catch (error) {
       console.error("Error cargando registros:", error);
@@ -78,6 +90,40 @@ export default function Home() {
       setIsRecordsLoading(false);
     }
   }, [isAllowedEmail, user]);
+
+  const loadCommunityRecords = useCallback(async () => {
+    if (!user || !isAllowedEmail) return;
+
+    setIsCommunityLoading(true);
+    setCommunityError("");
+    try {
+      const [visibleRecords, friendIds] = await Promise.all([
+        getVisiblePhotoRecords(),
+        getCommunityFriendIds(),
+      ]);
+      setCommunityRecords(visibleRecords);
+      setCommunityFriendIds(friendIds);
+    } catch (error) {
+      console.error("Error cargando perfiles:", error);
+      setCommunityError(
+        error instanceof Error ? error.message : "No se pudieron cargar los perfiles"
+      );
+    } finally {
+      setIsCommunityLoading(false);
+    }
+  }, [isAllowedEmail, user]);
+
+  const handleAddCommunityFriend = async (friendUserId: string) => {
+    await addCommunityFriend(friendUserId);
+    setCommunityFriendIds((current) =>
+      current.includes(friendUserId) ? current : [...current, friendUserId]
+    );
+  };
+
+  const handleRemoveCommunityFriend = async (friendUserId: string) => {
+    await removeCommunityFriend(friendUserId);
+    setCommunityFriendIds((current) => current.filter((id) => id !== friendUserId));
+  };
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
@@ -108,10 +154,22 @@ export default function Home() {
     return () => window.clearTimeout(timer);
   }, [loadRecords]);
 
+  useEffect(() => {
+    if (workspaceTab !== "community") return;
+
+    const timer = window.setTimeout(() => {
+      void loadCommunityRecords();
+    }, 0);
+
+    return () => window.clearTimeout(timer);
+  }, [loadCommunityRecords, workspaceTab]);
+
   const handleSignOut = async () => {
     setIsMobileMenuOpen(false);
     await supabase.auth.signOut();
     setRecords([]);
+    setCommunityRecords([]);
+    setCommunityFriendIds([]);
     setLastPlantNumber(null);
   };
 
@@ -212,6 +270,22 @@ export default function Home() {
             <p className="text-gray-700">
               Facultad de Agronomía - UBA | Botánica Sistemática
             </p>
+            {user && isAllowedEmail && (
+              <a
+                href={MATECITO_URL}
+                rel="noopener noreferrer"
+                target="_blank"
+                aria-label="Convidame un Matecito"
+                className="mt-3 inline-flex opacity-90 transition hover:opacity-100"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element -- External Matecito badge snippet. */}
+                <img
+                  src={MATECITO_BUTTON_URL}
+                  alt="Convidame un Matecito"
+                  className="h-auto w-40"
+                />
+              </a>
+            )}
           </div>
 
           {user && isAllowedEmail && (
@@ -267,6 +341,12 @@ export default function Home() {
                 Mis plantas
               </button>
               <button
+                onClick={() => handleWorkspaceTabChange("community")}
+                className={`shrink-0 border-b-2 px-5 py-3 font-semibold ${workspaceTab === "community" ? "border-green-700 text-green-800" : "border-transparent text-gray-600 hover:text-gray-900"}`}
+              >
+                Comunidad
+              </button>
+              <button
                 onClick={() => handleWorkspaceTabChange("first-exam")}
                 className={`shrink-0 border-b-2 px-5 py-3 font-semibold ${workspaceTab === "first-exam" ? "border-green-700 text-green-800" : "border-transparent text-gray-600 hover:text-gray-900"}`}
               >
@@ -276,6 +356,19 @@ export default function Home() {
 
             {workspaceTab === "first-exam" ? (
               <FirstExamPractice />
+            ) : workspaceTab === "community" ? (
+              <div className="mx-auto max-w-4xl">
+                <CommunityProfiles
+                  records={communityRecords}
+                  ownRecords={records}
+                  friendIds={communityFriendIds}
+                  currentUserId={user.id}
+                  isLoading={isCommunityLoading}
+                  error={communityError}
+                  onAddFriend={handleAddCommunityFriend}
+                  onRemoveFriend={handleRemoveCommunityFriend}
+                />
+              </div>
             ) : workspaceTab === "records" ? (
               <div className="mx-auto max-w-4xl">
                 {recordNotice && (
@@ -397,7 +490,7 @@ export default function Home() {
             )}
 
             <nav
-              className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t border-gray-200 bg-white shadow-[0_-4px_16px_rgba(0,0,0,0.08)] lg:hidden"
+              className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 border-t border-gray-200 bg-white shadow-[0_-4px_16px_rgba(0,0,0,0.08)] lg:hidden"
               aria-label="Navegación principal"
             >
               <button
@@ -415,6 +508,14 @@ export default function Home() {
               >
                 <Library aria-hidden="true" size={20} />
                 Mis plantas
+              </button>
+              <button
+                type="button"
+                onClick={() => handleWorkspaceTabChange("community")}
+                className={`flex min-h-16 flex-col items-center justify-center gap-1 px-1 pb-[env(safe-area-inset-bottom)] text-xs font-medium ${workspaceTab === "community" ? "text-green-800" : "text-gray-600"}`}
+              >
+                <Users aria-hidden="true" size={20} />
+                Comunidad
               </button>
               <button
                 type="button"
