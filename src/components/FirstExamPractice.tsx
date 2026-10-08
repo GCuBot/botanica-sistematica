@@ -173,7 +173,7 @@ function ReviewMode() {
 
   return (
     <div>
-      <div className="mb-6 border-l-4 border-amber-500 bg-amber-50 p-4 text-sm text-amber-950">
+      <div className="mb-6 border-l-4 border-amber-500 bg-amber-50 p-4 text-sm text-amber-950 dark-panel-warm">
         <strong>Nivel de esta guia:</strong> las clases permiten separar con seguridad familias y las subfamilias de Amaryllidaceae. En Rosaceae orientan a grupos de generos; la clave de cereales llega a taxones concretos. El caracter resaltado es prioritario dentro de esta comparacion, no necesariamente exclusivo en toda la flora.
       </div>
       <div className="mb-6 flex overflow-x-auto border-b border-gray-300" aria-label="Tipos de fichas">
@@ -388,7 +388,7 @@ function ExamMode() {
 function CerealsMode() {
   return (
     <div className="mx-auto max-w-3xl">
-      <div className="mb-5 bg-sky-50 p-4 text-sm text-sky-950 border-l-4 border-sky-500">
+      <div className="mb-5 bg-sky-50 p-4 text-sm text-sky-950 border-l-4 border-sky-500 dark-panel-info">
         Esta practica reproduce la clave entregada en clase. Mire primero la arquitectura de la inflorescencia y luego glumas, cantidad de espiguillas por nudo y fertilidad.
       </div>
       <GuidedKey nodes={cerealKeyNodes} start={cerealKeyStart} results={cerealResults} />

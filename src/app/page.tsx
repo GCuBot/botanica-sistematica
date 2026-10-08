@@ -7,7 +7,9 @@ import {
   Library,
   LogOut,
   CircleUserRound,
+  Moon,
   ScanSearch,
+  Sun,
   Users,
   X,
 } from "lucide-react";
@@ -38,11 +40,15 @@ import { SECOND_EDITION_ROOT_NODE_ID } from "@/data/secondEdition";
 type PageState = "quiz" | "form" | "edit" | "complete";
 type WorkspaceTab = "identifier" | "records" | "community" | "first-exam";
 type ManualEdition = "first" | "second";
+type AppTheme = "light" | "dark";
 
 const ALLOWED_DOMAIN = "@agro.uba.ar";
 const WORKSPACE_TABS: readonly WorkspaceTab[] = ["identifier", "records", "community", "first-exam"];
 const MANUAL_EDITIONS: readonly ManualEdition[] = ["first", "second"];
+const APP_THEMES: readonly AppTheme[] = ["light", "dark"];
 const MANUAL_EDITION_STORAGE_KEY = "botanica:manual-edition:v2";
+const THEME_STORAGE_KEY = "botanica:theme:v1";
+const GITHUB_URL = "https://github.com/GCuBot/botanica-sistematica";
 const MATECITO_URL = "https://matecito.co/botanicasis";
 const MATECITO_BUTTON_URL = "https://cdn.matecito.co/assets_v2/images/button_11.svg";
 
@@ -57,6 +63,11 @@ export default function Home() {
     MANUAL_EDITION_STORAGE_KEY,
     "second",
     MANUAL_EDITIONS
+  );
+  const [appTheme, setAppTheme] = usePersistentState<AppTheme>(
+    THEME_STORAGE_KEY,
+    "light",
+    APP_THEMES
   );
   const [selectedEspecie, setSelectedEspecie] = useState<Especie | null>(null);
   const [session, setSession] = useState<Session | null>(null);
@@ -76,6 +87,12 @@ export default function Home() {
   const userEmail = user?.email || "";
   const isAllowedEmail = userEmail.toLowerCase().endsWith(ALLOWED_DOMAIN);
   const defaultUserName = useMemo(() => userEmail.split("@")[0] || "", [userEmail]);
+  const isDarkTheme = appTheme === "dark";
+  const mainThemeClass = isDarkTheme ? "theme-dark" : "theme-light";
+
+  const toggleTheme = () => {
+    setAppTheme((current) => (current === "dark" ? "light" : "dark"));
+  };
 
   const loadRecords = useCallback(async () => {
     if (!user || !isAllowedEmail) return;
@@ -253,43 +270,70 @@ export default function Home() {
 
   if (isAuthLoading) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 py-8 px-4">
+      <main className={`${mainThemeClass} min-h-screen bg-gradient-to-br from-green-50 to-blue-50 py-8 px-4`}>
         <p className="text-center text-gray-700">Cargando...</p>
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 px-4 pb-24 pt-8 lg:pb-8">
+    <main className={`${mainThemeClass} min-h-screen bg-gradient-to-br from-green-50 to-blue-50 px-4 pb-24 pt-8 lg:pb-8`}>
       <div className="max-w-5xl mx-auto">
         <header className="mb-8 grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-start">
           <div className="text-center lg:col-start-2">
             <h1 className="text-4xl font-bold text-green-800 mb-2">
-              🌿 Identificador de Plantas
+              Herbario Digital
             </h1>
             <p className="text-gray-700">
               Facultad de Agronomía - UBA | Botánica Sistemática
             </p>
             {user && isAllowedEmail && (
-              <a
-                href={MATECITO_URL}
-                rel="noopener noreferrer"
-                target="_blank"
-                aria-label="Convidame un Matecito"
-                className="mt-3 inline-flex opacity-90 transition hover:opacity-100"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element -- External Matecito badge snippet. */}
-                <img
-                  src={MATECITO_BUTTON_URL}
-                  alt="Convidame un Matecito"
-                  className="h-auto w-40"
-                />
-              </a>
+              <div className="mt-3 flex items-center justify-center gap-2">
+                <a
+                  href={MATECITO_URL}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label="Convidame un Matecito"
+                  className="inline-flex opacity-90 transition hover:opacity-100"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element -- External Matecito badge snippet. */}
+                  <img
+                    src={MATECITO_BUTTON_URL}
+                    alt="Convidame un Matecito"
+                    className="h-auto w-40"
+                  />
+                </a>
+                <a
+                  href={GITHUB_URL}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label="Ver proyecto en GitHub"
+                  className={`inline-flex h-7 w-20 items-center justify-center gap-1 rounded-md px-2 text-[11px] font-semibold text-white shadow-sm transition ${isDarkTheme ? "bg-[#2A732F] hover:bg-[#2D7B31]" : "bg-[#418945] hover:bg-[#2E7D32]"}`}
+                >
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 98 96"
+                    className="h-3 w-3 fill-white"
+                  >
+                    <path d="M48.9 0C21.9 0 0 21.9 0 48.9c0 21.6 14 39.9 33.4 46.4 2.4.4 3.3-1.1 3.3-2.4v-8.5c-13.6 3-16.5-6.6-16.5-6.6-2.2-5.7-5.4-7.2-5.4-7.2-4.4-3 .3-3 .3-3 4.9.3 7.5 5 7.5 5 4.3 7.4 11.3 5.3 14.1 4 .4-3.1 1.7-5.3 3.1-6.5-10.9-1.2-22.3-5.4-22.3-24.2 0-5.3 1.9-9.7 5-13.1-.5-1.2-2.2-6.2.5-12.9 0 0 4.1-1.3 13.4 5a46.3 46.3 0 0 1 24.4 0c9.3-6.3 13.4-5 13.4-5 2.7 6.7 1 11.7.5 12.9 3.1 3.4 5 7.8 5 13.1 0 18.8-11.5 23-22.4 24.2 1.7 1.5 3.3 4.5 3.3 9.1v13.6c0 1.3.9 2.8 3.4 2.3 19.3-6.5 33.3-24.8 33.3-46.4C97.8 21.9 75.9 0 48.9 0Z" />
+                  </svg>
+                  GitHub
+                </a>
+              </div>
             )}
           </div>
 
           {user && isAllowedEmail && (
             <div className="hidden w-fit items-center gap-2 rounded-md border border-gray-200 bg-white py-1.5 pl-3 pr-1.5 shadow-sm lg:col-start-3 lg:row-start-1 lg:flex lg:justify-self-end">
+              <button
+                onClick={toggleTheme}
+                type="button"
+                aria-label={isDarkTheme ? "Usar modo claro" : "Usar modo oscuro"}
+                title={isDarkTheme ? "Modo claro" : "Modo oscuro"}
+                className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+              >
+                {isDarkTheme ? <Sun aria-hidden="true" size={17} strokeWidth={2} /> : <Moon aria-hidden="true" size={17} strokeWidth={2} />}
+              </button>
               <span className="max-w-32 truncate text-sm font-medium text-gray-800" title={defaultUserName}>
                 {defaultUserName}
               </span>
@@ -543,6 +587,14 @@ export default function Home() {
                 className="fixed inset-x-3 bottom-20 z-50 rounded-lg border border-gray-200 bg-white p-3 shadow-xl lg:hidden"
               >
                 <p className="px-2 pb-2 text-sm font-medium text-gray-800">{defaultUserName}</p>
+                <button
+                  type="button"
+                  onClick={toggleTheme}
+                  className="mb-1 flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-left text-sm font-medium text-gray-800 hover:bg-gray-50"
+                >
+                  {isDarkTheme ? <Sun aria-hidden="true" size={18} /> : <Moon aria-hidden="true" size={18} />}
+                  {isDarkTheme ? "Modo claro" : "Modo oscuro"}
+                </button>
                 <button
                   type="button"
                   onClick={handleSignOut}

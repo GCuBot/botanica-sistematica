@@ -29,3 +29,188 @@ input::placeholder,
 textarea::placeholder {
   color: #4b5563;
 }
+
+.theme-dark {
+  background: linear-gradient(135deg, #07130d, #0f172a) !important;
+  color: #e5e7eb;
+}
+
+.theme-dark [class~="bg-white"] {
+  background-color: #111827 !important;
+}
+
+.theme-dark [class~="bg-gray-50"],
+.theme-dark [class~="bg-gray-100"] {
+  background-color: #1f2937 !important;
+}
+
+.theme-dark [class~="bg-green-50"],
+.theme-dark [class~="bg-emerald-50"] {
+  background-color: #052e1b !important;
+}
+
+.theme-dark [class~="bg-blue-50"] {
+  background-color: #0f1f3d !important;
+}
+
+.theme-dark [class~="bg-amber-50"] {
+  background-color: #3d2c12 !important;
+}
+
+.theme-dark [class~="text-gray-950"],
+.theme-dark [class~="text-gray-900"],
+.theme-dark [class~="text-gray-800"] {
+  color: #f3f4f6 !important;
+}
+
+.theme-dark [class~="text-gray-700"],
+.theme-dark [class~="text-gray-600"],
+.theme-dark [class~="text-gray-500"] {
+  color: #cbd5e1 !important;
+}
+
+.theme-dark [class~="text-green-950"],
+.theme-dark [class~="text-green-900"],
+.theme-dark [class~="text-green-800"] {
+  color: #bbf7d0 !important;
+}
+
+.theme-dark [class~="text-green-700"],
+.theme-dark [class~="text-emerald-800"] {
+  color: #86efac !important;
+}
+
+.theme-dark [class~="text-blue-700"] {
+  color: #93c5fd !important;
+}
+
+.theme-dark [class~="text-red-700"] {
+  color: #fca5a5 !important;
+}
+
+.theme-dark [class~="text-amber-800"],
+.theme-dark [class~="text-yellow-800"] {
+  color: #fcd34d !important;
+}
+
+.theme-dark [class~="text-emerald-900"] {
+  color: #bbf7d0 !important;
+}
+
+.theme-dark [class~="border-gray-300"],
+.theme-dark [class~="border-gray-200"],
+.theme-dark [class~="border-gray-100"] {
+  border-color: #374151 !important;
+}
+
+.theme-dark [class~="border-green-300"],
+.theme-dark [class~="border-green-200"],
+.theme-dark [class~="border-green-100"],
+.theme-dark [class~="border-emerald-300"] {
+  border-color: #166534 !important;
+}
+
+.theme-dark input,
+.theme-dark textarea,
+.theme-dark select {
+  color: #f3f4f6;
+  background-color: #0f172a;
+  border-color: #374151;
+}
+
+.theme-dark input::placeholder,
+.theme-dark textarea::placeholder {
+  color: #94a3b8;
+}
+
+.theme-dark button:not([class*="text-"]),
+.theme-dark a:not([class*="text-"]),
+.theme-dark p:not([class*="text-"]),
+.theme-dark span:not([class*="text-"]),
+.theme-dark label:not([class*="text-"]),
+.theme-dark li:not([class*="text-"]),
+.theme-dark strong:not([class*="text-"]) {
+  color: #e5e7eb;
+}
+
+.theme-dark mark {
+  color: #111827;
+}
+
+.theme-dark .dark-panel-warm {
+  background-color: #2f230e !important;
+  color: #fde68a !important;
+}
+
+.theme-dark .dark-panel-warm :is(span, strong, p, button):not(.dark-mark, .dark-mark *) {
+  color: #fde68a !important;
+}
+
+.theme-dark .dark-panel-info {
+  background-color: #0b2438 !important;
+  color: #bae6fd !important;
+}
+
+.theme-dark .dark-panel-info :is(span, strong, p, button) {
+  color: #bae6fd !important;
+}
+
+.theme-dark .dark-mark {
+  background-color: #facc15 !important;
+  color: #111827 !important;
+}
+
+.theme-dark .dark-mark * {
+  color: #111827 !important;
+}
+
+.theme-dark .dark-glossary-trigger {
+  color: #6ee7b7 !important;
+}
+
+.theme-dark .dark-glossary-popover {
+  background-color: #052e1b !important;
+  border-color: #6ee7b7 !important;
+  color: #d1fae5 !important;
+}
+
+.theme-dark .dark-glossary-popover * {
+  color: #d1fae5 !important;
+}
+
+.theme-dark .dark-panel-warm .dark-glossary-popover {
+  background-color: #053f2c !important;
+  color: #d1fae5 !important;
+}
+
+.theme-dark .dark-panel-warm .dark-glossary-popover * {
+  color: #d1fae5 !important;
+}
+
+.theme-dark .dark-glossary-search {
+  background-color: #052e1b !important;
+  border-color: #6ee7b7 !important;
+}
+
+.theme-dark .dark-glossary-search label,
+.theme-dark .dark-glossary-search dt,
+.theme-dark .dark-glossary-search dd,
+.theme-dark .dark-glossary-search p {
+  color: #d1fae5 !important;
+}
+
+.theme-dark .dark-glossary-search input {
+  background-color: #0f172a !important;
+  border-color: #34d399 !important;
+  color: #f8fafc !important;
+}
+
+.theme-dark .dark-glossary-search input::placeholder {
+  color: #cbd5e1 !important;
+}
+
+.theme-dark [class~="shadow-lg"],
+.theme-dark [class~="shadow-xl"],
+.theme-dark [class~="shadow-sm"] {
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3) !important;
+}

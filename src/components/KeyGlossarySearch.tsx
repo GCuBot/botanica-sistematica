@@ -37,7 +37,7 @@ export default function KeyGlossarySearch() {
   }, [normalizedQuery]);
 
   return (
-    <section className="mt-4 rounded-md border border-emerald-200 bg-emerald-50 p-3">
+    <section className="mt-4 rounded-md border border-emerald-200 bg-emerald-50 p-3 dark-glossary-search">
       <label htmlFor="key-glossary-search" className="text-xs font-semibold uppercase tracking-wide text-emerald-950">
         Buscar termino
       </label>

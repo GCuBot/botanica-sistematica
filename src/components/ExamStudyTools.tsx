@@ -29,9 +29,9 @@ export function PlantExamples({ examples }: { examples: PlantExample[] }) {
 
 export function KeyDiagnostic({ text }: { text: string }) {
   return (
-    <div className="mt-4 border-l-4 border-amber-400 bg-amber-50 px-3 py-2.5 text-sm text-gray-900">
+    <div className="mt-4 border-l-4 border-amber-400 bg-amber-50 px-3 py-2.5 text-sm text-gray-900 dark-panel-warm">
       <span className="mr-1.5 text-xs font-bold uppercase text-gray-700">Caracter clave:</span>
-      <mark className="bg-yellow-200 px-1 font-semibold text-gray-950 box-decoration-clone">
+      <mark className="bg-yellow-200 px-1 font-semibold text-gray-950 box-decoration-clone dark-mark">
         <GlossaryText text={text} />
       </mark>
     </div>
@@ -75,7 +75,7 @@ export function GlossaryText({ text }: { text: string }) {
             key={`${part}-${index}`}
             type="button"
             onClick={() => setOpenTerm(openTerm === part ? null : part)}
-            className="font-medium text-emerald-800 underline decoration-dotted underline-offset-2"
+            className="font-medium text-emerald-800 underline decoration-dotted underline-offset-2 dark-glossary-trigger"
             aria-expanded={openTerm === part}
           >
             {part}
@@ -83,7 +83,7 @@ export function GlossaryText({ text }: { text: string }) {
         );
       })}
       {activeEntry && (
-        <span className="mt-2 block rounded-md border border-emerald-200 bg-emerald-50 p-2 text-xs font-normal text-emerald-950">
+        <span className="mt-2 block rounded-md border border-emerald-200 bg-emerald-50 p-2 text-xs font-normal text-emerald-950 dark-glossary-popover">
           <strong>{activeEntry.term}:</strong> {activeEntry.definition}
         </span>
       )}
