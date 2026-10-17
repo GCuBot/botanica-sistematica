@@ -20,12 +20,12 @@ export default function ScientificName({
   }
 
   return (
-    <span className={`flex min-w-0 items-baseline justify-between gap-3 ${className}`}>
-      <span className={`min-w-0 truncate italic ${nameClassName}`}>
+    <span className={`flex min-w-0 flex-col items-start gap-0.5 ${className}`}>
+      <span className={`min-w-0 whitespace-normal break-words italic ${nameClassName}`}>
         {especie.nombreCientifico}
       </span>
       {especie.autoridad && (
-        <span className={`shrink-0 text-right text-xs font-medium not-italic opacity-80 ${authorityClassName}`}>
+        <span className={`text-left text-xs font-medium leading-tight not-italic opacity-80 ${authorityClassName}`}>
           {especie.autoridad}
         </span>
       )}

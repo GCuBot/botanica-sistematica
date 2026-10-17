@@ -11,6 +11,7 @@ import {
   UserPlus,
 } from "lucide-react";
 import ScientificName from "@/components/ScientificName";
+import { formatCommonName } from "@/lib/commonNames";
 import { especiesData } from "@/data/clados";
 import { PhotoRecord, UserProfile } from "@/types";
 
@@ -345,7 +346,12 @@ export default function CommunityProfiles({
                             />
                           </div>
                           <p className="truncate text-sm text-gray-700">
-                            {record.nombre_vulgar || especie?.nombreVulgar || "Sin nombre vulgar"}
+                            {especie
+                              ? formatCommonName(
+                                  record.nombre_vulgar ?? especie.nombreVulgar,
+                                  especie.nombreCientifico
+                                )
+                              : record.nombre_vulgar || "Sin nombre vulgar"}
                           </p>
                           <p className="truncate text-xs text-gray-500">
                             {record.lugar} · <time>{record.fecha}</time>

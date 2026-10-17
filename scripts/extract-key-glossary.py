@@ -5,417 +5,246 @@ import json
 import re
 import unicodedata
 from pathlib import Path
-from typing import Any
-
-import pdfplumber
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PDF_PATH = ROOT / "public" / "pdfcoffee.com_manual-de-la-flora-de-los-alrededores-de-buenos-aires-9-pdf-free.pdf"
+DEFAULT_TRANSCRIPT = Path.home() / "Downloads" / "Manual_Flora_Buenos_Aires_Transcrito.md"
 REVIEW_PATH = ROOT / "src" / "data" / "keyGlossary.review.json"
 OUTPUT_PATH = ROOT / "src" / "data" / "keyGlossary.ts"
-SOURCE = "Manual Cabrera 2a ed., glosario"
+SOURCE = "Manual de la flora de los alrededores de Buenos Aires, 2.ª ed., glosario"
+
+
+# The transcript skips two columns after Cima. This block comes from spread 377
+# of the same second-edition PDF and was checked against the page image.
+SUPPLEMENT = """
+Cimoso: concerniente a la cima.
+Cincinio: cima escorpioide con las flores dispuestas sobre dos planos de simetría que se cortan en un ángulo de 90°.
+Cipsela: fruto semejante a un aquenio del que difiere por provenir de un ovario ínfero, como en las Compuestas.
+Circinado: hoja que en la prefoliación está arrollada desde el ápice a la base como la cola del escorpión, como se ve en los helechos.
+Cistolito: concreción de carbonato de calcio que se forma en el interior de ciertas células, principalmente epidérmicas.
+Citrino: amarillo limón.
+Cladodio: rama comprimida, de color verde, que realiza fotosíntesis, generalmente acompañada por hojas rudimentarias.
+Claviforme: en forma de maza o clava.
+Cleistógama: flores de ciertas plantas que no llegan a abrirse, realizándose la autofecundación en su interior.
+Clinandrio: cavidad en el ginostemio de las Orquídeas en la cual se aloja la antera.
+Clusa: fruto indehiscente originado por la división longitudinal de un ovario gamocarpelar en dos o más partes.
+Coleóptilo: vaina cerrada del embrión de las Gramíneas y otras monocotiledóneas que representa la primera hoja de la plántula.
+Comprimido: aplastado lateralmente.
+Conceptáculo: cavidad en la cual se desarrollan órganos de reproducción.
+Concrescente: que crecen adheridos.
+Conduplicado: hoja que en la prefoliación está plegada a lo largo de su nervio medio.
+Conectivo: tejido que une las dos tecas de la antera.
+Connato: se dice de los órganos que se desarrollan soldados entre sí.
+Contorto: dispuesto en espiral. Se dice de las flores que en la prefloración tienen los pétalos dispuestos de tal manera que cada uno cubre con su borde al de un lado y es cubierto por el del otro lado.
+Contraído: estrechado bruscamente.
+Convoluto: arrollado longitudinalmente. Se aplica en la prefoliación.
+Cordado, cordiforme: en forma de corazón, es decir, ovado, con el ápice muy agudo y una escotadura en la base.
+Coriáceo: de la consistencia del cuero.
+Corimbo: inflorescencia racimosa, centrípeta, con flores largamente pediceladas, todas las cuales llegan aproximadamente al mismo nivel.
+Córneo: de consistencia dura como de cuerno.
+Corolino: perteneciente a la corola o bien con aspecto de corola.
+Corona: ciclo de piezas florales situado entre la corola y el androceo que, frecuentemente, simula ser una corola. También, parte apical del antecio fructífero de ciertas Gramíneas.
+Costado, costato: recorrido por costillas sobresalientes.
+Craso: grueso, jugoso y carnoso.
+Crateriforme: en forma de vaso cónico.
+Crenado: con margen festoneado de incisiones obtusas y poco profundas.
+Crenulado: como crenado, pero con festones más pequeños.
+Crustáceo: de textura dura y rugosa.
+Cuculado: en forma de capuchón.
+Cuneado, cuneiforme: en forma de cuña.
+Cupuliforme, cupulimorfo: en forma de copita.
+Cuspidado: acabado en punta o cúspide.
+Deca-: prefijo que indica el número 10.
+Declinado: curvado hacia la base o hacia afuera.
+Decumbente: se dice de los tallos tendidos, pero con el ápice erguido.
+Decurrente: se dice de las hojas o brácteas cuya base se prolonga hacia abajo a lo largo de los tallos.
+Decusado: se aplica a los órganos opuestos, dispuestos en cruz con respecto al par anterior.
+Definido: se dice del androceo con menos de 11 estambres.
+Dehiscente: se aplica a las anteras, frutos, etc., que se abren espontáneamente para dejar salir su contenido.
+Deltoide: triangular.
+Dentado: provisto de dientes en el margen.
+Denticulado: provisto de dientes pequeños en el margen.
+Desnudo: órgano que carece de piezas de protección, como las flores que carecen de perianto.
+Diadelfo: se dice de los estambres cuando están reunidos en dos grupos.
+Diafragma: tabique divisorio de un espacio hueco.
+Dialicarpelar: gineceo con carpelos separados y no reunidos en un solo ovario.
+Dialipétala: corola cuyos pétalos son libres entre sí.
+Dicasio: inflorescencia cimosa en la cual, por debajo del eje principal que termina en flor, se desarrollan dos ramificaciones que a su vez pueden dividirse en dos y así sucesivamente.
+Diclamídeo: se dice de la flor que posee cáliz y corola.
+Diclino: planta con flores unisexuales. Flores unisexuales.
+Dicotómico: órgano que se divide o bifurca en dos; sus bifurcaciones nuevamente se dividen en dos y así sucesivamente.
+Dídimo: formado por dos piezas iguales.
+Didínamo: se aplica al androceo formado por dos estambres cortos y dos más largos.
+Digitado: se aplica a las hojas que presentan sus lóbulos como los dedos de una mano abierta.
+Dímero: verticilo formado por dos piezas.
+Dimorfo: se dice de órganos que presentan dos formas diferentes dentro del mismo individuo o de la misma especie, como las hojas de ciertas plantas, las flores, etc.
+Dioico: se dice de las plantas que tienen flores masculinas en algunos individuos y flores femeninas en otros.
+Diplostémono: flor con estambres en número doble al de los pétalos.
+Disco: centro o base circular de un órgano que soporta órganos anexos. Se denomina disco, en las Compuestas, al conjunto de flores centrales.
+Discoide: se aplica, entre otros, a los capítulos de Compuestas sin flores marginales o bien con flores marginales no liguladas.
+Discolor: se dice de las hojas que presentan color diferente en sus dos caras.
+Disecto: cortado o dividido en segmentos estrechos.
+Diseminación: dispersión de las semillas.
+Dístico: se dice de las flores, de las hojas, etc., cuando están dispuestas en dos hileras, a uno y otro lado del tallo o del raquis de la inflorescencia y sobre un mismo plano.
+Diteca: antera formada por dos tecas.
+Divaricado: dícese de las ramas muy abiertas.
+Dorsal: que nace o se inserta en el dorso.
+Dorsifija: antera cuyo filamento se inserta sobre el medio de la cara dorsal.
+Dorsiventral: se dice de un órgano que presenta una cara dorsal y una cara ventral, como los protalos de las Pteridófitas, el talo de Lemna, etc.
+Drepanio: inflorescencia cimosa con ejes secundarios solitarios debajo de cada eje central, dirigidos hacia un mismo lado.
+Drupa: fruto uniseminado indehiscente, con endocarpo leñoso (carozo) y mesocarpo carnoso.
+Drupáceo: con aspecto de drupa.
+Ebracteado: desprovisto de brácteas.
+Elaterio: banda o apéndice en forma de cinta de los esporos del género Equisetum que sirven para la diseminación de los mismos al expandirse con la humedad del aire.
+Elipsoide: cuerpo cuyo corte longitudinal es una elipse.
+Elíptico: en forma de elipse.
+Emarginado: presentando una escotadura poco profunda.
+Endocarpo: parte interna de la pared del fruto.
+Endosperma: tejido nutritivo de la semilla.
+Endosporado: con esporos formados dentro de la célula madre.
+Ensiforme: en forma de sable o espada.
+Entero: se dice del borde íntegro, sin dientes ni lóbulos.
+"""
 
 
 TERM_FIXES = {
-    "Al1jo-tomentoso": "Albo-tomentoso",
-    "Anem7filo": "Anemofilo",
-    "Apendiculaio": "Apendiculado",
-    "Apiculaio": "Apiculado",
-    "Aquillaio": "Aquillado",
-    "A rilada": "Arilada",
-    "Arasento": "Aranento",
-    "Araaento": "Aranento",
-    "Arrifionado": "Arrinonado",
-    "Biflora": "Bifloro",
-    "Cesped": "Cespitoso",
-    "C/landuloso-pubescente": "Glanduloso-pubescente",
-    "C/lobular": "Globular",
-    "Diclamdea": "Diclamidea",
-    "Dicot6mico": "Dicotomico",
-    "Diandros": "Diandro",
-    "Diseminaci6n": "Diseminacion",
-    "Entom6fila": "Entomofila",
-    "Fi/odio": "Filodio",
-    "Gluas": "Glumas",
-    "Gamostfalo": "Gamostefalo",
-    "Gamoptaio": "Gamopetalo",
-    "Hermafroditas": "Hermafrodita",
-    "Indupliwdo": "Induplicado",
-    "M onadelfo": "Monadelfo",
-    "M ultiseminado": "Multiseminado",
-    "Membmnoso": "Membranoso",
-    "Perianto": "Perianto",
-    "Pinnati": "Pinnati-",
-    "Pi8tilodio": "Pistilodio",
-    "Plumo8o": "Plumoso",
-    "Protalo": "Protalo",
-    "Pseudobulbo8": "Pseudobulbos",
-    "Re/rorso": "Retrorso",
-    "Ro.stelo": "Rostelo",
-    "Sep/ado": "Septado",
-    "Sujrutescente": "Sufrutescente",
-    "T1lberculado": "Tuberculado",
-    "Pernado": "Ternado",
-    "Ter6fita": "Terofita",
-    "T riquetro": "Triquetro",
-    "Unia": "Una",
-    "ZigornO?jo": "Zigomorfo",
+    "Acana'ado": "Acanalado", "Amplexicaw'e": "Amplexicaule", "Apice": "Ápice",
+    "Aptero": "Áptero", "Bifido": "Bífido", "Espinyuloso": "Espinuloso",
+    "Estipite": "Estípite", "Estipula": "Estípula", "Gamofilo": "Gamófilo",
+    "Ginopódio": "Ginopodio", "Hispidulo": "Hispídulo", "Infero": "Ínfero",
+    "Inf.exo": "Inflexo", "Oseo": "Óseo", "Pinná": "Pinna",
+    "Pinnatifido": "Pinnatífido", "Pinnulas": "Pínnulas",
+    "Polifoliculo": "Polifolículo", "Paraclinervado": "Paralelinervado",
+    "Radicula": "Radícula", "Scudo-": "Seudo-",
+    "Subacaulé": "Subacaule", "Sumiinfero": "Semiínfero", "Tetradas": "Tétradas",
+    "Utriculo": "Utrículo",
+}
+
+TEXT_FIXES = {
+    "estan do": "estando",
+    "2carpelar": "2-carpelar",
+    "cactu y la raquilla": "cactus y la raquilla", "hojas v que lleva": "hojas y que lleva",
+    "flor v ejes laterales": "flor y ejes laterales", "lemma v la pálea": "lemma y la pálea",
+    "estilo v estigma": "estilo y estigma", "espariguilla": "espiguilla",
+    "fololos": "folíolos", "papilionoidese": "papilionoideas", "po'en": "polen",
+    "unseminado": "uniseminado", "vieazas florales": "piezas florales",
 }
 
 
-TEXT_REPLACEMENTS = {
-    "Appndice": "Apendice",
-    "Cmara": "Camara",
-    "Cmaras": "Camaras",
-    "Gramineas": "Gramineas",
-    "Gramneas": "Gramineas",
-    "Gmmneas": "Gramineas",
-    "M alvceas": "Malvaceas",
-    "acompaan": "acompanan",
-    "alre dedor": "alrededor",
-    "apice": "apice",
-    "apices": "apices",
-    "apndice": "apendice",
-    "apndices": "apendices",
-    "brctea": "bractea",
-    "brcteas": "bracteas",
-    "cliz": "caliz",
-    "cliz.": "caliz.",
-    "cpsula": "capsula",
-    "cpsulas": "capsulas",
-    "de nomina": "denomina",
-    "de nomin": "denomin",
-    "enrganos": "en organos",
-    "estambre frtil": "estambre fertil",
-    "frtil": "fertil",
-    "gnero": "genero",
-    "gneros": "generos",
-    "glndula": "glandula",
-    "glndulas": "glandulas",
-    "legmbre": "legumbre",
-    "legmbres": "legumbres",
-    "la flor las": "la flor de las",
-    "lculo": "loculo",
-    "lculos": "loculos",
-    "lmina": "lamina",
-    "lminas": "laminas",
-    "membranceo": "membranaceo",
-    "membrancea": "membranacea",
-    "nmero": "numero",
-    "nmeros": "numeros",
-    "nucleo": "nucleo",
-    "organo": "organo",
-    "organos": "organos",
-    "pecolo": "peciolo",
-    "pecolos": "peciolos",
-    "peri gonio": "perigonio",
-    "ptalo": "petalo",
-    "ptalos": "petalos",
-    "rganos": "organos",
-    "rgano": "organo",
-    "retculo": "reticulo",
-    "redu cido": "reducido",
-    "spalo": "sepalo",
-    "spalos": "sepalos",
-    "tallo aereo": "tallo aereo",
-    "vulo": "ovulo",
-    "vulos": "ovulos",
-}
-
-DEFINITION_STARTERS = {
-    "Aparato",
-    "Apice",
-    "Apendice",
-    "Bractea",
-    "Capsula",
-    "Cima",
-    "Con",
-    "Corola",
-    "Cubierto",
-    "De",
-    "Desprovisto",
-    "Dicese",
-    "Dispersion",
-    "Dispuesto",
-    "En",
-    "Flor",
-    "Flores",
-    "Fruto",
-    "Hoja",
-    "Inflorescencia",
-    "Membrana",
-    "Organo",
-    "Ovario",
-    "Peciolo",
-    "Planta",
-    "Prefijo",
-    "Provisto",
-    "Que",
-    "Receptaculo",
-    "Recortado",
-    "Rudimento",
-    "Se",
-    "Semilla",
-    "Tallos",
-    "Unidad",
-}
+def normalized(value: str) -> str:
+    value = unicodedata.normalize("NFD", value)
+    value = "".join(char for char in value if unicodedata.category(char) != "Mn")
+    return re.sub(r"[^a-z0-9]+", "", value.lower())
 
 
-SUSPICIOUS_PATTERNS = [
-    re.compile(r"\bGLOSARIO\b", re.IGNORECASE),
-    re.compile(r"\bFLORA DE BUENOS AIRES\b", re.IGNORECASE),
-    re.compile(r"\b[A-Z]{2,}[a-z]{2,}[A-Z]{2,}\b"),
-    re.compile(r"\s{2,}"),
-]
-
-
-def strip_accents(value: str) -> str:
-    decomposed = unicodedata.normalize("NFD", value)
-    return "".join(char for char in decomposed if unicodedata.category(char) != "Mn")
-
-
-def normalize_key(value: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "", strip_accents(value).lower())
-
-
-def clean_text(value: str) -> str:
-    value = value.replace("Â§", "e")
-    value = value.replace("�", "")
-    value = strip_accents(value)
-    value = value.replace("_d ice", "dice")
-    value = re.sub(r"-_\s*", "", value)
-    value = value.replace("'1", "a")
-    value = value.replace("9.", "a")
-    value = value.replace("meIs", "mas")
-    value = value.replace("mels", "mas")
-    value = value.replace("sec'.)", "seco")
-    value = value.replace(" .", ".")
-    value = value.replace(" ,", ",")
-    value = value.replace(" ;", ";")
-    value = value.replace(" :", ":")
-    value = re.sub(r"(\w)-\s+(\w)", r"\1\2", value)
-    value = re.sub(r"\s+", " ", value)
-    value = value.strip(" .,-;:")
-    for bad, good in TEXT_REPLACEMENTS.items():
-        value = re.sub(rf"\b{re.escape(bad)}\b", good, value)
+def clean(value: str) -> str:
+    value = value.replace("$\\infty$", "∞")
+    value = re.sub(r"\s+", " ", value).strip()
+    for old, new in TEXT_FIXES.items():
+        value = value.replace(old, new)
     return value
 
 
-def clean_term(value: str) -> str:
-    value = clean_text(value).strip(" .'")
-    if re.fullmatch(r"[A-Z]\s+[A-Za-z]{3,}", value) or re.fullmatch(r"[A-Za-z]{1,4}\s+[A-Za-z]{1,4}", value):
-        value = value.replace(" ", "")
-    value = TERM_FIXES.get(value, value)
-    return value[:1].upper() + value[1:]
+def source_page(term: str) -> int:
+    thresholds = [
+        ("antesis", 714), ("bacciforme", 715), ("cimoso", 716), ("deltoide", 717),
+        ("entomofilo", 718), ("estriado", 719), ("glaberrimo", 720),
+        ("induplicado", 721), ("macollo", 722), ("opuesto", 723),
+        ("perisporio", 724), ("quilla", 725), ("setula", 726), ("unisexual", 727),
+    ]
+    key, page = normalized(term), 713
+    for boundary, next_page in thresholds:
+        if key >= boundary:
+            page = next_page
+    return page
 
 
-def find_column_split(words: list[dict[str, Any]]) -> float:
-    xs = sorted(word["x0"] for word in words if word["top"] > 150)
-    candidates: list[tuple[float, float]] = []
-    for left, right in zip(xs, xs[1:]):
-        midpoint = (left + right) / 2
-        gap = right - left
-        if 245 <= midpoint <= 330 and gap > 6:
-            candidates.append((gap, midpoint))
-    if not candidates:
-        return 297.5
-    return max(candidates)[1]
-
-
-def group_lines(words: list[dict[str, Any]]) -> list[list[dict[str, Any]]]:
-    lines: list[list[dict[str, Any]]] = []
-    for word in sorted(words, key=lambda item: (item["top"], item["x0"])):
-        if word["top"] < 155:
+def parse_entries(text: str) -> list[dict[str, object]]:
+    entries: list[dict[str, object]] = []
+    current: dict[str, object] | None = None
+    pending = ""
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("<!--") or "FLORA DE BUENOS AIRES" in line or re.fullmatch(r"GLOSARIO(?: \d+)?", line):
             continue
-        if not lines or abs(lines[-1][0]["top"] - word["top"]) > 3:
-            lines.append([word])
-        else:
-            lines[-1].append(word)
-    return [sorted(line, key=lambda item: item["x0"]) for line in lines]
-
-
-def flatten_lines(lines: list[list[dict[str, Any]]]) -> list[dict[str, Any]]:
-    tokens: list[dict[str, Any]] = []
-    for line_index, line in enumerate(lines):
-        for word in line:
-            tokens.append({**word, "lineIndex": line_index})
-    return tokens
-
-
-def looks_like_definition_start(word: dict[str, Any] | None) -> bool:
-    if not word:
-        return False
-    cleaned = clean_text(word["text"]).strip(".,;:")
-    return cleaned in DEFINITION_STARTERS
-
-
-def detect_entry_start(
-    tokens: list[dict[str, Any]],
-    index: int,
-    column_left: float,
-) -> tuple[str, int] | None:
-    if index >= len(tokens):
-        return None
-
-    at_margin = tokens[index]["x0"] <= column_left + 18
-    term_tokens: list[str] = []
-    max_tokens = 4 if at_margin else 1
-    for offset, word in enumerate(tokens[index : index + max_tokens]):
-        term_tokens.append(word["text"])
-        raw_term = " ".join(term_tokens).strip("/ ")
-        if not raw_term.endswith("."):
+        if pending:
+            line, pending = pending + line, ""
+        if line.endswith("-"):
+            pending = line[:-1]
             continue
-        raw_term = raw_term[:-1].strip()
-        if not re.match(r"^['\"]?[A-ZÁÉÍÓÚÜÑ/][A-Za-zÁÉÍÓÚÜÑáéíóúüñ�/0-9?. -]{0,36}$", raw_term):
-            return None
-        next_word = tokens[index + offset + 1] if index + offset + 1 < len(tokens) else None
-        if at_margin or looks_like_definition_start(next_word):
-            return raw_term, offset + 1
-    return None
-
-
-def flag_entry(term: str, definition: str, raw: str) -> list[str]:
-    flags: list[str] = []
-    if "�" in raw:
-        flags.append("had_replacement_chars")
-    if len(definition) < 8:
-        flags.append("short_definition")
-    if len(definition) > 420:
-        flags.append("long_definition")
-    if any(pattern.search(definition) for pattern in SUSPICIOUS_PATTERNS):
-        flags.append("suspicious_text")
-    if not re.match(r"^[A-Z][A-Za-z0-9 -]+$", term):
-        flags.append("suspicious_term")
-    return flags
-
-
-def extract_column_entries(
-    lines: list[list[dict[str, Any]]],
-    column_left: float,
-    pdf_page: int,
-    column: str,
-) -> list[dict[str, Any]]:
-    entries: list[dict[str, Any]] = []
-    current: dict[str, Any] | None = None
-    tokens = flatten_lines(lines)
-    index = 0
-
-    while index < len(tokens):
-        start = detect_entry_start(tokens, index, column_left)
-        if start:
-            if current and current["definition"]:
+        match = re.match(r"^([^:]{1,64}):\s*(.*)$", line)
+        if match:
+            if current:
+                current["definition"] = clean(str(current["definition"]))
                 entries.append(current)
-            raw_term, term_length = start
-            current = {
-                "term": clean_term(raw_term),
-                "definition": "",
-                "source": SOURCE,
-                "sourcePage": pdf_page,
-                "pdfPage": pdf_page,
-                "bookPage": pdf_page - 7,
-                "column": column,
-                "raw": "",
-            }
-            index += term_length
-            continue
-
-        if current:
-            current["definition"] = clean_text(f"{current['definition']} {tokens[index]['text']}")
-            current["raw"] = clean_text(f"{current['raw']} {tokens[index]['text']}")
-        index += 1
-
-    if current and current["definition"]:
+            raw_term, definition = match.groups()
+            term = TERM_FIXES.get(raw_term.strip(), raw_term.strip())
+            current = {"term": term, "definition": definition, "source": SOURCE, "sourcePage": source_page(term)}
+        elif current:
+            current["definition"] = f"{current['definition']} {line}"
+    if current:
+        current["definition"] = clean(str(current["definition"]))
         entries.append(current)
     return entries
 
 
-def extract_entries(start: int, end: int) -> list[dict[str, Any]]:
-    entries: list[dict[str, Any]] = []
-    with pdfplumber.open(PDF_PATH) as pdf:
-        for pdf_page in range(start, end + 1):
-            page = pdf.pages[pdf_page - 1]
-            words = page.extract_words(x_tolerance=2, y_tolerance=3, keep_blank_chars=False)
-            split = find_column_split(words)
-            for column, column_words in (
-                ("left", [word for word in words if word["x0"] < split]),
-                ("right", [word for word in words if word["x0"] >= split]),
-            ):
-                content_words = [word for word in column_words if word["top"] > 155]
-                if not content_words:
-                    continue
-                left_edges = sorted(word["x0"] for word in content_words)
-                column_left = left_edges[max(0, int(len(left_edges) * 0.05) - 1)]
-                entries.extend(
-                    extract_column_entries(group_lines(content_words), column_left, pdf_page, column)
-                )
-
-    deduped: dict[str, dict[str, Any]] = {}
+def extract_entries(transcript: Path) -> list[dict[str, object]]:
+    text = transcript.read_text(encoding="utf-8")
+    start = text.index("\nGLOSARIO\n") + len("\nGLOSARIO\n")
+    end = re.search(r"\nÍNDICE DE LOS NOMBRES CIENT[IÍ]FICOS", text[start:])
+    if not end:
+        raise ValueError("No se encontró el final del glosario.")
+    glossary = text[start : start + end.start()]
+    glossary = re.sub(
+        r"Cima:.*?(?=Entomófilo:)",
+        "Cima: inflorescencia centrífuga en la cual el eje principal termina en una flor, dando ejes secundarios que también terminan en una flor y a su vez dan ejes terciarios, etc.\n" + SUPPLEMENT.strip() + "\n",
+        glossary,
+        flags=re.DOTALL,
+    )
+    entries = parse_entries(glossary)
     for entry in entries:
-        key = normalize_key(entry["term"])
-        if not key or not entry["definition"]:
-            continue
-        entry["flags"] = flag_entry(entry["term"], entry["definition"], entry["raw"])
-        deduped[key] = entry
-    return sorted(deduped.values(), key=lambda item: normalize_key(item["term"]))
+        if entry["term"] == "Esporofito" and str(entry["definition"]).startswith("hoja muy modificada"):
+            entry["term"] = "Esporofilo"
+        if entry["term"] in {"Ascendente", "Bipinnado"} and str(entry["definition"])[-1] != ".":
+            entry["definition"] = f"{entry['definition']}."
+    deduped = {normalized(str(entry["term"])): entry for entry in entries if entry["definition"]}
+    return sorted(deduped.values(), key=lambda entry: normalized(str(entry["term"])))
 
 
-def write_review(entries: list[dict[str, Any]]) -> None:
-    review_entries = [
-        {
-            "term": entry["term"],
-            "definition": entry["definition"],
-            "pdfPage": entry["pdfPage"],
-            "bookPage": entry["bookPage"],
-            "column": entry["column"],
-            "flags": entry["flags"],
-            "raw": entry["raw"],
-        }
-        for entry in entries
-    ]
-    REVIEW_PATH.write_text(json.dumps(review_entries, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+def flags(entry: dict[str, object]) -> list[str]:
+    value = f"{entry['term']} {entry['definition']}"
+    result = []
+    if len(str(entry["definition"])) < 5:
+        result.append("short_definition")
+    if re.search(r"[�Â]|\w\.\w", value):
+        result.append("ocr_artifact")
+    if str(entry["definition"])[-1] not in ".!?":
+        result.append("missing_final_punctuation")
+    return result
 
 
-def write_typescript(entries: list[dict[str, Any]]) -> None:
+def write_outputs(entries: list[dict[str, object]]) -> None:
+    review = [{**entry, "flags": flags(entry)} for entry in entries]
+    REVIEW_PATH.write_text(json.dumps(review, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     lines = [
-        "export type KeyGlossaryEntry = {",
-        "  term: string;",
-        "  definition: string;",
-        "  source: string;",
-        "  sourcePage?: number;",
-        "};",
-        "",
+        "export type KeyGlossaryEntry = {", "  term: string;", "  definition: string;",
+        "  source: string;", "  sourcePage?: number;", "};", "",
         "export const keyGlossary: KeyGlossaryEntry[] = [",
     ]
-    for entry in entries:
-        payload = {
-            "term": entry["term"],
-            "definition": entry["definition"],
-            "source": entry["source"],
-            "sourcePage": entry["sourcePage"],
-        }
-        lines.append(f"  {json.dumps(payload, ensure_ascii=False)},")
-    lines.append("];")
-    lines.append("")
+    lines.extend(f"  {json.dumps(entry, ensure_ascii=False)}," for entry in entries)
+    lines.extend(["];", ""])
     OUTPUT_PATH.write_text("\n".join(lines), encoding="utf-8")
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Extract the second edition glossary from the local PDF.")
-    parser.add_argument("--start", type=int, default=556)
-    parser.add_argument("--end", type=int, default=565)
+    parser = argparse.ArgumentParser(description="Extract the second-edition glossary transcript.")
+    parser.add_argument("--transcript", type=Path, default=DEFAULT_TRANSCRIPT)
     args = parser.parse_args()
-
-    if not PDF_PATH.exists():
-        raise FileNotFoundError(f"PDF not found: {PDF_PATH}")
-
-    entries = extract_entries(args.start, args.end)
-    write_review(entries)
-    write_typescript(entries)
-    flagged = sum(1 for entry in entries if entry["flags"])
-    print(f"Extracted {len(entries)} entries, {flagged} flagged for review.")
-    print(f"Review file: {REVIEW_PATH}")
-    print(f"TypeScript file: {OUTPUT_PATH}")
+    if not args.transcript.exists():
+        raise FileNotFoundError(f"Transcript not found: {args.transcript}")
+    entries = extract_entries(args.transcript)
+    write_outputs(entries)
+    print(f"Extracted {len(entries)} entries; {sum(bool(flags(entry)) for entry in entries)} need review.")
 
 
 if __name__ == "__main__":

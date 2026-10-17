@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { LoaderCircle, Plus, Search, X } from "lucide-react";
 import ScientificName from "@/components/ScientificName";
+import { getSpeciesCommonName } from "@/lib/commonNames";
 import SpeciesReferenceLinks from "@/components/SpeciesReferenceLinks";
 import { getTaxonomicAliasForPdfName } from "@/data/taxonomicAliases";
 import { GbifTaxonomicResult, lookupGbifSynonyms } from "@/lib/gbifTaxonomy";
@@ -169,7 +170,7 @@ export default function SpeciesRouteSearch({
                   authorityClassName="text-gray-600"
                 />
                 <span className="block truncate text-xs text-gray-600">
-                  {route.especie.nombreVulgar} · {route.especie.familia}
+                  {getSpeciesCommonName(route.especie)} · {route.especie.familia}
                 </span>
                 {getTaxonomicAliasForPdfName(route.especie.nombreCientifico) && (
                   <span className="mt-0.5 block text-xs text-green-700">
@@ -203,14 +204,14 @@ export default function SpeciesRouteSearch({
       {selectedRoute && (
         <div className="mt-4 rounded-md border border-green-200 bg-green-50 p-4">
           <div className="flex items-start justify-between gap-3">
-            <div>
+            <div className="min-w-0 flex-1">
               <ScientificName
                 especie={selectedRoute.especie}
                 className="font-bold text-green-900"
                 authorityClassName="text-green-800"
               />
               <p className="text-sm text-green-900">
-                {selectedRoute.especie.nombreVulgar} · {selectedRoute.especie.familia}
+                {getSpeciesCommonName(selectedRoute.especie)} · {selectedRoute.especie.familia}
               </p>
               {acceptedName && acceptedName !== selectedRoute.especie.nombreCientifico && (
                 <p className="mt-1 text-xs text-green-800">

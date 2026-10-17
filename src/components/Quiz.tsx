@@ -7,6 +7,7 @@ import KeyGlossarySearch from "@/components/KeyGlossarySearch";
 import SpeciesReferenceLinks from "@/components/SpeciesReferenceLinks";
 import SpeciesRouteSearch from "@/components/SpeciesRouteSearch";
 import ScientificName from "@/components/ScientificName";
+import { getSpeciesCommonName } from "@/lib/commonNames";
 
 interface QuizProps {
   onComplete: (especie: Especie) => void;
@@ -107,6 +108,7 @@ export default function Quiz({ onComplete, rootNodeId = "root" }: QuizProps) {
   }
 
   if (finalEspecie) {
+    const defaultCommonName = getSpeciesCommonName(finalEspecie);
     return (
       <div className="rounded-lg bg-white p-4 shadow-lg sm:p-5">
         <h2 className="mb-3 text-2xl font-bold text-green-700">
@@ -136,7 +138,7 @@ export default function Quiz({ onComplete, rootNodeId = "root" }: QuizProps) {
             <strong className="block text-sm text-gray-800">Nombre vulgar:</strong>
             <input
               type="text"
-              value={commonNameDraft ?? finalEspecie.nombreVulgar}
+              value={commonNameDraft ?? defaultCommonName}
               onChange={(event) => setCommonNameDraft(event.target.value)}
               className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 focus:border-green-600 focus:outline-none focus:ring-2 focus:ring-green-200"
             />
@@ -168,8 +170,7 @@ export default function Quiz({ onComplete, rootNodeId = "root" }: QuizProps) {
               onComplete({
                 ...finalEspecie,
                 nombreVulgar:
-                  (commonNameDraft ?? finalEspecie.nombreVulgar).trim() ||
-                  finalEspecie.nombreVulgar,
+                  (commonNameDraft ?? defaultCommonName).trim() || defaultCommonName,
               })
             }
             className="rounded-md bg-green-600 px-4 py-2 text-white hover:bg-green-700"

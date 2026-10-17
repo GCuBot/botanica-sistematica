@@ -3,11 +3,13 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Session } from "@supabase/supabase-js";
 import {
+  BookOpen,
   GraduationCap,
   Library,
   LogOut,
   CircleUserRound,
   Moon,
+  Pencil,
   ScanSearch,
   Sun,
   Users,
@@ -16,6 +18,8 @@ import {
 import AuthPanel from "@/components/AuthPanel";
 import CommunityProfiles from "@/components/CommunityProfiles";
 import FirstExamPractice from "@/components/FirstExamPractice";
+import Glossary from "@/components/Glossary";
+import ProfileSettingsModal from "@/components/ProfileSettingsModal";
 import Quiz from "@/components/Quiz";
 import RecordsList from "@/components/RecordsList";
 import ScientificName from "@/components/ScientificName";
@@ -26,27 +30,35 @@ import {
   ensureUserProfile,
   getPhotoRecords,
   getCommunityFriendIds,
+  getUserProfile,
   getVisiblePhotoRecords,
   getVisibleUserProfiles,
+  markRecordsWithoutCommonName,
   removeCommunityFriend,
   savePhotoRecord,
   saveQuizSession,
   setPhotoRecordConfirmed,
   updatePhotoRecord,
+  updateUserDisplayName,
 } from "@/lib/supabaseOperations";
 import { supabase } from "@/lib/supabase";
 import { usePersistentState } from "@/hooks/usePersistentState";
 import { Especie, PhotoRecord, PlantFormData, UserProfile } from "@/types";
 import { especiesData } from "@/data/clados";
 import { SECOND_EDITION_ROOT_NODE_ID } from "@/data/secondEdition";
+import {
+  getSpeciesCommonName,
+  isMissingCommonName,
+  NO_COMMON_NAME,
+} from "@/lib/commonNames";
 
 type PageState = "quiz" | "form" | "edit" | "complete";
-type WorkspaceTab = "identifier" | "records" | "community" | "first-exam";
+type WorkspaceTab = "identifier" | "records" | "community" | "glossary" | "first-exam";
 type ManualEdition = "first" | "second";
 type AppTheme = "light" | "dark";
 
 const ALLOWED_DOMAIN = "@agro.uba.ar";
-const WORKSPACE_TABS: readonly WorkspaceTab[] = ["identifier", "records", "community", "first-exam"];
+const WORKSPACE_TABS: readonly WorkspaceTab[] = ["identifier", "records", "community", "glossary", "first-exam"];
 const MANUAL_EDITIONS: readonly ManualEdition[] = ["first", "second"];
 const APP_THEMES: readonly AppTheme[] = ["light", "dark"];
 const MANUAL_EDITION_STORAGE_KEY = "botanica:manual-edition:v2";
@@ -86,11 +98,14 @@ export default function Home() {
   const [editingRecord, setEditingRecord] = useState<PhotoRecord | null>(null);
   const [recordNotice, setRecordNotice] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isProfileSettingsOpen, setIsProfileSettingsOpen] = useState(false);
+  const [profileDisplayName, setProfileDisplayName] = useState("");
 
   const user = session?.user || null;
   const userEmail = user?.email || "";
   const isAllowedEmail = userEmail.toLowerCase().endsWith(ALLOWED_DOMAIN);
-  const defaultUserName = useMemo(() => userEmail.split("@")[0] || "", [userEmail]);
+  const emailUserName = useMemo(() => userEmail.split("@")[0] || "", [userEmail]);
+  const defaultUserName = profileDisplayName.trim() || emailUserName;
   const isDarkTheme = appTheme === "dark";
   const mainThemeClass = isDarkTheme ? "theme-dark" : "theme-light";
 
@@ -104,18 +119,47 @@ export default function Home() {
     setIsRecordsLoading(true);
     try {
       try {
-        await ensureUserProfile(user.id, defaultUserName);
+        await ensureUserProfile(user.id, emailUserName);
       } catch (profileError) {
         console.error("Error creando perfil:", profileError);
       }
-      const userRecords = await getPhotoRecords(user.id);
-      setRecords(userRecords);
+      const [userRecords, profile] = await Promise.all([
+        getPhotoRecords(user.id),
+        getUserProfile(user.id),
+      ]);
+      const recordsWithoutCommonName = userRecords.filter((record) => {
+        const especie = especiesData[record.especie_id];
+        if (!especie) return false;
+        return isMissingCommonName(
+          record.nombre_vulgar ?? especie.nombreVulgar,
+          especie.nombreCientifico
+        );
+      });
+      const normalizedRecordIds = new Set(recordsWithoutCommonName.map((record) => record.id));
+      setRecords(
+        userRecords.map((record) =>
+          normalizedRecordIds.has(record.id)
+            ? { ...record, nombre_vulgar: NO_COMMON_NAME }
+            : record
+        )
+      );
+      setProfileDisplayName(profile?.display_name || emailUserName);
+      if (recordsWithoutCommonName.length > 0) {
+        try {
+          await markRecordsWithoutCommonName(
+            user.id,
+            recordsWithoutCommonName.map((record) => record.id)
+          );
+        } catch (normalizationError) {
+          console.error("Error normalizando nombres vulgares:", normalizationError);
+        }
+      }
     } catch (error) {
       console.error("Error cargando registros:", error);
     } finally {
       setIsRecordsLoading(false);
     }
-  }, [defaultUserName, isAllowedEmail, user]);
+  }, [emailUserName, isAllowedEmail, user]);
 
   const loadCommunityRecords = useCallback(async () => {
     if (!user || !isAllowedEmail) return;
@@ -123,7 +167,7 @@ export default function Home() {
     setIsCommunityLoading(true);
     setCommunityError("");
     try {
-      await ensureUserProfile(user.id, defaultUserName);
+      await ensureUserProfile(user.id, emailUserName);
       const [visibleRecords, friendIds, visibleProfiles] = await Promise.all([
         getVisiblePhotoRecords(),
         getCommunityFriendIds(),
@@ -140,7 +184,7 @@ export default function Home() {
     } finally {
       setIsCommunityLoading(false);
     }
-  }, [defaultUserName, isAllowedEmail, user]);
+  }, [emailUserName, isAllowedEmail, user]);
 
   const handleAddCommunityFriend = async (friendUserId: string) => {
     await addCommunityFriend(friendUserId);
@@ -169,6 +213,8 @@ export default function Home() {
         setWorkspaceTab("identifier");
         setSelectedEspecie(null);
         setEditingRecord(null);
+        setProfileDisplayName("");
+        setIsProfileSettingsOpen(false);
       }
     });
 
@@ -201,6 +247,30 @@ export default function Home() {
     setCommunityRecords([]);
     setCommunityFriendIds([]);
     setLastPlantNumber(null);
+    setProfileDisplayName("");
+    setIsProfileSettingsOpen(false);
+  };
+
+  const handleProfileSave = async (displayName: string, updateExistingRecords: boolean) => {
+    if (!user) return;
+    await updateUserDisplayName(user.id, displayName, updateExistingRecords);
+    setProfileDisplayName(displayName);
+    if (updateExistingRecords) {
+      setRecords((current) =>
+        current.map((record) => ({ ...record, nombre_usuario: displayName }))
+      );
+      setCommunityRecords((current) =>
+        current.map((record) =>
+          record.user_id === user.id ? { ...record, nombre_usuario: displayName } : record
+        )
+      );
+    }
+    setCommunityProfiles((current) =>
+      current.map((profile) =>
+        profile.user_id === user.id ? { ...profile, display_name: displayName } : profile
+      )
+    );
+    setIsProfileSettingsOpen(false);
   };
 
   const handleQuizComplete = async (especie: Especie) => {
@@ -347,9 +417,15 @@ export default function Home() {
               >
                 {isDarkTheme ? <Sun aria-hidden="true" size={17} strokeWidth={2} /> : <Moon aria-hidden="true" size={17} strokeWidth={2} />}
               </button>
-              <span className="max-w-32 truncate text-sm font-medium text-gray-800" title={defaultUserName}>
-                {defaultUserName}
-              </span>
+              <button
+                type="button"
+                onClick={() => setIsProfileSettingsOpen(true)}
+                title="Editar perfil"
+                className="flex min-w-0 items-center gap-1.5 rounded-md px-1.5 py-1 text-sm font-medium text-gray-800 hover:bg-gray-100"
+              >
+                <span className="max-w-32 truncate">{defaultUserName}</span>
+                <Pencil aria-hidden="true" size={14} className="shrink-0 text-gray-500" />
+              </button>
               <button
                 onClick={handleSignOut}
                 type="button"
@@ -404,6 +480,12 @@ export default function Home() {
                 Comunidad
               </button>
               <button
+                onClick={() => handleWorkspaceTabChange("glossary")}
+                className={`shrink-0 border-b-2 px-5 py-3 font-semibold ${workspaceTab === "glossary" ? "border-green-700 text-green-800" : "border-transparent text-gray-600 hover:text-gray-900"}`}
+              >
+                Glosario
+              </button>
+              <button
                 onClick={() => handleWorkspaceTabChange("first-exam")}
                 className={`shrink-0 border-b-2 px-5 py-3 font-semibold ${workspaceTab === "first-exam" ? "border-green-700 text-green-800" : "border-transparent text-gray-600 hover:text-gray-900"}`}
               >
@@ -411,7 +493,9 @@ export default function Home() {
               </button>
             </nav>
 
-            {workspaceTab === "first-exam" ? (
+            {workspaceTab === "glossary" ? (
+              <Glossary />
+            ) : workspaceTab === "first-exam" ? (
               <FirstExamPractice />
             ) : workspaceTab === "community" ? (
               <div className="mx-auto max-w-4xl">
@@ -525,7 +609,7 @@ export default function Home() {
                         className="text-lg font-bold text-green-700"
                         authorityClassName="text-green-700"
                       />
-                      <p className="text-gray-700">{selectedEspecie.nombreVulgar}</p>
+                      <p className="text-gray-700">{getSpeciesCommonName(selectedEspecie)}</p>
                     </div>
                     <div className="flex flex-col justify-center gap-3 sm:flex-row">
                       <button
@@ -550,13 +634,13 @@ export default function Home() {
             )}
 
             <nav
-              className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 border-t border-gray-200 bg-white shadow-[0_-4px_16px_rgba(0,0,0,0.08)] lg:hidden"
+              className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-6 border-t border-gray-200 bg-white shadow-[0_-4px_16px_rgba(0,0,0,0.08)] lg:hidden"
               aria-label="Navegación principal"
             >
               <button
                 type="button"
                 onClick={() => handleWorkspaceTabChange("identifier")}
-                className={`flex min-h-16 flex-col items-center justify-center gap-1 px-1 pb-[env(safe-area-inset-bottom)] text-xs font-medium ${workspaceTab === "identifier" ? "text-green-800" : "text-gray-600"}`}
+                className={`flex min-h-16 flex-col items-center justify-center gap-1 px-0.5 pb-[env(safe-area-inset-bottom)] text-[10px] font-medium sm:text-xs ${workspaceTab === "identifier" ? "text-green-800" : "text-gray-600"}`}
               >
                 <ScanSearch aria-hidden="true" size={20} />
                 Identificar
@@ -564,23 +648,31 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => handleWorkspaceTabChange("records")}
-                className={`flex min-h-16 flex-col items-center justify-center gap-1 px-1 pb-[env(safe-area-inset-bottom)] text-xs font-medium ${workspaceTab === "records" ? "text-green-800" : "text-gray-600"}`}
+                className={`flex min-h-16 flex-col items-center justify-center gap-1 px-0.5 pb-[env(safe-area-inset-bottom)] text-[10px] font-medium sm:text-xs ${workspaceTab === "records" ? "text-green-800" : "text-gray-600"}`}
               >
                 <Library aria-hidden="true" size={20} />
-                Mis plantas
+                Plantas
               </button>
               <button
                 type="button"
                 onClick={() => handleWorkspaceTabChange("community")}
-                className={`flex min-h-16 flex-col items-center justify-center gap-1 px-1 pb-[env(safe-area-inset-bottom)] text-xs font-medium ${workspaceTab === "community" ? "text-green-800" : "text-gray-600"}`}
+                className={`flex min-h-16 flex-col items-center justify-center gap-1 px-0.5 pb-[env(safe-area-inset-bottom)] text-[10px] font-medium sm:text-xs ${workspaceTab === "community" ? "text-green-800" : "text-gray-600"}`}
               >
                 <Users aria-hidden="true" size={20} />
                 Comunidad
               </button>
               <button
                 type="button"
+                onClick={() => handleWorkspaceTabChange("glossary")}
+                className={`flex min-h-16 flex-col items-center justify-center gap-1 px-0.5 pb-[env(safe-area-inset-bottom)] text-[10px] font-medium sm:text-xs ${workspaceTab === "glossary" ? "text-green-800" : "text-gray-600"}`}
+              >
+                <BookOpen aria-hidden="true" size={20} />
+                Glosario
+              </button>
+              <button
+                type="button"
                 onClick={() => handleWorkspaceTabChange("first-exam")}
-                className={`flex min-h-16 flex-col items-center justify-center gap-1 px-1 pb-[env(safe-area-inset-bottom)] text-xs font-medium ${workspaceTab === "first-exam" ? "text-green-800" : "text-gray-600"}`}
+                className={`flex min-h-16 flex-col items-center justify-center gap-1 px-0.5 pb-[env(safe-area-inset-bottom)] text-[10px] font-medium sm:text-xs ${workspaceTab === "first-exam" ? "text-green-800" : "text-gray-600"}`}
               >
                 <GraduationCap aria-hidden="true" size={20} />
                 Parcial
@@ -590,7 +682,7 @@ export default function Home() {
                 onClick={() => setIsMobileMenuOpen((current) => !current)}
                 aria-expanded={isMobileMenuOpen}
                 aria-controls="mobile-account-menu"
-                className={`flex min-h-16 flex-col items-center justify-center gap-1 px-1 pb-[env(safe-area-inset-bottom)] text-xs font-medium ${isMobileMenuOpen ? "text-green-800" : "text-gray-600"}`}
+                className={`flex min-h-16 flex-col items-center justify-center gap-1 px-0.5 pb-[env(safe-area-inset-bottom)] text-[10px] font-medium sm:text-xs ${isMobileMenuOpen ? "text-green-800" : "text-gray-600"}`}
               >
                 {isMobileMenuOpen ? <X aria-hidden="true" size={20} /> : <CircleUserRound aria-hidden="true" size={20} />}
                 Sesión
@@ -603,6 +695,17 @@ export default function Home() {
                 className="fixed inset-x-3 bottom-20 z-50 rounded-lg border border-gray-200 bg-white p-3 shadow-xl lg:hidden"
               >
                 <p className="px-2 pb-2 text-sm font-medium text-gray-800">{defaultUserName}</p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsProfileSettingsOpen(true);
+                  }}
+                  className="mb-1 flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-left text-sm font-medium text-gray-800 hover:bg-gray-50"
+                >
+                  <Pencil aria-hidden="true" size={18} />
+                  Editar perfil
+                </button>
                 <button
                   type="button"
                   onClick={toggleTheme}
@@ -620,6 +723,14 @@ export default function Home() {
                   Cerrar sesión
                 </button>
               </div>
+            )}
+
+            {isProfileSettingsOpen && (
+              <ProfileSettingsModal
+                currentName={defaultUserName}
+                onClose={() => setIsProfileSettingsOpen(false)}
+                onSave={handleProfileSave}
+              />
             )}
           </>
         )}

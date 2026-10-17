@@ -250,6 +250,72 @@ export async function ensureUserProfile(userId: string, displayName: string): Pr
   }
 }
 
+export async function getUserProfile(userId: string): Promise<UserProfile | null> {
+  const { data, error } = await supabase
+    .from("user_profiles")
+    .select(USER_PROFILE_SELECT)
+    .eq("user_id", userId)
+    .maybeSingle();
+
+  if (error) {
+    throw new Error(`No se pudo cargar el perfil: ${error.message}`);
+  }
+
+  return data;
+}
+
+export async function updateUserDisplayName(
+  userId: string,
+  displayName: string,
+  updateExistingRecords: boolean
+): Promise<void> {
+  const cleanedName = displayName.trim().replace(/\s+/g, " ");
+  if (cleanedName.length < 2 || cleanedName.length > 80) {
+    throw new Error("El nombre debe tener entre 2 y 80 caracteres.");
+  }
+
+  const { data, error } = await supabase
+    .from("user_profiles")
+    .update({ display_name: cleanedName })
+    .eq("user_id", userId)
+    .select("user_id")
+    .single();
+
+  if (error || !data) {
+    throw new Error(`No se pudo actualizar el perfil: ${error?.message || "Perfil no encontrado"}`);
+  }
+
+  if (!updateExistingRecords) return;
+
+  const { error: recordsError } = await supabase
+    .from("photo_records")
+    .update({ nombre_usuario: cleanedName })
+    .eq("user_id", userId);
+
+  if (recordsError) {
+    throw new Error(`El perfil se guardó, pero no se pudieron actualizar las plantas: ${recordsError.message}`);
+  }
+}
+
+export async function markRecordsWithoutCommonName(
+  userId: string,
+  recordIds: string[]
+): Promise<void> {
+  const batchSize = 100;
+  for (let index = 0; index < recordIds.length; index += batchSize) {
+    const batch = recordIds.slice(index, index + batchSize);
+    const { error } = await supabase
+      .from("photo_records")
+      .update({ nombre_vulgar: "Sin nombre vulgar" })
+      .eq("user_id", userId)
+      .in("id", batch);
+
+    if (error) {
+      throw new Error(`No se pudieron normalizar los nombres vulgares: ${error.message}`);
+    }
+  }
+}
+
 export async function getVisibleUserProfiles(): Promise<UserProfile[]> {
   const { data, error } = await supabase
     .from("user_profiles")

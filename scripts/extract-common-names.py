@@ -1,169 +1,52 @@
 from __future__ import annotations
 
 import argparse
+import difflib
 import json
 import re
 import shutil
 import subprocess
+import unicodedata
 from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
-import pdfplumber
-
 
 ROOT = Path(__file__).resolve().parents[1]
-PDF_PATH = ROOT / "public" / "pdfcoffee.com_manual-de-la-flora-de-los-alrededores-de-buenos-aires-9-pdf-free.pdf"
+DEFAULT_TRANSCRIPT = Path.home() / "Downloads" / "Manual_Flora_Buenos_Aires_Transcrito.md"
+FALLBACK_TRANSCRIPT = ROOT / "manual-text" / "second-edition" / "manual-completo.txt"
 TMP_DIR = ROOT / ".tmp-second-edition-common-names"
 OUTPUT_PATH = ROOT / "src" / "data" / "secondEditionCommonNames.ts"
 REVIEW_PATH = ROOT / "src" / "data" / "secondEditionCommonNames.review.json"
-
-
-NAME_FIXES = {
-    "Abrepuno": "Abrepuño",
-    "Abrepuno amanllo": "Abrepuño amarillo",
-    "Abrepuno": "Abrepuño",
-    "Abrepuno amanllo": "Abrepuño amarillo",
-    "Achi I coria": "Achicoria",
-    "Amo r seco": "Amor seco",
-    "Arve- jilla peluda": "Arvejilla peluda",
-    "BaZlico": "Ballico",
-    "Camamb": "Camambu",
-    "Camalole": "Camalote",
-    "Camara": "Camara",
-    "Caneln": "Canelon",
-    "Card6n": "Cardon",
-    "Caa": "Caña",
-    "Caa": "Caña",
-    "Co riandro": "Coriandro",
-    "CoTa de zorro": "Cola de zorro",
-    "Caraguata": "Caraguata",
-    "Coro nillo": "Coronillo",
-    "Eama de noche": "Dama de noche",
-    "Dt,tma del monte": "Dama del monte",
-    "Helio tropo": "Heliotropo",
-    "Isip6": "Isipo",
-    "Isip6 colorado": "Isipo colorado",
-    "Lenteja de agua '": "Lenteja de agua",
-    "Ligu8tro": "Ligustro",
-    "Pensa miento salvaje": "Pensamiento salvaje",
-    "Romerillo do rado": "Romerillo dorado",
-    "Siete sangrias": "Siete sangrias",
-    "Tn:gollo": "Trigollo",
-    "'pasto ilusí6n": "Pasto ilusion",
-    "'pasto ilusi6n": "Pasto ilusion",
-    "Pasto ilusíon": "Pasto ilusión",
-    "<lcacia negra": "Acacia negra",
+INDEX_OCR_CORRECTIONS = {
+    "toio": "Tojo",
 }
 
-
-def clean_name(value: str) -> str:
-    value = value.replace("�", "")
-    value = value.replace("~", "ñ")
-    value = value.replace("cd�a", "caña")
-    value = value.replace("man'posa", "mariposa")
-    value = value.replace("6", "o")
-    value = value.replace("8", "s")
-    value = re.sub(r"[.·]+", " ", value)
-    value = re.sub(r"\bo\b(?:\s+o\b)+", " ", value)
-    value = re.sub(r"\s+", " ", value).strip(" .,;:'\"")
-    for bad, good in NAME_FIXES.items():
-        value = value.replace(bad, good)
-    value = NAME_FIXES.get(value, value)
-    return value[:1].upper() + value[1:]
+SPECIES_LINE = re.compile(
+    r"(?m)^\s*(?:\*\*)?(?P<number>\d{1,3}(?:\.\d{3})?)\.\s+(?P<header>[^\n]+)"
+)
+FALLBACK_SPECIES_LINE = re.compile(
+    r"(?m)^[^A-Za-z0-9\n]{0,12}(?P<number>\d{1,3}(?:\.\d{3})?)\.\s+(?P<header>[^\n]+)"
+)
 
 
 def normalize(value: str) -> str:
-    replacements = {
-        "�": "",
-        "á": "a",
-        "é": "e",
-        "í": "i",
-        "ó": "o",
-        "ú": "u",
-        "Á": "a",
-        "É": "e",
-        "Í": "i",
-        "Ó": "o",
-        "Ú": "u",
-        "ñ": "n",
-        "Ñ": "n",
-    }
-    for bad, good in replacements.items():
-        value = value.replace(bad, good)
+    value = unicodedata.normalize("NFD", value)
+    value = "".join(char for char in value if unicodedata.category(char) != "Mn")
     return re.sub(r"[^a-z0-9]+", " ", value.lower()).strip()
 
 
-def clean_page_token(value: str) -> str:
-    return re.sub(r"[^0-9,]", "", value)
+def clean_markup(value: str) -> str:
+    value = re.sub(r"<!--.*?-->", " ", value, flags=re.DOTALL)
+    value = re.sub(r"[*_`$]+", "", value)
+    value = re.sub(r"([A-Za-zÁÉÍÓÚÜÑáéíóúüñ])-\s+([A-Za-zÁÉÍÓÚÜÑáéíóúüñ])", r"\1\2", value)
+    return re.sub(r"\s+", " ", value).strip()
 
 
-def split_columns(words: list[dict[str, Any]]) -> list[list[dict[str, Any]]]:
-    content = [word for word in words if word["top"] > 165]
-    if not content:
-        return []
-    xs = sorted(word["x0"] for word in content)
-    candidates: list[tuple[float, float]] = []
-    for left, right in zip(xs, xs[1:]):
-        midpoint = (left + right) / 2
-        gap = right - left
-        if 245 <= midpoint <= 335 and gap > 10:
-            candidates.append((gap, midpoint))
-    split = max(candidates)[1] if candidates else 297.5
-    return [
-        [word for word in content if word["x0"] < split],
-        [word for word in content if word["x0"] >= split],
-    ]
-
-
-def group_lines(words: list[dict[str, Any]]) -> list[list[dict[str, Any]]]:
-    lines: list[list[dict[str, Any]]] = []
-    for word in sorted(words, key=lambda item: (item["top"], item["x0"])):
-        if not lines or abs(lines[-1][0]["top"] - word["top"]) > 3:
-            lines.append([word])
-        else:
-            lines[-1].append(word)
-    return [sorted(line, key=lambda item: item["x0"]) for line in lines]
-
-
-def parse_line(line: list[dict[str, Any]], pdf_page: int) -> dict[str, Any] | None:
-    name_tokens: list[str] = []
-    page_tokens: list[str] = []
-    seen_page = False
-
-    for word in line:
-        text = word["text"].strip()
-        pageish = clean_page_token(text)
-        if pageish and re.search(r"\d", text):
-            seen_page = True
-            page_tokens.append(pageish)
-            continue
-        if seen_page:
-            continue
-        if re.fullmatch(r"[.\-,'\"`]+", text):
-            continue
-        name_tokens.append(text)
-
-    name = clean_name(" ".join(name_tokens))
-    pages = [int(page) for page in re.findall(r"\d+", ",".join(page_tokens))]
-    if not name or not pages or name.lower().startswith("pag"):
-        return None
-    return {"commonName": name, "pages": pages, "sourcePdfPage": pdf_page}
-
-
-def extract_common_name_index(start: int, end: int) -> list[dict[str, Any]]:
-    entries: list[dict[str, Any]] = []
-    with pdfplumber.open(PDF_PATH) as pdf:
-        for pdf_page in range(start, end + 1):
-            words = pdf.pages[pdf_page - 1].extract_words(
-                x_tolerance=2, y_tolerance=3, keep_blank_chars=False
-            )
-            for column in split_columns(words):
-                for line in group_lines(column):
-                    entry = parse_line(line, pdf_page)
-                    if entry:
-                        entries.append(entry)
-    return entries
+def clean_common_name(value: str) -> str:
+    value = clean_markup(value).strip(" .,:;—-")
+    value = re.sub(r"\s+", " ", value)
+    return value[:1].upper() + value[1:].lower()
 
 
 def compile_second_edition() -> None:
@@ -195,7 +78,7 @@ def load_second_edition() -> tuple[dict[str, Any], dict[str, Any]]:
     compile_second_edition()
     script = (
         "const m=require('./.tmp-second-edition-common-names/src/data/secondEdition.js');"
-        "console.log(JSON.stringify({species:m.secondEditionSpeciesData, tree:m.secondEditionTree}));"
+        "console.log(JSON.stringify({species:m.secondEditionSpeciesData,tree:m.secondEditionTree}));"
     )
     result = subprocess.run(
         ["node", "-e", script],
@@ -209,8 +92,16 @@ def load_second_edition() -> tuple[dict[str, Any], dict[str, Any]]:
     return payload["species"], payload["tree"]
 
 
-def species_by_manual_page(tree: dict[str, Any]) -> dict[int, set[str]]:
-    pages: dict[int, set[str]] = defaultdict(set)
+def ordered_species(species: dict[str, Any]) -> list[tuple[str, dict[str, Any]]]:
+    return [
+        (species_id, item)
+        for species_id, item in species.items()
+        if " " in item["nombreCientifico"]
+    ]
+
+
+def species_pages(tree: dict[str, Any]) -> dict[str, set[int]]:
+    pages: dict[str, set[int]] = defaultdict(set)
     for node in tree.values():
         page = node.get("manualPage")
         if not isinstance(page, int):
@@ -218,207 +109,369 @@ def species_by_manual_page(tree: dict[str, Any]) -> dict[int, set[str]]:
         for option_key in ("opcionA", "opcionA_prima"):
             species_id = (node.get(option_key) or {}).get("especieId")
             if species_id:
-                pages[page].add(species_id)
+                pages[species_id].add(page)
     return pages
 
 
-def is_placeholder_common_name(species: dict[str, Any]) -> bool:
-    return species.get("nombreVulgar") == species.get("nombreCientifico")
+def parse_index(text: str) -> list[dict[str, Any]]:
+    match = re.search(r"\nINDICE DE NOMBRES VULGARES\n", text)
+    if not match:
+        raise ValueError("No se encontró el índice de nombres vulgares.")
+
+    entries: list[dict[str, Any]] = []
+    for raw_line in text[match.end() :].splitlines():
+        line = clean_markup(raw_line)
+        if not line or "NOMBRES VULGARES" in line or "FLORA DE BUENOS AIRES" in line:
+            continue
+        parsed = re.match(r"^(.+?),\s*(\d+(?:\s*,\s*\d+)*)$", line)
+        if not parsed:
+            continue
+        raw_name, raw_pages = parsed.groups()
+        common_name = clean_common_name(raw_name)
+        common_name = INDEX_OCR_CORRECTIONS.get(normalize(common_name), common_name)
+        entries.append(
+            {
+                "commonName": common_name,
+                "pages": [int(page) for page in re.findall(r"\d+", raw_pages)],
+            }
+        )
+    return entries
 
 
-def parse_common_names(raw_value: str) -> list[str]:
-    raw_value = re.split(r"\bExsicc\b|\bObs\b", raw_value, maxsplit=1)[0]
-    raw_value = re.split(r"\.\s*(?:[A-Z0-9]|\(|$)", raw_value, maxsplit=1)[0]
+def is_uppercase_name(value: str) -> bool:
+    letters = [character for character in value if character.isalpha()]
+    uppercase = sum(character.isupper() for character in letters)
+    return len(letters) >= 3 and len(value) <= 120 and uppercase / len(letters) >= 0.45
+
+
+def split_common_names(value: str) -> list[str]:
     names = []
-    for chunk in re.split(r",|;|\sy\s", raw_value):
-        name = clean_name(chunk)
-        if name and not re.fullmatch(r"[0-9]+", name):
-            names.append(name)
+    for part in re.split(r"\s*[,;]\s*", value):
+        cleaned = clean_common_name(part)
+        if cleaned:
+            names.append(cleaned)
     return names
 
 
-def find_nv_segments(pages: list[int]) -> list[dict[str, Any]]:
-    segments: list[dict[str, Any]] = []
-    with pdfplumber.open(PDF_PATH) as pdf:
-        for book_page in pages:
-            pdf_page = book_page + 7
-            if pdf_page < 1 or pdf_page > len(pdf.pages):
-                continue
-            text = pdf.pages[pdf_page - 1].extract_text(x_tolerance=2, y_tolerance=3) or ""
-            for match in re.finditer(r"N\.\s*v\.?\s*:\s*", text, flags=re.IGNORECASE):
-                tail = text[match.end() : match.end() + 260]
-                names = parse_common_names(tail.replace("\n", " "))
-                if not names:
-                    continue
-                segments.append(
+def expected_epithets(scientific_name: str) -> list[str]:
+    ignored = {"var", "f", "subsp", "ssp", "x"}
+    words = normalize(scientific_name).split()
+    return [word for word in words[1:] if word not in ignored and len(word) > 2]
+
+
+def candidate_score(header: str, scientific_name: str) -> int:
+    normalized_header = normalize(clean_markup(header))
+    epithets = expected_epithets(scientific_name)
+    if not epithets:
+        return 0
+    header_words = normalized_header.split()
+    header_candidates = header_words + [
+        header_words[index] + header_words[index + 1]
+        for index in range(len(header_words) - 1)
+    ]
+    first_epithet_score = max(
+        (
+            difflib.SequenceMatcher(None, epithets[0], word).ratio()
+            for word in header_candidates
+        ),
+        default=0,
+    )
+    if first_epithet_score < 0.78:
+        return 0
+    score = 10
+    score += round(first_epithet_score * 5)
+    score += sum(2 for epithet in epithets[1:] if epithet in normalized_header)
+    genus = normalize(scientific_name).split()[0]
+    if genus in normalized_header:
+        score += 5
+    elif re.search(rf"\b{re.escape(genus[0])}\b", normalized_header):
+        score += 1
+    if "—" in header:
+        score += 4
+    return score
+
+
+def extract_uppercase_names(snippet: str) -> list[str]:
+    opening_delimiter = r"(?:—|–|(?<!\w)-{1,3})"
+    closing_delimiter = r"(?:—|–|(?<=\.)\s*-{1,3}|-{1,3}(?!\w))"
+    match = re.search(
+        rf"{opening_delimiter}\s*(.*?)\s*{closing_delimiter}",
+        snippet,
+        flags=re.DOTALL,
+    )
+    if not match:
+        return []
+
+    cleaned = clean_markup(match.group(1)).strip(" .")
+    normalized = normalize(cleaned)
+    if re.search(r"\d|\bfig\b|aceae\b|\bflora de\b|\bclase\b", normalized):
+        return []
+    if is_uppercase_name(cleaned):
+        return [
+            name
+            for name in split_common_names(cleaned)
+            if not normalize(name).startswith(("pagina ", "pdf page "))
+        ]
+    return []
+
+
+def canonicalize_common_name(
+    name: str,
+    index_entries: list[dict[str, Any]],
+    expected_pages: set[int] | None = None,
+) -> tuple[str, str]:
+    normalized_name = normalize(name)
+    nearby_entries = [
+        entry
+        for entry in index_entries
+        if expected_pages
+        and any(
+            abs(page - expected_page) <= 2
+            for page in entry["pages"]
+            for expected_page in expected_pages
+        )
+    ]
+    exact_entries = [
+        entry
+        for entry in index_entries
+        if normalize(entry["commonName"]) == normalized_name
+    ]
+    exact = [entry["commonName"] for entry in exact_entries]
+    if exact:
+        exact_is_nearby = any(entry in nearby_entries for entry in exact_entries)
+        if nearby_entries and not exact_is_nearby:
+            nearby_scored = sorted(
+                (
+                    difflib.SequenceMatcher(
+                        None, normalized_name, normalize(entry["commonName"])
+                    ).ratio(),
+                    entry["commonName"],
+                )
+                for entry in nearby_entries
+            )
+            nearby_score, nearby_name = nearby_scored[-1]
+            if nearby_score >= 0.85:
+                return nearby_name, "corrected_from_index"
+        return exact[0], "exact_index_match"
+
+    scored = sorted(
+        (
+            difflib.SequenceMatcher(None, normalized_name, normalize(entry["commonName"])).ratio(),
+            entry["commonName"],
+        )
+        for entry in index_entries
+    )
+    best_score, best_name = scored[-1]
+    second_score = scored[-2][0] if len(scored) > 1 else 0
+    if best_score >= 0.82 and best_score - second_score >= 0.025:
+        return best_name, "corrected_from_index"
+
+    if not nearby_entries:
+        return name, "species_entry_only"
+
+    scored = sorted(
+        (
+            difflib.SequenceMatcher(None, normalized_name, normalize(entry["commonName"])).ratio(),
+            entry["commonName"],
+        )
+        for entry in nearby_entries
+    )
+    best_score, best_name = scored[-1]
+    second_score = scored[-2][0] if len(scored) > 1 else 0
+    if best_score >= 0.72 and best_score - second_score >= 0.025:
+        return best_name, "corrected_from_index"
+    return name, "species_entry_only"
+
+
+def extract_species_names(
+    text: str,
+    fallback_text: str,
+    species: dict[str, Any],
+    tree: dict[str, Any],
+    index_entries: list[dict[str, Any]],
+) -> tuple[dict[str, list[str]], list[dict[str, Any]]]:
+    ordered = ordered_species(species)
+    if len(ordered) != 1732:
+        raise ValueError(f"Se esperaban 1732 especies y se encontraron {len(ordered)}.")
+
+    def index_source(source_text: str, pattern: re.Pattern[str]):
+        by_number: dict[int, list[re.Match[str]]] = defaultdict(list)
+        matches = list(pattern.finditer(source_text))
+        following = {
+            match.start(): matches[index + 1].start() if index + 1 < len(matches) else len(source_text)
+            for index, match in enumerate(matches)
+        }
+        for match in matches:
+            number = int(match.group("number").replace(".", ""))
+            if 1 <= number <= len(ordered):
+                by_number[number].append(match)
+        return by_number, following
+
+    lines_by_number, next_match_start = index_source(text, SPECIES_LINE)
+    fallback_lines_by_number, fallback_next_match_start = index_source(
+        fallback_text, FALLBACK_SPECIES_LINE
+    )
+
+    index_by_name: dict[str, set[int]] = defaultdict(set)
+    for entry in index_entries:
+        index_by_name[normalize(entry["commonName"])].update(entry["pages"])
+    pages_by_species = species_pages(tree)
+
+    assignments: dict[str, list[str]] = {}
+    review: list[dict[str, Any]] = []
+    for number, (species_id, item) in enumerate(ordered, start=1):
+        scientific_name = item["nombreCientifico"]
+        def candidates_from_source(source_text, source_lines, source_next):
+            scored_matches = sorted(
+                (
+                    (candidate_score(match.group("header"), scientific_name), match)
+                    for match in source_lines.get(number, [])
+                ),
+                key=lambda result: result[0],
+                reverse=True,
+            )
+            viable_matches = [match for score, match in scored_matches if score > 0]
+            named = []
+            for match in viable_matches:
+                snippet = source_text[
+                    match.start() : min(match.start() + 900, source_next[match.start()])
+                ]
+                names = extract_uppercase_names(snippet)
+                if names:
+                    named.append((match, names, snippet))
+            return scored_matches, viable_matches, named
+
+        scored, viable, named_candidates = candidates_from_source(
+            text, lines_by_number, next_match_start
+        )
+        source_kind = "clean_transcript"
+        if not named_candidates:
+            fallback_scored, fallback_viable, fallback_named = candidates_from_source(
+                fallback_text, fallback_lines_by_number, fallback_next_match_start
+            )
+            if fallback_named:
+                scored, viable, named_candidates = fallback_scored, fallback_viable, fallback_named
+                source_kind = "second_edition_page_ocr"
+
+        if not named_candidates:
+            if not viable:
+                review.append(
                     {
-                        "pdfPage": pdf_page,
-                        "bookPage": pdf_page - 7,
-                        "names": names,
-                        "before": text[max(0, match.start() - 2200) : match.start()],
-                        "raw": tail.replace("\n", " "),
+                        "number": number,
+                        "speciesId": species_id,
+                        "scientificName": scientific_name,
+                        "status": "species_line_not_found",
+                        "manualPages": sorted(pages_by_species.get(species_id, set())),
+                        "candidateHeaders": [clean_markup(match.group("header")) for _, match in scored[:5]],
                     }
                 )
-    return segments
+            continue
 
+        status_priority = {
+            "exact_index_match": 3,
+            "corrected_from_index": 2,
+            "species_entry_only": 1,
+        }
 
-def score_species_for_segment(species: dict[str, Any], segment: dict[str, Any]) -> int:
-    scientific_name = species["nombreCientifico"]
-    parts = scientific_name.split()
-    if len(parts) < 2:
-        return 0
+        def named_candidate_score(candidate):
+            match, names, _ = candidate
+            canonicalized = [
+                canonicalize_common_name(
+                    name, index_entries, pages_by_species.get(species_id, set())
+                )
+                for name in names
+            ]
+            return (
+                sum(status_priority[status] for _, status in canonicalized),
+                sum(status == "exact_index_match" for _, status in canonicalized),
+                candidate_score(match.group("header"), scientific_name),
+            )
 
-    genus = normalize(parts[0])
-    epithet = normalize(parts[1])
-    full_name = normalize(" ".join(parts[:2]))
-    before = normalize(segment["before"])
-    near = before[-900:]
-    context = before[-2600:]
-
-    if genus not in context and epithet not in near:
-        return 0
-
-    positions: list[tuple[int, int]] = []
-    full_position = before.rfind(full_name)
-    if full_position >= 0:
-        positions.append((full_position, 5))
-
-    abbreviation_match = re.search(
-        rf"\b{re.escape(parts[0][0].lower())}\s+{re.escape(epithet)}\b",
-        near,
-    )
-    if abbreviation_match and genus in context:
-        positions.append((len(before) - len(near) + abbreviation_match.start(), 4))
-
-    epithet_position = near.rfind(epithet)
-    if epithet_position >= 0 and genus in context:
-        positions.append((len(before) - len(near) + epithet_position, 3))
-
-    if not positions:
-        return 0
-    position, confidence = max(positions)
-    return position * 10 + confidence
-
-
-def extract_names_from_species_pages(
-    species: dict[str, Any],
-    book_pages: list[int],
-) -> tuple[dict[str, list[str]], list[dict[str, Any]]]:
-    assignments: dict[str, set[str]] = defaultdict(set)
-    review: list[dict[str, Any]] = []
-    segments = find_nv_segments(book_pages)
-
-    for segment in segments:
-        scored = [
-            (species_id, score_species_for_segment(species_item, segment))
-            for species_id, species_item in species.items()
+        named_candidates.sort(key=named_candidate_score, reverse=True)
+        match, raw_names, snippet = named_candidates[0]
+        canonicalized = [
+            canonicalize_common_name(
+                name, index_entries, pages_by_species.get(species_id, set())
+            )
+            for name in raw_names
         ]
-        scored = [(species_id, score) for species_id, score in scored if score > 0]
-        scored.sort(key=lambda item: item[1], reverse=True)
-        top_score = scored[0][1] if scored else 0
-        top = [species_id for species_id, score in scored if score == top_score]
+        names = [name for name, _ in canonicalized]
 
-        if len(top) == 1 and top_score >= 3:
-            for name in segment["names"]:
-                assignments[top[0]].add(name)
-            status = "assigned_from_species_text"
-        else:
-            status = "ambiguous_species_text" if top else "unmatched_species_text"
-
+        assignments[species_id] = names
+        species_manual_pages = pages_by_species.get(species_id, set())
+        checks = []
+        for name in names:
+            index_pages = index_by_name.get(normalize(name), set())
+            checks.append(
+                {
+                    "commonName": name,
+                    "indexPages": sorted(index_pages),
+                    "pageMatchesIndex": bool(species_manual_pages & index_pages),
+                }
+            )
         review.append(
             {
-                "commonNames": segment["names"],
-                "bookPage": segment["bookPage"],
-                "pdfPage": segment["pdfPage"],
-                "raw": segment["raw"],
-                "status": status,
-                "candidateSpecies": [
-                    {
-                        "id": species_id,
-                        "score": score,
-                        "scientificName": species[species_id]["nombreCientifico"],
-                        "currentCommonName": species[species_id]["nombreVulgar"],
-                    }
-                    for species_id, score in scored[:8]
+                "number": number,
+                "speciesId": species_id,
+                "scientificName": scientific_name,
+                "commonNames": names,
+                "manualPages": sorted(species_manual_pages),
+                "status": "assigned_from_species_entry",
+                "sourceKind": source_kind,
+                "nameChecks": [
+                    {"raw": raw, "stored": stored, "status": status}
+                    for raw, (stored, status) in zip(raw_names, canonicalized)
                 ],
+                "indexChecks": checks,
+                "source": clean_markup(snippet[:350]),
             }
         )
-
-    return {key: sorted(values) for key, values in assignments.items()}, review
-
-
-def build_assignments(
-    index_entries: list[dict[str, Any]],
-    species: dict[str, Any],
-    page_species: dict[int, set[str]],
-) -> tuple[dict[str, list[str]], list[dict[str, Any]]]:
-    assigned: dict[str, set[str]] = defaultdict(set)
-    review: list[dict[str, Any]] = []
-
-    for entry in index_entries:
-        candidates = sorted(
-            {
-                species_id
-                for page in entry["pages"]
-                for species_id in page_species.get(page, set())
-                if species_id in species
-            }
-        )
-        if len(candidates) == 1:
-            assigned[candidates[0]].add(entry["commonName"])
-            status = "assigned_unique_page"
-        else:
-            status = "ambiguous" if candidates else "no_species_for_page"
-
-        review.append(
-            {
-                **entry,
-                "candidateSpecies": [
-                    {
-                        "id": species_id,
-                        "scientificName": species[species_id]["nombreCientifico"],
-                        "currentCommonName": species[species_id]["nombreVulgar"],
-                    }
-                    for species_id in candidates
-                ],
-                "status": status,
-            }
-        )
-
-    return {key: sorted(values) for key, values in assigned.items()}, review
+    return assignments, review
 
 
 def write_typescript(assignments: dict[str, list[str]]) -> None:
-    lines = [
-        "export const secondEditionCommonNames: Record<string, string> = {",
-    ]
+    lines = ["export const secondEditionCommonNames: Record<string, string> = {"]
     for species_id in sorted(assignments):
-        common_name = ", ".join(sorted({clean_name(name) for name in assignments[species_id]}))
-        lines.append(f"  {json.dumps(species_id)}: {json.dumps(common_name, ensure_ascii=False)},")
-    lines.append("};")
-    lines.append("")
+        value = ", ".join(dict.fromkeys(assignments[species_id]))
+        lines.append(f"  {json.dumps(species_id)}: {json.dumps(value, ensure_ascii=False)},")
+    lines.extend(["};", ""])
     OUTPUT_PATH.write_text("\n".join(lines), encoding="utf-8")
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Extract second edition common names from the vulgar-name index.")
-    parser.add_argument("--start", type=int, default=594)
-    parser.add_argument("--end", type=int, default=596)
+    parser = argparse.ArgumentParser(
+        description="Extract species-specific common names from the second-edition transcript."
+    )
+    parser.add_argument("--transcript", type=Path, default=DEFAULT_TRANSCRIPT)
     args = parser.parse_args()
+    if not args.transcript.exists():
+        raise FileNotFoundError(f"Transcript not found: {args.transcript}")
 
+    text = args.transcript.read_text(encoding="utf-8")
+    fallback_text = FALLBACK_TRANSCRIPT.read_text(encoding="utf-8")
     species, tree = load_second_edition()
-    index_entries = extract_common_name_index(args.start, args.end)
-    index_pages = sorted({page for entry in index_entries for page in entry["pages"]})
-    text_assignments, text_review = extract_names_from_species_pages(species, index_pages)
-    page_assignments, page_review = build_assignments(index_entries, species, species_by_manual_page(tree))
-    assignments = text_assignments
-
+    index_entries = parse_index(text)
+    assignments, review = extract_species_names(
+        text, fallback_text, species, tree, index_entries
+    )
+    assigned_names = {
+        normalize(name) for names in assignments.values() for name in names
+    }
+    unmatched_index_entries = [
+        entry
+        for entry in index_entries
+        if normalize(entry["commonName"]) not in assigned_names
+    ]
     write_typescript(assignments)
     REVIEW_PATH.write_text(
         json.dumps(
             {
-                "speciesTextReview": text_review,
-                "indexReview": page_review,
+                "source": str(args.transcript),
+                "method": "species entry uppercase name, checked against vulgar-name index",
+                "indexEntryCount": len(index_entries),
+                "assignmentCount": len(assignments),
+                "unmatchedIndexEntries": unmatched_index_entries,
+                "review": review,
             },
             ensure_ascii=False,
             indent=2,
@@ -427,13 +480,17 @@ def main() -> None:
         encoding="utf-8",
     )
 
+    unresolved = sum(item["status"] != "assigned_from_species_entry" for item in review)
+    index_confirmed = sum(
+        all(check["pageMatchesIndex"] for check in item.get("indexChecks", []))
+        for item in review
+        if item["status"] == "assigned_from_species_entry"
+    )
     print(f"Index entries: {len(index_entries)}")
-    print(f"N. v. segments: {len(text_review)}")
-    print(f"Assigned from species text: {len(text_assignments)}")
-    print(f"Review-only unique index pages: {len(page_assignments)}")
-    print(f"Assigned species: {len(assignments)}")
-    print(f"Review file: {REVIEW_PATH}")
-    print(f"TypeScript file: {OUTPUT_PATH}")
+    print(f"Species with common names: {len(assignments)}")
+    print(f"All names and pages confirmed by index: {index_confirmed}")
+    print(f"Index entries not represented by a species entry: {len(unmatched_index_entries)}")
+    print(f"Species lines needing review: {unresolved}")
 
 
 if __name__ == "__main__":

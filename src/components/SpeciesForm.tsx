@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import SpeciesReferenceLinks from "@/components/SpeciesReferenceLinks";
 import ScientificName from "@/components/ScientificName";
+import { formatCommonName } from "@/lib/commonNames";
 import { Especie, PhotoRecord, PlantFormData } from "@/types";
 
 interface FormProps {
@@ -23,7 +24,10 @@ export default function SpeciesForm({
 }: FormProps) {
   const [formData, setFormData] = useState<PlantFormData>({
     nombreUsuario: record?.nombre_usuario || defaultUserName,
-    nombreVulgar: record?.nombre_vulgar || especie.nombreVulgar,
+    nombreVulgar: formatCommonName(
+      record?.nombre_vulgar ?? especie.nombreVulgar,
+      especie.nombreCientifico
+    ),
     fecha: record?.fecha || new Date().toISOString().split("T")[0],
     lugar: record?.lugar || "",
     observaciones: record?.observaciones || "",
