@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import SpeciesReferenceLinks from "@/components/SpeciesReferenceLinks";
+import ScientificName from "@/components/ScientificName";
 import { Especie, PhotoRecord, PlantFormData } from "@/types";
 
 interface FormProps {
@@ -85,9 +86,11 @@ export default function SpeciesForm({
       {/* Información de la especie identificada */}
       <div className="bg-green-50 border border-green-200 rounded p-4 mb-6">
         <p className="text-sm text-gray-700">Especie identificada:</p>
-        <p className="text-lg font-bold text-green-700">
-          {especie.nombreCientifico}
-        </p>
+        <ScientificName
+          especie={especie}
+          className="text-lg font-bold text-green-700"
+          authorityClassName="text-green-700"
+        />
         <p className="text-sm text-gray-700">{formData.nombreVulgar}</p>
       </div>
 

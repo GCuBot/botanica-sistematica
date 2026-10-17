@@ -10,10 +10,12 @@ import {
   UserMinus,
   UserPlus,
 } from "lucide-react";
+import ScientificName from "@/components/ScientificName";
 import { especiesData } from "@/data/clados";
-import { PhotoRecord } from "@/types";
+import { PhotoRecord, UserProfile } from "@/types";
 
 interface CommunityProfilesProps {
+  profiles: UserProfile[];
   records: PhotoRecord[];
   ownRecords: PhotoRecord[];
   friendIds: string[];
@@ -36,8 +38,6 @@ interface CommunityProfile {
   sharedSpeciesCount: number;
 }
 
-const HIDDEN_PROFILE_NAMES = new Set(["gonzalo cullen"]);
-
 function normalizeSearchText(value: string) {
   return value
     .normalize("NFD")
@@ -46,6 +46,7 @@ function normalizeSearchText(value: string) {
 }
 
 export default function CommunityProfiles({
+  profiles: userProfiles,
   records,
   ownRecords,
   friendIds,
@@ -71,41 +72,48 @@ export default function CommunityProfiles({
   );
 
   const profiles = useMemo(() => {
-    const byUser = new Map<string, CommunityProfile>();
+    const statsByUser = new Map<
+      string,
+      Pick<CommunityProfile, "total" | "confirmed" | "latestDate" | "speciesIds">
+    >();
 
     for (const record of records) {
       if (!record.user_id) continue;
       if (record.user_id === currentUserId) continue;
-      if (HIDDEN_PROFILE_NAMES.has(normalizeSearchText(record.nombre_usuario || ""))) continue;
 
-      const current = byUser.get(record.user_id);
+      const current = statsByUser.get(record.user_id);
       if (current) {
         current.total += 1;
         current.speciesIds.add(getSpeciesKey(record));
         if (record.is_confirmed) current.confirmed += 1;
         if (record.created_at > current.latestDate) current.latestDate = record.created_at;
       } else {
-        byUser.set(record.user_id, {
-          userId: record.user_id,
-          displayName: record.nombre_usuario || "Sin nombre",
+        statsByUser.set(record.user_id, {
           total: 1,
           confirmed: record.is_confirmed ? 1 : 0,
           latestDate: record.created_at,
           speciesIds: new Set([getSpeciesKey(record)]),
-          sharedSpeciesCount: 0,
         });
       }
     }
 
-    return Array.from(byUser.values())
+    return userProfiles
+      .filter((profile) => profile.user_id !== currentUserId && profile.is_visible)
       .map((profile) => ({
-        ...profile,
-        sharedSpeciesCount: Array.from(profile.speciesIds).filter((speciesKey) =>
+        userId: profile.user_id,
+        displayName: profile.display_name,
+        total: statsByUser.get(profile.user_id)?.total ?? 0,
+        confirmed: statsByUser.get(profile.user_id)?.confirmed ?? 0,
+        latestDate: statsByUser.get(profile.user_id)?.latestDate ?? profile.created_at,
+        speciesIds: statsByUser.get(profile.user_id)?.speciesIds ?? new Set<string>(),
+        sharedSpeciesCount: Array.from(
+          statsByUser.get(profile.user_id)?.speciesIds ?? []
+        ).filter((speciesKey) =>
           currentSpeciesIds.has(speciesKey)
         ).length,
       }))
       .sort((a, b) => a.displayName.localeCompare(b.displayName, "es"));
-  }, [currentSpeciesIds, currentUserId, records]);
+  }, [currentSpeciesIds, currentUserId, records, userProfiles]);
 
   const visibleProfiles = useMemo(
     () =>
@@ -329,9 +337,12 @@ export default function CommunityProfiles({
                                 En comun
                               </span>
                             )}
-                            <span className="truncate text-sm italic text-gray-900">
-                              {especie?.nombreCientifico || record.especie_id}
-                            </span>
+                            <ScientificName
+                              especie={especie}
+                              fallback={record.especie_id}
+                              className="min-w-[12rem] flex-1 text-sm text-gray-900"
+                              authorityClassName="text-gray-600"
+                            />
                           </div>
                           <p className="truncate text-sm text-gray-700">
                             {record.nombre_vulgar || especie?.nombreVulgar || "Sin nombre vulgar"}

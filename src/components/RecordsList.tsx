@@ -11,6 +11,7 @@ import {
   Tags,
   Trash2,
 } from "lucide-react";
+import ScientificName from "@/components/ScientificName";
 import { especiesData } from "@/data/clados";
 import {
   generateLabelsPDF,
@@ -425,9 +426,12 @@ export default function RecordsList({
                         Confirmada
                       </span>
                     )}
-                    <span className="truncate text-sm italic text-gray-900">
-                      {especie?.nombreCientifico || record.especie_id}
-                    </span>
+                    <ScientificName
+                      especie={especie}
+                      fallback={record.especie_id}
+                      className="min-w-[12rem] flex-1 text-sm text-gray-900"
+                      authorityClassName="text-gray-600"
+                    />
                   </div>
                   <p className="truncate text-sm text-gray-700">
                     {record.nombre_vulgar || especie?.nombreVulgar || "Sin nombre vulgar"}

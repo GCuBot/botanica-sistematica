@@ -379,6 +379,8 @@ import {
   secondEditionCompositaeKeyData,
   secondEditionCompositaeSpecies,
 } from "./secondEditionCompositae";
+import { secondEditionCommonNames } from "./secondEditionCommonNames";
+import { scientificNameAuthorities } from "./scientificNameAuthorities";
 
 function mergeUniqueRecords<T>(label: string, records: Array<Record<string, T>>) {
   const merged: Record<string, T> = {};
@@ -391,7 +393,7 @@ function mergeUniqueRecords<T>(label: string, records: Array<Record<string, T>>)
   return merged;
 }
 
-export const secondEditionSpeciesData: Record<string, Especie> = mergeUniqueRecords(
+const rawSecondEditionSpeciesData: Record<string, Especie> = mergeUniqueRecords(
   "Taxón",
   [
     secondEditionPteridophytaFamilies,
@@ -490,6 +492,17 @@ export const secondEditionSpeciesData: Record<string, Especie> = mergeUniqueReco
     secondEditionCalyceraceaeSpecies,
     secondEditionCompositaeSpecies,
   ]
+);
+
+export const secondEditionSpeciesData: Record<string, Especie> = Object.fromEntries(
+  Object.entries(rawSecondEditionSpeciesData).map(([id, species]) => [
+    id,
+    {
+      ...species,
+      ...(scientificNameAuthorities[id] ? { autoridad: scientificNameAuthorities[id] } : {}),
+      ...(secondEditionCommonNames[id] ? { nombreVulgar: secondEditionCommonNames[id] } : {}),
+    },
+  ])
 );
 
 export const secondEditionTree: Record<string, CladoNode> = mergeUniqueRecords(

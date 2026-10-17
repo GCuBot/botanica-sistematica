@@ -20,6 +20,7 @@ export interface CladoNode {
 export interface Especie {
   id: string;
   nombreCientifico: string;
+  autoridad?: string;
   nombreVulgar: string;
   familia: string;
   descripcion: string;
@@ -40,7 +41,7 @@ export interface PlantFormData {
 
 export interface PhotoRecord {
   id: string;
-  user_id: string;
+  user_id: string | null;
   plant_number: number;
   photo_url: string | null;
   especie_id: string;
@@ -51,6 +52,14 @@ export interface PhotoRecord {
   observaciones?: string | null;
   is_confirmed: boolean;
   created_at: string;
+}
+
+export interface UserProfile {
+  user_id: string;
+  display_name: string;
+  is_visible: boolean;
+  created_at: string;
+  updated_at: string;
 }
 
 export interface QuizSession {

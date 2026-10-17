@@ -1,4 +1,4 @@
-import { PhotoRecord, PlantFormData } from "@/types";
+import { PhotoRecord, PlantFormData, UserProfile } from "@/types";
 import { supabase } from "./supabase";
 
 function sanitizeFileName(fileName: string) {
@@ -164,6 +164,9 @@ export async function updatePhotoRecord(
   let uploadedPath: string | null = null;
 
   if (formData.foto) {
+    if (!record.user_id) {
+      throw new Error("No se puede actualizar la foto de un registro sin usuario.");
+    }
     const uploaded = await uploadPhoto(formData.foto, record.user_id);
     uploadedPath = uploaded.path;
     newPhotoUrl = uploaded.publicUrl;
@@ -231,6 +234,35 @@ export async function setPhotoRecordConfirmed(
 
 const PHOTO_RECORD_SELECT =
   "id,user_id,plant_number,especie_id,nombre_vulgar,nombre_usuario,fecha,lugar,observaciones,photo_url,is_confirmed,created_at";
+const USER_PROFILE_SELECT = "user_id,display_name,is_visible,created_at,updated_at";
+
+export async function ensureUserProfile(userId: string, displayName: string): Promise<void> {
+  const cleanedName = displayName.trim() || "Sin nombre";
+  const { error } = await supabase.from("user_profiles").insert([
+    {
+      user_id: userId,
+      display_name: cleanedName,
+    },
+  ]);
+
+  if (error && error.code !== "23505") {
+    throw new Error(`No se pudo crear el perfil: ${error.message}`);
+  }
+}
+
+export async function getVisibleUserProfiles(): Promise<UserProfile[]> {
+  const { data, error } = await supabase
+    .from("user_profiles")
+    .select(USER_PROFILE_SELECT)
+    .eq("is_visible", true)
+    .order("display_name", { ascending: true });
+
+  if (error) {
+    throw new Error(`No se pudieron cargar los perfiles: ${error.message}`);
+  }
+
+  return data || [];
+}
 
 export async function getPhotoRecords(userId?: string): Promise<PhotoRecord[]> {
   let query = supabase

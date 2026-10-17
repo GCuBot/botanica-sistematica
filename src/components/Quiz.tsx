@@ -6,6 +6,7 @@ import { CladoNode, Especie } from "@/types";
 import KeyGlossarySearch from "@/components/KeyGlossarySearch";
 import SpeciesReferenceLinks from "@/components/SpeciesReferenceLinks";
 import SpeciesRouteSearch from "@/components/SpeciesRouteSearch";
+import ScientificName from "@/components/ScientificName";
 
 interface QuizProps {
   onComplete: (especie: Especie) => void;
@@ -122,9 +123,15 @@ export default function Quiz({ onComplete, rootNodeId = "root" }: QuizProps) {
           </p>
         )}
         <div className="space-y-2 text-sm sm:text-base">
-          <p>
-            <strong>Nombre Científico:</strong> {finalEspecie.nombreCientifico}
-          </p>
+          <div>
+            <strong className="block">Nombre Científico:</strong>
+            <ScientificName
+              especie={finalEspecie}
+              className="mt-1 rounded-md bg-white/70 px-3 py-2 text-gray-900"
+              nameClassName="font-semibold"
+              authorityClassName="text-gray-700"
+            />
+          </div>
           <label className="block">
             <strong className="block text-sm text-gray-800">Nombre vulgar:</strong>
             <input

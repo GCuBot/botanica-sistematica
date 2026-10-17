@@ -1839,7 +1839,7 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_4_aristida_pending: {
     id: "ed2_gramineae_group_4_aristida_pending", milestone: "Gramineae: grupo 4, unifloras", manualPage: 66,
-    descripcion: "Continuar con la clave específica de Aristida.",
+    descripcion: "¿Las espiguillas son unifloras y la lemma termina en una arista trífida?",
     opcionA: { label: "Espiguillas unifloras; lemma con arista trífida", keyStep: "E", nextNodeId: "ed2_aristida" },
     opcionA_prima: { label: "Espiguillas unifloras; lemma con arista trífida", keyStep: "E", nextNodeId: "ed2_aristida" },
   },
@@ -1897,7 +1897,7 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_6_alopecurus_pending: {
     id: "ed2_gramineae_group_6_alopecurus_pending", milestone: "Gramineae: grupo 6, unifloras", manualPage: 67,
-    descripcion: "Continuar con la clave específica de Alopecurus.",
+    descripcion: "¿Las espiguillas son unifloras y la lemma posee una arista dorsal larga y geniculada?",
     opcionA: { label: "Espiguillas unifloras; lemma con arista dorsal larga y geniculada", keyStep: "D", nextNodeId: "ed2_alopecurus" },
     opcionA_prima: { label: "Espiguillas unifloras; lemma con arista dorsal larga y geniculada", keyStep: "D", nextNodeId: "ed2_alopecurus" },
   },
@@ -1915,7 +1915,7 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_6_spartina_pending: {
     id: "ed2_gramineae_group_6_spartina_pending", milestone: "Gramineae: grupo 6, espigas múticas", manualPage: 67,
-    descripcion: "Continuar con la clave específica de Spartina.",
+    descripcion: "¿Las espiguillas son múticas y se disponen en espigas a lo largo del eje?",
     opcionA: { label: "Espiguillas múticas en espigas a lo largo del eje", keyStep: "F'", nextNodeId: "ed2_spartina" },
     opcionA_prima: { label: "Espiguillas múticas en espigas a lo largo del eje", keyStep: "F'", nextNodeId: "ed2_spartina" },
   },
@@ -2611,7 +2611,7 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_7_diplachne_pending: {
     id: "ed2_gramineae_group_7_diplachne_pending", milestone: "Gramineae: grupo 7, espiguillas subsésiles", manualPage: 70,
-    descripcion: "Continuar con la clave específica de Diplachne.",
+    descripcion: "¿Las espiguillas son casi sésiles y las lemmas poseen dientes laterales?",
     opcionA: { label: "Espiguillas casi sésiles y lemmas dentadas", keyStep: "p", nextNodeId: "ed2_diplachne" },
     opcionA_prima: { label: "Espiguillas casi sésiles y lemmas dentadas", keyStep: "p", nextNodeId: "ed2_diplachne" },
   },
@@ -2654,8 +2654,8 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   ed2_gramineae_group_8_avena_pending: {
     id: "ed2_gramineae_group_8_avena_pending", milestone: "Gramineae: grupo 8, arista dorsal", manualPage: 70,
     descripcion: "Avena: espiguillas grandes con lemmas provistas de arista dorsal geniculada.",
-    opcionA: { label: "Continuar con la clave de Avena", keyStep: "C", nextNodeId: "ed2_avena" },
-    opcionA_prima: { label: "Continuar con la clave de Avena", keyStep: "C", nextNodeId: "ed2_avena" },
+    opcionA: { label: "Lemmas con arista dorsal geniculada", keyStep: "C", nextNodeId: "ed2_avena" },
+    opcionA_prima: { label: "Lemmas con arista dorsal geniculada", keyStep: "C", nextNodeId: "ed2_avena" },
   },
   ed2_gramineae_group_8_florets: {
     id: "ed2_gramineae_group_8_florets", milestone: "Gramineae: grupo 8, número de flores", manualPage: 70,
@@ -2689,7 +2689,7 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
   },
   ed2_gramineae_group_8_melica_pending: {
     id: "ed2_gramineae_group_8_melica_pending", milestone: "Gramineae: grupo 8, glumas anchas", manualPage: 70,
-    descripcion: "Continuar con la clave específica de Melica.",
+    descripcion: "¿Las glumas son membranosas y anchas, y las lemmas son múticas?",
     opcionA: { label: "Glumas membranosas y anchas; lemmas múticas", keyStep: "G", nextNodeId: "ed2_melica" },
     opcionA_prima: { label: "Glumas membranosas y anchas; lemmas múticas", keyStep: "G", nextNodeId: "ed2_melica" },
   },

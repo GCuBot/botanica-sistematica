@@ -1,4 +1,5 @@
 import jsPDF from "jspdf";
+import { formatScientificName } from "@/lib/scientificNames";
 import { Especie, PhotoRecord, PlantFormData } from "@/types";
 
 export interface LabelRecord {
@@ -148,7 +149,7 @@ export async function generatePDF(
       plantNumber: numeroPlanta,
       collector: formData.nombreUsuario,
       family: especie.familia,
-      scientificName: especie.nombreCientifico,
+      scientificName: formatScientificName(especie),
       commonName: formData.nombreVulgar,
       date: formData.fecha,
       place: formData.lugar,
@@ -261,7 +262,7 @@ export function recordToLabel(record: PhotoRecord, especie?: Especie): LabelReco
     plantNumber: record.plant_number,
     collector: record.nombre_usuario,
     family: especie?.familia || record.especie_id,
-    scientificName: especie?.nombreCientifico || record.especie_id,
+    scientificName: especie ? formatScientificName(especie) : record.especie_id,
     commonName: record.nombre_vulgar || especie?.nombreVulgar || "-",
     date: record.fecha,
     place: record.lugar,
@@ -278,7 +279,7 @@ export function recordToPhotoCatalog(
   return {
     plantNumber: record.plant_number,
     family: especie?.familia || record.especie_id,
-    scientificName: especie?.nombreCientifico || record.especie_id,
+    scientificName: especie ? formatScientificName(especie) : record.especie_id,
     commonName: record.nombre_vulgar || especie?.nombreVulgar || "-",
     photoUrl: record.photo_url,
   };

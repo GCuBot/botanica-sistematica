@@ -18,13 +18,16 @@ import CommunityProfiles from "@/components/CommunityProfiles";
 import FirstExamPractice from "@/components/FirstExamPractice";
 import Quiz from "@/components/Quiz";
 import RecordsList from "@/components/RecordsList";
+import ScientificName from "@/components/ScientificName";
 import SpeciesForm from "@/components/SpeciesForm";
 import {
   deletePhotoRecord,
   addCommunityFriend,
+  ensureUserProfile,
   getPhotoRecords,
   getCommunityFriendIds,
   getVisiblePhotoRecords,
+  getVisibleUserProfiles,
   removeCommunityFriend,
   savePhotoRecord,
   saveQuizSession,
@@ -33,7 +36,7 @@ import {
 } from "@/lib/supabaseOperations";
 import { supabase } from "@/lib/supabase";
 import { usePersistentState } from "@/hooks/usePersistentState";
-import { Especie, PhotoRecord, PlantFormData } from "@/types";
+import { Especie, PhotoRecord, PlantFormData, UserProfile } from "@/types";
 import { especiesData } from "@/data/clados";
 import { SECOND_EDITION_ROOT_NODE_ID } from "@/data/secondEdition";
 
@@ -73,6 +76,7 @@ export default function Home() {
   const [session, setSession] = useState<Session | null>(null);
   const [isAuthLoading, setIsAuthLoading] = useState(true);
   const [records, setRecords] = useState<PhotoRecord[]>([]);
+  const [communityProfiles, setCommunityProfiles] = useState<UserProfile[]>([]);
   const [communityRecords, setCommunityRecords] = useState<PhotoRecord[]>([]);
   const [communityFriendIds, setCommunityFriendIds] = useState<string[]>([]);
   const [isRecordsLoading, setIsRecordsLoading] = useState(false);
@@ -99,6 +103,11 @@ export default function Home() {
 
     setIsRecordsLoading(true);
     try {
+      try {
+        await ensureUserProfile(user.id, defaultUserName);
+      } catch (profileError) {
+        console.error("Error creando perfil:", profileError);
+      }
       const userRecords = await getPhotoRecords(user.id);
       setRecords(userRecords);
     } catch (error) {
@@ -106,7 +115,7 @@ export default function Home() {
     } finally {
       setIsRecordsLoading(false);
     }
-  }, [isAllowedEmail, user]);
+  }, [defaultUserName, isAllowedEmail, user]);
 
   const loadCommunityRecords = useCallback(async () => {
     if (!user || !isAllowedEmail) return;
@@ -114,10 +123,13 @@ export default function Home() {
     setIsCommunityLoading(true);
     setCommunityError("");
     try {
-      const [visibleRecords, friendIds] = await Promise.all([
+      await ensureUserProfile(user.id, defaultUserName);
+      const [visibleRecords, friendIds, visibleProfiles] = await Promise.all([
         getVisiblePhotoRecords(),
         getCommunityFriendIds(),
+        getVisibleUserProfiles(),
       ]);
+      setCommunityProfiles(visibleProfiles);
       setCommunityRecords(visibleRecords);
       setCommunityFriendIds(friendIds);
     } catch (error) {
@@ -128,7 +140,7 @@ export default function Home() {
     } finally {
       setIsCommunityLoading(false);
     }
-  }, [isAllowedEmail, user]);
+  }, [defaultUserName, isAllowedEmail, user]);
 
   const handleAddCommunityFriend = async (friendUserId: string) => {
     await addCommunityFriend(friendUserId);
@@ -185,6 +197,7 @@ export default function Home() {
     setIsMobileMenuOpen(false);
     await supabase.auth.signOut();
     setRecords([]);
+    setCommunityProfiles([]);
     setCommunityRecords([]);
     setCommunityFriendIds([]);
     setLastPlantNumber(null);
@@ -403,6 +416,7 @@ export default function Home() {
             ) : workspaceTab === "community" ? (
               <div className="mx-auto max-w-4xl">
                 <CommunityProfiles
+                  profiles={communityProfiles}
                   records={communityRecords}
                   ownRecords={records}
                   friendIds={communityFriendIds}
@@ -506,9 +520,11 @@ export default function Home() {
                           Planta N° {lastPlantNumber}
                         </p>
                       )}
-                      <p className="text-lg font-bold text-green-700">
-                        {selectedEspecie.nombreCientifico}
-                      </p>
+                      <ScientificName
+                        especie={selectedEspecie}
+                        className="text-lg font-bold text-green-700"
+                        authorityClassName="text-green-700"
+                      />
                       <p className="text-gray-700">{selectedEspecie.nombreVulgar}</p>
                     </div>
                     <div className="flex flex-col justify-center gap-3 sm:flex-row">

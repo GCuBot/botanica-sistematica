@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { LoaderCircle, Plus, Search, X } from "lucide-react";
+import ScientificName from "@/components/ScientificName";
 import SpeciesReferenceLinks from "@/components/SpeciesReferenceLinks";
 import { getTaxonomicAliasForPdfName } from "@/data/taxonomicAliases";
 import { GbifTaxonomicResult, lookupGbifSynonyms } from "@/lib/gbifTaxonomy";
@@ -162,9 +163,11 @@ export default function SpeciesRouteSearch({
                 }}
                 className="block w-full border-b border-gray-100 px-3 py-2.5 text-left last:border-b-0 hover:bg-green-50"
               >
-                <span className="block text-sm font-semibold italic text-gray-900">
-                  {route.especie.nombreCientifico}
-                </span>
+                <ScientificName
+                  especie={route.especie}
+                  className="text-sm font-semibold text-gray-900"
+                  authorityClassName="text-gray-600"
+                />
                 <span className="block truncate text-xs text-gray-600">
                   {route.especie.nombreVulgar} · {route.especie.familia}
                 </span>
@@ -201,9 +204,11 @@ export default function SpeciesRouteSearch({
         <div className="mt-4 rounded-md border border-green-200 bg-green-50 p-4">
           <div className="flex items-start justify-between gap-3">
             <div>
-              <h3 className="font-bold italic text-green-900">
-                {selectedRoute.especie.nombreCientifico}
-              </h3>
+              <ScientificName
+                especie={selectedRoute.especie}
+                className="font-bold text-green-900"
+                authorityClassName="text-green-800"
+              />
               <p className="text-sm text-green-900">
                 {selectedRoute.especie.nombreVulgar} · {selectedRoute.especie.familia}
               </p>
