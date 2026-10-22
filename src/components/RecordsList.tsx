@@ -32,6 +32,8 @@ interface RecordsListProps {
 
 type SearchMode = "all" | "number" | "name" | "family" | "place" | "date" | "notes";
 
+const RECORDS_PAGE_SIZE = 25;
+
 function normalizeSearchText(value: string) {
   return value
     .normalize("NFD")
@@ -55,6 +57,7 @@ export default function RecordsList({
   } | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchMode, setSearchMode] = useState<SearchMode>("all");
+  const [visibleLimit, setVisibleLimit] = useState(RECORDS_PAGE_SIZE);
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [confirmingId, setConfirmingId] = useState<string | null>(null);
   const [actionError, setActionError] = useState("");
@@ -111,6 +114,8 @@ export default function RecordsList({
     () => records.filter((record) => selectedIds.includes(record.id)),
     [records, selectedIds]
   );
+  const visibleRecords = filteredRecords.slice(0, visibleLimit);
+  const hiddenRecordsCount = filteredRecords.length - visibleRecords.length;
   const allRecordsSelected =
     filteredRecords.length > 0 &&
     filteredRecords.every((record) => selectedIds.includes(record.id));
@@ -142,6 +147,7 @@ export default function RecordsList({
     const min = Math.min(start, end);
     const max = Math.max(start, end);
     setActiveRange({ start: min, end: max });
+    setVisibleLimit(RECORDS_PAGE_SIZE);
     setSelectedIds(
       records
         .filter(
@@ -191,6 +197,7 @@ export default function RecordsList({
     setActiveRange(null);
     setRangeStart("");
     setRangeEnd("");
+    setVisibleLimit(RECORDS_PAGE_SIZE);
   };
 
   const handleDelete = async (record: PhotoRecord) => {
@@ -254,9 +261,10 @@ export default function RecordsList({
                 Buscar por
                 <select
                   value={searchMode}
-                  onChange={(event) =>
-                    setSearchMode(event.target.value as SearchMode)
-                  }
+                  onChange={(event) => {
+                    setSearchMode(event.target.value as SearchMode);
+                    setVisibleLimit(RECORDS_PAGE_SIZE);
+                  }}
                   className="mt-1 w-full rounded border border-gray-300 px-2 py-2 text-sm"
                 >
                   <option value="all">Todo</option>
@@ -273,7 +281,10 @@ export default function RecordsList({
                 <input
                   type="search"
                   value={searchTerm}
-                  onChange={(event) => setSearchTerm(event.target.value)}
+                  onChange={(event) => {
+                    setSearchTerm(event.target.value);
+                    setVisibleLimit(RECORDS_PAGE_SIZE);
+                  }}
                   placeholder={
                     searchMode === "number"
                       ? "Ej: 2"
@@ -371,11 +382,11 @@ export default function RecordsList({
               </button>
             </div>
             <p className="text-xs text-gray-700">
-              {selectedRecords.length} seleccionadas · {filteredRecords.length} visibles · Hoja A4 con 12 etiquetas
+              {selectedRecords.length} seleccionadas · {visibleRecords.length} mostradas de {filteredRecords.length} · Hoja A4 con 12 etiquetas
             </p>
           </div>
 
-          {filteredRecords.map((record) => {
+          {visibleRecords.map((record) => {
             const especie = especiesData[record.especie_id];
             const isDeleting = deletingId === record.id;
             const isConfirming = confirmingId === record.id;
@@ -502,6 +513,16 @@ export default function RecordsList({
               </article>
             );
           })}
+
+          {hiddenRecordsCount > 0 && (
+            <button
+              type="button"
+              onClick={() => setVisibleLimit((current) => current + RECORDS_PAGE_SIZE)}
+              className="w-full rounded-md border border-green-700 bg-white px-4 py-2.5 text-sm font-semibold text-green-800 hover:bg-green-50"
+            >
+              Mostrar {Math.min(RECORDS_PAGE_SIZE, hiddenRecordsCount)} más
+            </button>
+          )}
 
           {filteredRecords.length === 0 && (
             <p className="text-sm text-gray-700">
