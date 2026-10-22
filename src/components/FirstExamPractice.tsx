@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import {
-  GlossaryMode,
   GlossaryText,
   KeyDiagnostic,
   PlantExamples,
@@ -27,18 +26,16 @@ import {
 } from "@/data/firstExam";
 import { usePersistentState } from "@/hooks/usePersistentState";
 
-type PracticeMode = "lookup" | "exam" | "glossary" | "review" | "key" | "cereals";
+type PracticeMode = "lookup" | "exam" | "review" | "key" | "cereals";
 type SheetType = "families" | "rosaceae" | "cereals";
 type KeyType = "families" | "rosaceae";
 
-const PRACTICE_MODES: readonly PracticeMode[] = ["lookup", "exam", "glossary", "review", "cereals", "key"];
+const PRACTICE_MODES: readonly PracticeMode[] = ["lookup", "review", "cereals", "key"];
 const SHEET_TYPES: readonly SheetType[] = ["families", "rosaceae", "cereals"];
 const KEY_TYPES: readonly KeyType[] = ["families", "rosaceae"];
 
 const modeLabels: Array<{ id: PracticeMode; label: string }> = [
   { id: "lookup", label: "Consulta" },
-  { id: "exam", label: "Justificar" },
-  { id: "glossary", label: "Glosario" },
   { id: "review", label: "Fichas" },
   { id: "cereals", label: "Cereales" },
   { id: "key", label: "Clave" },
@@ -418,7 +415,6 @@ export default function FirstExamPractice() {
       </div>
       {mode === "lookup" && <QuickLookupMode />}
       {mode === "exam" && <ExamMode />}
-      {mode === "glossary" && <GlossaryMode />}
       {mode === "review" && <ReviewMode />}
       {mode === "cereals" && <CerealsMode />}
       {mode === "key" && <FamilyKeyMode />}
