@@ -18,6 +18,9 @@ SECOND_EDITION_PAGES_DIR = ROOT / "manual-text" / "second-edition" / "pages"
 LAST_TAXONOMIC_TRANSCRIPT_PAGE = 386
 
 VERIFIED_AUTHORITIES = {
+    # Confirmed by the species entries and the final scientific-name index.
+    "ed2_egeria_najas": "Planch.",
+    "ed2_agrostis_jirgensii": "Hackel.",
     # The complete name appears in the figure caption on transcript page 319.
     "ed2_cayaponia_bonariensis": "(Mill.) Martínez Crovetto",
     # A figure interrupts the extracted reading order after the genus heading.
@@ -39,10 +42,10 @@ VERIFIED_AUTHORITIES = {
     "ed2_verbena_litoralis": "H.B.K.",  # p. 524
     "ed2_solanum_eleagnifolium_leprosum": "(Ort.) Dunal.",  # p. 543
     "ed2_solanum_palitanum": "Morton.",  # printed as S. palitans, p. 544
-    "ed2_valeriana_falcifolia": "Vahl.",  # printed as V. falcariifolia, p. 593
+    "ed2_valeriana_falcifolia": "Vahl.",  # printed as V. salicariifolia, p. 593
     "ed2_baccharis_caprariifolia": "DC.",  # p. 640
     "ed2_senecio_madagascariensis": "Poir.",  # p. 680
-    "ed2_schlechteranthus_luzulaefolius": "Less.",  # Schlechteralia, p. 692
+    "ed2_schlechteranthus_luzulaefolius": "Less.",  # Schlechtendalia, p. 692
     # These entries are legible in the 1978 page images, but their names or
     # authorities are damaged, abbreviated, or split in both OCR sources.
     "ed2_stipa_clarazii": "Ball.",  # p. 107

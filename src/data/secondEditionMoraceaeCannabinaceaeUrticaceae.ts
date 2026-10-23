@@ -26,7 +26,7 @@ export const secondEditionMoraceaeCannabinaceaeUrticaceaeSpecies: Record<string,
     "Brasil, Paraguay, Uruguay y nordeste de Argentina; hallada cerca de Buenos Aires en la Isla Maciel."
   ),
   ed2_broussonetia_papyrifera: species(
-    "ed2_broussonetia_papyrifera", "Broussonetia papyrifera", "Morera de papel", "XLVIII. Moraceae",
+    "ed2_broussonetia_papyrifera", "Broussonetia papyrifera", "Broussonetia papyrifera", "XLVIII. Moraceae",
     "Arbol o arbusto con latex; hojas ovado-cordiformes de 5-20 cm; flores fertiles en cabezuelas y sincarpio globoso de unos 2 cm",
     "Originaria de China y Japon; cultivada en parques y a veces subespontanea."
   ),
@@ -36,7 +36,7 @@ export const secondEditionMoraceaeCannabinaceaeUrticaceaeSpecies: Record<string,
     "America calida hasta el Delta del Parana; epifito sobre ceibos."
   ),
   ed2_humulus_japonicus: species(
-    "ed2_humulus_japonicus", "Humulus japonicus", "Lupulo japones", "XLIX. Cannabinaceae",
+    "ed2_humulus_japonicus", "Humulus japonicus", "Humulus japonicus", "XLIX. Cannabinaceae",
     "Planta voluble con hojas anchas, opuestas, palmatinervadas, aserradas o lobadas; flores femeninas pareadas en las axilas de las bracteas del amento",
     "Originaria de Japon y China; cultivada como ornamental y a menudo escapada en ambientes modificados."
   ),

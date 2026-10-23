@@ -1,8 +1,8 @@
 {
-  "source": "C:\\Users\\distr\\Downloads\\Manual_Flora_Buenos_Aires_Transcrito.md",
+  "source": "Manual_Flora_Buenos_Aires_Transcrito.md",
   "method": "species entry uppercase name, checked against vulgar-name index",
   "indexEntryCount": 580,
-  "assignmentCount": 537,
+  "assignmentCount": 553,
   "unmatchedIndexEntries": [
     {
       "commonName": "Acelga",
@@ -21,12 +21,6 @@
       "commonName": "Adormidera",
       "pages": [
         286
-      ]
-    },
-    {
-      "commonName": "Ajenjo",
-      "pages": [
-        677
       ]
     },
     {
@@ -159,12 +153,6 @@
       ]
     },
     {
-      "commonName": "Cerraja",
-      "pages": [
-        708
-      ]
-    },
-    {
       "commonName": "Chayote",
       "pages": [
         596
@@ -226,12 +214,6 @@
       ]
     },
     {
-      "commonName": "Flor de la oración",
-      "pages": [
-        453
-      ]
-    },
-    {
       "commonName": "Frutilla",
       "pages": [
         310
@@ -256,12 +238,6 @@
       ]
     },
     {
-      "commonName": "Helecho común",
-      "pages": [
-        29
-      ]
-    },
-    {
       "commonName": "Heliotropo",
       "pages": [
         511
@@ -277,13 +253,6 @@
       "commonName": "Jazmín del cielo",
       "pages": [
         475
-      ]
-    },
-    {
-      "commonName": "Lechuga",
-      "pages": [
-        609,
-        709
       ]
     },
     {
@@ -421,12 +390,6 @@
       ]
     },
     {
-      "commonName": "Quebracho flojo",
-      "pages": [
-        231
-      ]
-    },
-    {
       "commonName": "Remolacha",
       "pages": [
         241
@@ -454,12 +417,6 @@
       "commonName": "Sandía",
       "pages": [
         596
-      ]
-    },
-    {
-      "commonName": "Sangre de toro",
-      "pages": [
-        259
       ]
     },
     {
@@ -496,12 +453,6 @@
       "commonName": "Vainilla",
       "pages": [
         208
-      ]
-    },
-    {
-      "commonName": "Yuyo de san vicente",
-      "pages": [
-        677
       ]
     },
     {
@@ -583,6 +534,25 @@
         }
       ],
       "source": "10. A. tomentosa (Sav.) Sw. — DORADILLA. — Rizoma rastrero cubierto de pelos amarillentos. Frondes muy velludas. — Brasil austral, Paraguay y NE de la Argentina. Vegeta entre rocas en las sierras de Tandil. VII. DENNSTAEDTIACEAE Protalo monoico, excepcionalmente dioico. Rizomas rastreros, pilosos, solenostélicos. Pecíolos con 1 haz vascular en"
+    },
+    {
+      "number": 11,
+      "speciesId": "ed2_pteridium_aquilinum_arachnoideum",
+      "scientificName": "Pteridium aquilinum var. arachnoideum",
+      "commonNames": [
+        "Helecho común"
+      ],
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Helecho común",
+          "indexPages": [
+            29
+          ],
+          "pageMatchesIndex": false
+        }
+      ]
     },
     {
       "number": 15,
@@ -4388,6 +4358,25 @@
       "source": "474. P. stratiotes L. — REPOLLITO DE AGUA. — Plantita flotante, con hojas anchamente espatuladas, crasas, de unos 5 cm de long. \\times 3 cm de lat., con abundante aerénquima. Estolones horizontales con pequeñas plantas en su extremidad. — Regiones cálidas del globo. Muy común en arroyos de corriente suave del Delta y de la ribera platense. (Fi"
     },
     {
+      "number": 475,
+      "speciesId": "ed2_spirodela_intermedia",
+      "scientificName": "Spirodela intermedia",
+      "commonNames": [
+        "Lenteja de agua"
+      ],
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Lenteja de agua",
+          "indexPages": [
+            173
+          ],
+          "pageMatchesIndex": false
+        }
+      ]
+    },
+    {
       "number": 476,
       "speciesId": "ed2_lemna_valdiviana",
       "scientificName": "Lemna valdiviana",
@@ -5660,6 +5649,26 @@
       "source": "587. F. enormis Miq. — HIGUERÓN, AGARRAPALO. — Árbol epífito o terrestre de unos 10-15 m de alt. Hojas pecioladas, elípticas, subcoriáceas, enteras, de 6-10 cm de long. Receptáculos globosos de unos 8 mm de diám., cortamente pedunculados. Flores de 3 tipos, entremezcladas: masculinas pediceladas; agallas también pediceladas y femeninas sésiles"
     },
     {
+      "number": 589,
+      "speciesId": "ed2_urtica_dioica",
+      "scientificName": "Urtica dioica var. mollis",
+      "commonNames": [
+        "Ortiga"
+      ],
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Ortiga",
+          "indexPages": [
+            226,
+            385
+          ],
+          "pageMatchesIndex": true
+        }
+      ]
+    },
+    {
       "number": 591,
       "speciesId": "ed2_urtica_urens",
       "scientificName": "Urtica urens",
@@ -5827,11 +5836,29 @@
       "number": 598,
       "speciesId": "ed2_jodina_rhombifolia",
       "scientificName": "Jodina rhombifolia",
-      "status": "species_line_not_found",
-      "manualPages": [
-        228
+      "commonNames": [
+        "Sombra de toro",
+        "Quebracho flojo"
       ],
-      "candidateHeaders": []
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Sombra de toro",
+          "indexPages": [
+            231,
+            393
+          ],
+          "pageMatchesIndex": false
+        },
+        {
+          "commonName": "Quebracho flojo",
+          "indexPages": [
+            231
+          ],
+          "pageMatchesIndex": false
+        }
+      ]
     },
     {
       "number": 599,
@@ -6801,11 +6828,20 @@
       "number": 678,
       "speciesId": "ed2_rivina_humilis",
       "scientificName": "Rivina humilis",
-      "status": "species_line_not_found",
-      "manualPages": [
-        256
+      "commonNames": [
+        "Sangre de toro"
       ],
-      "candidateHeaders": []
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Sangre de toro",
+          "indexPages": [
+            259
+          ],
+          "pageMatchesIndex": false
+        }
+      ]
     },
     {
       "number": 679,
@@ -10220,6 +10256,25 @@
       "source": "889. C. monspessulanus L. —RETAMA CHICA.— Arbusto de 1-2 m de alt. Hojas 3-folioladas, casi sésiles; folíolos oblanceolados. Umbelas subsésiles axilares. Flores amarillas, de cerca de 1 cm de long. — S de Europa. Cultivada para adorno y naturalizada en baldíos, jardines, montes abiertos, etc."
     },
     {
+      "number": 890,
+      "speciesId": "ed2_sarothamnus_scoparius",
+      "scientificName": "Sarothamnus scoparius",
+      "commonNames": [
+        "Retama"
+      ],
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Retama",
+          "indexPages": [
+            330
+          ],
+          "pageMatchesIndex": false
+        }
+      ]
+    },
+    {
       "number": 891,
       "speciesId": "ed2_geoffroea_decorticans",
       "scientificName": "Geoffroea decorticans",
@@ -10520,6 +10575,25 @@
         }
       ],
       "source": "922. O. chrysantha Prog. (O. cordobensis Knuth). — VINAGRILLO. — S de Brasil, Paraguay, Uruguay y NE y centro de Argentina. Común en la estepa climax."
+    },
+    {
+      "number": 923,
+      "speciesId": "ed2_oxalis_pes_caprae",
+      "scientificName": "Oxalis pes-caprae",
+      "commonNames": [
+        "Vinagrillo"
+      ],
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Vinagrillo",
+          "indexPages": [
+            359
+          ],
+          "pageMatchesIndex": false
+        }
+      ]
     },
     {
       "number": 924,
@@ -12724,11 +12798,21 @@
       "number": 1086,
       "speciesId": "ed2_heimia_salicifolia",
       "scientificName": "Heimia salicifolia",
-      "status": "species_line_not_found",
-      "manualPages": [
-        440
+      "commonNames": [
+        "Quiebra-arado"
       ],
-      "candidateHeaders": []
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Quiebra-arado",
+          "indexPages": [
+            441,
+            617
+          ],
+          "pageMatchesIndex": false
+        }
+      ]
     },
     {
       "number": 1087,
@@ -13066,11 +13150,20 @@
       "number": 1107,
       "speciesId": "ed2_oenothera_affinis",
       "scientificName": "Oenothera affinis",
-      "status": "species_line_not_found",
-      "manualPages": [
-        451
+      "commonNames": [
+        "Flor de la oración"
       ],
-      "candidateHeaders": []
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Flor de la oración",
+          "indexPages": [
+            453
+          ],
+          "pageMatchesIndex": false
+        }
+      ]
     },
     {
       "number": 1108,
@@ -14782,6 +14875,26 @@
       "source": "1.271. H. medium Epling. — TOMILLO, MENTA DEL CAMPO.— Sufrútice con tallos ascendentes, numerosos, pubescentes, de 10-15 cm de alt. Hojas elípticas, enteras, hispídulas, de 4-6 mm de long. Flores pediceladas, agrupadas en verticilastros en las axilas de las hojas superiores. Cáliz giboso en la parte inferior, bilabiado, de 3 mm de long. Corola lil"
     },
     {
+      "number": 1275,
+      "speciesId": "ed2_mentha_x_rotundifolia",
+      "scientificName": "Mentha x rotundifolia",
+      "commonNames": [
+        "Menta"
+      ],
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Menta",
+          "indexPages": [
+            527,
+            533
+          ],
+          "pageMatchesIndex": false
+        }
+      ]
+    },
+    {
       "number": 1277,
       "speciesId": "ed2_mentha_x_piperita",
       "scientificName": "Mentha x piperita",
@@ -15077,18 +15190,6 @@
         }
       ],
       "source": "1.303. S. juvenale Thell. (S. meloncillo Parodi). — MELONCILLO DE OLOR. — Uruguay y N y centro de Argentina. Frecuente en suelos fértiles."
-    },
-    {
-      "number": 1305,
-      "speciesId": "ed2_solanum_palitanum",
-      "scientificName": "Solanum palitanum",
-      "status": "species_line_not_found",
-      "manualPages": [
-        543
-      ],
-      "candidateHeaders": [
-        "S. palltans Morton. — Hierba perenne, ramosa, tendida o ascendente. — N de Argentina Rara cerca de Buenos Aires."
-      ]
     },
     {
       "number": 1306,
@@ -16436,19 +16537,6 @@
         }
       ],
       "source": "1.430. V. scandens Loezl. — CAIMBRÉ-MINI. — América cálida. Frecuente en los bosques del Delta y de la ribera del Plata."
-    },
-    {
-      "number": 1431,
-      "speciesId": "ed2_valeriana_falcifolia",
-      "scientificName": "Valeriana falcifolia",
-      "status": "species_line_not_found",
-      "manualPages": [
-        592
-      ],
-      "candidateHeaders": [
-        "V. salicariifolia.",
-        "V. salicariifolia Vahl. — Hierba perenne, rizomatosa, glabra, con tallos de cerca de 1 m de alt. — S de Brasil, Uruguay y región platense. Común en los bosques higrófilos del Delta y de la ribera de Plata."
-      ]
     },
     {
       "number": 1434,
@@ -18283,6 +18371,44 @@
       "source": "1.630. T. parthenium (L.) Sch. Bip. — PIRETRO DE JARDÍN. — Eurasia. Or-namental. Frecuentemente en escombros y rastrojos."
     },
     {
+      "number": 1639,
+      "speciesId": "ed2_artemisia_absinthium",
+      "scientificName": "Artemisia absinthium",
+      "commonNames": [
+        "Ajenjo"
+      ],
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Ajenjo",
+          "indexPages": [
+            677
+          ],
+          "pageMatchesIndex": false
+        }
+      ]
+    },
+    {
+      "number": 1640,
+      "speciesId": "ed2_artemisia_verlotorum",
+      "scientificName": "Artemisia verlotorum",
+      "commonNames": [
+        "Yuyo de San Vicente"
+      ],
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Yuyo de San Vicente",
+          "indexPages": [
+            677
+          ],
+          "pageMatchesIndex": false
+        }
+      ]
+    },
+    {
       "number": 1653,
       "speciesId": "ed2_senecio_bonariensis",
       "scientificName": "Senecio bonariensis",
@@ -18359,21 +18485,53 @@
       "number": 1664,
       "speciesId": "ed2_carduus_thoermeri",
       "scientificName": "Carduus thoermeri",
-      "status": "species_line_not_found",
-      "manualPages": [
-        684
+      "commonNames": [
+        "Cardo"
       ],
-      "candidateHeaders": []
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Cardo",
+          "indexPages": [
+            609,
+            686,
+            687,
+            688
+          ],
+          "pageMatchesIndex": false
+        }
+      ]
     },
     {
       "number": 1665,
       "speciesId": "ed2_carduus_acanthoides",
       "scientificName": "Carduus acanthoides",
-      "status": "species_line_not_found",
-      "manualPages": [
-        684
+      "commonNames": [
+        "Cardo negro",
+        "Cardo"
       ],
-      "candidateHeaders": []
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Cardo negro",
+          "indexPages": [
+            686
+          ],
+          "pageMatchesIndex": false
+        },
+        {
+          "commonName": "Cardo",
+          "indexPages": [
+            609,
+            686,
+            687,
+            688
+          ],
+          "pageMatchesIndex": false
+        }
+      ]
     },
     {
       "number": 1666,
@@ -18963,6 +19121,45 @@
         }
       ],
       "source": "1.721. T. officinale Web. — AMARGÓN, DIENTE DE LEÓN. — Perenne, acaule. Hojas oblanceoladas, runcinadas, glabras. Escapos huecos. Filarias externas recurvadas. — Europa; adventicia en todo el mundo. Cultivada por sus hojas comestibles y frecuente en suelos modificados."
+    },
+    {
+      "number": 1723,
+      "speciesId": "ed2_sonchus_oleraceus",
+      "scientificName": "Sonchus oleraceus",
+      "commonNames": [
+        "Cerraja"
+      ],
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Cerraja",
+          "indexPages": [
+            708
+          ],
+          "pageMatchesIndex": true
+        }
+      ]
+    },
+    {
+      "number": 1726,
+      "speciesId": "ed2_lactuca_sativa",
+      "scientificName": "Lactuca sativa",
+      "commonNames": [
+        "Lechuga"
+      ],
+      "status": "assigned_from_verified_index",
+      "sourceKind": "vulgar_name_index",
+      "indexChecks": [
+        {
+          "commonName": "Lechuga",
+          "indexPages": [
+            609,
+            709
+          ],
+          "pageMatchesIndex": false
+        }
+      ]
     }
   ]
 }

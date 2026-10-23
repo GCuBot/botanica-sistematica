@@ -653,9 +653,9 @@ export const secondEditionGramineaeSpecies: Record<string, Especie> = {
     "Uruguay y nordeste de la Argentina.", "Agrostis tandilensis"
   ),
   ed2_agrostis_jirgensii: species(
-    "ed2_agrostis_jirgensii", "Agrostis jirgensii", "Gramínea anual de 20-50 cm.",
+    "ed2_agrostis_jirgensii", "Agrostis jürgensii", "Gramínea anual de 20-50 cm.",
     "Panoja espiciforme muy densa de 10-20 cm; gluma inferior más larga; lemma con dos aristas apicales cortas y una dorsal fuerte y larga.",
-    "Sur de Brasil, Uruguay y nordeste argentino; en campos húmedos.", "Agrostis jirgensii"
+    "Sur de Brasil, Uruguay y nordeste argentino; en campos húmedos.", "Agrostis jürgensii"
   ),
   ed2_oryzopsis_miliacea: species(
     "ed2_oryzopsis_miliacea", "Oryzopsis miliacea", "Gramínea perenne de 60-150 cm, con hojas planas.",

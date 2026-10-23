@@ -11,14 +11,36 @@ function normalizeName(value: string) {
     .trim();
 }
 
+function isScientificNameFallback(commonName: string, scientificName: string) {
+  if (commonName === scientificName) return true;
+
+  const commonWords = commonName.split(" ");
+  const scientificWords = scientificName.split(" ");
+  if (commonWords.length < 2) return false;
+
+  const withoutHybridMarker = scientificWords.filter(
+    (word, index) => !(index === 1 && word === "x")
+  );
+  if (commonWords.join(" ") === withoutHybridMarker.join(" ")) return true;
+
+  const rankIndex = scientificWords.findIndex((word) =>
+    ["var", "subsp", "ssp", "f"].includes(word)
+  );
+  return (
+    rankIndex > 1 &&
+    commonWords.join(" ") === scientificWords.slice(0, rankIndex).join(" ")
+  );
+}
+
 export function isMissingCommonName(
   commonName: string | null | undefined,
   scientificName: string
 ) {
   const normalizedCommonName = normalizeName(commonName || "");
+  const normalizedScientificName = normalizeName(scientificName);
   return (
     !normalizedCommonName ||
-    normalizedCommonName === normalizeName(scientificName)
+    isScientificNameFallback(normalizedCommonName, normalizedScientificName)
   );
 }
 

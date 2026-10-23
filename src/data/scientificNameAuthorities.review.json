@@ -1127,18 +1127,11 @@
     "source": "transcript"
   },
   "ed2_egeria_najas": {
-    "scientificName": "Egeria najas",
+    "scientificName": "Egeria naias",
     "status": "assigned",
     "authority": "Planch.",
-    "matches": [
-      {
-        "authority": "Planch.",
-        "bookPage": 35,
-        "raw": "82. E. najas Planch. — Hojas en verticilos de 2 a 8, lineares, de 8-25 mm de long. — Brasil, Paraguay, Uruguay y NE de la Argentina hasta el D",
-        "genusContext": true
-      }
-    ],
-    "source": "transcript"
+    "matches": [],
+    "source": "verified-transcript"
   },
   "ed2_elodea_callitrichoides": {
     "scientificName": "Elodea callitrichoides",
@@ -2695,18 +2688,11 @@
     "source": "transcript"
   },
   "ed2_agrostis_jirgensii": {
-    "scientificName": "Agrostis jirgensii",
+    "scientificName": "Agrostis jürgensii",
     "status": "assigned",
     "authority": "Hackel.",
-    "matches": [
-      {
-        "authority": "Hackel.",
-        "bookPage": 54,
-        "raw": "194. A. jirgensii Hackel. — Anual, de 20-50 cm de alt. Espiguillas de 3-3,5 mm de long. Lemma lanceolada de 3 mm de long. con 2 aristas apicales co",
-        "genusContext": true
-      }
-    ],
-    "source": "transcript"
+    "matches": [],
+    "source": "verified-transcript"
   },
   "ed2_oryzopsis_miliacea": {
     "scientificName": "Oryzopsis miliacea",
@@ -16810,7 +16796,7 @@
     "source": "transcript"
   },
   "ed2_cynanchum_bonariense": {
-    "scientificName": "Cynanchum bonariense",
+    "scientificName": "Cynanchum bonariensis",
     "status": "assigned",
     "authority": "(Dec.) Meyer.",
     "matches": [],
@@ -18294,7 +18280,7 @@
     "source": "transcript"
   },
   "ed2_solanum_eleagnifolium_leprosum": {
-    "scientificName": "Solanum eleagnifolium var. leprosum",
+    "scientificName": "Solanum elaeagnifolium var. leprosum",
     "status": "assigned",
     "authority": "(Ort.) Dunal.",
     "matches": [],
@@ -18329,7 +18315,7 @@
     "source": "transcript"
   },
   "ed2_solanum_palitanum": {
-    "scientificName": "Solanum palitanum",
+    "scientificName": "Solanum palitans",
     "status": "assigned",
     "authority": "Morton.",
     "matches": [],
@@ -20086,7 +20072,7 @@
     "source": "transcript"
   },
   "ed2_valeriana_falcifolia": {
-    "scientificName": "Valeriana falcifolia",
+    "scientificName": "Valeriana salicariifolia",
     "status": "assigned",
     "authority": "Vahl.",
     "matches": [],
@@ -20315,9 +20301,9 @@
     "authority": "(R. et P.) Greene.",
     "matches": [
       {
-        "authority": "(R. et P.) Greet e.",
+        "authority": "(R. et P.) Greene.",
         "bookPage": 321,
-        "raw": "1.448. T. biflora (R. et P.) Greet e. — Hierba anual, erecta, con tallo simple. Hojas sésiles, ovadas, crenadas, laxamente pubescente, de 1-2 cm de long. Flore",
+        "raw": "1.448. T. biflora (R. et P.) Greene. — Hierba anual, erecta, con tallo simple. Hojas sésiles, ovadas, crenadas, laxamente pubescente, de 1-2 cm de long. Flore",
         "genusContext": true
       }
     ],
@@ -21515,7 +21501,7 @@
     "source": "transcript"
   },
   "ed2_baccharis_caprariifolia": {
-    "scientificName": "Baccharis caprariifolia",
+    "scientificName": "Baccharis caprariaefolia",
     "status": "assigned",
     "authority": "DC.",
     "matches": [],
@@ -23601,7 +23587,7 @@
     "source": "transcript"
   },
   "ed2_schlechteranthus_luzulaefolius": {
-    "scientificName": "Schlechteranthus luzulaefolius",
+    "scientificName": "Schlechtendalia luzulaefolia",
     "status": "assigned",
     "authority": "Less.",
     "matches": [],
@@ -24084,7 +24070,7 @@
     "source": "transcript"
   },
   "ed2_picris_echioides": {
-    "scientificName": "Picris echioides",
+    "scientificName": "Picris echiodes",
     "status": "assigned",
     "authority": "L.",
     "matches": [],

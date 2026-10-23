@@ -22,6 +22,26 @@ INDEX_OCR_CORRECTIONS = {
     "toio": "Tojo",
 }
 
+# Names confirmed by the vulgar-name index but missed in the species-entry OCR.
+VERIFIED_COMMON_NAMES = {
+    "ed2_pteridium_aquilinum_arachnoideum": ["Helecho común"],
+    "ed2_spirodela_intermedia": ["Lenteja de agua"],
+    "ed2_urtica_dioica": ["Ortiga"],
+    "ed2_jodina_rhombifolia": ["Sombra de toro", "Quebracho flojo"],
+    "ed2_rivina_humilis": ["Sangre de toro"],
+    "ed2_sarothamnus_scoparius": ["Retama"],
+    "ed2_oxalis_pes_caprae": ["Vinagrillo"],
+    "ed2_heimia_salicifolia": ["Quiebra-arado"],
+    "ed2_oenothera_affinis": ["Flor de la oración"],
+    "ed2_mentha_x_rotundifolia": ["Menta"],
+    "ed2_artemisia_absinthium": ["Ajenjo"],
+    "ed2_artemisia_verlotorum": ["Yuyo de San Vicente"],
+    "ed2_carduus_thoermeri": ["Cardo"],
+    "ed2_carduus_acanthoides": ["Cardo negro", "Cardo"],
+    "ed2_sonchus_oleraceus": ["Cerraja"],
+    "ed2_lactuca_sativa": ["Lechuga"],
+}
+
 SPECIES_LINE = re.compile(
     r"(?m)^\s*(?:\*\*)?(?P<number>\d{1,3}(?:\.\d{3})?)\.\s+(?P<header>[^\n]+)"
 )
@@ -426,6 +446,39 @@ def extract_species_names(
                 "source": clean_markup(snippet[:350]),
             }
         )
+    review_by_id = {item["speciesId"]: item for item in review}
+    species_number = {
+        species_id: number
+        for number, (species_id, _item) in enumerate(ordered, start=1)
+    }
+    for species_id, names in VERIFIED_COMMON_NAMES.items():
+        assignments[species_id] = names
+        item = species[species_id]
+        verified_review = {
+            "number": species_number[species_id],
+            "speciesId": species_id,
+            "scientificName": item["nombreCientifico"],
+            "commonNames": names,
+            "status": "assigned_from_verified_index",
+            "sourceKind": "vulgar_name_index",
+            "indexChecks": [
+                {
+                    "commonName": name,
+                    "indexPages": sorted(index_by_name[normalize(name)]),
+                    "pageMatchesIndex": bool(
+                        pages_by_species.get(species_id, set())
+                        & index_by_name[normalize(name)]
+                    ),
+                }
+                for name in names
+            ],
+        }
+        if species_id in review_by_id:
+            review[review.index(review_by_id[species_id])] = verified_review
+        else:
+            review.append(verified_review)
+
+    review.sort(key=lambda item: item["number"])
     return assignments, review
 
 
@@ -466,7 +519,7 @@ def main() -> None:
     REVIEW_PATH.write_text(
         json.dumps(
             {
-                "source": str(args.transcript),
+                "source": args.transcript.name,
                 "method": "species entry uppercase name, checked against vulgar-name index",
                 "indexEntryCount": len(index_entries),
                 "assignmentCount": len(assignments),
@@ -480,11 +533,15 @@ def main() -> None:
         encoding="utf-8",
     )
 
-    unresolved = sum(item["status"] != "assigned_from_species_entry" for item in review)
+    assigned_statuses = {
+        "assigned_from_species_entry",
+        "assigned_from_verified_index",
+    }
+    unresolved = sum(item["status"] not in assigned_statuses for item in review)
     index_confirmed = sum(
         all(check["pageMatchesIndex"] for check in item.get("indexChecks", []))
         for item in review
-        if item["status"] == "assigned_from_species_entry"
+        if item["status"] in assigned_statuses
     )
     print(f"Index entries: {len(index_entries)}")
     print(f"Species with common names: {len(assignments)}")

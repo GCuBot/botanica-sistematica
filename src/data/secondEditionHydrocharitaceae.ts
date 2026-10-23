@@ -32,7 +32,7 @@ export const secondEditionHydrocharitaceaeSpecies: Record<string, Especie> = {
     "Centro y sur del Brasil, Uruguay y nordeste argentino, hasta el Río de la Plata; cultivada en acuarios."
   ),
   ed2_egeria_najas: species(
-    "ed2_egeria_najas", "Egeria najas",
+    "ed2_egeria_najas", "Egeria naias",
     "Hierba acuática perenne, sumergida, arraigada y dioica.",
     "Hojas lineares en verticilos de dos a ocho, de 0,7-1,3 mm de ancho; espata femenina de 6 mm partida hasta la mitad; pétalos de unos 4 mm.",
     "Brasil, Paraguay, Uruguay y nordeste argentino, hasta el Delta."
