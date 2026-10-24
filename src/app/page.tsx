@@ -49,7 +49,6 @@ import { SECOND_EDITION_ROOT_NODE_ID } from "@/data/secondEdition";
 import {
   getSpeciesCommonName,
   isMissingCommonName,
-  NO_COMMON_NAME,
 } from "@/lib/commonNames";
 
 type PageState = "quiz" | "form" | "edit" | "complete";
@@ -129,21 +128,33 @@ export default function Home() {
       ]);
       const recordsWithoutCommonName = userRecords.filter((record) => {
         const especie = especiesData[record.especie_id];
-        if (!especie) return false;
+        if (
+          !especie ||
+          record.nombre_vulgar === null ||
+          record.nombre_vulgar === undefined
+        ) return false;
         return isMissingCommonName(
-          record.nombre_vulgar ?? especie.nombreVulgar,
+          record.nombre_vulgar,
           especie.nombreCientifico
         );
       });
+      const displayName = profile?.display_name || emailUserName;
+      const recordsWithOldCollectorName = userRecords.filter(
+        (record) => (record.nombre_usuario || "").trim() !== displayName
+      );
       const normalizedRecordIds = new Set(recordsWithoutCommonName.map((record) => record.id));
       setRecords(
-        userRecords.map((record) =>
-          normalizedRecordIds.has(record.id)
-            ? { ...record, nombre_vulgar: NO_COMMON_NAME }
-            : record
-        )
+        userRecords.map((record) => ({
+          ...record,
+          nombre_vulgar: normalizedRecordIds.has(record.id)
+            ? null
+            : record.nombre_vulgar,
+          nombre_usuario: recordsWithOldCollectorName.length > 0
+            ? displayName
+            : record.nombre_usuario,
+        }))
       );
-      setProfileDisplayName(profile?.display_name || emailUserName);
+      setProfileDisplayName(displayName);
       if (recordsWithoutCommonName.length > 0) {
         try {
           await markRecordsWithoutCommonName(
@@ -152,6 +163,13 @@ export default function Home() {
           );
         } catch (normalizationError) {
           console.error("Error normalizando nombres vulgares:", normalizationError);
+        }
+      }
+      if (recordsWithOldCollectorName.length > 0) {
+        try {
+          await updateUserDisplayName(user.id, displayName, true);
+        } catch (normalizationError) {
+          console.error("Error normalizando el nombre del recolector:", normalizationError);
         }
       }
     } catch (error) {

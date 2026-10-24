@@ -306,7 +306,7 @@ export async function markRecordsWithoutCommonName(
     const batch = recordIds.slice(index, index + batchSize);
     const { error } = await supabase
       .from("photo_records")
-      .update({ nombre_vulgar: "Sin nombre vulgar" })
+      .update({ nombre_vulgar: null })
       .eq("user_id", userId)
       .in("id", batch);
 

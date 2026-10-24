@@ -61,10 +61,10 @@
       "malformedNodes": 0,
       "orphanNodes": 0,
       "unexpectedTerminalTaxa": 0,
-      "lowTextEvidenceOptions": 0,
-      "manuallyVerifiedLowEvidenceOptions": 59,
-      "missingTranscriptPages": 45,
-      "genusPageMismatches": 119
+      "lowTextEvidenceOptions": 4,
+      "manuallyVerifiedLowEvidenceOptions": 57,
+      "missingTranscriptPages": 49,
+      "genusPageMismatches": 88
     }
   },
   "issues": {
@@ -6267,7 +6267,93 @@
       }
     ],
     "unexpectedTerminalTaxa": [],
-    "lowTextEvidenceOptions": [],
+    "lowTextEvidenceOptions": [
+      {
+        "nodeId": "ed2_carex_long_bracts",
+        "option": "opcionA_prima",
+        "label": "No; utriculos lisos",
+        "keyStep": "G'",
+        "nextNodeId": "ed2_carex_smooth_utricles",
+        "speciesId": null,
+        "manualPage": 153,
+        "description": "¿Los utriculos son papilosos o verrugosos?",
+        "score": 0.0,
+        "matchedTokens": [],
+        "missingTokens": [
+          "lisos",
+          "papilosos",
+          "utriculos",
+          "verrugosos"
+        ]
+      },
+      {
+        "nodeId": "ed2_carex_smooth_utricles",
+        "option": "opcionA_prima",
+        "label": "Anchamente elipticos, castaños, de 4-5 mm y con rostro hendido",
+        "keyStep": "H'",
+        "nextNodeId": null,
+        "speciesId": "ed2_carex_sororia",
+        "manualPage": 153,
+        "description": "¿Los utriculos son lanceolados y largamente rostrados o anchamente elipticos?",
+        "score": 0.111,
+        "matchedTokens": [
+          "lanceolados"
+        ],
+        "missingTokens": [
+          "anchamente",
+          "castanos",
+          "elipticos",
+          "hendido",
+          "largamente",
+          "rostrados",
+          "rostro",
+          "utriculos"
+        ]
+      },
+      {
+        "nodeId": "ed2_carex_smooth_utricles",
+        "option": "opcionA",
+        "label": "Lanceolados, pajizos, de 2,5-3 mm y largamente rostrados",
+        "keyStep": "H",
+        "nextNodeId": null,
+        "speciesId": "ed2_carex_uruguensis",
+        "manualPage": 153,
+        "description": "¿Los utriculos son lanceolados y largamente rostrados o anchamente elipticos?",
+        "score": 0.143,
+        "matchedTokens": [
+          "lanceolados"
+        ],
+        "missingTokens": [
+          "anchamente",
+          "elipticos",
+          "largamente",
+          "pajizos",
+          "rostrados",
+          "utriculos"
+        ]
+      },
+      {
+        "nodeId": "ed2_carex_long_bracts",
+        "option": "opcionA",
+        "label": "Si; ovado-lanceolados, pajizos, de 3-4,5 mm",
+        "keyStep": "G",
+        "nextNodeId": null,
+        "speciesId": "ed2_carex_bonariensis",
+        "manualPage": 153,
+        "description": "¿Los utriculos son papilosos o verrugosos?",
+        "score": 0.167,
+        "matchedTokens": [
+          "lanceolados"
+        ],
+        "missingTokens": [
+          "ovado",
+          "pajizos",
+          "papilosos",
+          "utriculos",
+          "verrugosos"
+        ]
+      }
+    ],
     "missingTranscriptPages": [
       8,
       96,
@@ -6294,6 +6380,7 @@
       490,
       491,
       511,
+      523,
       536,
       537,
       555,
@@ -6302,10 +6389,13 @@
       569,
       570,
       593,
-      633,
       634,
       635,
       643,
+      644,
+      646,
+      647,
+      658,
       659,
       660,
       661,
@@ -6555,20 +6645,6 @@
         "difference": -25
       },
       {
-        "nodeId": "ed2_helianthus",
-        "milestone": "Helianthus",
-        "manualPage": 639,
-        "indexPage": 658,
-        "difference": -19
-      },
-      {
-        "nodeId": "ed2_helianthus_annual",
-        "milestone": "Helianthus",
-        "manualPage": 639,
-        "indexPage": 658,
-        "difference": -19
-      },
-      {
         "nodeId": "ed2_aspilia",
         "milestone": "Aspilia",
         "manualPage": 638,
@@ -6597,28 +6673,7 @@
         "difference": -17
       },
       {
-        "nodeId": "ed2_compositae_berroa_pending",
-        "milestone": "Berroa",
-        "manualPage": 633,
-        "indexPage": 647,
-        "difference": -14
-      },
-      {
-        "nodeId": "ed2_gamochaeta_acuminate",
-        "milestone": "Gamochaeta",
-        "manualPage": 635,
-        "indexPage": 649,
-        "difference": -14
-      },
-      {
         "nodeId": "ed2_gamochaeta_axillary",
-        "milestone": "Gamochaeta",
-        "manualPage": 635,
-        "indexPage": 649,
-        "difference": -14
-      },
-      {
-        "nodeId": "ed2_gamochaeta_concolor_acuminate",
         "milestone": "Gamochaeta",
         "manualPage": 635,
         "indexPage": 649,
@@ -6632,35 +6687,7 @@
         "difference": -14
       },
       {
-        "nodeId": "ed2_gamochaeta_obtuse",
-        "milestone": "Gamochaeta",
-        "manualPage": 635,
-        "indexPage": 649,
-        "difference": -14
-      },
-      {
-        "nodeId": "ed2_gamochaeta_pending",
-        "milestone": "Gamochaeta",
-        "manualPage": 635,
-        "indexPage": 649,
-        "difference": -14
-      },
-      {
         "nodeId": "ed2_gamochaeta_spike_shape",
-        "milestone": "Gamochaeta",
-        "manualPage": 635,
-        "indexPage": 649,
-        "difference": -14
-      },
-      {
-        "nodeId": "ed2_gamochaeta_stem_branching",
-        "milestone": "Gamochaeta",
-        "manualPage": 635,
-        "indexPage": 649,
-        "difference": -14
-      },
-      {
-        "nodeId": "ed2_gamochaeta_terminal_spike",
         "milestone": "Gamochaeta",
         "manualPage": 635,
         "indexPage": 649,
@@ -6695,20 +6722,6 @@
         "difference": -13
       },
       {
-        "nodeId": "ed2_achyrocline",
-        "milestone": "Achyrocline",
-        "manualPage": 633,
-        "indexPage": 645,
-        "difference": -12
-      },
-      {
-        "nodeId": "ed2_chevreulia",
-        "milestone": "Chevreulia",
-        "manualPage": 632,
-        "indexPage": 644,
-        "difference": -12
-      },
-      {
         "nodeId": "ed2_gymnopogon_pending",
         "milestone": "Gymnopogon",
         "manualPage": 112,
@@ -6730,22 +6743,8 @@
         "difference": -11
       },
       {
-        "nodeId": "ed2_pterocaulon_leaf_shape",
-        "milestone": "Pterocaulon",
-        "manualPage": 631,
-        "indexPage": 642,
-        "difference": -11
-      },
-      {
         "nodeId": "ed2_pterocaulon_spikes",
         "milestone": "Pterocaulon",
-        "manualPage": 631,
-        "indexPage": 642,
-        "difference": -11
-      },
-      {
-        "nodeId": "ed2_tessaria",
-        "milestone": "Tessaria",
         "manualPage": 631,
         "indexPage": 642,
         "difference": -11
@@ -6758,28 +6757,7 @@
         "difference": 9
       },
       {
-        "nodeId": "ed2_baccharis",
-        "milestone": "Baccharis",
-        "manualPage": 627,
-        "indexPage": 635,
-        "difference": -8
-      },
-      {
         "nodeId": "ed2_baccharis_three_winged",
-        "milestone": "Baccharis",
-        "manualPage": 627,
-        "indexPage": 635,
-        "difference": -8
-      },
-      {
-        "nodeId": "ed2_baccharis_three_winged_shrub",
-        "milestone": "Baccharis",
-        "manualPage": 627,
-        "indexPage": 635,
-        "difference": -8
-      },
-      {
-        "nodeId": "ed2_baccharis_winged",
         "milestone": "Baccharis",
         "manualPage": 627,
         "indexPage": 635,
@@ -6814,67 +6792,11 @@
         "difference": -7
       },
       {
-        "nodeId": "ed2_baccharis_cylindrical_involucre",
-        "milestone": "Baccharis",
-        "manualPage": 628,
-        "indexPage": 635,
-        "difference": -7
-      },
-      {
         "nodeId": "ed2_baccharis_sessile_heads",
         "milestone": "Baccharis",
         "manualPage": 628,
         "indexPage": 635,
         "difference": -7
-      },
-      {
-        "nodeId": "ed2_baccharis_terminal_spikes",
-        "milestone": "Baccharis",
-        "manualPage": 628,
-        "indexPage": 635,
-        "difference": -7
-      },
-      {
-        "nodeId": "ed2_baccharis_three_winged_low",
-        "milestone": "Baccharis",
-        "manualPage": 628,
-        "indexPage": 635,
-        "difference": -7
-      },
-      {
-        "nodeId": "ed2_baccharis_unwinged",
-        "milestone": "Baccharis",
-        "manualPage": 628,
-        "indexPage": 635,
-        "difference": -7
-      },
-      {
-        "nodeId": "ed2_baccharis_unwinged_heads",
-        "milestone": "Baccharis",
-        "manualPage": 628,
-        "indexPage": 635,
-        "difference": -7
-      },
-      {
-        "nodeId": "ed2_baccharis_upper_axillary",
-        "milestone": "Baccharis",
-        "manualPage": 628,
-        "indexPage": 635,
-        "difference": -7
-      },
-      {
-        "nodeId": "ed2_baccharis_alternate_broad",
-        "milestone": "Baccharis",
-        "manualPage": 629,
-        "indexPage": 635,
-        "difference": -6
-      },
-      {
-        "nodeId": "ed2_baccharis_broad_leaves",
-        "milestone": "Baccharis",
-        "manualPage": 629,
-        "indexPage": 635,
-        "difference": -6
       },
       {
         "nodeId": "ed2_baccharis_glabrous_broad",
@@ -6912,13 +6834,6 @@
         "difference": -6
       },
       {
-        "nodeId": "ed2_baccharis_pedicellate_heads",
-        "milestone": "Baccharis",
-        "manualPage": 629,
-        "indexPage": 635,
-        "difference": -6
-      },
-      {
         "nodeId": "ed2_baccharis_tomentose_linear",
         "milestone": "Baccharis",
         "manualPage": 629,
@@ -6940,27 +6855,6 @@
         "difference": -6
       },
       {
-        "nodeId": "ed2_podocoma",
-        "milestone": "Podocoma",
-        "manualPage": 627,
-        "indexPage": 633,
-        "difference": -6
-      },
-      {
-        "nodeId": "ed2_baccharis_concolor",
-        "milestone": "Baccharis",
-        "manualPage": 630,
-        "indexPage": 635,
-        "difference": -5
-      },
-      {
-        "nodeId": "ed2_baccharis_costate_stems",
-        "milestone": "Baccharis",
-        "manualPage": 630,
-        "indexPage": 635,
-        "difference": -5
-      },
-      {
         "nodeId": "ed2_conyza",
         "milestone": "Conyza",
         "manualPage": 626,
@@ -6975,21 +6869,7 @@
         "difference": -5
       },
       {
-        "nodeId": "ed2_conyza_annual_pubescence",
-        "milestone": "Conyza",
-        "manualPage": 626,
-        "indexPage": 631,
-        "difference": -5
-      },
-      {
         "nodeId": "ed2_conyza_dense_panicles",
-        "milestone": "Conyza",
-        "manualPage": 626,
-        "indexPage": 631,
-        "difference": -5
-      },
-      {
-        "nodeId": "ed2_conyza_lax_hairs",
         "milestone": "Conyza",
         "manualPage": 626,
         "indexPage": 631,
@@ -7015,13 +6895,6 @@
         "manualPage": 129,
         "indexPage": 124,
         "difference": 5
-      },
-      {
-        "nodeId": "ed2_lycium_corolla",
-        "milestone": "Lycium",
-        "manualPage": 546,
-        "indexPage": 550,
-        "difference": -4
       },
       {
         "nodeId": "ed2_lycium_merosity",
@@ -7153,6 +7026,6 @@
   },
   "source": {
     "transcript": "Manual_Flora_Buenos_Aires_Transcrito.md",
-    "transcriptPages": 444
+    "transcriptPages": 451
   }
 }

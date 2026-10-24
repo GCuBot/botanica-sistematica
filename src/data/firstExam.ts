@@ -10,7 +10,6 @@ export type ExamTaxon = {
   confusion: string;
   referenceGenera: string;
   examples: PlantExample[];
-  quizTraits: [string, string, string, string];
 };
 
 export type PlantExample = {
@@ -89,12 +88,6 @@ export const examTaxa: ExamTaxon[] = [
       { scientificName: "Capsicum annuum", commonName: "pimiento" },
       { scientificName: "Nicotiana tabacum", commonName: "tabaco" },
     ],
-    quizTraits: [
-      "Cinco estambres epipetalos alternos con la corola",
-      "Ovario supero, por lo comun bilocular y con muchos ovulos",
-      "Estilo ginobasico y fruto dividido en cuatro nueces",
-      "Ovario infero y solo tres estambres",
-    ],
   },
   {
     id: "bignoniaceae",
@@ -116,12 +109,6 @@ export const examTaxa: ExamTaxon[] = [
       { scientificName: "Pyrostegia venusta", commonName: "bignonia de invierno" },
       { scientificName: "Bignonia callistegioides", commonName: "dama del monte" },
       { scientificName: "Handroanthus impetiginosus", commonName: "lapacho rosado" },
-    ],
-    quizTraits: [
-      "Corola zigomorfa con cuatro estambres didinamos",
-      "Hojas opuestas, a menudo compuestas, y capsula con semillas aladas",
-      "Tallo cuadrangular y fruto en cuatro nueces",
-      "Capitulo rodeado por un involucro de filarios",
     ],
   },
   {
@@ -145,12 +132,6 @@ export const examTaxa: ExamTaxon[] = [
       { scientificName: "Ocimum basilicum", commonName: "albahaca" },
       { scientificName: "Origanum vulgare", commonName: "oregano" },
     ],
-    quizTraits: [
-      "Estilo ginobasico y ovario profundamente dividido en cuatro lobulos",
-      "Hojas opuestas decusadas y tallo frecuentemente cuadrangular",
-      "Semillas aladas dentro de una capsula alargada",
-      "Cinco estambres con anteras unidas formando un tubo",
-    ],
   },
   {
     id: "asteraceae",
@@ -172,12 +153,6 @@ export const examTaxa: ExamTaxon[] = [
       { scientificName: "Helianthus annuus", commonName: "girasol" },
       { scientificName: "Lactuca sativa", commonName: "lechuga" },
       { scientificName: "Taraxacum officinale", commonName: "diente de leon" },
-    ],
-    quizTraits: [
-      "Muchas flores reunidas en un capitulo con involucro",
-      "Anteras singenesicas y fruto cipsela, a menudo con papus",
-      "Espiguillas protegidas por glumas, lemma y palea",
-      "Un solo carpelo libre que origina una drupa",
     ],
   },
   {
@@ -201,12 +176,6 @@ export const examTaxa: ExamTaxon[] = [
       { scientificName: "Triticum aestivum", commonName: "trigo pan" },
       { scientificName: "Hordeum vulgare", commonName: "cebada" },
     ],
-    quizTraits: [
-      "Flores reunidas en espiguillas con glumas basales",
-      "Lemma, palea, lodiculas y estigmas plumosos",
-      "Seis tepalos y gineceo con ovario infero trilocular",
-      "Hipanto y numerosos estambres libres",
-    ],
   },
   {
     id: "rosaceae",
@@ -228,12 +197,6 @@ export const examTaxa: ExamTaxon[] = [
       { scientificName: "Prunus persica", commonName: "duraznero" },
       { scientificName: "Malus domestica", commonName: "manzano" },
       { scientificName: "Fragaria × ananassa", commonName: "frutilla" },
-    ],
-    quizTraits: [
-      "Numerosos estambres libres asociados a un hipanto",
-      "Gineceo variable de uno a muchos carpelos",
-      "Cuatro estambres didinamos y semillas aladas",
-      "Tres estambres y ovario infero trilocular",
     ],
   },
   {
@@ -257,12 +220,6 @@ export const examTaxa: ExamTaxon[] = [
       { scientificName: "Hippeastrum striatum", commonName: "lirio del campo" },
       { scientificName: "Narcissus pseudonarcissus", commonName: "narciso" },
     ],
-    quizTraits: [
-      "Umbela terminal protegida por una espata",
-      "Seis estambres y ovario infero trilocular",
-      "Olor aliaceo y ovario supero",
-      "Un solo estambre fertil unido al estilo en un ginostemo",
-    ],
   },
   {
     id: "allioideae",
@@ -284,12 +241,6 @@ export const examTaxa: ExamTaxon[] = [
       { scientificName: "Allium cepa", commonName: "cebolla" },
       { scientificName: "Allium sativum", commonName: "ajo" },
       { scientificName: "Allium ampeloprasum var. porrum", commonName: "puerro" },
-    ],
-    quizTraits: [
-      "Olor aliaceo por compuestos azufrados",
-      "Umbela con espata y ovario supero",
-      "Ovario infero y solo tres estambres",
-      "Racimo con una bractea por flor y fruto baya",
     ],
   },
   {
@@ -313,12 +264,6 @@ export const examTaxa: ExamTaxon[] = [
       { scientificName: "Gladiolus communis", commonName: "gladiolo" },
       { scientificName: "Crocus sativus", commonName: "azafran" },
     ],
-    quizTraits: [
-      "Tres estambres opuestos a los tepalos externos",
-      "Ovario infero trilocular y fruto capsula",
-      "Seis estambres y ovario supero con olor a ajo",
-      "Anteras singenesicas alrededor del estilo",
-    ],
   },
   {
     id: "asparagaceae",
@@ -341,12 +286,6 @@ export const examTaxa: ExamTaxon[] = [
       { scientificName: "Agave americana", commonName: "pita" },
       { scientificName: "Yucca gloriosa", commonName: "yuca ornamental" },
     ],
-    quizTraits: [
-      "Inflorescencia racemosa con una bractea por flor",
-      "Seis estambres, ovario supero y fruto generalmente baya",
-      "Umbela escaposa protegida por espata y olor aliaceo",
-      "Corola bilabiada y estilo ginobasico",
-    ],
   },
   {
     id: "orchidaceae",
@@ -368,12 +307,6 @@ export const examTaxa: ExamTaxon[] = [
       { scientificName: "Vanilla planifolia", commonName: "vainilla" },
       { scientificName: "Phalaenopsis amabilis", commonName: "orquidea luna" },
       { scientificName: "Cattleya labiata", commonName: "cattleya" },
-    ],
-    quizTraits: [
-      "Un tepalo diferenciado en labelo",
-      "Ginostemo y ovario infero, con polen a menudo en polinios",
-      "Tres estambres libres y hojas equitantes",
-      "Cinco estambres epipetalos alternos con la corola",
     ],
   },
 ];
