@@ -49,6 +49,15 @@ function getOptionKeySteps(node: CladoNode) {
   };
 }
 
+function hasDuplicateOptions(node: CladoNode) {
+  return (
+    node.opcionA.label === node.opcionA_prima.label &&
+    node.opcionA.keyStep === node.opcionA_prima.keyStep &&
+    node.opcionA.nextNodeId === node.opcionA_prima.nextNodeId &&
+    node.opcionA.especieId === node.opcionA_prima.especieId
+  );
+}
+
 function buildKeyPath(history: HistoryEntry[]) {
   const seenMilestones = new Set<string>();
   const path: string[] = [];
@@ -249,6 +258,7 @@ export default function Quiz({ onComplete, rootNodeId = "root" }: QuizProps) {
   const optionKeySteps = getOptionKeySteps(currentNode);
   const optionALetter = optionKeySteps.A;
   const optionAPrimaLetter = optionKeySteps.A_prima;
+  const singleAction = hasDuplicateOptions(currentNode);
 
   return (
     <div className="rounded-lg bg-white p-4 shadow-lg sm:p-5">
@@ -274,12 +284,14 @@ export default function Quiz({ onComplete, rootNodeId = "root" }: QuizProps) {
           <span className="font-bold">{optionALetter}.</span> {currentNode.opcionA.label}
         </button>
 
-        <button
-          onClick={() => handleOption("A_prima")}
-          className="flex min-h-16 w-full items-center rounded-md bg-purple-600 px-4 py-2.5 text-left text-sm leading-snug text-white hover:bg-purple-700 sm:text-base"
-        >
-          <span className="font-bold">{optionAPrimaLetter}.</span> {currentNode.opcionA_prima.label}
-        </button>
+        {!singleAction && (
+          <button
+            onClick={() => handleOption("A_prima")}
+            className="flex min-h-16 w-full items-center rounded-md bg-purple-600 px-4 py-2.5 text-left text-sm leading-snug text-white hover:bg-purple-700 sm:text-base"
+          >
+            <span className="font-bold">{optionAPrimaLetter}.</span> {currentNode.opcionA_prima.label}
+          </button>
+        )}
       </div>
 
       <KeyGlossarySearch />

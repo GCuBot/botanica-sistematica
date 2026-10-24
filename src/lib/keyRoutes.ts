@@ -70,6 +70,10 @@ function routeStep(node: CladoNode, option: CladoOption, keyStep: string): KeyRo
   };
 }
 
+function optionIdentity(option: CladoOption, keyStep: string) {
+  return [option.label, keyStep, option.nextNodeId || "", option.especieId || ""].join("\0");
+}
+
 export function buildSpeciesRoutes(rootNodeId = "root") {
   const routes = new Map<string, SpeciesKeyRoute>();
 
@@ -87,7 +91,12 @@ export function buildSpeciesRoutes(rootNodeId = "root") {
       [node.opcionA_prima, keySteps.opcionA_prima],
     ];
 
+    const seenChoices = new Set<string>();
     choices.forEach(([option, keyStep]) => {
+      const identity = optionIdentity(option, keyStep);
+      if (seenChoices.has(identity)) return;
+      seenChoices.add(identity);
+
       const nextSteps = [...steps, routeStep(node, option, keyStep)];
       if (option.especieId) addRoute(routes, option.especieId, nextSteps);
       if (option.nextNodeId) visit(option.nextNodeId, nextSteps, nextVisited);
