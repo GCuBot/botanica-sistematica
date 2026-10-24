@@ -61,7 +61,10 @@ function branch(id: string, page: number, description: string, keyA: string, lab
 }
 
 export const secondEditionCruciferaeKeyData: Record<string, CladoNode> = {
-  ed2_family_cruciferae: branch("ed2_family_cruciferae", 292, "¿El fruto es una silicula corta o una silicua varias veces mas larga que ancha?", "A", "Silicula orbicular, ovada, eliptica o triangular", "ed2_cruciferae_silicula_shape", "A'", "Silicua largamente eliptica o linear", "ed2_cruciferae_siliqua_hairs"),
+  ed2_family_cruciferae: {
+    ...branch("ed2_family_cruciferae", 292, "¿El fruto es una silicula corta o una silicua varias veces mas larga que ancha?", "A", "Silicula orbicular, ovada, eliptica o triangular", "ed2_cruciferae_silicula_shape", "A'", "Silicua largamente eliptica o linear", "ed2_cruciferae_siliqua_hairs"),
+    milestone: "LXX. Cruciferae",
+  },
   ed2_cruciferae_silicula_shape: branch("ed2_cruciferae_silicula_shape", 292, "¿La silicula es triangular o globosa a lenticular?", "B", "Triangular; flores blancas o rosadas", "ed2_capsella", "B'", "Globosa, lenticular u ovoide", "ed2_cruciferae_short_flower_color"),
   ed2_cruciferae_short_flower_color: branch("ed2_cruciferae_short_flower_color", 292, "¿Las flores son amarillas o blancas?", "C", "Amarillas", "ed2_cruciferae_yellow_seed_count", "C'", "Blancas", "ed2_cruciferae_white_dehiscence"),
   ed2_cruciferae_yellow_seed_count: branch("ed2_cruciferae_yellow_seed_count", 292, "¿Los frutos son polispermos y dehiscentes?", "D", "Si", "ed2_cruciferae_yellow_cauline_base", "D'", "No; con una a cuatro semillas", "ed2_cruciferae_few_seed_leaves"),

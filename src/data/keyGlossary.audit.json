@@ -1,0 +1,43 @@
+{
+  "sources": {
+    "transcript": "C:\\Users\\distr\\Downloads\\Manual_Flora_Buenos_Aires_Transcrito.md",
+    "manualPdf": "source-pdfs/cabrera-1978-segunda-edicion.pdf",
+    "printedPages": [
+      711,
+      725
+    ]
+  },
+  "summary": {
+    "entriesReviewed": 720,
+    "typescriptEntries": 720,
+    "extractorEntries": 720,
+    "pagesCovered": 15,
+    "duplicateTerms": 0,
+    "crossReferences": 9,
+    "blockingIssues": 0,
+    "issueCounts": {}
+  },
+  "visuallyConfirmed": {
+    "Janas": "The unusual spelling is printed this way in the manual; it refers to Gloquidio.",
+    "Obacorazonado": "Confirmed on printed page 720.",
+    "Umbela": "Confirmed in the singular on printed page 724."
+  },
+  "pageDistribution": {
+    "711": 39,
+    "712": 39,
+    "713": 60,
+    "714": 44,
+    "715": 43,
+    "716": 48,
+    "717": 55,
+    "718": 49,
+    "719": 46,
+    "720": 50,
+    "721": 54,
+    "722": 48,
+    "723": 53,
+    "724": 63,
+    "725": 29
+  },
+  "issues": {}
+}

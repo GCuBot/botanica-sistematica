@@ -1,0 +1,2643 @@
+{
+  "sources": {
+    "manualTranscript": "C:\\Users\\distr\\Downloads\\Manual_Flora_Buenos_Aires_Transcrito.md",
+    "familyPages": "Indice de los nombres cientificos",
+    "romanNumbersAndGroups": "Clave para familias y encabezados del manual"
+  },
+  "summary": {
+    "familiesReviewed": 145,
+    "familiesConfirmed": 145,
+    "speciesReviewed": 1732,
+    "speciesInExactlyOneFamilyTree": 1732,
+    "speciesWithScientificIndexPageEvidence": 1649,
+    "speciesWithoutExactScientificIndexPageMatch": 83,
+    "speciesVerifiedByNumberedEntryOrManualReview": 83,
+    "familiesWithGeneralKeyGroups": 101,
+    "issueCounts": {},
+    "warningCounts": {
+      "scientificIndexPageAnomalies": 1
+    },
+    "blockingIssues": 0,
+    "reviewWarnings": 1
+  },
+  "issues": {},
+  "warnings": {
+    "scientificIndexPageAnomalies": [
+      {
+        "speciesId": "ed2_desmanthus_depressus",
+        "scientificName": "Desmanthus depressus var. acuminatus",
+        "family": "Leguminosae",
+        "indexPages": [
+          310
+        ],
+        "familyPageRange": [
+          315,
+          356
+        ],
+        "manualEntryStatus": "confirmed_in_entry",
+        "manualEntry": "D. depressus var. acuminatus (Benth.) Burk"
+      }
+    ]
+  },
+  "families": [
+    {
+      "number": 1,
+      "roman": "I",
+      "family": "Selaginellaceae",
+      "manualStartPage": 21,
+      "indexStartPage": null,
+      "nodePageRange": [
+        22,
+        22
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 3,
+      "status": "confirmed"
+    },
+    {
+      "number": 2,
+      "roman": "II",
+      "family": "Isoetaceae",
+      "manualStartPage": 22,
+      "indexStartPage": 22,
+      "nodePageRange": [
+        22,
+        22
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 3,
+      "roman": "III",
+      "family": "Equisetaceae",
+      "manualStartPage": 23,
+      "indexStartPage": 23,
+      "nodePageRange": [
+        23,
+        23
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 4,
+      "roman": "IV",
+      "family": "Ophioglossaceae",
+      "manualStartPage": 23,
+      "indexStartPage": 23,
+      "nodePageRange": [
+        24,
+        24
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 5,
+      "roman": "V",
+      "family": "Osmundaceae",
+      "manualStartPage": 25,
+      "indexStartPage": 25,
+      "nodePageRange": [
+        25,
+        25
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 6,
+      "roman": "VI",
+      "family": "Schizaeaceae",
+      "manualStartPage": 27,
+      "indexStartPage": 27,
+      "nodePageRange": [
+        27,
+        27
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 7,
+      "roman": "VII",
+      "family": "Dennstaedtiaceae",
+      "manualStartPage": 27,
+      "indexStartPage": 27,
+      "nodePageRange": [
+        27,
+        27
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 8,
+      "roman": "VIII",
+      "family": "Adiantaceae",
+      "manualStartPage": 29,
+      "indexStartPage": 29,
+      "nodePageRange": [
+        29,
+        33
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 14,
+      "status": "confirmed"
+    },
+    {
+      "number": 9,
+      "roman": "IX",
+      "family": "Davalliaceae",
+      "manualStartPage": 34,
+      "indexStartPage": 34,
+      "nodePageRange": [
+        34,
+        34
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 10,
+      "roman": "X",
+      "family": "Polypodiaceae",
+      "manualStartPage": 34,
+      "indexStartPage": 34,
+      "nodePageRange": [
+        35,
+        35
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 5,
+      "status": "confirmed"
+    },
+    {
+      "number": 11,
+      "roman": "XI",
+      "family": "Aspidiaceae",
+      "manualStartPage": 37,
+      "indexStartPage": 37,
+      "nodePageRange": [
+        37,
+        37
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 4,
+      "status": "confirmed"
+    },
+    {
+      "number": 12,
+      "roman": "XII",
+      "family": "Aspleniaceae",
+      "manualStartPage": 38,
+      "indexStartPage": 38,
+      "nodePageRange": [
+        39,
+        39
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 13,
+      "roman": "XIII",
+      "family": "Athyriaceae",
+      "manualStartPage": 39,
+      "indexStartPage": 39,
+      "nodePageRange": [
+        39,
+        39
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 14,
+      "roman": "XIV",
+      "family": "Thelypteridaceae",
+      "manualStartPage": 40,
+      "indexStartPage": 40,
+      "nodePageRange": [
+        40,
+        41
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 6,
+      "status": "confirmed"
+    },
+    {
+      "number": 15,
+      "roman": "XV",
+      "family": "Lomariopsidaceae",
+      "manualStartPage": 42,
+      "indexStartPage": 42,
+      "nodePageRange": [
+        42,
+        42
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 16,
+      "roman": "XVI",
+      "family": "Blechnaceae",
+      "manualStartPage": 43,
+      "indexStartPage": 43,
+      "nodePageRange": [
+        43,
+        43
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 4,
+      "status": "confirmed"
+    },
+    {
+      "number": 17,
+      "roman": "XVII",
+      "family": "Marsileaceae",
+      "manualStartPage": 44,
+      "indexStartPage": 44,
+      "nodePageRange": [
+        44,
+        44
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 18,
+      "roman": "XVIII",
+      "family": "Salviniaceae",
+      "manualStartPage": 45,
+      "indexStartPage": 45,
+      "nodePageRange": [
+        45,
+        45
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 19,
+      "roman": "XIX",
+      "family": "Azollaceae",
+      "manualStartPage": 46,
+      "indexStartPage": 46,
+      "nodePageRange": [
+        47,
+        47
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 20,
+      "roman": "XX",
+      "family": "Ephedraceae",
+      "manualStartPage": 48,
+      "indexStartPage": 48,
+      "nodePageRange": [
+        48,
+        48
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 21,
+      "roman": "XXI",
+      "family": "Typhaceae",
+      "manualStartPage": 48,
+      "indexStartPage": 48,
+      "nodePageRange": [
+        49,
+        50
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 3,
+      "status": "confirmed"
+    },
+    {
+      "number": 22,
+      "roman": "XXII",
+      "family": "Potamogetonaceae",
+      "manualStartPage": 51,
+      "indexStartPage": 51,
+      "nodePageRange": [
+        50,
+        53
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 8,
+      "status": "confirmed"
+    },
+    {
+      "number": 23,
+      "roman": "XXIII",
+      "family": "Zannichelliaceae",
+      "manualStartPage": 53,
+      "indexStartPage": 53,
+      "nodePageRange": [
+        54,
+        54
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 24,
+      "roman": "XXIV",
+      "family": "Juncaginaceae",
+      "manualStartPage": 54,
+      "indexStartPage": 54,
+      "nodePageRange": [
+        54,
+        54
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 3,
+      "status": "confirmed"
+    },
+    {
+      "number": 25,
+      "roman": "XXV",
+      "family": "Alismataceae",
+      "manualStartPage": 56,
+      "indexStartPage": 56,
+      "nodePageRange": [
+        56,
+        58
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 5,
+      "status": "confirmed"
+    },
+    {
+      "number": 26,
+      "roman": "XXVI",
+      "family": "Butomaceae",
+      "manualStartPage": 59,
+      "indexStartPage": 59,
+      "nodePageRange": [
+        59,
+        59
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 27,
+      "roman": "XXVII",
+      "family": "Hydrocharitaceae",
+      "manualStartPage": 60,
+      "indexStartPage": 60,
+      "nodePageRange": [
+        60,
+        63
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 5,
+      "status": "confirmed"
+    },
+    {
+      "number": 28,
+      "roman": "XXVIII",
+      "family": "Gramineae",
+      "manualStartPage": 63,
+      "indexStartPage": 63,
+      "nodePageRange": [
+        65,
+        150
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 317,
+      "status": "confirmed"
+    },
+    {
+      "number": 29,
+      "roman": "XXIX",
+      "family": "Cyperaceae",
+      "manualStartPage": 151,
+      "indexStartPage": 151,
+      "nodePageRange": [
+        154,
+        166
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 71,
+      "status": "confirmed"
+    },
+    {
+      "number": 30,
+      "roman": "XXX",
+      "family": "Palmae",
+      "manualStartPage": 169,
+      "indexStartPage": 169,
+      "nodePageRange": [
+        169,
+        169
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 31,
+      "roman": "XXXI",
+      "family": "Araceae",
+      "manualStartPage": 170,
+      "indexStartPage": 170,
+      "nodePageRange": [
+        170,
+        170
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 32,
+      "roman": "XXXII",
+      "family": "Lemnaceae",
+      "manualStartPage": 171,
+      "indexStartPage": 171,
+      "nodePageRange": [
+        172,
+        175
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 10,
+      "status": "confirmed"
+    },
+    {
+      "number": 33,
+      "roman": "XXXIII",
+      "family": "Bromeliaceae",
+      "manualStartPage": 175,
+      "indexStartPage": 175,
+      "nodePageRange": [
+        175,
+        176
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 5,
+      "status": "confirmed"
+    },
+    {
+      "number": 34,
+      "roman": "XXXIV",
+      "family": "Commelinaceae",
+      "manualStartPage": 177,
+      "indexStartPage": 177,
+      "nodePageRange": [
+        177,
+        180
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 6,
+      "status": "confirmed"
+    },
+    {
+      "number": 35,
+      "roman": "XXXV",
+      "family": "Pontederiaceae",
+      "manualStartPage": 179,
+      "indexStartPage": 179,
+      "nodePageRange": [
+        181,
+        183
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 5,
+      "status": "confirmed"
+    },
+    {
+      "number": 36,
+      "roman": "XXXVI",
+      "family": "Juncaceae",
+      "manualStartPage": 183,
+      "indexStartPage": 183,
+      "nodePageRange": [
+        184,
+        186
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 15,
+      "status": "confirmed"
+    },
+    {
+      "number": 37,
+      "roman": "XXXVII",
+      "family": "Liliaceae",
+      "manualStartPage": 187,
+      "indexStartPage": 187,
+      "nodePageRange": [
+        187,
+        192
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 14,
+      "status": "confirmed"
+    },
+    {
+      "number": 38,
+      "roman": "XXXVIII",
+      "family": "Amaryllidaceae",
+      "manualStartPage": 193,
+      "indexStartPage": 193,
+      "nodePageRange": [
+        193,
+        196
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 9,
+      "status": "confirmed"
+    },
+    {
+      "number": 39,
+      "roman": "XXXIX",
+      "family": "Dioscoreaceae",
+      "manualStartPage": 198,
+      "indexStartPage": 198,
+      "nodePageRange": [
+        198,
+        198
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 40,
+      "roman": "XL",
+      "family": "Iridaceae",
+      "manualStartPage": 199,
+      "indexStartPage": 199,
+      "nodePageRange": [
+        199,
+        203
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 17,
+      "status": "confirmed"
+    },
+    {
+      "number": 41,
+      "roman": "XLI",
+      "family": "Zingiberaceae",
+      "manualStartPage": 204,
+      "indexStartPage": 204,
+      "nodePageRange": [
+        204,
+        204
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 42,
+      "roman": "XLII",
+      "family": "Cannaceae",
+      "manualStartPage": 206,
+      "indexStartPage": 206,
+      "nodePageRange": [
+        206,
+        206
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 43,
+      "roman": "XLIII",
+      "family": "Marantaceae",
+      "manualStartPage": 207,
+      "indexStartPage": 207,
+      "nodePageRange": [
+        207,
+        207
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 44,
+      "roman": "XLIV",
+      "family": "Orchidaceae",
+      "manualStartPage": 208,
+      "indexStartPage": 208,
+      "nodePageRange": [
+        208,
+        217
+      ],
+      "expectedGroups": [],
+      "routeGroups": [],
+      "speciesCount": 17,
+      "status": "confirmed"
+    },
+    {
+      "number": 45,
+      "roman": "XLV",
+      "family": "Piperaceae",
+      "manualStartPage": 218,
+      "indexStartPage": 218,
+      "nodePageRange": [
+        218,
+        218
+      ],
+      "expectedGroups": [
+        "A"
+      ],
+      "routeGroups": [
+        "A"
+      ],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 46,
+      "roman": "XLVI",
+      "family": "Salicaceae",
+      "manualStartPage": 219,
+      "indexStartPage": 219,
+      "nodePageRange": [
+        220,
+        220
+      ],
+      "expectedGroups": [
+        "A"
+      ],
+      "routeGroups": [
+        "A"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 47,
+      "roman": "XLVII",
+      "family": "Ulmaceae",
+      "manualStartPage": 221,
+      "indexStartPage": 221,
+      "nodePageRange": [
+        221,
+        221
+      ],
+      "expectedGroups": [
+        "B"
+      ],
+      "routeGroups": [
+        "B"
+      ],
+      "speciesCount": 3,
+      "status": "confirmed"
+    },
+    {
+      "number": 48,
+      "roman": "XLVIII",
+      "family": "Moraceae",
+      "manualStartPage": 222,
+      "indexStartPage": 222,
+      "nodePageRange": [
+        222,
+        222
+      ],
+      "expectedGroups": [
+        "B"
+      ],
+      "routeGroups": [
+        "B"
+      ],
+      "speciesCount": 3,
+      "status": "confirmed"
+    },
+    {
+      "number": 49,
+      "roman": "XLIX",
+      "family": "Cannabinaceae",
+      "manualStartPage": 225,
+      "indexStartPage": 225,
+      "nodePageRange": [
+        225,
+        225
+      ],
+      "expectedGroups": [
+        "B"
+      ],
+      "routeGroups": [
+        "B"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 50,
+      "roman": "L",
+      "family": "Urticaceae",
+      "manualStartPage": 225,
+      "indexStartPage": 225,
+      "nodePageRange": [
+        226,
+        227
+      ],
+      "expectedGroups": [
+        "B"
+      ],
+      "routeGroups": [
+        "B"
+      ],
+      "speciesCount": 7,
+      "status": "confirmed"
+    },
+    {
+      "number": 51,
+      "roman": "LI",
+      "family": "Santalaceae",
+      "manualStartPage": 228,
+      "indexStartPage": 228,
+      "nodePageRange": [
+        228,
+        228
+      ],
+      "expectedGroups": [
+        "B",
+        "E"
+      ],
+      "routeGroups": [
+        "B",
+        "E"
+      ],
+      "speciesCount": 3,
+      "status": "confirmed"
+    },
+    {
+      "number": 52,
+      "roman": "LII",
+      "family": "Loranthaceae",
+      "manualStartPage": 231,
+      "indexStartPage": 231,
+      "nodePageRange": [
+        231,
+        231
+      ],
+      "expectedGroups": [
+        "D"
+      ],
+      "routeGroups": [
+        "D"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 53,
+      "roman": "LIII",
+      "family": "Aristolochiaceae",
+      "manualStartPage": 233,
+      "indexStartPage": 233,
+      "nodePageRange": [
+        233,
+        233
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 4,
+      "status": "confirmed"
+    },
+    {
+      "number": 54,
+      "roman": "LIV",
+      "family": "Polygonaceae",
+      "manualStartPage": 235,
+      "indexStartPage": 235,
+      "nodePageRange": [
+        235,
+        239
+      ],
+      "expectedGroups": [
+        "B",
+        "C"
+      ],
+      "routeGroups": [
+        "B",
+        "C"
+      ],
+      "speciesCount": 28,
+      "status": "confirmed"
+    },
+    {
+      "number": 55,
+      "roman": "LV",
+      "family": "Chenopodiaceae",
+      "manualStartPage": 241,
+      "indexStartPage": 241,
+      "nodePageRange": [
+        241,
+        246
+      ],
+      "expectedGroups": [
+        "B"
+      ],
+      "routeGroups": [
+        "B"
+      ],
+      "speciesCount": 18,
+      "status": "confirmed"
+    },
+    {
+      "number": 56,
+      "roman": "LVI",
+      "family": "Amaranthaceae",
+      "manualStartPage": 247,
+      "indexStartPage": 247,
+      "nodePageRange": [
+        247,
+        254
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 23,
+      "status": "confirmed"
+    },
+    {
+      "number": 57,
+      "roman": "LVII",
+      "family": "Nyctaginaceae",
+      "manualStartPage": 255,
+      "indexStartPage": 255,
+      "nodePageRange": [
+        255,
+        255
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 58,
+      "roman": "LVIII",
+      "family": "Phytolaccaceae",
+      "manualStartPage": 256,
+      "indexStartPage": 256,
+      "nodePageRange": [
+        256,
+        257
+      ],
+      "expectedGroups": [
+        "B",
+        "C"
+      ],
+      "routeGroups": [
+        "B",
+        "C"
+      ],
+      "speciesCount": 4,
+      "status": "confirmed"
+    },
+    {
+      "number": 59,
+      "roman": "LIX",
+      "family": "Aizoaceae",
+      "manualStartPage": 259,
+      "indexStartPage": 259,
+      "nodePageRange": [
+        259,
+        259
+      ],
+      "expectedGroups": [
+        "B",
+        "C"
+      ],
+      "routeGroups": [
+        "B",
+        "C"
+      ],
+      "speciesCount": 5,
+      "status": "confirmed"
+    },
+    {
+      "number": 60,
+      "roman": "LX",
+      "family": "Portulacaceae",
+      "manualStartPage": 262,
+      "indexStartPage": 262,
+      "nodePageRange": [
+        262,
+        263
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 7,
+      "status": "confirmed"
+    },
+    {
+      "number": 61,
+      "roman": "LXI",
+      "family": "Basellaceae",
+      "manualStartPage": 264,
+      "indexStartPage": 264,
+      "nodePageRange": [
+        264,
+        264
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 62,
+      "roman": "LXII",
+      "family": "Caryophyllaceae",
+      "manualStartPage": 266,
+      "indexStartPage": 266,
+      "nodePageRange": [
+        266,
+        275
+      ],
+      "expectedGroups": [
+        "B",
+        "C"
+      ],
+      "routeGroups": [
+        "B",
+        "C"
+      ],
+      "speciesCount": 31,
+      "status": "confirmed"
+    },
+    {
+      "number": 63,
+      "roman": "LXIII",
+      "family": "Nymphaeaceae",
+      "manualStartPage": 276,
+      "indexStartPage": 276,
+      "nodePageRange": [
+        276,
+        276
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 64,
+      "roman": "LXIV",
+      "family": "Ceratophyllaceae",
+      "manualStartPage": 278,
+      "indexStartPage": 278,
+      "nodePageRange": [
+        278,
+        278
+      ],
+      "expectedGroups": [
+        "A"
+      ],
+      "routeGroups": [
+        "A"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 65,
+      "roman": "LXV",
+      "family": "Ranunculaceae",
+      "manualStartPage": 278,
+      "indexStartPage": 278,
+      "nodePageRange": [
+        279,
+        281
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 10,
+      "status": "confirmed"
+    },
+    {
+      "number": 66,
+      "roman": "LXVI",
+      "family": "Berberidaceae",
+      "manualStartPage": 282,
+      "indexStartPage": 282,
+      "nodePageRange": [
+        282,
+        282
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 67,
+      "roman": "LXVII",
+      "family": "Lauraceae",
+      "manualStartPage": 284,
+      "indexStartPage": 284,
+      "nodePageRange": [
+        284,
+        284
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 68,
+      "roman": "LXVIII",
+      "family": "Papaveraceae",
+      "manualStartPage": 286,
+      "indexStartPage": 286,
+      "nodePageRange": [
+        286,
+        288
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 7,
+      "status": "confirmed"
+    },
+    {
+      "number": 69,
+      "roman": "LXIX",
+      "family": "Capparidaceae",
+      "manualStartPage": 289,
+      "indexStartPage": 289,
+      "nodePageRange": [
+        290,
+        290
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 3,
+      "status": "confirmed"
+    },
+    {
+      "number": 70,
+      "roman": "LXX",
+      "family": "Cruciferae",
+      "manualStartPage": 290,
+      "indexStartPage": 290,
+      "nodePageRange": [
+        292,
+        306
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 45,
+      "status": "confirmed"
+    },
+    {
+      "number": 71,
+      "roman": "LXXI",
+      "family": "Resedaceae",
+      "manualStartPage": 306,
+      "indexStartPage": 306,
+      "nodePageRange": [
+        307,
+        307
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 72,
+      "roman": "LXXII",
+      "family": "Crassulaceae",
+      "manualStartPage": 307,
+      "indexStartPage": 307,
+      "nodePageRange": [
+        308,
+        308
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 73,
+      "roman": "LXXIII",
+      "family": "Saxifragaceae",
+      "manualStartPage": 308,
+      "indexStartPage": 308,
+      "nodePageRange": [
+        309,
+        309
+      ],
+      "expectedGroups": [
+        "D"
+      ],
+      "routeGroups": [
+        "D"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 74,
+      "roman": "LXXIV",
+      "family": "Rosaceae",
+      "manualStartPage": 309,
+      "indexStartPage": 309,
+      "nodePageRange": [
+        310,
+        311
+      ],
+      "expectedGroups": [
+        "B",
+        "C"
+      ],
+      "routeGroups": [
+        "B",
+        "C"
+      ],
+      "speciesCount": 7,
+      "status": "confirmed"
+    },
+    {
+      "number": 75,
+      "roman": "LXXV",
+      "family": "Leguminosae",
+      "manualStartPage": 315,
+      "indexStartPage": 315,
+      "nodePageRange": [
+        315,
+        355
+      ],
+      "expectedGroups": [
+        "C",
+        "E"
+      ],
+      "routeGroups": [
+        "C",
+        "E"
+      ],
+      "speciesCount": 108,
+      "status": "confirmed"
+    },
+    {
+      "number": 76,
+      "roman": "LXXVI",
+      "family": "Oxalidaceae",
+      "manualStartPage": 356,
+      "indexStartPage": 356,
+      "nodePageRange": [
+        357,
+        359
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 15,
+      "status": "confirmed"
+    },
+    {
+      "number": 77,
+      "roman": "LXXVII",
+      "family": "Geraniaceae",
+      "manualStartPage": 359,
+      "indexStartPage": 359,
+      "nodePageRange": [
+        360,
+        362
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 8,
+      "status": "confirmed"
+    },
+    {
+      "number": 78,
+      "roman": "LXXVIII",
+      "family": "Tropaeolaceae",
+      "manualStartPage": 362,
+      "indexStartPage": 362,
+      "nodePageRange": [
+        363,
+        363
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 79,
+      "roman": "LXXIX",
+      "family": "Linaceae",
+      "manualStartPage": 364,
+      "indexStartPage": 364,
+      "nodePageRange": [
+        364,
+        364
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 3,
+      "status": "confirmed"
+    },
+    {
+      "number": 80,
+      "roman": "LXXX",
+      "family": "Zygophyllaceae",
+      "manualStartPage": 365,
+      "indexStartPage": 365,
+      "nodePageRange": [
+        365,
+        365
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 81,
+      "roman": "LXXXI",
+      "family": "Rutaceae",
+      "manualStartPage": 367,
+      "indexStartPage": 367,
+      "nodePageRange": [
+        367,
+        368
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 4,
+      "status": "confirmed"
+    },
+    {
+      "number": 82,
+      "roman": "LXXXII",
+      "family": "Malpighiaceae",
+      "manualStartPage": 369,
+      "indexStartPage": 369,
+      "nodePageRange": [
+        369,
+        369
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 4,
+      "status": "confirmed"
+    },
+    {
+      "number": 83,
+      "roman": "LXXXIII",
+      "family": "Polygalaceae",
+      "manualStartPage": 372,
+      "indexStartPage": 372,
+      "nodePageRange": [
+        372,
+        373
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 9,
+      "status": "confirmed"
+    },
+    {
+      "number": 84,
+      "roman": "LXXXIV",
+      "family": "Euphorbiaceae",
+      "manualStartPage": 375,
+      "indexStartPage": 375,
+      "nodePageRange": [
+        375,
+        386
+      ],
+      "expectedGroups": [
+        "A",
+        "B",
+        "C"
+      ],
+      "routeGroups": [
+        "A",
+        "B",
+        "C"
+      ],
+      "speciesCount": 37,
+      "status": "confirmed"
+    },
+    {
+      "number": 85,
+      "roman": "LXXXV",
+      "family": "Callitrichaceae",
+      "manualStartPage": 388,
+      "indexStartPage": 388,
+      "nodePageRange": [
+        388,
+        390
+      ],
+      "expectedGroups": [
+        "A"
+      ],
+      "routeGroups": [
+        "A"
+      ],
+      "speciesCount": 5,
+      "status": "confirmed"
+    },
+    {
+      "number": 86,
+      "roman": "LXXXVI",
+      "family": "Anacardiaceae",
+      "manualStartPage": 390,
+      "indexStartPage": 390,
+      "nodePageRange": [
+        390,
+        390
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 87,
+      "roman": "LXXXVII",
+      "family": "Celastraceae",
+      "manualStartPage": 391,
+      "indexStartPage": 391,
+      "nodePageRange": [
+        391,
+        392
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 3,
+      "status": "confirmed"
+    },
+    {
+      "number": 88,
+      "roman": "LXXXVIII",
+      "family": "Aceraceae",
+      "manualStartPage": 393,
+      "indexStartPage": 393,
+      "nodePageRange": [
+        393,
+        393
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 89,
+      "roman": "LXXXIX",
+      "family": "Sapindaceae",
+      "manualStartPage": 394,
+      "indexStartPage": 394,
+      "nodePageRange": [
+        394,
+        397
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 6,
+      "status": "confirmed"
+    },
+    {
+      "number": 90,
+      "roman": "XC",
+      "family": "Rhamnaceae",
+      "manualStartPage": 398,
+      "indexStartPage": 398,
+      "nodePageRange": [
+        398,
+        400
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 7,
+      "status": "confirmed"
+    },
+    {
+      "number": 91,
+      "roman": "XCI",
+      "family": "Vitaceae",
+      "manualStartPage": 401,
+      "indexStartPage": 401,
+      "nodePageRange": [
+        401,
+        401
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 92,
+      "roman": "XCII",
+      "family": "Tiliaceae",
+      "manualStartPage": 403,
+      "indexStartPage": 403,
+      "nodePageRange": [
+        403,
+        403
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 93,
+      "roman": "XCIII",
+      "family": "Malvaceae",
+      "manualStartPage": 404,
+      "indexStartPage": 404,
+      "nodePageRange": [
+        404,
+        415
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 31,
+      "status": "confirmed"
+    },
+    {
+      "number": 94,
+      "roman": "XCIV",
+      "family": "Sterculiaceae",
+      "manualStartPage": 417,
+      "indexStartPage": 417,
+      "nodePageRange": [
+        417,
+        417
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 95,
+      "roman": "XCV",
+      "family": "Guttiferae",
+      "manualStartPage": 419,
+      "indexStartPage": 419,
+      "nodePageRange": [
+        419,
+        419
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 4,
+      "status": "confirmed"
+    },
+    {
+      "number": 96,
+      "roman": "XCVI",
+      "family": "Elatinaceae",
+      "manualStartPage": 420,
+      "indexStartPage": 420,
+      "nodePageRange": [
+        420,
+        420
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 97,
+      "roman": "XCVII",
+      "family": "Frankeniaceae",
+      "manualStartPage": 421,
+      "indexStartPage": 421,
+      "nodePageRange": [
+        421,
+        421
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 98,
+      "roman": "XCVIII",
+      "family": "Cistaceae",
+      "manualStartPage": 423,
+      "indexStartPage": 423,
+      "nodePageRange": [
+        423,
+        423
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 99,
+      "roman": "XCIX",
+      "family": "Violaceae",
+      "manualStartPage": 424,
+      "indexStartPage": 424,
+      "nodePageRange": [
+        424,
+        426
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 5,
+      "status": "confirmed"
+    },
+    {
+      "number": 100,
+      "roman": "C",
+      "family": "Turneraceae",
+      "manualStartPage": 426,
+      "indexStartPage": 426,
+      "nodePageRange": [
+        426,
+        426
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 101,
+      "roman": "CI",
+      "family": "Passifloraceae",
+      "manualStartPage": 428,
+      "indexStartPage": 428,
+      "nodePageRange": [
+        428,
+        428
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 102,
+      "roman": "CII",
+      "family": "Loasaceae",
+      "manualStartPage": 430,
+      "indexStartPage": 430,
+      "nodePageRange": [
+        430,
+        430
+      ],
+      "expectedGroups": [
+        "D"
+      ],
+      "routeGroups": [
+        "D"
+      ],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 103,
+      "roman": "CIII",
+      "family": "Begoniaceae",
+      "manualStartPage": 432,
+      "indexStartPage": 432,
+      "nodePageRange": [
+        432,
+        432
+      ],
+      "expectedGroups": [
+        "D"
+      ],
+      "routeGroups": [
+        "D"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 104,
+      "roman": "CIV",
+      "family": "Cactaceae",
+      "manualStartPage": 433,
+      "indexStartPage": 433,
+      "nodePageRange": [
+        433,
+        436
+      ],
+      "expectedGroups": [
+        "D"
+      ],
+      "routeGroups": [
+        "D"
+      ],
+      "speciesCount": 11,
+      "status": "confirmed"
+    },
+    {
+      "number": 105,
+      "roman": "CV",
+      "family": "Thymelaeaceae",
+      "manualStartPage": 439,
+      "indexStartPage": 439,
+      "nodePageRange": [
+        439,
+        439
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 106,
+      "roman": "CVI",
+      "family": "Lythraceae",
+      "manualStartPage": 440,
+      "indexStartPage": 440,
+      "nodePageRange": [
+        440,
+        442
+      ],
+      "expectedGroups": [
+        "C"
+      ],
+      "routeGroups": [
+        "C"
+      ],
+      "speciesCount": 6,
+      "status": "confirmed"
+    },
+    {
+      "number": 107,
+      "roman": "CVII",
+      "family": "Combretaceae",
+      "manualStartPage": 443,
+      "indexStartPage": 443,
+      "nodePageRange": [
+        443,
+        443
+      ],
+      "expectedGroups": [
+        "D"
+      ],
+      "routeGroups": [
+        "D"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 108,
+      "roman": "CVIII",
+      "family": "Myrtaceae",
+      "manualStartPage": 444,
+      "indexStartPage": 444,
+      "nodePageRange": [
+        444,
+        444
+      ],
+      "expectedGroups": [
+        "D"
+      ],
+      "routeGroups": [
+        "D"
+      ],
+      "speciesCount": 4,
+      "status": "confirmed"
+    },
+    {
+      "number": 109,
+      "roman": "CIX",
+      "family": "Melastomataceae",
+      "manualStartPage": 447,
+      "indexStartPage": 447,
+      "nodePageRange": [
+        447,
+        447
+      ],
+      "expectedGroups": [
+        "D"
+      ],
+      "routeGroups": [
+        "D"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 110,
+      "roman": "CX",
+      "family": "Onagraceae",
+      "manualStartPage": 449,
+      "indexStartPage": 449,
+      "nodePageRange": [
+        449,
+        451
+      ],
+      "expectedGroups": [
+        "D"
+      ],
+      "routeGroups": [
+        "D"
+      ],
+      "speciesCount": 14,
+      "status": "confirmed"
+    },
+    {
+      "number": 111,
+      "roman": "CXI",
+      "family": "Haloragaceae",
+      "manualStartPage": 453,
+      "indexStartPage": 453,
+      "nodePageRange": [
+        453,
+        453
+      ],
+      "expectedGroups": [
+        "D"
+      ],
+      "routeGroups": [
+        "D"
+      ],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 112,
+      "roman": "CXII",
+      "family": "Araliaceae",
+      "manualStartPage": 454,
+      "indexStartPage": 454,
+      "nodePageRange": [
+        454,
+        454
+      ],
+      "expectedGroups": [
+        "D"
+      ],
+      "routeGroups": [
+        "D"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 113,
+      "roman": "CXIII",
+      "family": "Umbelliferae",
+      "manualStartPage": 455,
+      "indexStartPage": 455,
+      "nodePageRange": [
+        455,
+        468
+      ],
+      "expectedGroups": [
+        "D"
+      ],
+      "routeGroups": [
+        "D"
+      ],
+      "speciesCount": 44,
+      "status": "confirmed"
+    },
+    {
+      "number": 114,
+      "roman": "CXIV",
+      "family": "Myrsinaceae",
+      "manualStartPage": 471,
+      "indexStartPage": 471,
+      "nodePageRange": [
+        471,
+        471
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 115,
+      "roman": "CXV",
+      "family": "Primulaceae",
+      "manualStartPage": 471,
+      "indexStartPage": 471,
+      "nodePageRange": [
+        471,
+        471
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 4,
+      "status": "confirmed"
+    },
+    {
+      "number": 116,
+      "roman": "CXVI",
+      "family": "Plumbaginaceae",
+      "manualStartPage": 475,
+      "indexStartPage": 475,
+      "nodePageRange": [
+        475,
+        475
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 117,
+      "roman": "CXVII",
+      "family": "Sapotaceae",
+      "manualStartPage": 476,
+      "indexStartPage": 476,
+      "nodePageRange": [
+        476,
+        476
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 118,
+      "roman": "CXVIII",
+      "family": "Symplocaceae",
+      "manualStartPage": 478,
+      "indexStartPage": 478,
+      "nodePageRange": [
+        478,
+        478
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 119,
+      "roman": "CXIX",
+      "family": "Oleaceae",
+      "manualStartPage": 479,
+      "indexStartPage": 479,
+      "nodePageRange": [
+        479,
+        480
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 3,
+      "status": "confirmed"
+    },
+    {
+      "number": 120,
+      "roman": "CXX",
+      "family": "Loganiaceae",
+      "manualStartPage": 480,
+      "indexStartPage": 480,
+      "nodePageRange": [
+        480,
+        480
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 121,
+      "roman": "CXXI",
+      "family": "Buddlejaceae",
+      "manualStartPage": 481,
+      "indexStartPage": 481,
+      "nodePageRange": [
+        481,
+        482
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 4,
+      "status": "confirmed"
+    },
+    {
+      "number": 122,
+      "roman": "CXXII",
+      "family": "Gentianaceae",
+      "manualStartPage": 482,
+      "indexStartPage": 482,
+      "nodePageRange": [
+        482,
+        482
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 4,
+      "status": "confirmed"
+    },
+    {
+      "number": 123,
+      "roman": "CXXIII",
+      "family": "Menyanthaceae",
+      "manualStartPage": 486,
+      "indexStartPage": 486,
+      "nodePageRange": [
+        486,
+        486
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 124,
+      "roman": "CXXIV",
+      "family": "Apocynaceae",
+      "manualStartPage": 486,
+      "indexStartPage": 486,
+      "nodePageRange": [
+        486,
+        486
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 125,
+      "roman": "CXXV",
+      "family": "Asclepiadaceae",
+      "manualStartPage": 489,
+      "indexStartPage": 489,
+      "nodePageRange": [
+        489,
+        495
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 20,
+      "status": "confirmed"
+    },
+    {
+      "number": 126,
+      "roman": "CXXVI",
+      "family": "Convolvulaceae",
+      "manualStartPage": 498,
+      "indexStartPage": 498,
+      "nodePageRange": [
+        498,
+        506
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 30,
+      "status": "confirmed"
+    },
+    {
+      "number": 127,
+      "roman": "CXXVII",
+      "family": "Hydrophyllaceae",
+      "manualStartPage": 507,
+      "indexStartPage": 507,
+      "nodePageRange": [
+        507,
+        507
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 128,
+      "roman": "CXXVIII",
+      "family": "Boraginaceae",
+      "manualStartPage": 508,
+      "indexStartPage": 508,
+      "nodePageRange": [
+        508,
+        511
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 12,
+      "status": "confirmed"
+    },
+    {
+      "number": 129,
+      "roman": "CXXIX",
+      "family": "Verbenaceae",
+      "manualStartPage": 516,
+      "indexStartPage": 516,
+      "nodePageRange": [
+        516,
+        526
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 20,
+      "status": "confirmed"
+    },
+    {
+      "number": 130,
+      "roman": "CXXX",
+      "family": "Labiatae",
+      "manualStartPage": 526,
+      "indexStartPage": 526,
+      "nodePageRange": [
+        526,
+        538
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 31,
+      "status": "confirmed"
+    },
+    {
+      "number": 131,
+      "roman": "CXXXI",
+      "family": "Solanaceae",
+      "manualStartPage": 539,
+      "indexStartPage": 539,
+      "nodePageRange": [
+        539,
+        551
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 52,
+      "status": "confirmed"
+    },
+    {
+      "number": 132,
+      "roman": "CXXXII",
+      "family": "Scrophulariaceae",
+      "manualStartPage": 555,
+      "indexStartPage": 555,
+      "nodePageRange": [
+        555,
+        564
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 30,
+      "status": "confirmed"
+    },
+    {
+      "number": 133,
+      "roman": "CXXXIII",
+      "family": "Bignoniaceae",
+      "manualStartPage": 567,
+      "indexStartPage": 567,
+      "nodePageRange": [
+        567,
+        568
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 3,
+      "status": "confirmed"
+    },
+    {
+      "number": 134,
+      "roman": "CXXXIV",
+      "family": "Martiniaceae",
+      "manualStartPage": 569,
+      "indexStartPage": 569,
+      "nodePageRange": [
+        569,
+        569
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 1,
+      "status": "confirmed"
+    },
+    {
+      "number": 135,
+      "roman": "CXXXV",
+      "family": "Lentibulariaceae",
+      "manualStartPage": 570,
+      "indexStartPage": 570,
+      "nodePageRange": [
+        570,
+        570
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 136,
+      "roman": "CXXXVI",
+      "family": "Acanthaceae",
+      "manualStartPage": 571,
+      "indexStartPage": 571,
+      "nodePageRange": [
+        572,
+        576
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 7,
+      "status": "confirmed"
+    },
+    {
+      "number": 137,
+      "roman": "CXXXVII",
+      "family": "Plantaginaceae",
+      "manualStartPage": 576,
+      "indexStartPage": 576,
+      "nodePageRange": [
+        576,
+        578
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 11,
+      "status": "confirmed"
+    },
+    {
+      "number": 138,
+      "roman": "CXXXVIII",
+      "family": "Rubiaceae",
+      "manualStartPage": 579,
+      "indexStartPage": 579,
+      "nodePageRange": [
+        579,
+        587
+      ],
+      "expectedGroups": [
+        "B",
+        "E"
+      ],
+      "routeGroups": [
+        "B",
+        "E"
+      ],
+      "speciesCount": 26,
+      "status": "confirmed"
+    },
+    {
+      "number": 139,
+      "roman": "CXXXIX",
+      "family": "Caprifoliaceae",
+      "manualStartPage": 590,
+      "indexStartPage": 590,
+      "nodePageRange": [
+        590,
+        590
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 2,
+      "status": "confirmed"
+    },
+    {
+      "number": 140,
+      "roman": "CXL",
+      "family": "Valerianaceae",
+      "manualStartPage": 592,
+      "indexStartPage": 592,
+      "nodePageRange": [
+        592,
+        592
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 3,
+      "status": "confirmed"
+    },
+    {
+      "number": 141,
+      "roman": "CXLI",
+      "family": "Dipsacaceae",
+      "manualStartPage": 593,
+      "indexStartPage": 593,
+      "nodePageRange": [
+        593,
+        593
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 3,
+      "status": "confirmed"
+    },
+    {
+      "number": 142,
+      "roman": "CXLII",
+      "family": "Cucurbitaceae",
+      "manualStartPage": 595,
+      "indexStartPage": 595,
+      "nodePageRange": [
+        595,
+        599
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 11,
+      "status": "confirmed"
+    },
+    {
+      "number": 143,
+      "roman": "CXLIII",
+      "family": "Campanulaceae",
+      "manualStartPage": 603,
+      "indexStartPage": 603,
+      "nodePageRange": [
+        603,
+        603
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 3,
+      "status": "confirmed"
+    },
+    {
+      "number": 144,
+      "roman": "CXLIV",
+      "family": "Calyceraceae",
+      "manualStartPage": 605,
+      "indexStartPage": 605,
+      "nodePageRange": [
+        605,
+        605
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 4,
+      "status": "confirmed"
+    },
+    {
+      "number": 145,
+      "roman": "CXLV",
+      "family": "Compositae",
+      "manualStartPage": 608,
+      "indexStartPage": 608,
+      "nodePageRange": [
+        608,
+        710
+      ],
+      "expectedGroups": [
+        "E"
+      ],
+      "routeGroups": [
+        "E"
+      ],
+      "speciesCount": 279,
+      "status": "confirmed"
+    }
+  ]
+}

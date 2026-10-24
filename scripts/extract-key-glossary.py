@@ -114,10 +114,11 @@ TERM_FIXES = {
     "Ginopódio": "Ginopodio", "Hispidulo": "Hispídulo", "Infero": "Ínfero",
     "Inf.exo": "Inflexo", "Oseo": "Óseo", "Pinná": "Pinna",
     "Pinnatifido": "Pinnatífido", "Pinnulas": "Pínnulas",
+    "Obacoronado": "Obacorazonado",
     "Polifoliculo": "Polifolículo", "Paraclinervado": "Paralelinervado",
     "Radicula": "Radícula", "Scudo-": "Seudo-",
     "Subacaulé": "Subacaule", "Sumiinfero": "Semiínfero", "Tetradas": "Tétradas",
-    "Utriculo": "Utrículo",
+    "Umbelas": "Umbela", "Utriculo": "Utrículo",
 }
 
 TEXT_FIXES = {
@@ -126,7 +127,8 @@ TEXT_FIXES = {
     "cactu y la raquilla": "cactus y la raquilla", "hojas v que lleva": "hojas y que lleva",
     "flor v ejes laterales": "flor y ejes laterales", "lemma v la pálea": "lemma y la pálea",
     "estilo v estigma": "estilo y estigma", "espariguilla": "espiguilla",
-    "fololos": "folíolos", "papilionoidese": "papilionoideas", "po'en": "polen",
+    "fololos": "folíolos", "Gramí neas": "Gramíneas",
+    "papilionoidese": "papilionoideas", "po'en": "polen",
     "unseminado": "uniseminado", "vieazas florales": "piezas florales",
 }
 
@@ -147,12 +149,12 @@ def clean(value: str) -> str:
 
 def source_page(term: str) -> int:
     thresholds = [
-        ("antesis", 714), ("bacciforme", 715), ("cimoso", 716), ("deltoide", 717),
-        ("entomofilo", 718), ("estriado", 719), ("glaberrimo", 720),
-        ("induplicado", 721), ("macollo", 722), ("opuesto", 723),
-        ("perisporio", 724), ("quilla", 725), ("setula", 726), ("unisexual", 727),
+        ("antesis", 712), ("bacciforme", 713), ("cimoso", 714), ("deltoide", 715),
+        ("entomofilo", 716), ("estriado", 717), ("glaberrimo", 718),
+        ("induplicado", 719), ("macollo", 720), ("opuesto", 721),
+        ("perisporio", 722), ("quilla", 723), ("setula", 724), ("unisexual", 725),
     ]
-    key, page = normalized(term), 713
+    key, page = normalized(term), 711
     for boundary, next_page in thresholds:
         if key >= boundary:
             page = next_page
