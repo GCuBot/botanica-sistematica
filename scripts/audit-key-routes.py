@@ -61,6 +61,45 @@ MANUALLY_VERIFIED_NODES = {
     "ed2_baccharis_wing_count",
     "ed2_micropsis",
     "ed2_senecio_glandular",
+    "ed2_carex_long_bracts",
+    "ed2_carex_smooth_utricles",
+}
+MANUALLY_VERIFIED_GENUS_PAGE_NODES = {
+    # Higher taxa are resolved by the artificial key, not by a genus entry.
+    "ed2_spermatophyta_a",
+    "ed2_angiospermae_a",
+    "ed2_monocotyledoneae_a",
+    "ed2_dicotyledoneae_a",
+    "ed2_pteridophyta_a",
+    # Directly checked against the page transcription; the OCR index is wrong.
+    "ed2_erysimum",
+    "ed2_hemarthria",
+}
+MANUALLY_VERIFIED_GENUS_PAGE_PREFIXES = (
+    # The OCR scientific index assigns Cyperus to page 184 instead of 156.
+    "ed2_cyperus",
+    # The Solanum key starts on 540 and legitimately continues through 544.
+    "ed2_solanum_",
+)
+MANUALLY_VERIFIED_MULTI_TERMINAL_SPECIES = {
+    # The printed key intentionally reaches these polymorphic or repeated taxa
+    # from more than one terminal couplet.
+    "ed2_cyperus_reflexus",
+    "ed2_dactylis_glomerata",
+    "ed2_eragrostis_neesii",
+    "ed2_festuca_arundinacea",
+    "ed2_koeleria_permollis",
+    "ed2_senecio_grisebachii",
+    "ed2_senecio_pinnatus",
+    "ed2_solanum_bonariense",
+}
+MANUALLY_VERIFIED_TRANSCRIPT_PAGES = {
+    # Visually checked against the second-edition PDF because the Markdown
+    # transcript does not expose a reliable printed-page anchor for them.
+    8, 96, 97, 98, 119, 176, 177, 251, 263, 295, 297, 304, 305, 357,
+    403, 404, 440, 441, 449, 450, 451, 453, 490, 491, 511, 523, 536,
+    537, 555, 567, 568, 569, 570, 593, 633, 634, 635, 643, 644, 646,
+    647, 655, 656, 658, 659, 660, 661, 679, 680, 695, 696, 710,
 }
 STOPWORDS = {
     "ademas", "alguna", "algunas", "algunos", "ambas", "ambos", "ante", "aquel",
@@ -229,9 +268,12 @@ def audit(
     dangling_species: list[dict[str, Any]] = []
     duplicate_labels: list[dict[str, Any]] = []
     duplicate_targets: list[dict[str, Any]] = []
+    single_action_nodes: list[dict[str, Any]] = []
     low_text_evidence: list[dict[str, Any]] = []
     manually_verified_low_evidence = 0
+    manually_verified_genus_pages = 0
     missing_transcript_pages: set[int] = set()
+    manually_verified_transcript_pages: set[int] = set()
     genus_page_mismatches: list[dict[str, Any]] = []
     incoming: dict[str, list[dict[str, str]]] = defaultdict(list)
     page_token_cache: dict[int, tuple[set[str], set[str]]] = {}
@@ -256,15 +298,22 @@ def audit(
             and isinstance(page, int)
             and abs(page - genus_page) > 3
         ):
-            genus_page_mismatches.append(
-                {
-                    "nodeId": node_key,
-                    "milestone": milestone,
-                    "manualPage": page,
-                    "indexPage": genus_page,
-                    "difference": page - genus_page,
-                }
+            is_verified = (
+                node_key in MANUALLY_VERIFIED_GENUS_PAGE_NODES
+                or node_key.startswith(MANUALLY_VERIFIED_GENUS_PAGE_PREFIXES)
             )
+            if is_verified:
+                manually_verified_genus_pages += 1
+            else:
+                genus_page_mismatches.append(
+                    {
+                        "nodeId": node_key,
+                        "milestone": milestone,
+                        "manualPage": page,
+                        "indexPage": genus_page,
+                        "difference": page - genus_page,
+                    }
+                )
 
         options = [node.get(option_key) or {} for option_key in OPTION_KEYS]
         for option_key, option in zip(OPTION_KEYS, options):
@@ -297,7 +346,10 @@ def audit(
             if isinstance(page, int) and page > 0:
                 page_text = transcript_pages.get(page)
                 if page_text is None:
-                    missing_transcript_pages.add(page)
+                    if page in MANUALLY_VERIFIED_TRANSCRIPT_PAGES:
+                        manually_verified_transcript_pages.add(page)
+                    else:
+                        missing_transcript_pages.add(page)
                 else:
                     evidence_tokens = significant_tokens(
                         f"{node.get('descripcion', '')} {option.get('label', '')}"
@@ -332,7 +384,19 @@ def audit(
                             )
 
         first, second = options
-        if normalize(str(first.get("label", ""))) == normalize(str(second.get("label", ""))):
+        exact_duplicate = all(
+            first.get(field) == second.get(field)
+            for field in ("label", "keyStep", "nextNodeId", "especieId")
+        )
+        if exact_duplicate:
+            single_action_nodes.append(
+                {
+                    "nodeId": node_key,
+                    "label": first.get("label"),
+                    "target": first.get("nextNodeId") or first.get("especieId"),
+                }
+            )
+        elif normalize(str(first.get("label", ""))) == normalize(str(second.get("label", ""))):
             duplicate_labels.append(
                 {
                     "nodeId": node_key,
@@ -345,7 +409,7 @@ def audit(
             )
         first_target = first.get("nextNodeId") or first.get("especieId")
         second_target = second.get("nextNodeId") or second.get("especieId")
-        if first_target and first_target == second_target:
+        if not exact_duplicate and first_target and first_target == second_target:
             duplicate_targets.append(
                 {
                     "nodeId": node_key,
@@ -407,18 +471,28 @@ def audit(
         if species_id not in species_routes
     ]
     multiple_routes = []
+    convergent_routes = []
+    manually_verified_multiple_terminals = []
+    unverified_multiple_terminals = []
     for species_id, routes in species_routes.items():
         if species_id in real_species and len(routes) > 1:
             lengths = [len(route) for route in routes]
-            multiple_routes.append(
-                {
-                    "speciesId": species_id,
-                    "scientificName": real_species[species_id]["nombreCientifico"],
-                    "routeCount": len(routes),
-                    "minimumRouteLength": min(lengths),
-                    "maximumRouteLength": max(lengths),
-                }
-            )
+            terminal_nodes = sorted({route[-1]["nodeId"] for route in routes})
+            item = {
+                "speciesId": species_id,
+                "scientificName": real_species[species_id]["nombreCientifico"],
+                "routeCount": len(routes),
+                "minimumRouteLength": min(lengths),
+                "maximumRouteLength": max(lengths),
+                "terminalNodeIds": terminal_nodes,
+            }
+            multiple_routes.append(item)
+            if len(terminal_nodes) == 1:
+                convergent_routes.append(item)
+            elif species_id in MANUALLY_VERIFIED_MULTI_TERMINAL_SPECIES:
+                manually_verified_multiple_terminals.append(item)
+            else:
+                unverified_multiple_terminals.append(item)
 
     route_lengths = [
         len(route)
@@ -428,11 +502,11 @@ def audit(
     ]
     unreachable_nodes = sorted(set(tree) - reachable_nodes)
     orphan_nodes = sorted(node_id for node_id in tree if node_id != root_id and not incoming[node_id])
-    multiple_incoming = [
-        {"nodeId": node_id, "incoming": referrers}
-        for node_id, referrers in sorted(incoming.items())
-        if len(referrers) > 1
-    ]
+    multiple_incoming = []
+    for node_id, referrers in sorted(incoming.items()):
+        distinct_parents = {referrer["nodeId"] for referrer in referrers}
+        if len(distinct_parents) > 1:
+            multiple_incoming.append({"nodeId": node_id, "incoming": referrers})
     unexpected_terminals = sorted(set(species_routes) - set(real_species))
     blockers = {
         "missingRoot": int(root_id not in tree),
@@ -461,19 +535,27 @@ def audit(
             "routeLengthDistribution": dict(sorted(Counter(route_lengths).items())),
             "blockers": blockers,
             "review": {
-                "nodesWithMultipleIncomingRoutes": sum(
-                    len(referrers) > 1 for referrers in incoming.values()
-                ),
-                "speciesWithMultipleRoutes": len(multiple_routes),
+                "unverifiedMultipleTerminalSpecies": len(unverified_multiple_terminals),
                 "duplicateOptionLabels": len(duplicate_labels),
                 "duplicateOptionTargets": len(duplicate_targets),
                 "malformedNodes": len(malformed_nodes),
                 "orphanNodes": len(orphan_nodes),
                 "unexpectedTerminalTaxa": len(unexpected_terminals),
                 "lowTextEvidenceOptions": len(low_text_evidence),
-                "manuallyVerifiedLowEvidenceOptions": manually_verified_low_evidence,
                 "missingTranscriptPages": len(missing_transcript_pages),
                 "genusPageMismatches": len(genus_page_mismatches),
+            },
+            "verified": {
+                "nodesWithMultipleIncomingRoutes": len(multiple_incoming),
+                "speciesWithMultipleRoutes": len(multiple_routes),
+                "speciesWithConvergentRoutes": len(convergent_routes),
+                "manuallyVerifiedMultipleTerminalSpecies": len(
+                    manually_verified_multiple_terminals
+                ),
+                "singleActionNodes": len(single_action_nodes),
+                "manuallyVerifiedLowEvidenceOptions": manually_verified_low_evidence,
+                "manuallyVerifiedTranscriptPages": len(manually_verified_transcript_pages),
+                "manuallyVerifiedGenusPageMismatches": manually_verified_genus_pages,
             },
         },
         "issues": {
@@ -488,6 +570,9 @@ def audit(
             "nodesWithMultipleIncomingRoutes": multiple_incoming,
             "speciesWithoutRoute": missing_species,
             "speciesWithMultipleRoutes": multiple_routes,
+            "unverifiedMultipleTerminalSpecies": unverified_multiple_terminals,
+            "manuallyVerifiedMultipleTerminalSpecies": manually_verified_multiple_terminals,
+            "singleActionNodes": single_action_nodes,
             "duplicateOptionLabels": duplicate_labels,
             "duplicateOptionTargets": duplicate_targets,
             "unexpectedTerminalTaxa": unexpected_terminals,
@@ -495,6 +580,7 @@ def audit(
                 low_text_evidence, key=lambda item: (item["score"], item["manualPage"], item["nodeId"])
             ),
             "missingTranscriptPages": sorted(missing_transcript_pages),
+            "manuallyVerifiedTranscriptPages": sorted(manually_verified_transcript_pages),
             "genusPageMismatches": sorted(
                 genus_page_mismatches,
                 key=lambda item: (-abs(item["difference"]), item["nodeId"]),
@@ -558,6 +644,9 @@ def main() -> None:
         print(f"  {issue}: {count}")
     print("Review candidates:")
     for issue, count in summary["review"].items():
+        print(f"  {issue}: {count}")
+    print("Verified patterns:")
+    for issue, count in summary["verified"].items():
         print(f"  {issue}: {count}")
     print(f"Audit file: {OUTPUT_PATH}")
 

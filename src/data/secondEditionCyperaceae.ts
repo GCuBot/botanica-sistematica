@@ -793,14 +793,14 @@ export const secondEditionCyperaceaeKeyData: Record<string, CladoNode> = {
   },
   ed2_carex_long_bracts: {
     id: "ed2_carex_long_bracts", milestone: "Carex: bracteas largas", manualPage: 153,
-    descripcion: "¿Los utriculos son papilosos o verrugosos?",
+    descripcion: "¿Los utriculos son papilosos o verrugosos, o cortos?",
     opcionA: { label: "Si; ovado-lanceolados, pajizos, de 3-4,5 mm", keyStep: "G", especieId: "ed2_carex_bonariensis" },
-    opcionA_prima: { label: "No; utriculos lisos", keyStep: "G'", nextNodeId: "ed2_carex_smooth_utricles" },
+    opcionA_prima: { label: "Utriculos cortos", keyStep: "G'", nextNodeId: "ed2_carex_smooth_utricles" },
   },
   ed2_carex_smooth_utricles: {
-    id: "ed2_carex_smooth_utricles", milestone: "Carex: utriculos lisos", manualPage: 153,
+    id: "ed2_carex_smooth_utricles", milestone: "Carex: utriculos cortos", manualPage: 153,
     descripcion: "¿Los utriculos son lanceolados y largamente rostrados o anchamente elipticos?",
-    opcionA: { label: "Lanceolados, pajizos, de 2,5-3 mm y largamente rostrados", keyStep: "H", especieId: "ed2_carex_uruguensis" },
+    opcionA: { label: "Lanceolados, pajizos, glabros, de 2,5-3 mm y largamente rostrados", keyStep: "H", especieId: "ed2_carex_uruguensis" },
     opcionA_prima: { label: "Anchamente elipticos, castaños, de 4-5 mm y con rostro hendido", keyStep: "H'", especieId: "ed2_carex_sororia" },
   },
   ed2_carex_unisexual_indument: {

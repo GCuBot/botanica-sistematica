@@ -1784,7 +1784,7 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     opcionA_prima: { label: "No; espiguillas caducas por separado en panojas laxas", keyStep: "A'", nextNodeId: "ed2_pseudechinolaena_pending" },
   },
   ed2_pseudechinolaena_pending: {
-    id: "ed2_pseudechinolaena_pending", milestone: "Pseudechinolaena", manualPage: 141,
+    id: "ed2_pseudechinolaena_pending", milestone: "Pseudechinolaena", manualPage: 133,
     descripcion: "Pseudechinolaena: única especie tratada para la región.",
     opcionA: { label: "Identificar como Pseudechinolaena polystachya", keyStep: "1", especieId: "ed2_pseudechinolaena_polystachya" },
     opcionA_prima: { label: "Identificar como Pseudechinolaena polystachya", keyStep: "1", especieId: "ed2_pseudechinolaena_polystachya" },
@@ -2172,7 +2172,7 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     opcionA_prima: { label: "No; espiguillas pediceladas en panojas densas o laxas", keyStep: "L'", nextNodeId: "ed2_agrostis" },
   },
   ed2_gymnopogon_pending: {
-    id: "ed2_gymnopogon_pending", milestone: "Gymnopogon", manualPage: 112,
+    id: "ed2_gymnopogon_pending", milestone: "Gymnopogon", manualPage: 124,
     descripcion: "Gymnopogon: única especie tratada para la región.",
     opcionA: { label: "Identificar como Gymnopogon grandiflorus", keyStep: "1", especieId: "ed2_gymnopogon_grandiflorus" },
     opcionA_prima: { label: "Identificar como Gymnopogon grandiflorus", keyStep: "1", especieId: "ed2_gymnopogon_grandiflorus" },
@@ -2478,7 +2478,7 @@ export const secondEditionGramineaeKeyData: Record<string, CladoNode> = {
     opcionA_prima: { label: "No; varias espigas y planta robusta", keyStep: "c'", nextNodeId: "ed2_gramineae_group_7_diplachne_pending" },
   },
   ed2_gramineae_group_7_tripogon_pending: {
-    id: "ed2_gramineae_group_7_tripogon_pending", milestone: "Tripogon", manualPage: 129,
+    id: "ed2_gramineae_group_7_tripogon_pending", milestone: "Tripogon", manualPage: 124,
     descripcion: "Tripogon: única especie tratada para la región.",
     opcionA: { label: "Identificar como Tripogon spicatus", keyStep: "1", especieId: "ed2_tripogon_spicatus" },
     opcionA_prima: { label: "Identificar como Tripogon spicatus", keyStep: "1", especieId: "ed2_tripogon_spicatus" },
