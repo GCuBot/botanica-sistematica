@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   CircleCheckBig,
   ExternalLink,
@@ -14,23 +14,23 @@ import {
 import ScientificName from "@/components/ScientificName";
 import { formatCommonName } from "@/lib/commonNames";
 import { especiesData } from "@/data/clados";
-import {
-  generateLabelsPDF,
-  generatePhotoCatalogPDF,
-  recordToLabel,
-  recordToPhotoCatalog,
-} from "@/lib/pdfGenerator";
+import { getPhotoThumbnailUrl } from "@/lib/supabaseOperations";
 import { PhotoRecord } from "@/types";
 
 interface RecordsListProps {
   records: PhotoRecord[];
+  totalRecords: number;
+  hasAllRecords: boolean;
   isLoading: boolean;
+  onLoadMore: () => Promise<PhotoRecord[]>;
+  onLoadAll: () => Promise<PhotoRecord[]>;
   onEdit: (record: PhotoRecord) => void;
   onDelete: (record: PhotoRecord) => Promise<void>;
   onConfirm: (record: PhotoRecord, isConfirmed: boolean) => Promise<void>;
 }
 
 type SearchMode = "all" | "number" | "name" | "family" | "place" | "date" | "notes";
+type PlantNumberRange = { start: number; end: number } | null;
 
 const RECORDS_PAGE_SIZE = 25;
 
@@ -41,9 +41,67 @@ function normalizeSearchText(value: string) {
     .toLowerCase();
 }
 
+function filterPhotoRecords(
+  records: PhotoRecord[],
+  searchTerm: string,
+  searchMode: SearchMode,
+  activeRange: PlantNumberRange
+) {
+  const normalizedSearch = normalizeSearchText(searchTerm.trim());
+  return records.filter((record) => {
+    if (
+      activeRange &&
+      (record.plant_number < activeRange.start ||
+        record.plant_number > activeRange.end)
+    ) {
+      return false;
+    }
+
+    if (!normalizedSearch) return true;
+
+    const especie = especiesData[record.especie_id];
+    if (searchMode === "number") {
+      return record.plant_number.toString() === normalizedSearch;
+    }
+
+    const fieldsByMode: Record<SearchMode, string[]> = {
+      all: [
+        record.plant_number.toString(),
+        record.especie_id,
+        especie?.nombreCientifico || "",
+        record.nombre_vulgar || "",
+        especie?.nombreVulgar || "",
+        especie?.familia || "",
+        record.nombre_usuario,
+        record.fecha,
+        record.lugar,
+        record.observaciones || "",
+      ],
+      number: [],
+      name: [
+        record.especie_id,
+        especie?.nombreCientifico || "",
+        record.nombre_vulgar || "",
+        especie?.nombreVulgar || "",
+      ],
+      family: [especie?.familia || "", record.especie_id],
+      place: [record.lugar],
+      date: [record.fecha],
+      notes: [record.observaciones || ""],
+    };
+    const searchableText = fieldsByMode[searchMode].filter(Boolean).join(" ");
+
+    return normalizeSearchText(searchableText).includes(normalizedSearch);
+  });
+}
+
 export default function RecordsList({
   records,
+  totalRecords,
+  hasAllRecords,
   isLoading,
+  onLoadMore,
+  onLoadAll,
   onEdit,
   onDelete,
   onConfirm,
@@ -51,10 +109,7 @@ export default function RecordsList({
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [rangeStart, setRangeStart] = useState("");
   const [rangeEnd, setRangeEnd] = useState("");
-  const [activeRange, setActiveRange] = useState<{
-    start: number;
-    end: number;
-  } | null>(null);
+  const [activeRange, setActiveRange] = useState<PlantNumberRange>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchMode, setSearchMode] = useState<SearchMode>("all");
   const [visibleLimit, setVisibleLimit] = useState(RECORDS_PAGE_SIZE);
@@ -62,63 +117,29 @@ export default function RecordsList({
   const [confirmingId, setConfirmingId] = useState<string | null>(null);
   const [actionError, setActionError] = useState("");
   const [isGeneratingCatalog, setIsGeneratingCatalog] = useState(false);
-  const filteredRecords = useMemo(() => {
-    const normalizedSearch = normalizeSearchText(searchTerm.trim());
-    return records.filter((record) => {
-      if (
-        activeRange &&
-        (record.plant_number < activeRange.start ||
-          record.plant_number > activeRange.end)
-      ) {
-        return false;
-      }
-
-      if (!normalizedSearch) return true;
-
-      const especie = especiesData[record.especie_id];
-      if (searchMode === "number") {
-        return record.plant_number.toString() === normalizedSearch;
-      }
-
-      const fieldsByMode: Record<SearchMode, string[]> = {
-        all: [
-          record.plant_number.toString(),
-          record.especie_id,
-          especie?.nombreCientifico || "",
-          record.nombre_vulgar || "",
-          especie?.nombreVulgar || "",
-          especie?.familia || "",
-          record.nombre_usuario,
-          record.fecha,
-          record.lugar,
-          record.observaciones || "",
-        ],
-        number: [],
-        name: [
-          record.especie_id,
-          especie?.nombreCientifico || "",
-          record.nombre_vulgar || "",
-          especie?.nombreVulgar || "",
-        ],
-        family: [especie?.familia || "", record.especie_id],
-        place: [record.lugar],
-        date: [record.fecha],
-        notes: [record.observaciones || ""],
-      };
-      const searchableText = fieldsByMode[searchMode].filter(Boolean).join(" ");
-
-      return normalizeSearchText(searchableText).includes(normalizedSearch);
-    });
-  }, [activeRange, records, searchMode, searchTerm]);
+  const onLoadAllRef = useRef(onLoadAll);
+  const filteredRecords = useMemo(
+    () => filterPhotoRecords(records, searchTerm, searchMode, activeRange),
+    [activeRange, records, searchMode, searchTerm]
+  );
   const selectedRecords = useMemo(
     () => records.filter((record) => selectedIds.includes(record.id)),
     [records, selectedIds]
   );
   const visibleRecords = filteredRecords.slice(0, visibleLimit);
-  const hiddenRecordsCount = filteredRecords.length - visibleRecords.length;
+  const isFiltering = searchTerm.trim().length > 0 || activeRange !== null;
+  const hiddenRecordsCount =
+    isFiltering || hasAllRecords
+      ? filteredRecords.length - visibleRecords.length
+      : totalRecords - visibleRecords.length;
   const allRecordsSelected =
+    hasAllRecords &&
     filteredRecords.length > 0 &&
     filteredRecords.every((record) => selectedIds.includes(record.id));
+
+  useEffect(() => {
+    onLoadAllRef.current = onLoadAll;
+  }, [onLoadAll]);
 
   const toggleRecord = (recordId: string) => {
     setSelectedIds((current) =>
@@ -128,17 +149,35 @@ export default function RecordsList({
     );
   };
 
-  const toggleAll = () => {
-    const filteredIds = filteredRecords.map((record) => record.id);
+  useEffect(() => {
+    if (hasAllRecords || searchTerm.trim().length === 0) return;
 
-    setSelectedIds((current) =>
-      allRecordsSelected
-        ? current.filter((id) => !filteredIds.includes(id))
-        : [...new Set([...current, ...filteredIds])]
-    );
+    const timer = window.setTimeout(() => {
+      void onLoadAllRef.current();
+    }, 250);
+
+    return () => window.clearTimeout(timer);
+  }, [hasAllRecords, searchTerm]);
+
+  const toggleAll = async () => {
+    if (isLoading) return;
+    if (allRecordsSelected) {
+      const filteredIds = new Set(filteredRecords.map((record) => record.id));
+      setSelectedIds((current) => current.filter((id) => !filteredIds.has(id)));
+      return;
+    }
+
+    const availableRecords = hasAllRecords ? records : await onLoadAll();
+    const filteredIds = filterPhotoRecords(
+      availableRecords,
+      searchTerm,
+      searchMode,
+      activeRange
+    ).map((record) => record.id);
+    setSelectedIds((current) => [...new Set([...current, ...filteredIds])]);
   };
 
-  const selectRange = () => {
+  const selectRange = async () => {
     const start = Number(rangeStart);
     const end = Number(rangeEnd);
 
@@ -148,8 +187,10 @@ export default function RecordsList({
     const max = Math.max(start, end);
     setActiveRange({ start: min, end: max });
     setVisibleLimit(RECORDS_PAGE_SIZE);
+
+    const availableRecords = hasAllRecords ? records : await onLoadAll();
     setSelectedIds(
-      records
+      availableRecords
         .filter(
           (record) => record.plant_number >= min && record.plant_number <= max
         )
@@ -158,6 +199,7 @@ export default function RecordsList({
   };
 
   const handleGenerateLabels = async () => {
+    const { generateLabelsPDF, recordToLabel } = await import("@/lib/pdfGenerator");
     await generateLabelsPDF(
       selectedRecords.map((record) =>
         recordToLabel(record, especiesData[record.especie_id])
@@ -166,6 +208,9 @@ export default function RecordsList({
   };
 
   const handleGeneratePhotoCatalog = async () => {
+    const { generatePhotoCatalogPDF, recordToPhotoCatalog } = await import(
+      "@/lib/pdfGenerator"
+    );
     const catalogRecords = selectedRecords
       .map((record) => recordToPhotoCatalog(record, especiesData[record.especie_id]))
       .filter((record): record is NonNullable<typeof record> => record !== null);
@@ -191,6 +236,13 @@ export default function RecordsList({
     } finally {
       setIsGeneratingCatalog(false);
     }
+  };
+
+  const handleShowMore = async () => {
+    if (visibleLimit >= filteredRecords.length && !hasAllRecords && !isFiltering) {
+      await onLoadMore();
+    }
+    setVisibleLimit((current) => current + RECORDS_PAGE_SIZE);
   };
 
   const clearRange = () => {
@@ -237,11 +289,13 @@ export default function RecordsList({
       <div className="mb-3 flex items-center justify-between gap-4">
         <h2 className="text-xl font-bold text-gray-800">Mis plantas</h2>
         <span className="text-sm text-gray-700">
-          {records.length} registros · {records.filter((record) => record.is_confirmed).length} confirmados
+          {totalRecords} registros
         </span>
       </div>
 
-      {isLoading && <p className="text-gray-700">Cargando registros...</p>}
+      {isLoading && records.length === 0 && (
+        <p className="text-gray-700">Cargando registros...</p>
+      )}
 
       {actionError && (
         <p className="mb-3 rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-800" role="alert">
@@ -249,11 +303,11 @@ export default function RecordsList({
         </p>
       )}
 
-      {!isLoading && records.length === 0 && (
+      {!isLoading && totalRecords === 0 && (
         <p className="text-gray-700">Todavía no registraste plantas.</p>
       )}
 
-      {!isLoading && records.length > 0 && (
+      {records.length > 0 && (
         <div className="space-y-2">
           <div className="flex flex-col gap-2 border-b border-gray-200 pb-3">
             <div className="grid gap-2 sm:grid-cols-[120px_1fr]">
@@ -299,7 +353,8 @@ export default function RecordsList({
                 <input
                   type="checkbox"
                   checked={allRecordsSelected}
-                  onChange={toggleAll}
+                  onChange={() => void toggleAll()}
+                  disabled={isLoading}
                   className="h-4 w-4 accent-green-700"
                 />
                 Seleccionar todas
@@ -336,8 +391,8 @@ export default function RecordsList({
               </label>
               <button
                 type="button"
-                onClick={selectRange}
-                disabled={!rangeStart || !rangeEnd}
+                onClick={() => void selectRange()}
+                disabled={!rangeStart || !rangeEnd || isLoading}
                 className="rounded border border-gray-300 px-3 py-1.5 text-sm font-medium text-gray-800 hover:bg-gray-50 disabled:text-gray-400"
               >
                 Elegir
@@ -382,7 +437,7 @@ export default function RecordsList({
               </button>
             </div>
             <p className="text-xs text-gray-700">
-              {selectedRecords.length} seleccionadas · {visibleRecords.length} mostradas de {filteredRecords.length} · Hoja A4 con 12 etiquetas
+              {selectedRecords.length} seleccionadas · {visibleRecords.length} mostradas de {isFiltering || hasAllRecords ? filteredRecords.length : totalRecords} · Hoja A4 con 12 etiquetas
             </p>
           </div>
 
@@ -416,10 +471,15 @@ export default function RecordsList({
                     {/* Arbitrary public Supabase URLs cannot be declared statically for next/image. */}
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src={record.photo_url}
+                      src={getPhotoThumbnailUrl(record.photo_url) || record.photo_url}
                       alt=""
                       loading="lazy"
                       decoding="async"
+                      onError={(event) => {
+                        if (event.currentTarget.src !== record.photo_url) {
+                          event.currentTarget.src = record.photo_url || "";
+                        }
+                      }}
                       className="h-full w-full object-cover"
                     />
                   </a>
@@ -517,14 +577,17 @@ export default function RecordsList({
           {hiddenRecordsCount > 0 && (
             <button
               type="button"
-              onClick={() => setVisibleLimit((current) => current + RECORDS_PAGE_SIZE)}
+              onClick={() => void handleShowMore()}
+              disabled={isLoading}
               className="w-full rounded-md border border-green-700 bg-white px-4 py-2.5 text-sm font-semibold text-green-800 hover:bg-green-50"
             >
-              Mostrar {Math.min(RECORDS_PAGE_SIZE, hiddenRecordsCount)} más
+              {isLoading
+                ? "Cargando..."
+                : `Mostrar ${Math.min(RECORDS_PAGE_SIZE, hiddenRecordsCount)} más`}
             </button>
           )}
 
-          {filteredRecords.length === 0 && (
+          {!isLoading && filteredRecords.length === 0 && (
             <p className="text-sm text-gray-700">
               No hay registros que coincidan con la búsqueda.
             </p>

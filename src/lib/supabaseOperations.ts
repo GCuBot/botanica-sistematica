@@ -78,7 +78,7 @@ async function uploadPhoto(file: File, userId: string) {
   const fileName = `${Date.now()}-${sanitizeFileName(optimizedFile.name)}`;
   const path = `${userId}/${fileName}`;
   const { error } = await supabase.storage.from("plant-photos").upload(path, optimizedFile, {
-    cacheControl: "3600",
+    cacheControl: "31536000",
     upsert: false,
   });
 
@@ -101,6 +101,21 @@ function getPhotoPath(photoUrl: string | null) {
   } catch {
     return null;
   }
+}
+
+export function getPhotoThumbnailUrl(photoUrl: string | null) {
+  const path = getPhotoPath(photoUrl);
+  if (!path) return photoUrl;
+
+  const { data } = supabase.storage.from("plant-photos").getPublicUrl(path, {
+    transform: {
+      width: 112,
+      height: 112,
+      resize: "cover",
+      quality: 70,
+    },
+  });
+  return data.publicUrl;
 }
 
 async function removeStoredPhoto(photoUrl: string | null) {
@@ -345,6 +360,28 @@ export async function getPhotoRecords(userId?: string): Promise<PhotoRecord[]> {
   }
 
   return data || [];
+}
+
+export async function getPhotoRecordsPage(
+  userId: string,
+  offset: number,
+  limit: number
+): Promise<{ records: PhotoRecord[]; total: number }> {
+  const { data, error, count } = await supabase
+    .from("photo_records")
+    .select(PHOTO_RECORD_SELECT, { count: "exact" })
+    .eq("user_id", userId)
+    .order("plant_number", { ascending: false })
+    .range(offset, offset + limit - 1);
+
+  if (error) {
+    throw new Error(`No se pudieron cargar los registros: ${error.message}`);
+  }
+
+  return {
+    records: data || [],
+    total: count || 0,
+  };
 }
 
 export async function getVisiblePhotoRecords(): Promise<PhotoRecord[]> {

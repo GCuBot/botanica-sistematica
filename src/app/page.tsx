@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { Session } from "@supabase/supabase-js";
 import {
   BookOpen,
@@ -21,7 +22,6 @@ import FirstExamPractice from "@/components/FirstExamPractice";
 import Glossary from "@/components/Glossary";
 import ProfileSettingsModal from "@/components/ProfileSettingsModal";
 import Quiz from "@/components/Quiz";
-import RecordsList from "@/components/RecordsList";
 import ScientificName from "@/components/ScientificName";
 import SpeciesForm from "@/components/SpeciesForm";
 import {
@@ -29,6 +29,7 @@ import {
   addCommunityFriend,
   ensureUserProfile,
   getPhotoRecords,
+  getPhotoRecordsPage,
   getCommunityFriendIds,
   getUserProfile,
   getVisiblePhotoRecords,
@@ -41,6 +42,11 @@ import {
   updatePhotoRecord,
   updateUserDisplayName,
 } from "@/lib/supabaseOperations";
+import {
+  clearCachedPhotoRecords,
+  getCachedPhotoRecords,
+  setCachedPhotoRecords,
+} from "@/lib/photoRecordsCache";
 import { supabase } from "@/lib/supabase";
 import { usePersistentState } from "@/hooks/usePersistentState";
 import { Especie, PhotoRecord, PlantFormData, UserProfile } from "@/types";
@@ -65,6 +71,10 @@ const THEME_STORAGE_KEY = "botanica:theme:v1";
 const GITHUB_URL = "https://github.com/GCuBot/botanica-sistematica";
 const MATECITO_URL = "https://matecito.co/botanicasis";
 const MATECITO_BUTTON_URL = "https://cdn.matecito.co/assets_v2/images/button_11.svg";
+const RECORDS_PAGE_SIZE = 25;
+const RecordsList = dynamic(() => import("@/components/RecordsList"), {
+  loading: () => <p className="text-center text-gray-700">Cargando plantas...</p>,
+});
 
 export default function Home() {
   const [pageState, setPageState] = useState<PageState>("quiz");
@@ -87,6 +97,9 @@ export default function Home() {
   const [session, setSession] = useState<Session | null>(null);
   const [isAuthLoading, setIsAuthLoading] = useState(true);
   const [records, setRecords] = useState<PhotoRecord[]>([]);
+  const [totalRecords, setTotalRecords] = useState(0);
+  const [hasAllRecords, setHasAllRecords] = useState(false);
+  const [hasLoadedRecords, setHasLoadedRecords] = useState(false);
   const [communityProfiles, setCommunityProfiles] = useState<UserProfile[]>([]);
   const [communityRecords, setCommunityRecords] = useState<PhotoRecord[]>([]);
   const [communityFriendIds, setCommunityFriendIds] = useState<string[]>([]);
@@ -99,6 +112,8 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileSettingsOpen, setIsProfileSettingsOpen] = useState(false);
   const [profileDisplayName, setProfileDisplayName] = useState("");
+  const [isProfileLoaded, setIsProfileLoaded] = useState(false);
+  const activeUserIdRef = useRef<string | null>(null);
 
   const user = session?.user || null;
   const userEmail = user?.email || "";
@@ -107,25 +122,63 @@ export default function Home() {
   const defaultUserName = profileDisplayName.trim() || emailUserName;
   const isDarkTheme = appTheme === "dark";
   const mainThemeClass = isDarkTheme ? "theme-dark" : "theme-light";
+  const ownCommunityRecords = useMemo(
+    () => communityRecords.filter((record) => record.user_id === user?.id),
+    [communityRecords, user?.id]
+  );
 
   const toggleTheme = () => {
     setAppTheme((current) => (current === "dark" ? "light" : "dark"));
   };
 
-  const loadRecords = useCallback(async () => {
+  const loadProfile = useCallback(async () => {
     if (!user || !isAllowedEmail) return;
 
-    setIsRecordsLoading(true);
     try {
       try {
         await ensureUserProfile(user.id, emailUserName);
       } catch (profileError) {
         console.error("Error creando perfil:", profileError);
       }
-      const [userRecords, profile] = await Promise.all([
-        getPhotoRecords(user.id),
-        getUserProfile(user.id),
-      ]);
+      const profile = await getUserProfile(user.id);
+      setProfileDisplayName(profile?.display_name || emailUserName);
+    } catch (error) {
+      console.error("Error cargando el perfil:", error);
+      setProfileDisplayName(emailUserName);
+    } finally {
+      setIsProfileLoaded(true);
+    }
+  }, [emailUserName, isAllowedEmail, user]);
+
+  const loadRecords = useCallback(async ({
+    reset = false,
+    loadAll = false,
+    bypassCache = false,
+  }: {
+    reset?: boolean;
+    loadAll?: boolean;
+    bypassCache?: boolean;
+  } = {}): Promise<PhotoRecord[]> => {
+    if (!user || !isAllowedEmail) return [];
+
+    if (reset && !bypassCache) {
+      const cached = getCachedPhotoRecords(user.id);
+      if (cached) {
+        setRecords(cached.records);
+        setTotalRecords(cached.total);
+        setHasAllRecords(cached.isComplete);
+        setHasLoadedRecords(true);
+        return cached.records;
+      }
+    }
+
+    setIsRecordsLoading(true);
+    try {
+      const offset = reset ? 0 : records.length;
+      const result = loadAll
+        ? { records: await getPhotoRecords(user.id), total: 0 }
+        : await getPhotoRecordsPage(user.id, offset, RECORDS_PAGE_SIZE);
+      const userRecords = result.records;
       const recordsWithoutCommonName = userRecords.filter((record) => {
         const especie = especiesData[record.especie_id];
         if (
@@ -138,13 +191,12 @@ export default function Home() {
           especie.nombreCientifico
         );
       });
-      const displayName = profile?.display_name || emailUserName;
+      const displayName = profileDisplayName || emailUserName;
       const recordsWithOldCollectorName = userRecords.filter(
         (record) => (record.nombre_usuario || "").trim() !== displayName
       );
       const normalizedRecordIds = new Set(recordsWithoutCommonName.map((record) => record.id));
-      setRecords(
-        userRecords.map((record) => ({
+      const normalizedRecords = userRecords.map((record) => ({
           ...record,
           nombre_vulgar: normalizedRecordIds.has(record.id)
             ? null
@@ -152,9 +204,27 @@ export default function Home() {
           nombre_usuario: recordsWithOldCollectorName.length > 0
             ? displayName
             : record.nombre_usuario,
-        }))
-      );
-      setProfileDisplayName(displayName);
+        }));
+      const combinedRecords = reset || loadAll
+        ? normalizedRecords
+        : [
+            ...records,
+            ...normalizedRecords.filter(
+              (record) => !records.some((current) => current.id === record.id)
+            ),
+          ];
+      const total = loadAll ? normalizedRecords.length : result.total;
+      const isComplete = loadAll || combinedRecords.length >= total;
+
+      setRecords(combinedRecords);
+      setTotalRecords(total);
+      setHasAllRecords(isComplete);
+      setHasLoadedRecords(true);
+      setCachedPhotoRecords(user.id, {
+        records: combinedRecords,
+        total,
+        isComplete,
+      });
       if (recordsWithoutCommonName.length > 0) {
         try {
           await markRecordsWithoutCommonName(
@@ -172,12 +242,14 @@ export default function Home() {
           console.error("Error normalizando el nombre del recolector:", normalizationError);
         }
       }
+      return combinedRecords;
     } catch (error) {
       console.error("Error cargando registros:", error);
+      return records;
     } finally {
       setIsRecordsLoading(false);
     }
-  }, [emailUserName, isAllowedEmail, user]);
+  }, [emailUserName, isAllowedEmail, profileDisplayName, records, user]);
 
   const loadCommunityRecords = useCallback(async () => {
     if (!user || !isAllowedEmail) return;
@@ -218,6 +290,7 @@ export default function Home() {
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data }) => {
+      activeUserIdRef.current = data.session?.user.id || null;
       setSession(data.session);
       setIsAuthLoading(false);
     });
@@ -225,6 +298,15 @@ export default function Home() {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, currentSession) => {
+      const nextUserId = currentSession?.user.id || null;
+      if (activeUserIdRef.current !== nextUserId) {
+        setRecords([]);
+        setTotalRecords(0);
+        setHasAllRecords(false);
+        setHasLoadedRecords(false);
+        setIsProfileLoaded(false);
+      }
+      activeUserIdRef.current = nextUserId;
       setSession(currentSession);
       if (!currentSession) {
         setPageState("quiz");
@@ -240,12 +322,28 @@ export default function Home() {
   }, [setWorkspaceTab]);
 
   useEffect(() => {
+    if (!user || !isAllowedEmail) return;
+
     const timer = window.setTimeout(() => {
-      void loadRecords();
+      void loadProfile();
     }, 0);
 
     return () => window.clearTimeout(timer);
-  }, [loadRecords]);
+  }, [isAllowedEmail, loadProfile, user]);
+
+  useEffect(() => {
+    if (
+      workspaceTab !== "records" ||
+      !isProfileLoaded ||
+      hasLoadedRecords
+    ) return;
+
+    const timer = window.setTimeout(() => {
+      void loadRecords({ reset: true });
+    }, 0);
+
+    return () => window.clearTimeout(timer);
+  }, [hasLoadedRecords, isProfileLoaded, loadRecords, workspaceTab]);
 
   useEffect(() => {
     if (workspaceTab !== "community") return;
@@ -259,19 +357,25 @@ export default function Home() {
 
   const handleSignOut = async () => {
     setIsMobileMenuOpen(false);
+    if (user) clearCachedPhotoRecords(user.id);
     await supabase.auth.signOut();
     setRecords([]);
+    setTotalRecords(0);
+    setHasAllRecords(false);
+    setHasLoadedRecords(false);
     setCommunityProfiles([]);
     setCommunityRecords([]);
     setCommunityFriendIds([]);
     setLastPlantNumber(null);
     setProfileDisplayName("");
+    setIsProfileLoaded(false);
     setIsProfileSettingsOpen(false);
   };
 
   const handleProfileSave = async (displayName: string, updateExistingRecords: boolean) => {
     if (!user) return;
     await updateUserDisplayName(user.id, displayName, updateExistingRecords);
+    clearCachedPhotoRecords(user.id);
     setProfileDisplayName(displayName);
     if (updateExistingRecords) {
       setRecords((current) =>
@@ -306,8 +410,11 @@ export default function Home() {
     try {
       const savedRecord = await savePhotoRecord(selectedEspecie.id, formData, user.id);
       setLastPlantNumber(savedRecord.plantNumber);
-
-      await loadRecords();
+      clearCachedPhotoRecords(user.id);
+      setRecords([]);
+      setTotalRecords(0);
+      setHasLoadedRecords(false);
+      setHasAllRecords(false);
       setPageState("complete");
     } catch (error) {
       console.error("Error en el proceso:", error);
@@ -329,7 +436,8 @@ export default function Home() {
 
     try {
       await updatePhotoRecord(editingRecord, formData);
-      await loadRecords();
+      if (user) clearCachedPhotoRecords(user.id);
+      await loadRecords({ reset: true, bypassCache: true });
       setRecordNotice(`Planta N° ${editingRecord.plant_number} actualizada.`);
       setEditingRecord(null);
       setPageState("quiz");
@@ -341,6 +449,7 @@ export default function Home() {
 
   const handleDeleteRecord = async (record: PhotoRecord) => {
     await deletePhotoRecord(record);
+    if (user) clearCachedPhotoRecords(user.id);
     setRecordNotice(
       `Planta N° ${record.plant_number} eliminada. Los demás números no cambiaron.`
     );
@@ -348,11 +457,12 @@ export default function Home() {
       setEditingRecord(null);
       setPageState("quiz");
     }
-    await loadRecords();
+    await loadRecords({ reset: true, bypassCache: true });
   };
 
   const handleConfirmRecord = async (record: PhotoRecord, isConfirmed: boolean) => {
     await setPhotoRecordConfirmed(record.id, isConfirmed);
+    if (user) clearCachedPhotoRecords(user.id);
     setRecords((current) =>
       current.map((item) =>
         item.id === record.id ? { ...item, is_confirmed: isConfirmed } : item
@@ -520,7 +630,7 @@ export default function Home() {
                 <CommunityProfiles
                   profiles={communityProfiles}
                   records={communityRecords}
-                  ownRecords={records}
+                  ownRecords={ownCommunityRecords}
                   friendIds={communityFriendIds}
                   currentUserId={user.id}
                   isLoading={isCommunityLoading}
@@ -561,7 +671,11 @@ export default function Home() {
                 ) : (
                   <RecordsList
                     records={records}
+                    totalRecords={totalRecords}
+                    hasAllRecords={hasAllRecords}
                     isLoading={isRecordsLoading}
+                    onLoadMore={() => loadRecords()}
+                    onLoadAll={() => loadRecords({ loadAll: true })}
                     onEdit={handleEditRecord}
                     onDelete={handleDeleteRecord}
                     onConfirm={handleConfirmRecord}
