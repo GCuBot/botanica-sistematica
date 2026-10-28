@@ -2,11 +2,34 @@ import { CladoNode, Especie } from "@/types";
 import { manualFamilyData, manualKeyData } from "./manualKey";
 import { monocotiledoneaeData, monocotEspecies } from "./monocotyledoneae";
 import { secondEditionSpeciesData, secondEditionTree } from "./secondEdition";
+import {
+  legacyScientificNameAuthorities,
+  legacyScientificNames,
+} from "./legacyScientificNameAuthorities";
+
+const rawLegacySpeciesData: Record<string, Especie> = {
+  ...manualFamilyData,
+  ...monocotEspecies,
+};
+
+const legacySpeciesData = Object.fromEntries(
+  Object.entries(rawLegacySpeciesData).map(
+    ([speciesId, species]) => [
+      speciesId,
+      {
+        ...species,
+        nombreCientifico:
+          legacyScientificNames[speciesId] || species.nombreCientifico,
+        autoridad:
+          species.autoridad || legacyScientificNameAuthorities[speciesId],
+      },
+    ],
+  ),
+) as Record<string, Especie>;
 
 // Datos de especies/familias basados en el manual
 export const especiesData: Record<string, Especie> = {
-  ...manualFamilyData,
-  ...monocotEspecies,
+  ...legacySpeciesData,
   ...secondEditionSpeciesData,
 };
 

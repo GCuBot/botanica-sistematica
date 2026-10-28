@@ -20,7 +20,7 @@ const files = [
     name: "monocotyledoneae.ts",
     path: path.join(ROOT, "src", "data", "monocotyledoneae.ts"),
     treeExport: "export const monocotiledoneaeData",
-    dataExport: "export const monocotEspecies",
+    dataExport: "const rawMonocotEspecies",
     dataPattern: /^  ([a-zA-Z0-9_]+): \{/gm,
     externalNodes: [],
     order: "tree-first",

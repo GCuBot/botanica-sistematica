@@ -6869,7 +6869,7 @@ export const monocotiledoneaeData = {
 };
 
 // Especies de Monocotiledoneae
-export const monocotEspecies = {
+const rawMonocotEspecies = {
   // Palmae
   arecastrum_romanzoffianum: {
     id: "arecastrum_romanzoffianum",
@@ -11517,3 +11517,31 @@ export const monocotEspecies = {
     imagen: ""
   }
 };
+
+const nonSpeciesPlaceholderIds = new Set([
+  "oryzeae",
+  "hordeae",
+  "chlorideae",
+  "aveneae",
+  "agrostideae",
+  "phalarideae",
+  "paspalum",
+  "paniceae",
+  "andropogoneae",
+  "pappophorum",
+  "phragmites",
+  "distichlis",
+  "briza",
+  "puccinellia",
+  "scleropoa",
+  "festuca",
+  "cyperus",
+  "carex",
+  "cyperaceae",
+]);
+
+export const monocotEspecies = Object.fromEntries(
+  Object.entries(rawMonocotEspecies).filter(
+    ([speciesId]) => !nonSpeciesPlaceholderIds.has(speciesId),
+  ),
+);

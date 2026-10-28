@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import {
   CircleCheckBig,
   ExternalLink,
+  FileSpreadsheet,
   Image as ImageIcon,
   Images,
   LoaderCircle,
@@ -117,6 +118,7 @@ export default function RecordsList({
   const [confirmingId, setConfirmingId] = useState<string | null>(null);
   const [actionError, setActionError] = useState("");
   const [isGeneratingCatalog, setIsGeneratingCatalog] = useState(false);
+  const [isExportingCsv, setIsExportingCsv] = useState(false);
   const onLoadAllRef = useRef(onLoadAll);
   const filteredRecords = useMemo(
     () => filterPhotoRecords(records, searchTerm, searchMode, activeRange),
@@ -235,6 +237,25 @@ export default function RecordsList({
       setActionError(error instanceof Error ? error.message : "No se pudo generar el catálogo visual");
     } finally {
       setIsGeneratingCatalog(false);
+    }
+  };
+
+  const handleExportCsv = async () => {
+    setActionError("");
+    setIsExportingCsv(true);
+    try {
+      const availableRecords = hasAllRecords ? records : await onLoadAll();
+      if (!hasAllRecords && availableRecords.length < totalRecords) {
+        throw new Error("No se pudieron cargar todas las plantas para exportar.");
+      }
+      const { downloadPlantsCsv } = await import("@/lib/csvExporter");
+      downloadPlantsCsv(availableRecords, especiesData);
+    } catch (error) {
+      setActionError(
+        error instanceof Error ? error.message : "No se pudo exportar el archivo CSV"
+      );
+    } finally {
+      setIsExportingCsv(false);
     }
   };
 
@@ -412,7 +433,7 @@ export default function RecordsList({
                 </button>
               </div>
             )}
-            <div className="grid gap-2 sm:grid-cols-2">
+            <div className="grid gap-2 sm:grid-cols-3">
               <button
                 type="button"
                 onClick={handleGenerateLabels}
@@ -434,6 +455,19 @@ export default function RecordsList({
                   <Images aria-hidden="true" size={16} />
                 )}
                 {isGeneratingCatalog ? "Generando..." : "Catálogo visual"}
+              </button>
+              <button
+                type="button"
+                onClick={() => void handleExportCsv()}
+                disabled={totalRecords === 0 || isExportingCsv || isLoading}
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-green-700 bg-white px-4 py-2 text-sm font-medium text-green-800 hover:bg-green-50 disabled:border-gray-300 disabled:text-gray-400"
+              >
+                {isExportingCsv ? (
+                  <LoaderCircle aria-hidden="true" className="animate-spin" size={16} />
+                ) : (
+                  <FileSpreadsheet aria-hidden="true" size={16} />
+                )}
+                {isExportingCsv ? "Exportando..." : "Exportar CSV"}
               </button>
             </div>
             <p className="text-xs text-gray-700">
