@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 import AuthPanel from "@/components/AuthPanel";
 import CommunityProfiles from "@/components/CommunityProfiles";
-import FirstExamPractice from "@/components/FirstExamPractice";
 import Glossary from "@/components/Glossary";
 import ProfileSettingsModal from "@/components/ProfileSettingsModal";
 import Quiz from "@/components/Quiz";
@@ -58,12 +57,12 @@ import {
 } from "@/lib/commonNames";
 
 type PageState = "quiz" | "form" | "edit" | "complete";
-type WorkspaceTab = "identifier" | "records" | "community" | "glossary" | "first-exam";
+type WorkspaceTab = "identifier" | "records" | "community" | "glossary" | "study" | "first-exam";
 type ManualEdition = "first" | "second";
 type AppTheme = "light" | "dark";
 
 const ALLOWED_DOMAIN = "@agro.uba.ar";
-const WORKSPACE_TABS: readonly WorkspaceTab[] = ["identifier", "records", "community", "glossary", "first-exam"];
+const WORKSPACE_TABS: readonly WorkspaceTab[] = ["identifier", "records", "community", "glossary", "study", "first-exam"];
 const MANUAL_EDITIONS: readonly ManualEdition[] = ["first", "second"];
 const APP_THEMES: readonly AppTheme[] = ["light", "dark"];
 const MANUAL_EDITION_STORAGE_KEY = "botanica:manual-edition:v2";
@@ -74,6 +73,9 @@ const MATECITO_BUTTON_URL = "https://cdn.matecito.co/assets_v2/images/button_11.
 const RECORDS_PAGE_SIZE = 25;
 const RecordsList = dynamic(() => import("@/components/RecordsList"), {
   loading: () => <p className="text-center text-gray-700">Cargando plantas...</p>,
+});
+const StudyHub = dynamic(() => import("@/components/StudyHub"), {
+  loading: () => <p className="py-8 text-center text-gray-700">Cargando material...</p>,
 });
 
 export default function Home() {
@@ -614,17 +616,17 @@ export default function Home() {
                 Glosario
               </button>
               <button
-                onClick={() => handleWorkspaceTabChange("first-exam")}
-                className={`shrink-0 border-b-2 px-5 py-3 font-semibold ${workspaceTab === "first-exam" ? "border-green-700 text-green-800" : "border-transparent text-gray-600 hover:text-gray-900"}`}
+                onClick={() => handleWorkspaceTabChange("study")}
+                className={`shrink-0 border-b-2 px-5 py-3 font-semibold ${workspaceTab === "study" || workspaceTab === "first-exam" ? "border-green-700 text-green-800" : "border-transparent text-gray-600 hover:text-gray-900"}`}
               >
-                Primer parcial
+                Estudio
               </button>
             </nav>
 
             {workspaceTab === "glossary" ? (
               <Glossary />
-            ) : workspaceTab === "first-exam" ? (
-              <FirstExamPractice />
+            ) : workspaceTab === "study" || workspaceTab === "first-exam" ? (
+              <StudyHub />
             ) : workspaceTab === "community" ? (
               <div className="mx-auto max-w-4xl">
                 <CommunityProfiles
@@ -803,11 +805,11 @@ export default function Home() {
               </button>
               <button
                 type="button"
-                onClick={() => handleWorkspaceTabChange("first-exam")}
-                className={`flex min-h-16 flex-col items-center justify-center gap-1 px-0.5 pb-[env(safe-area-inset-bottom)] text-[10px] font-medium sm:text-xs ${workspaceTab === "first-exam" ? "text-green-800" : "text-gray-600"}`}
+                onClick={() => handleWorkspaceTabChange("study")}
+                className={`flex min-h-16 flex-col items-center justify-center gap-1 px-0.5 pb-[env(safe-area-inset-bottom)] text-[10px] font-medium sm:text-xs ${workspaceTab === "study" || workspaceTab === "first-exam" ? "text-green-800" : "text-gray-600"}`}
               >
                 <GraduationCap aria-hidden="true" size={20} />
-                Parcial
+                Estudio
               </button>
               <button
                 type="button"
