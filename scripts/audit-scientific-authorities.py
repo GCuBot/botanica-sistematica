@@ -72,7 +72,7 @@ def main() -> None:
     source_status = {
         "transcript": "confirmed_in_transcript",
         "second-edition-pages": "confirmed_in_page_ocr",
-        "verified-transcript": "confirmed_manually",
+        "verified-manual-page": "confirmed_manually",
     }
     review: list[dict[str, Any]] = []
 
@@ -102,10 +102,20 @@ def main() -> None:
                 for match in matches
             ):
                 issues.append("source_match_differs_from_assignment")
-        elif source == "verified-transcript":
+        elif source == "verified-manual-page":
             verified = extractor.VERIFIED_AUTHORITIES.get(species_id)
             if not verified or not authority or normalize(verified) != normalize(authority):
                 issues.append("manual_verification_differs_from_assignment")
+            matches = extraction.get("matches", [])
+            expected_page = extractor.VERIFIED_AUTHORITY_PAGES.get(species_id)
+            if not matches or not expected_page:
+                issues.append("missing_manual_page_evidence")
+            elif not any(
+                match.get("manualPage") == expected_page
+                and normalize(match.get("authority", "")) == normalize(authority or "")
+                for match in matches
+            ):
+                issues.append("manual_page_evidence_differs_from_assignment")
 
         if issues:
             status = "needs_review"
@@ -132,6 +142,7 @@ def main() -> None:
                 "sources": {
                     "primary": "Manual_Flora_Buenos_Aires_Transcrito.md",
                     "fallback": "manual-text/second-edition/pages",
+                    "manualVerification": "source-pdfs/cabrera-1978-segunda-edicion.pdf",
                 },
                 "summary": summary,
                 "extraAssignments": extra_assignments,

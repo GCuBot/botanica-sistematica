@@ -41,7 +41,7 @@ VERIFIED_AUTHORITIES = {
     "ed2_oenothera_longiflora": "L.",  # p. 453
     "ed2_verbena_litoralis": "H.B.K.",  # p. 524
     "ed2_solanum_eleagnifolium_leprosum": "(Ort.) Dunal.",  # p. 543
-    "ed2_solanum_palitanum": "Morton.",  # printed as S. palitans, p. 544
+    "ed2_solanum_palitanum": "Morton.",  # printed as S. palitans, p. 545
     "ed2_valeriana_falcifolia": "Vahl.",  # printed as V. salicariifolia, p. 593
     "ed2_baccharis_caprariifolia": "DC.",  # p. 640
     "ed2_senecio_madagascariensis": "Poir.",  # p. 680
@@ -75,6 +75,62 @@ VERIFIED_AUTHORITIES = {
     "ed2_wahlenbergia_linarioides": "(Lam.) DC.",  # p. 604
     "ed2_picris_echioides": "L.",  # p. 706
     "ed2_lilaeopsis_minor": "(Hill) Pérez-Moreau.",  # p. 464
+}
+
+# Printed pages in the 1978 second edition where each manual override can be
+# checked in the species entry or, where noted above, in a figure caption.
+VERIFIED_AUTHORITY_PAGES = {
+    "ed2_egeria_najas": 63,
+    "ed2_agrostis_jirgensii": 100,
+    "ed2_cayaponia_bonariensis": 599,
+    "ed2_atriplex_montevidensis": 243,
+    "ed2_piptochaetium_stipoides": 103,
+    "ed2_eleocharis_filiculmis": 166,
+    "ed2_eleocharis_dunensis": 166,
+    "ed2_arjona_tuberosa_tandilensis": 230,
+    "ed2_tetragonia_tetragonoides": 259,
+    "ed2_cleome_hassleriana": 290,
+    "ed2_wigginsia_tephracantha": 438,
+    "ed2_ludwigia_uruguayensis": 450,
+    "ed2_ludwigia_peploides": 451,
+    "ed2_ludwigia_longifolia": 452,
+    "ed2_ludwigia_elegans": 452,
+    "ed2_oenothera_centaurifolia": 453,
+    "ed2_oenothera_longiflora": 453,
+    "ed2_verbena_litoralis": 524,
+    "ed2_solanum_eleagnifolium_leprosum": 543,
+    "ed2_solanum_palitanum": 545,
+    "ed2_valeriana_falcifolia": 593,
+    "ed2_baccharis_caprariifolia": 640,
+    "ed2_senecio_madagascariensis": 680,
+    "ed2_schlechteranthus_luzulaefolius": 692,
+    "ed2_stipa_clarazii": 107,
+    "ed2_sagittaria_montevidensis": 58,
+    "ed2_carex_uruguensis": 154,
+    "ed2_sisyrinchium_pachyrhizum": 200,
+    "ed2_peperomia_comarapana": 219,
+    "ed2_jodina_rhombifolia": 231,
+    "ed2_polygonum_stelligerum": 240,
+    "ed2_rivina_humilis": 259,
+    "ed2_ranunculus_repens": 282,
+    "ed2_cleome_trachycarpa": 290,
+    "ed2_cleome_titubans": 290,
+    "ed2_reseda_luteola": 307,
+    "ed2_brassica_nigra": 306,
+    "ed2_daphnopsis_racemosa": 439,
+    "ed2_heimia_salicifolia": 441,
+    "ed2_cuphea_glutinosa": 441,
+    "ed2_terminalia_australis": 443,
+    "ed2_ludwigia_peruviana": 452,
+    "ed2_oenothera_rosea": 453,
+    "ed2_oenothera_affinis": 453,
+    "ed2_oenothera_parodiana": 453,
+    "ed2_cynanchum_bonariense": 493,
+    "ed2_ipomoea_cairica": 504,
+    "ed2_heliotropium_nicotianaefolium": 512,
+    "ed2_wahlenbergia_linarioides": 604,
+    "ed2_picris_echioides": 706,
+    "ed2_lilaeopsis_minor": 464,
 }
 
 
@@ -738,11 +794,18 @@ def main() -> None:
         if not scientific_name or scientific_name.startswith(("Grupo ", "Clase ", "Subclase ")):
             continue
         if species_id in VERIFIED_AUTHORITIES:
+            authority = VERIFIED_AUTHORITIES[species_id]
             result = {
                 "status": "assigned",
-                "authority": VERIFIED_AUTHORITIES[species_id],
-                "matches": [],
-                "source": "verified-transcript",
+                "authority": authority,
+                "matches": [
+                    {
+                        "authority": authority,
+                        "manualPage": VERIFIED_AUTHORITY_PAGES[species_id],
+                        "source": "1978 second-edition page image",
+                    }
+                ],
+                "source": "verified-manual-page",
             }
             assignments[species_id] = result["authority"]
             review[species_id] = {"scientificName": scientific_name, **result}

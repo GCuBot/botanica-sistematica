@@ -1,7 +1,8 @@
 {
   "sources": {
     "primary": "Manual_Flora_Buenos_Aires_Transcrito.md",
-    "fallback": "manual-text/second-edition/pages"
+    "fallback": "manual-text/second-edition/pages",
+    "manualVerification": "source-pdfs/cabrera-1978-segunda-edicion.pdf"
   },
   "summary": {
     "confirmed_in_transcript": 1612,
@@ -1325,9 +1326,15 @@
       "scientificName": "Sagittaria montevidensis",
       "authority": "Cham. et Schlecht.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Cham. et Schlecht.",
+          "manualPage": 58,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 79,
@@ -1386,9 +1393,15 @@
       "scientificName": "Egeria naias",
       "authority": "Planch.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Planch.",
+          "manualPage": 63,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 83,
@@ -3283,9 +3296,15 @@
       "scientificName": "Agrostis jürgensii",
       "authority": "Hackel.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Hackel.",
+          "manualPage": 100,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 195,
@@ -3395,9 +3414,15 @@
       "scientificName": "Piptochaetium stipoides",
       "authority": "(Trin. et Rupr.) Hackel.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(Trin. et Rupr.) Hackel.",
+          "manualPage": 103,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 202,
@@ -3575,9 +3600,15 @@
       "scientificName": "Stipa clarazii",
       "authority": "Ball.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Ball.",
+          "manualPage": 107,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 213,
@@ -6900,9 +6931,15 @@
       "scientificName": "Carex uruguensis",
       "authority": "Böck.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Böck.",
+          "manualPage": 154,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 409,
@@ -7828,9 +7865,15 @@
       "scientificName": "Eleocharis filiculmis",
       "authority": "Kunth.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Kunth.",
+          "manualPage": 166,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 464,
@@ -7838,9 +7881,15 @@
       "scientificName": "Eleocharis dunensis",
       "authority": "Kükenth.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Kükenth.",
+          "manualPage": 166,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 465,
@@ -9517,9 +9566,15 @@
       "scientificName": "Sisyrinchium pachyrhizum",
       "authority": "Baker.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Baker.",
+          "manualPage": 200,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 543,
@@ -10156,9 +10211,15 @@
       "scientificName": "Peperomia comarapana",
       "authority": "C. DC.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "C. DC.",
+          "manualPage": 219,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 581,
@@ -10421,9 +10482,15 @@
       "scientificName": "Arjona tuberosa var. tandilensis",
       "authority": "(O.K.) Dawson.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(O.K.) Dawson.",
+          "manualPage": 230,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 597,
@@ -10448,9 +10515,15 @@
       "scientificName": "Jodina rhombifolia",
       "authority": "Hook. et Arn.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Hook. et Arn.",
+          "manualPage": 231,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 599,
@@ -10815,9 +10888,15 @@
       "scientificName": "Polygonum stelligerum",
       "authority": "Cham.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Cham.",
+          "manualPage": 240,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 621,
@@ -11029,9 +11108,15 @@
       "scientificName": "Atriplex montevidensis",
       "authority": "Spreng.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Spreng.",
+          "manualPage": 243,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 634,
@@ -11787,9 +11872,15 @@
       "scientificName": "Rivina humilis",
       "authority": "L.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "L.",
+          "manualPage": 259,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 679,
@@ -11797,9 +11888,15 @@
       "scientificName": "Tetragonia tetragonoides",
       "authority": "(Pall.) O. Kuntze.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(Pall.) O. Kuntze.",
+          "manualPage": 259,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 680,
@@ -12725,9 +12822,15 @@
       "scientificName": "Ranunculus repens",
       "authority": "L.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "L.",
+          "manualPage": 282,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 735,
@@ -12922,9 +13025,15 @@
       "scientificName": "Cleome trachycarpa",
       "authority": "Klotz.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Klotz.",
+          "manualPage": 290,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 747,
@@ -12932,9 +13041,15 @@
       "scientificName": "Cleome titubans",
       "authority": "Speg.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Speg.",
+          "manualPage": 290,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 748,
@@ -12942,9 +13057,15 @@
       "scientificName": "Cleome hassleriana",
       "authority": "Chod.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Chod.",
+          "manualPage": 290,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 749,
@@ -13632,9 +13753,15 @@
       "scientificName": "Brassica nigra",
       "authority": "(L.) Koch.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(L.) Koch.",
+          "manualPage": 306,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 790,
@@ -13710,9 +13837,15 @@
       "scientificName": "Reseda luteola",
       "authority": "L.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "L.",
+          "manualPage": 307,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 795,
@@ -18616,9 +18749,15 @@
       "scientificName": "Wigginsia tephracantha",
       "authority": "(Link et Otto) D. M. Porter.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(Link et Otto) D. M. Porter.",
+          "manualPage": 438,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1084,
@@ -18643,9 +18782,15 @@
       "scientificName": "Daphnopsis racemosa",
       "authority": "Griseb.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Griseb.",
+          "manualPage": 439,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1086,
@@ -18653,9 +18798,15 @@
       "scientificName": "Heimia salicifolia",
       "authority": "Link.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Link.",
+          "manualPage": 441,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1087,
@@ -18663,9 +18814,15 @@
       "scientificName": "Cuphea glutinosa",
       "authority": "Cham. et Schlecht.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Cham. et Schlecht.",
+          "manualPage": 441,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1088,
@@ -18741,9 +18898,15 @@
       "scientificName": "Terminalia australis",
       "authority": "Camb.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Camb.",
+          "manualPage": 443,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1093,
@@ -18853,9 +19016,15 @@
       "scientificName": "Ludwigia uruguayensis",
       "authority": "(Camb.) Hara.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(Camb.) Hara.",
+          "manualPage": 450,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1100,
@@ -18863,9 +19032,15 @@
       "scientificName": "Ludwigia peploides",
       "authority": "(H.B.K.) Raven.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(H.B.K.) Raven.",
+          "manualPage": 451,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1101,
@@ -18890,9 +19065,15 @@
       "scientificName": "Ludwigia longifolia",
       "authority": "(DC.) Hara.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(DC.) Hara.",
+          "manualPage": 452,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1103,
@@ -18900,9 +19081,15 @@
       "scientificName": "Ludwigia peruviana",
       "authority": "(L.) Hara.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(L.) Hara.",
+          "manualPage": 452,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1104,
@@ -18910,9 +19097,15 @@
       "scientificName": "Ludwigia elegans",
       "authority": "(Camb.) Hara.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(Camb.) Hara.",
+          "manualPage": 452,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1105,
@@ -18920,9 +19113,15 @@
       "scientificName": "Oenothera rosea",
       "authority": "Ait.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Ait.",
+          "manualPage": 453,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1106,
@@ -18930,9 +19129,15 @@
       "scientificName": "Oenothera centaurifolia",
       "authority": "(Spach) Steud.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(Spach) Steud.",
+          "manualPage": 453,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1107,
@@ -18940,9 +19145,15 @@
       "scientificName": "Oenothera affinis",
       "authority": "Camb.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Camb.",
+          "manualPage": 453,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1108,
@@ -18950,9 +19161,15 @@
       "scientificName": "Oenothera longiflora",
       "authority": "L.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "L.",
+          "manualPage": 453,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1109,
@@ -18977,9 +19194,15 @@
       "scientificName": "Oenothera parodiana",
       "authority": "Munz.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Munz.",
+          "manualPage": 453,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1111,
@@ -19395,9 +19618,15 @@
       "scientificName": "Lilaeopsis minor",
       "authority": "(Hill) Pérez-Moreau.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(Hill) Pérez-Moreau.",
+          "manualPage": 464,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1136,
@@ -20391,9 +20620,15 @@
       "scientificName": "Cynanchum bonariensis",
       "authority": "(Dec.) Meyer.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(Dec.) Meyer.",
+          "manualPage": 493,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1195,
@@ -20826,9 +21061,15 @@
       "scientificName": "Ipomoea cairica",
       "authority": "(L.) Sweet.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(L.) Sweet.",
+          "manualPage": 504,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1221,
@@ -21108,9 +21349,15 @@
       "scientificName": "Heliotropium nicotianaefolium",
       "authority": "Poir.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Poir.",
+          "manualPage": 512,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1238,
@@ -21458,9 +21705,15 @@
       "scientificName": "Verbena litoralis",
       "authority": "H.B.K.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "H.B.K.",
+          "manualPage": 524,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1259,
@@ -22199,9 +22452,15 @@
       "scientificName": "Solanum elaeagnifolium var. leprosum",
       "authority": "(Ort.) Dunal.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(Ort.) Dunal.",
+          "manualPage": 543,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1303,
@@ -22243,9 +22502,15 @@
       "scientificName": "Solanum palitans",
       "authority": "Morton.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Morton.",
+          "manualPage": 545,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1306,
@@ -24378,9 +24643,15 @@
       "scientificName": "Valeriana salicariifolia",
       "authority": "Vahl.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Vahl.",
+          "manualPage": 593,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1432,
@@ -24558,9 +24829,15 @@
       "scientificName": "Cayaponia bonariensis",
       "authority": "(Mill.) Martínez Crovetto",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(Mill.) Martínez Crovetto",
+          "manualPage": 599,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1443,
@@ -24670,9 +24947,15 @@
       "scientificName": "Wahlenbergia linarioides",
       "authority": "(Lam.) DC.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "(Lam.) DC.",
+          "manualPage": 604,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1450,
@@ -26110,9 +26393,15 @@
       "scientificName": "Baccharis caprariaefolia",
       "authority": "DC.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "DC.",
+          "manualPage": 640,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1533,
@@ -28194,9 +28483,15 @@
       "scientificName": "Senecio madagascariensis",
       "authority": "Poir.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Poir.",
+          "manualPage": 680,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1656,
@@ -28646,9 +28941,15 @@
       "scientificName": "Schlechtendalia luzulaefolia",
       "authority": "Less.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "Less.",
+          "manualPage": 692,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1683,
@@ -29234,9 +29535,15 @@
       "scientificName": "Picris echiodes",
       "authority": "L.",
       "status": "confirmed_manually",
-      "source": "verified-transcript",
+      "source": "verified-manual-page",
       "issues": [],
-      "evidence": []
+      "evidence": [
+        {
+          "authority": "L.",
+          "manualPage": 706,
+          "source": "1978 second-edition page image"
+        }
+      ]
     },
     {
       "number": 1718,

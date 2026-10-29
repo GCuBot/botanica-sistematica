@@ -1081,8 +1081,14 @@
     "scientificName": "Sagittaria montevidensis",
     "status": "assigned",
     "authority": "Cham. et Schlecht.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Cham. et Schlecht.",
+        "manualPage": 58,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_hydrocleys_nymphoides": {
     "scientificName": "Hydrocleys nymphoides",
@@ -1130,8 +1136,14 @@
     "scientificName": "Egeria naias",
     "status": "assigned",
     "authority": "Planch.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Planch.",
+        "manualPage": 63,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_elodea_callitrichoides": {
     "scientificName": "Elodea callitrichoides",
@@ -2691,8 +2703,14 @@
     "scientificName": "Agrostis jürgensii",
     "status": "assigned",
     "authority": "Hackel.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Hackel.",
+        "manualPage": 100,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_oryzopsis_miliacea": {
     "scientificName": "Oryzopsis miliacea",
@@ -2782,8 +2800,14 @@
     "scientificName": "Piptochaetium stipoides",
     "status": "assigned",
     "authority": "(Trin. et Rupr.) Hackel.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(Trin. et Rupr.) Hackel.",
+        "manualPage": 103,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_piptochaetium_grisebachii": {
     "scientificName": "Piptochaetium grisebachii",
@@ -2929,8 +2953,14 @@
     "scientificName": "Stipa clarazii",
     "status": "assigned",
     "authority": "Ball.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Ball.",
+        "manualPage": 107,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_stipa_megapotamia": {
     "scientificName": "Stipa megapotamia",
@@ -5666,8 +5696,14 @@
     "scientificName": "Carex uruguensis",
     "status": "assigned",
     "authority": "Böck.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Böck.",
+        "manualPage": 154,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_carex_sororia": {
     "scientificName": "Carex sororia",
@@ -6429,15 +6465,27 @@
     "scientificName": "Eleocharis filiculmis",
     "status": "assigned",
     "authority": "Kunth.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Kunth.",
+        "manualPage": 166,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_eleocharis_dunensis": {
     "scientificName": "Eleocharis dunensis",
     "status": "assigned",
     "authority": "Kükenth.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Kükenth.",
+        "manualPage": 166,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_eleocharis_montevidensis": {
     "scientificName": "Eleocharis montevidensis",
@@ -7881,8 +7929,14 @@
     "scientificName": "Sisyrinchium pachyrhizum",
     "status": "assigned",
     "authority": "Baker.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Baker.",
+        "manualPage": 200,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_sisyrinchium_avenaceum": {
     "scientificName": "Sisyrinchium avenaceum",
@@ -8406,8 +8460,14 @@
     "scientificName": "Peperomia comarapana",
     "status": "assigned",
     "authority": "C. DC.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "C. DC.",
+        "manualPage": 219,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_salix_humboldtiana": {
     "scientificName": "Salix humboldtiana",
@@ -8623,8 +8683,14 @@
     "scientificName": "Arjona tuberosa var. tandilensis",
     "status": "assigned",
     "authority": "(O.K.) Dawson.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(O.K.) Dawson.",
+        "manualPage": 230,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_acanthosyris_spinescens": {
     "scientificName": "Acanthosyris spinescens",
@@ -8644,8 +8710,14 @@
     "scientificName": "Jodina rhombifolia",
     "status": "assigned",
     "authority": "Hook. et Arn.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Hook. et Arn.",
+        "manualPage": 231,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_ligaria_cuneifolia": {
     "scientificName": "Ligaria cuneifolia",
@@ -8945,8 +9017,14 @@
     "scientificName": "Polygonum stelligerum",
     "status": "assigned",
     "authority": "Cham.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Cham.",
+        "manualPage": 240,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_polygonum_meissnerianum": {
     "scientificName": "Polygonum meissnerianum var. beyrichianum",
@@ -9120,8 +9198,14 @@
     "scientificName": "Atriplex montevidensis",
     "status": "assigned",
     "authority": "Spreng.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Spreng.",
+        "manualPage": 243,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_atriplex_hastata": {
     "scientificName": "Atriplex hastata",
@@ -9743,15 +9827,27 @@
     "scientificName": "Rivina humilis",
     "status": "assigned",
     "authority": "L.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "L.",
+        "manualPage": 259,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_tetragonia_tetragonoides": {
     "scientificName": "Tetragonia tetragonoides",
     "status": "assigned",
     "authority": "(Pall.) O. Kuntze.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(Pall.) O. Kuntze.",
+        "manualPage": 259,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_aptenia_cordifolia": {
     "scientificName": "Aptenia cordifolia",
@@ -10513,8 +10609,14 @@
     "scientificName": "Ranunculus repens",
     "status": "assigned",
     "authority": "L.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "L.",
+        "manualPage": 282,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_ranunculus_apiifolius": {
     "scientificName": "Ranunculus apiifolius",
@@ -10674,22 +10776,40 @@
     "scientificName": "Cleome trachycarpa",
     "status": "assigned",
     "authority": "Klotz.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Klotz.",
+        "manualPage": 290,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_cleome_titubans": {
     "scientificName": "Cleome titubans",
     "status": "assigned",
     "authority": "Speg.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Speg.",
+        "manualPage": 290,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_cleome_hassleriana": {
     "scientificName": "Cleome hassleriana",
     "status": "assigned",
     "authority": "Chod.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Chod.",
+        "manualPage": 290,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_capsella_bursa_pastoris": {
     "scientificName": "Capsella bursa-pastoris",
@@ -11255,8 +11375,14 @@
     "scientificName": "Brassica nigra",
     "status": "assigned",
     "authority": "(L.) Koch.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(L.) Koch.",
+        "manualPage": 306,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_brassica_rapa": {
     "scientificName": "Brassica rapa subsp. sylvestris",
@@ -11318,8 +11444,14 @@
     "scientificName": "Reseda luteola",
     "status": "assigned",
     "authority": "L.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "L.",
+        "manualPage": 307,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_crassula_solieri": {
     "scientificName": "Crassula solieri",
@@ -15357,8 +15489,14 @@
     "scientificName": "Wigginsia tephracantha",
     "status": "assigned",
     "authority": "(Link et Otto) D. M. Porter.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(Link et Otto) D. M. Porter.",
+        "manualPage": 438,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_notocactus_submammulosus": {
     "scientificName": "Notocactus submammulosus",
@@ -15378,22 +15516,40 @@
     "scientificName": "Daphnopsis racemosa",
     "status": "assigned",
     "authority": "Griseb.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Griseb.",
+        "manualPage": 439,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_heimia_salicifolia": {
     "scientificName": "Heimia salicifolia",
     "status": "assigned",
     "authority": "Link.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Link.",
+        "manualPage": 441,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_cuphea_glutinosa": {
     "scientificName": "Cuphea glutinosa",
     "status": "assigned",
     "authority": "Cham. et Schlecht.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Cham. et Schlecht.",
+        "manualPage": 441,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_cuphea_fruticosa": {
     "scientificName": "Cuphea fruticosa",
@@ -15455,8 +15611,14 @@
     "scientificName": "Terminalia australis",
     "status": "assigned",
     "authority": "Camb.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Camb.",
+        "manualPage": 443,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_blepharocalyx_tweediei": {
     "scientificName": "Blepharocalyx tweediei",
@@ -15546,15 +15708,27 @@
     "scientificName": "Ludwigia uruguayensis",
     "status": "assigned",
     "authority": "(Camb.) Hara.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(Camb.) Hara.",
+        "manualPage": 450,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_ludwigia_peploides": {
     "scientificName": "Ludwigia peploides",
     "status": "assigned",
     "authority": "(H.B.K.) Raven.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(H.B.K.) Raven.",
+        "manualPage": 451,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_ludwigia_bonariensis": {
     "scientificName": "Ludwigia bonariensis",
@@ -15574,50 +15748,92 @@
     "scientificName": "Ludwigia longifolia",
     "status": "assigned",
     "authority": "(DC.) Hara.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(DC.) Hara.",
+        "manualPage": 452,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_ludwigia_peruviana": {
     "scientificName": "Ludwigia peruviana",
     "status": "assigned",
     "authority": "(L.) Hara.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(L.) Hara.",
+        "manualPage": 452,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_ludwigia_elegans": {
     "scientificName": "Ludwigia elegans",
     "status": "assigned",
     "authority": "(Camb.) Hara.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(Camb.) Hara.",
+        "manualPage": 452,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_oenothera_rosea": {
     "scientificName": "Oenothera rosea",
     "status": "assigned",
     "authority": "Ait.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Ait.",
+        "manualPage": 453,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_oenothera_centaurifolia": {
     "scientificName": "Oenothera centaurifolia",
     "status": "assigned",
     "authority": "(Spach) Steud.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(Spach) Steud.",
+        "manualPage": 453,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_oenothera_affinis": {
     "scientificName": "Oenothera affinis",
     "status": "assigned",
     "authority": "Camb.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Camb.",
+        "manualPage": 453,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_oenothera_longiflora": {
     "scientificName": "Oenothera longiflora",
     "status": "assigned",
     "authority": "L.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "L.",
+        "manualPage": 453,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_oenothera_indecora": {
     "scientificName": "Oenothera indecora",
@@ -15637,8 +15853,14 @@
     "scientificName": "Oenothera parodiana",
     "status": "assigned",
     "authority": "Munz.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Munz.",
+        "manualPage": 453,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_oenothera_mollissima": {
     "scientificName": "Oenothera mollissima",
@@ -15980,8 +16202,14 @@
     "scientificName": "Lilaeopsis minor",
     "status": "assigned",
     "authority": "(Hill) Pérez-Moreau.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(Hill) Pérez-Moreau.",
+        "manualPage": 464,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_lilaeopsis_carolinensis": {
     "scientificName": "Lilaeopsis carolinensis",
@@ -16799,8 +17027,14 @@
     "scientificName": "Cynanchum bonariensis",
     "status": "assigned",
     "authority": "(Dec.) Meyer.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(Dec.) Meyer.",
+        "manualPage": 493,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_araujia_hortorum": {
     "scientificName": "Araujia hortorum",
@@ -17156,8 +17390,14 @@
     "scientificName": "Ipomoea cairica",
     "status": "assigned",
     "authority": "(L.) Sweet.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(L.) Sweet.",
+        "manualPage": 504,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_ipomoea_alba": {
     "scientificName": "Ipomoea alba",
@@ -17387,8 +17627,14 @@
     "scientificName": "Heliotropium nicotianaefolium",
     "status": "assigned",
     "authority": "Poir.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Poir.",
+        "manualPage": 512,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_echium_plantagineum": {
     "scientificName": "Echium plantagineum",
@@ -17674,8 +17920,14 @@
     "scientificName": "Verbena litoralis",
     "status": "assigned",
     "authority": "H.B.K.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "H.B.K.",
+        "manualPage": 524,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_glandularia_peruviana": {
     "scientificName": "Glandularia peruviana",
@@ -18283,8 +18535,14 @@
     "scientificName": "Solanum elaeagnifolium var. leprosum",
     "status": "assigned",
     "authority": "(Ort.) Dunal.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(Ort.) Dunal.",
+        "manualPage": 543,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_solanum_juvenale": {
     "scientificName": "Solanum juvenale",
@@ -18318,8 +18576,14 @@
     "scientificName": "Solanum palitans",
     "status": "assigned",
     "authority": "Morton.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Morton.",
+        "manualPage": 545,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_solanum_angustifidum": {
     "scientificName": "Solanum angustifidum",
@@ -20075,8 +20339,14 @@
     "scientificName": "Valeriana salicariifolia",
     "status": "assigned",
     "authority": "Vahl.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Vahl.",
+        "manualPage": 593,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_valeriana_polystachya": {
     "scientificName": "Valeriana polystachya",
@@ -20222,8 +20492,14 @@
     "scientificName": "Cayaponia bonariensis",
     "status": "assigned",
     "authority": "(Mill.) Martínez Crovetto",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(Mill.) Martínez Crovetto",
+        "manualPage": 599,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_cayaponia_martiana": {
     "scientificName": "Cayaponia martiana",
@@ -20313,8 +20589,14 @@
     "scientificName": "Wahlenbergia linarioides",
     "status": "assigned",
     "authority": "(Lam.) DC.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "(Lam.) DC.",
+        "manualPage": 604,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_acicarpha_procumbens": {
     "scientificName": "Acicarpha procumbens",
@@ -21504,8 +21786,14 @@
     "scientificName": "Baccharis caprariaefolia",
     "status": "assigned",
     "authority": "DC.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "DC.",
+        "manualPage": 640,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_baccharis_notosergila": {
     "scientificName": "Baccharis notosergila",
@@ -23219,8 +23507,14 @@
     "scientificName": "Senecio madagascariensis",
     "status": "assigned",
     "authority": "Poir.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Poir.",
+        "manualPage": 680,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_senecio_tweediei": {
     "scientificName": "Senecio tweediei",
@@ -23590,8 +23884,14 @@
     "scientificName": "Schlechtendalia luzulaefolia",
     "status": "assigned",
     "authority": "Less.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "Less.",
+        "manualPage": 692,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_mutisia_coccinea_dealbata": {
     "scientificName": "Mutisia coccinea var. dealbata",
@@ -24073,8 +24373,14 @@
     "scientificName": "Picris echiodes",
     "status": "assigned",
     "authority": "L.",
-    "matches": [],
-    "source": "verified-transcript"
+    "matches": [
+      {
+        "authority": "L.",
+        "manualPage": 706,
+        "source": "1978 second-edition page image"
+      }
+    ],
+    "source": "verified-manual-page"
   },
   "ed2_tragopogon_porrifolius": {
     "scientificName": "Tragopogon porrifolius",
