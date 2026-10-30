@@ -58,14 +58,11 @@ import {
 
 type PageState = "quiz" | "form" | "edit" | "complete";
 type WorkspaceTab = "identifier" | "records" | "community" | "glossary" | "study" | "first-exam";
-type ManualEdition = "first" | "second";
 type AppTheme = "light" | "dark";
 
 const ALLOWED_DOMAIN = "@agro.uba.ar";
 const WORKSPACE_TABS: readonly WorkspaceTab[] = ["identifier", "records", "community", "glossary", "study", "first-exam"];
-const MANUAL_EDITIONS: readonly ManualEdition[] = ["first", "second"];
 const APP_THEMES: readonly AppTheme[] = ["light", "dark"];
-const MANUAL_EDITION_STORAGE_KEY = "botanica:manual-edition:v2";
 const THEME_STORAGE_KEY = "botanica:theme:v1";
 const GITHUB_URL = "https://github.com/GCuBot/botanica-sistematica";
 const MATECITO_URL = "https://matecito.co/botanicasis";
@@ -84,11 +81,6 @@ export default function Home() {
     "botanica:last-workspace-tab",
     "identifier",
     WORKSPACE_TABS
-  );
-  const [manualEdition, setManualEdition] = usePersistentState<ManualEdition>(
-    MANUAL_EDITION_STORAGE_KEY,
-    "second",
-    MANUAL_EDITIONS
   );
   const [appTheme, setAppTheme] = usePersistentState<AppTheme>(
     THEME_STORAGE_KEY,
@@ -689,25 +681,8 @@ export default function Home() {
                 {pageState === "quiz" && (
                   <div className="flex justify-center">
                     <div className="w-full max-w-2xl">
-                      <div className="mb-3 grid grid-cols-2 rounded-md border border-gray-300 bg-white p-0.5" aria-label="Edicion del manual">
-                        <button
-                          type="button"
-                          onClick={() => setManualEdition("first")}
-                          className={`rounded px-3 py-1.5 text-sm font-semibold ${manualEdition === "first" ? "bg-green-700 text-white" : "text-gray-700 hover:bg-gray-100"}`}
-                        >
-                          1.ª edicion
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => setManualEdition("second")}
-                          className={`rounded px-3 py-1.5 text-sm font-semibold ${manualEdition === "second" ? "bg-green-700 text-white" : "text-gray-700 hover:bg-gray-100"}`}
-                        >
-                          2.ª edicion
-                        </button>
-                      </div>
                       <Quiz
-                        key={manualEdition}
-                        rootNodeId={manualEdition === "second" ? SECOND_EDITION_ROOT_NODE_ID : "root"}
+                        rootNodeId={SECOND_EDITION_ROOT_NODE_ID}
                         onComplete={handleQuizComplete}
                       />
                     </div>

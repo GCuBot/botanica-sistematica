@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { cladosTree, especiesData } from "@/data/clados";
+import { SECOND_EDITION_ROOT_NODE_ID } from "@/data/secondEdition";
 import { CladoNode, Especie } from "@/types";
 import KeyGlossarySearch from "@/components/KeyGlossarySearch";
 import SpeciesReferenceLinks from "@/components/SpeciesReferenceLinks";
@@ -84,7 +85,10 @@ function labelHistoryEntry(entry: HistoryEntry, index: number) {
   return parts.join(" - ") || `Paso ${index + 1}`;
 }
 
-export default function Quiz({ onComplete, rootNodeId = "root" }: QuizProps) {
+export default function Quiz({
+  onComplete,
+  rootNodeId = SECOND_EDITION_ROOT_NODE_ID,
+}: QuizProps) {
   const [currentNodeId, setCurrentNodeId] = useState<string>(rootNodeId);
   const [history, setHistory] = useState<HistoryEntry[]>([{ nodeId: rootNodeId }]);
   const [identifiedEspecie, setIdentifiedEspecie] = useState<Especie | null>(

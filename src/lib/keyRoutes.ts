@@ -1,4 +1,5 @@
 import { cladosTree, especiesData } from "@/data/clados";
+import { SECOND_EDITION_ROOT_NODE_ID } from "@/data/secondEdition";
 import {
   getAllNames,
   getTaxonomicAliasForPdfName,
@@ -74,7 +75,7 @@ function optionIdentity(option: CladoOption, keyStep: string) {
   return [option.label, keyStep, option.nextNodeId || "", option.especieId || ""].join("\0");
 }
 
-export function buildSpeciesRoutes(rootNodeId = "root") {
+export function buildSpeciesRoutes(rootNodeId = SECOND_EDITION_ROOT_NODE_ID) {
   const routes = new Map<string, SpeciesKeyRoute>();
 
   const visit = (nodeId: string, steps: KeyRouteStep[], visited: Set<string>) => {

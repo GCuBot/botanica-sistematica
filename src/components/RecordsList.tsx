@@ -3,19 +3,18 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   CircleCheckBig,
-  ExternalLink,
   FileSpreadsheet,
-  Image as ImageIcon,
   Images,
   LoaderCircle,
   Pencil,
   Tags,
   Trash2,
 } from "lucide-react";
+import PlantRecordDetails from "@/components/PlantRecordDetails";
+import PlantPhotoThumbnail from "@/components/PlantPhotoThumbnail";
 import ScientificName from "@/components/ScientificName";
 import { formatCommonName } from "@/lib/commonNames";
 import { especiesData } from "@/data/clados";
-import { getPhotoThumbnailUrl } from "@/lib/supabaseOperations";
 import { PhotoRecord } from "@/types";
 
 interface RecordsListProps {
@@ -119,6 +118,7 @@ export default function RecordsList({
   const [actionError, setActionError] = useState("");
   const [isGeneratingCatalog, setIsGeneratingCatalog] = useState(false);
   const [isExportingCsv, setIsExportingCsv] = useState(false);
+  const [detailRecord, setDetailRecord] = useState<PhotoRecord | null>(null);
   const onLoadAllRef = useRef(onLoadAll);
   const filteredRecords = useMemo(
     () => filterPhotoRecords(records, searchTerm, searchMode, activeRange),
@@ -493,37 +493,25 @@ export default function RecordsList({
                   className="h-4 w-4 accent-green-700"
                 />
 
-                {record.photo_url ? (
-                  <a
-                    href={record.photo_url}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`Ampliar foto de la planta N° ${record.plant_number}`}
-                    title="Ampliar foto"
-                    className="h-14 w-14 overflow-hidden rounded-md bg-gray-100"
-                  >
-                    {/* Arbitrary public Supabase URLs cannot be declared statically for next/image. */}
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={getPhotoThumbnailUrl(record.photo_url) || record.photo_url}
-                      alt=""
-                      loading="lazy"
-                      decoding="async"
-                      onError={(event) => {
-                        if (event.currentTarget.src !== record.photo_url) {
-                          event.currentTarget.src = record.photo_url || "";
-                        }
-                      }}
-                      className="h-full w-full object-cover"
-                    />
-                  </a>
-                ) : (
-                  <div className="flex h-14 w-14 items-center justify-center rounded-md bg-gray-100 text-gray-400" title="Sin foto">
-                    <ImageIcon aria-hidden="true" size={20} />
-                  </div>
-                )}
+                <button
+                  type="button"
+                  onClick={() => setDetailRecord(record)}
+                  aria-label={`Abrir ficha de la planta N° ${record.plant_number}`}
+                  title="Abrir ficha"
+                  className="h-14 w-14"
+                >
+                  <PlantPhotoThumbnail
+                    photoUrl={record.photo_url}
+                    plantNumber={record.plant_number}
+                  />
+                </button>
 
-                <div className="min-w-0">
+                <button
+                  type="button"
+                  onClick={() => setDetailRecord(record)}
+                  aria-label={`Abrir ficha de la planta N° ${record.plant_number}`}
+                  className="min-w-0 text-left hover:text-green-900"
+                >
                   <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
                     <span className="font-bold text-green-800">N° {record.plant_number}</span>
                     {record.is_confirmed && (
@@ -547,10 +535,15 @@ export default function RecordsList({
                         )
                       : record.nombre_vulgar || "Sin nombre vulgar"}
                   </p>
+                  {especie?.familia && (
+                    <p className="truncate text-xs font-medium text-green-800">
+                      Familia: {especie.familia}
+                    </p>
+                  )}
                   <p className="truncate text-xs text-gray-500">
                     {record.lugar} · <time>{record.fecha}</time>
                   </p>
-                </div>
+                </button>
 
                 <div className="col-start-3 flex items-center justify-self-end gap-1 sm:col-start-4 sm:row-start-1">
                   <button
@@ -567,18 +560,6 @@ export default function RecordsList({
                       <CircleCheckBig aria-hidden="true" size={17} strokeWidth={2} />
                     )}
                   </button>
-                  {record.photo_url && (
-                    <a
-                      href={record.photo_url}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Ver foto de la planta N° ${record.plant_number}`}
-                      title="Ver foto"
-                      className="inline-flex h-8 w-8 items-center justify-center rounded-md text-blue-700 hover:bg-blue-50"
-                    >
-                      <ExternalLink aria-hidden="true" size={16} strokeWidth={2} />
-                    </a>
-                  )}
                   <button
                     type="button"
                     onClick={() => onEdit(record)}
@@ -627,6 +608,13 @@ export default function RecordsList({
             </p>
           )}
         </div>
+      )}
+
+      {detailRecord && (
+        <PlantRecordDetails
+          record={detailRecord}
+          onClose={() => setDetailRecord(null)}
+        />
       )}
     </section>
   );

@@ -6,11 +6,6 @@ import pdfplumber
 
 ROOT = Path(__file__).resolve().parents[1]
 MANUALS = {
-    "first": {
-        "pdf": ROOT / "public" / "pdfcoffee.com_manual-de-la-flora-de-los-alrededores-de-buenos-aires-9-pdf-free.pdf",
-        "output": ROOT / "manual-text" / "first-edition",
-        "layout": "single",
-    },
     "second": {
         "pdf": ROOT / "source-pdfs" / "cabrera-1978-segunda-edicion.pdf",
         "output": ROOT / "manual-text" / "second-edition",
@@ -120,7 +115,7 @@ def main() -> None:
     parser.add_argument(
         "--edition",
         choices=MANUALS.keys(),
-        default="first",
+        default="second",
         help="Edicion del manual a extraer.",
     )
     parser.add_argument("--start", type=int, help="Primera pagina PDF a extraer.")

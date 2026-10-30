@@ -46,25 +46,20 @@ The app expects:
 
 ## Manual de botanica
 
-El PDF fuente esta en `public/`. Para ahorrar trabajo repetido, se puede extraer a texto local por paginas:
+El proyecto utiliza exclusivamente la segunda edicion del manual. El PDF fuente
+esta en `source-pdfs/cabrera-1978-segunda-edicion.pdf`. Para extraerlo a texto:
 
 ```bash
-npm run extract:manual
+npm run extract:manual:second
 ```
 
-Tambien se puede extraer un rango chico:
+Tambien se puede extraer un rango especifico:
 
 ```bash
-npm run extract:manual:pages -- --start 184 --end 190
+python scripts/extract-manual-pages.py --edition second --start 184 --end 190
 ```
 
-El texto queda en `manual-text/pages/`. La pagina 1 impresa del manual empieza en la pagina 8 del PDF, entonces:
-
-```txt
-manualPage = pdfPage - 7
-```
-
-El estado de carga esta en `docs/progreso-manual.md`.
+El texto queda en `manual-text/second-edition/`.
 
 Para validar referencias internas de claves y especies:
 

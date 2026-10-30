@@ -3,13 +3,13 @@
 import { useMemo, useState } from "react";
 import {
   CircleCheckBig,
-  ExternalLink,
-  Image as ImageIcon,
   LoaderCircle,
   Search,
   UserMinus,
   UserPlus,
 } from "lucide-react";
+import PlantRecordDetails from "@/components/PlantRecordDetails";
+import PlantPhotoThumbnail from "@/components/PlantPhotoThumbnail";
 import ScientificName from "@/components/ScientificName";
 import { formatCommonName } from "@/lib/commonNames";
 import { especiesData } from "@/data/clados";
@@ -60,6 +60,7 @@ export default function CommunityProfiles({
   const [mode, setMode] = useState<CommunityMode>("friends");
   const [profileSearch, setProfileSearch] = useState("");
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
+  const [detailRecord, setDetailRecord] = useState<PhotoRecord | null>(null);
   const [updatingFriendId, setUpdatingFriendId] = useState<string | null>(null);
   const [friendActionError, setFriendActionError] = useState("");
   const friendIdSet = useMemo(() => new Set(friendIds), [friendIds]);
@@ -298,33 +299,27 @@ export default function CommunityProfiles({
                     return (
                       <article
                         key={record.id}
-                        className={`grid grid-cols-[3.5rem_minmax(0,1fr)_auto] items-center gap-3 rounded-md border p-3 ${isSharedSpecies ? "border-amber-300 bg-amber-50" : record.is_confirmed ? "border-green-200" : "border-gray-200"}`}
+                        className={`grid grid-cols-[3.5rem_minmax(0,1fr)] items-center gap-3 rounded-md border p-3 ${isSharedSpecies ? "border-amber-300 bg-amber-50" : record.is_confirmed ? "border-green-200" : "border-gray-200"}`}
                       >
-                        {record.photo_url ? (
-                          <a
-                            href={record.photo_url}
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label={`Ampliar foto de la planta N° ${record.plant_number}`}
-                            title="Ampliar foto"
-                            className="h-14 w-14 overflow-hidden rounded-md bg-gray-100"
-                          >
-                            {/* eslint-disable-next-line @next/next/no-img-element -- Public Supabase image URL. */}
-                            <img
-                              src={record.photo_url}
-                              alt=""
-                              loading="lazy"
-                              decoding="async"
-                              className="h-full w-full object-cover"
-                            />
-                          </a>
-                        ) : (
-                          <div className="flex h-14 w-14 items-center justify-center rounded-md bg-gray-100 text-gray-400" title="Sin foto">
-                            <ImageIcon aria-hidden="true" size={20} />
-                          </div>
-                        )}
+                        <button
+                          type="button"
+                          onClick={() => setDetailRecord(record)}
+                          aria-label={`Abrir ficha de la planta N° ${record.plant_number}`}
+                          title="Abrir ficha"
+                          className="h-14 w-14"
+                        >
+                          <PlantPhotoThumbnail
+                            photoUrl={record.photo_url}
+                            plantNumber={record.plant_number}
+                          />
+                        </button>
 
-                        <div className="min-w-0">
+                        <button
+                          type="button"
+                          onClick={() => setDetailRecord(record)}
+                          aria-label={`Abrir ficha de la planta N° ${record.plant_number}`}
+                          className="block w-full min-w-0 text-left hover:text-green-900"
+                        >
                           <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
                             <span className="font-bold text-green-800">N° {record.plant_number}</span>
                             {record.is_confirmed && (
@@ -353,23 +348,15 @@ export default function CommunityProfiles({
                                 )
                               : record.nombre_vulgar || "Sin nombre vulgar"}
                           </p>
+                          {especie?.familia && (
+                            <p className="truncate text-xs font-medium text-green-800">
+                              Familia: {especie.familia}
+                            </p>
+                          )}
                           <p className="truncate text-xs text-gray-500">
                             {record.lugar} · <time>{record.fecha}</time>
                           </p>
-                        </div>
-
-                        {record.photo_url && (
-                          <a
-                            href={record.photo_url}
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label={`Ver foto de la planta N° ${record.plant_number}`}
-                            title="Ver foto"
-                            className="inline-flex h-8 w-8 items-center justify-center rounded-md text-blue-700 hover:bg-blue-50"
-                          >
-                            <ExternalLink aria-hidden="true" size={16} strokeWidth={2} />
-                          </a>
-                        )}
+                        </button>
                       </article>
                     );
                   })}
@@ -378,6 +365,13 @@ export default function CommunityProfiles({
             )}
           </div>
         </div>
+      )}
+
+      {detailRecord && (
+        <PlantRecordDetails
+          record={detailRecord}
+          onClose={() => setDetailRecord(null)}
+        />
       )}
     </section>
   );

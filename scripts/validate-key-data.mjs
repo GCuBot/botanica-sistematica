@@ -8,24 +8,6 @@ const ROOT = path.resolve(__dirname, "..");
 
 const files = [
   {
-    name: "manualKey.ts",
-    path: path.join(ROOT, "src", "data", "manualKey.ts"),
-    treeExport: "export const manualKeyData",
-    dataExport: "export const manualFamilyData",
-    dataPattern: /^  ([a-zA-Z0-9_]+): (?:family|species)\(/gm,
-    externalNodes: ["angiosperm_1"],
-    order: "data-first",
-  },
-  {
-    name: "monocotyledoneae.ts",
-    path: path.join(ROOT, "src", "data", "monocotyledoneae.ts"),
-    treeExport: "export const monocotiledoneaeData",
-    dataExport: "const rawMonocotEspecies",
-    dataPattern: /^  ([a-zA-Z0-9_]+): \{/gm,
-    externalNodes: [],
-    order: "tree-first",
-  },
-  {
     name: "secondEditionPteridophyta.ts",
     path: path.join(ROOT, "src", "data", "secondEditionPteridophyta.ts"),
     treeExport: "export const secondEditionPteridophytaKeyData",

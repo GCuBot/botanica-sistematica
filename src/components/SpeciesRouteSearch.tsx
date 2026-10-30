@@ -6,6 +6,7 @@ import ScientificName from "@/components/ScientificName";
 import { getSpeciesCommonName } from "@/lib/commonNames";
 import SpeciesReferenceLinks from "@/components/SpeciesReferenceLinks";
 import { getTaxonomicAliasForPdfName } from "@/data/taxonomicAliases";
+import { SECOND_EDITION_ROOT_NODE_ID } from "@/data/secondEdition";
 import { GbifTaxonomicResult, lookupGbifSynonyms } from "@/lib/gbifTaxonomy";
 import {
   buildSpeciesRoutes,
@@ -24,7 +25,7 @@ interface SpeciesRouteSearchProps {
 export default function SpeciesRouteSearch({
   onRouteOpenChange,
   onRegister,
-  rootNodeId = "root",
+  rootNodeId = SECOND_EDITION_ROOT_NODE_ID,
 }: SpeciesRouteSearchProps) {
   const [query, setQuery] = useState("");
   const [selectedRoute, setSelectedRoute] = useState<SpeciesKeyRoute | null>(null);
